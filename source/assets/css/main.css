@@ -1,226 +1,30 @@
-@import "tailwindcss";
-@plugin "@tailwindcss/typography";
+/* source/assets/css/main.css */
+
+/* Reach all the way up to root, then back into shared */
+@import "../../../source/_shared/assets/css/main.css";
 @source "../../../source/**/*";
 
 @theme {
-  /* GitHub Light (Classic) - Tuned for contrast */
-  --color-lt-bg: #ffffff;
-  --color-lt-text: #24292e;      /* GitHub's standard dark gray */
-  --color-lt-comment: #6a737d;
-  --color-lt-keyword: #d73a49;   /* GitHub Red */
-  --color-lt-string: #032f62;    /* GitHub Deep Blue */
-  --color-lt-variable: #e36209;  /* GitHub Orange */
-  --color-lt-function: #6f42c1;  /* GitHub Purple */
-  --color-lt-number: #005cc5;    /* GitHub Blue-Constant */
-
-  /* GitHub Dark (Dimmed/Default) */
-  --color-dk-bg: #0d1117;
-  --color-dk-text: #c9d1d9;      /* That specific off-white you had before */
-  --color-dk-comment: #8b949e;
-  --color-dk-keyword: #ff7b72;   /* Soft Coral Red */
-  --color-dk-string: #a5d6ff;    /* Sky Blue */
-  --color-dk-variable: #ffa657;  /* Soft Orange */
-  --color-dk-function: #d2a8ff;  /* Light Lavender */
-  --color-dk-number: #79c0ff;    /* Bright Sky Blue */
-
-  /* Mapping the logic */
-  --hljs-bg: light-dark(var(--color-lt-bg), var(--color-dk-bg));
-  --hljs-color: light-dark(var(--color-lt-text), var(--color-dk-text));
-  --hljs-comment: light-dark(var(--color-lt-comment), var(--color-dk-comment));
-  --hljs-keyword: light-dark(var(--color-lt-keyword), var(--color-dk-keyword));
-  --hljs-string: light-dark(var(--color-lt-string), var(--color-dk-string));
-  --hljs-variable: light-dark(var(--color-lt-variable), var(--color-dk-variable));
-  --hljs-function: light-dark(var(--color-lt-function), var(--color-dk-function));
-  --hljs-number: light-dark(var(--color-lt-number), var(--color-dk-number));
+  --color-primary-50: #fffbeb;
+  --color-primary-100: #fef3c7;
+  --color-primary-200: #fde68a;
+  --color-primary-300: #fcd34d;
+  --color-primary-400: #fbbf24;
+  --color-primary-500: #f59e0b;
+  --color-primary-600: #d97706;
+  --color-primary-700: #b45309;
+  --color-primary-800: #92400e;
+  --color-primary-900: #78350f;
+  --color-primary-950: #451a03;
 }
 
 @layer base {
-  html {
-    @apply scroll-smooth;
-  }
-
-  /* Force system support */
-  :root { color-scheme: light dark; }
-  .dark { color-scheme: dark; }
-
-  /* Apply the dynamic variables to the container */
-  .prose pre code.hljs {
-    background-color: var(--hljs-bg) !important;
-    color: var(--hljs-color) !important;
-    padding: 1.25rem;
-    border-radius: 0.75rem;
-    display: block;
-    border: 1px solid light-dark(#e1e4e8, #30363d);
-  }
-
-  /* Token Mapping */
-  .hljs-comment { color: var(--hljs-comment) !important; font-style: italic; }
-  .hljs-keyword, .hljs-tag { color: var(--hljs-keyword) !important; font-weight: 600; }
-  .hljs-string { color: var(--hljs-string) !important; }
-  .hljs-title, .hljs-function, .hljs-title.function_ { color: var(--hljs-function) !important; }
-  .hljs-attr, .hljs-attribute, .hljs-variable { color: var(--hljs-variable) !important; }
-  .hljs-number, .hljs-literal { color: var(--hljs-number) !important; }
-  
-  /* Ensure operators and punctuation inherit the correct base color */
-  .hljs-punctuation, .hljs-operator { 
-    color: var(--hljs-color) !important; 
-  }
-}
-
-@layer components {
-  /* Nord Theme */
-  .theme-nord {
-    /* Background: Soft Snow in Light / Deep Arctic in Dark */
-    --hljs-bg: light-dark(#eceff4, #2e3440) !important;
-    --hljs-color: light-dark(#2e3440, #d8dee9) !important;
+  :root {
+    /* Map your old variable to the new palette for backward compatibility */
+    --primary-color: var(--color-primary-600);
     
-    /* Border: Muted Frost in Light / Slate in Dark */
-    --theme-border: light-dark(#d8dee9, #4c566a);
-    
-    --hljs-comment: #616e88 !important;
-    --hljs-keyword: light-dark(#5e81ac, #81a1c1) !important;
-    --hljs-string: light-dark(#4f673d, #a3be8c) !important;
-    --hljs-function: #88c0d0 !important;
-  }
-
-  /* Solarized Theme */
-  .theme-solarized {
-    /* Background: Base3 (Cream) in Light / Base03 (Teal-Black) in Dark */
-    --hljs-bg: light-dark(#fdf6e3, #002b36) !important;
-    --hljs-color: light-dark(#657b83, #839496) !important;
-    
-    /* Border: Silver in Light / Deep Teal in Dark */
-    --theme-border: light-dark(#eee8d5, #073642);
-    
-    --hljs-comment: #93a1a1 !important;
-    --hljs-keyword: #859900 !important;
-    --hljs-string: #2aa198 !important;
-    --hljs-function: #268bd2 !important;
-  }
-
-  /* High Contrast Ink Theme */
-  .theme-ink {
-    --hljs-bg: light-dark(#ffffff, #000000) !important;
-    --hljs-color: light-dark(#000000, #ffffff) !important;
-    --theme-border: light-dark(#000000, #333333);
-    
-    --hljs-keyword: #7f1d1d !important;
-    --hljs-string: #064e3b !important;
-  }
-}
-
-@layer components {
-  .fade-in {
-      animation: fadeIn 0.01s ease-in;
-  }
-  @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(5px); }
-      to { opacity: 1; transform: translateY(0); }
-  }  
-}
-
-@utility prose {
-  line-height: var(--leading-normal);
-  p, li { line-height: inherit; }
-  p { margin-top: 0.6em; margin-bottom: 0.6em; }
-  ul ul, ul ol, ol ul, ol ol { margin-top: 0; margin-bottom: 0; }
-  li { margin-top: 0; margin-bottom: 0; }
-  li > p { margin-top: 0; margin-bottom: 0; }
-  li > :last-child { margin-bottom: 0; }
-
-  /* 1. Remove the border/background from the outer container */
-  & pre {
-    border: none;
-    background-color: transparent;
-    padding: 0;
-    margin: 2rem 0; /* Keeps the spacing but removes the "box" feel */
-  }
-
-  /* 2. Style the actual code block inside */
-  & pre code {
-    border: none;
-    padding: 0;
-    background-color: transparent;
-    font-weight: 400; /* Overrides the default prose bolding for code */
-  }
-
-  /* 3. Handle inline code (code not inside a pre) differently if desired */
-  & :not(pre) > code {
-    background-color: var(--color-slate-100);
-    padding: 0.2rem 0.4rem;
-    border-radius: 0.25rem;
-    border: 1px solid var(--color-slate-200);
-  }
-  
-  /* 4. Fix the underline issue for your TOC links */
-  & a {
-    text-decoration: none;
-  }
-
-  & :is(h2, h3, h4) {
-    @apply scroll-mt-20;
-  }
-
-  /* Ensure jumping back from a footnote doesn't hide the text under the header */
-  & .footnote-ref, [id^="fn:"], [id^="fnref:"] {
-      @apply scroll-mt-20;
-  }
-
-  & li:has(input[type="checkbox"]) {
-    @apply list-none -ml-6 flex items-start; 
-  }
-
-  & li input[type="checkbox"] {
-    /* h-4 w-4 is exactly 16px. In a 24px line-height (prose default), 
-       we need to push it down 4px to center it perfectly. */
-    @apply relative h-3.5 w-3.5 shrink-0 cursor-default rounded border border-gray-300 mr-2 mt-[8px] inline-grid place-items-center;
-    appearance: none;
-    -webkit-appearance: none;
-    background-color: transparent;
-    /* This ensures the inner checkmark doesn't grow the 16px box */
-    box-sizing: border-box; 
-  }
-
-  /* Unchecked: Dark mode aware */
-  & li input[type="checkbox"]:not(:checked) {
-    @apply bg-white dark:bg-gray-800;
-  }
-
-  /* Checked: Same size, just different color */
-  & li input[type="checkbox"]:checked {
-    @apply bg-green-600 border-green-600;
-  }
-
-  & li input[type="checkbox"]:checked::before {
-    content: "";
-    @apply block w-[0.65em] h-[0.65em] bg-white;
-    clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
-    /* Using a clip-path inside a grid means the parent h-4 never shifts */
-  }
-
-  /* Styles for inline code (code not inside a <pre> block) */
-  & :not(pre) > code {
-      @apply bg-gray-100 text-gray-600 border-0 px-1.5 py-0.5 sm:text-sm rounded dark:bg-gray-800 dark:text-gray-400;
-  }
-
-  & :not(pre) > code::before,
-  & :not(pre) > code::after {
-      content: "";
-  }
-
-  /* Handle Markdown Table Alignment */
-  & table th[align="center"], 
-  & table td[align="center"] {
-    @apply text-center;
-  }
-  
-  & table th[align="right"], 
-  & table td[align="right"] {
-    @apply text-right;
-  }
-
-  & table th[align="left"], 
-  & table td[align="left"] {
-    @apply text-left;
+    /* These feed the gradient logic in your shared layout */
+    --page-bg-from: var(--color-primary-50);
+    --page-bg-to: var(--color-primary-100);
   }
 }
