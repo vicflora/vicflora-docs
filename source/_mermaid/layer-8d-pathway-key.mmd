@@ -1,0 +1,64 @@
+---
+config:
+  layout: elk
+---
+erDiagram
+  Key }|--o| Source : source
+  Key }|--o| Project : project
+  Key }|--o| Item : "taxonomicScope"
+  Key ||--|| Lead : root
+  Key ||--|{ Lead : key
+  Lead }o--o| Key : subkey
+  Lead }o--o| Item : item
+
+  Project |o--|{ Item : project
+  Project |o--o| Item : taxonomicScope
+
+  Item }|--o| taxonConcept : ""
+
+  Item {
+    int id PK
+    uuid guid 
+    int taxon_concept_id FK "nullable"
+    int project_id FK
+    string label
+    string display_label "nullable"
+    string url "nullable"
+  }
+
+  Key {
+    int id PK
+    uuid guid 
+    string title
+    string author
+    int project_id FK
+    int taxonomic_scope_id FK
+    string geographic_scope "nullable"
+    int root_id FK
+    int subkey_of_id FK
+    int source_id FK
+  }
+
+  Lead {
+    int id PK
+    text statement
+    int key_id FK
+    int parent_id "nullable"
+    int reticulation_id "nullable"
+    int subkey_id "nullable"
+  }
+
+  Project {
+    int id PK
+    string title
+    text description "nullable"
+    int taxonomic_scope_id "nullable"
+    string geographic_scope "nullable"
+  }
+
+  Source {
+    int id PK
+    string title
+    string authors
+    string year
+  }

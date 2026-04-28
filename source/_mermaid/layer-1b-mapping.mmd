@@ -1,0 +1,18 @@
+---
+config:
+    layout: elk
+---
+erDiagram
+  TaxonConceptMapping }|--o| TaxonConcept : "subjectTaxonConcept"
+  TaxonConceptMapping }|--o| TaxonConcept : "objectTaxonConcept"
+  TaxonConceptMapping }o--|| Entity_Source_MAP : "morphs as 'provenanceable'"
+  Entity_Source_MAP }|--o| Reference : "reference"
+  
+  TaxonConceptMapping {
+    int id PK
+    int subject_taxon_concept_id FK
+    int object_taxon_concept_id FK
+    int mapping_relation_id FK
+    array metadata "nullable"
+    text remarks "nullable"
+  }

@@ -1,0 +1,69 @@
+---
+config:
+  layout: elk
+---
+erDiagram
+  TaxonTree ||--o{ TaxonTreeDefItem : "taxonTree"
+  TaxonTree ||--o{ TaxonTreeNode : "taxonTree"
+  TaxonTree |o--|| TaxonTreeNode : "rootNode"
+  TaxonTree ||--|| TaxonTree_GeographicScope_MAP : taxonTree
+  TaxonTree }o--o| TaxonTree : "parent"
+  
+  TaxonTreeDefItem ||--o{ TaxonTreeNode : "taxonTreeDefItem"
+  
+  TaxonTreeNode ||--o{ TaxonTreeRevision : "oldNode"
+  TaxonTreeNode ||--o{ TaxonTreeRevision : "newNode"
+  TaxonTree ||--o{ TaxonTreeRevision : "taxonTree"
+  
+  TaxonTreeNode }|--o| TaxonConcept : "taxonConcept"
+  TaxonTreeNode |o--o| TaxonTreeNode : "parent / children"
+
+  TaxonTree }o--|| Taxonomy_EXT : "taxonomy"
+  Taxonomy_EXT ||--o| Reference : "reference / taxonomy"
+  TaxonTreeRevision }|--|| TaxonomyVersion_EXT : "taxonomyVersion"
+  TaxonomyVersion_EXT ||--o| Reference : "reference / taxonomyVersion"
+  
+  TaxonTree {
+    int id PK
+    string guid 
+    int parent_id FK "nullable"
+    int root_node_id FK "nullable"
+    string name
+    boolean is_published "nullable"
+  }
+
+  TaxonTree_GeographicScope_MAP {
+    int id PK
+    int taxon_tree_id FK "unique"
+    string scope
+  }
+
+  TaxonTreeDefItem {
+    int id PK
+    int taxon_tree_id FK
+    int rank_id FK "nullable"
+    string name 
+    int rank_order "nullable"
+    boolean is_required "nullable"
+  }
+
+  TaxonTreeNode {
+    int id PK
+    int taxon_tree_id FK
+    int taxon_concept_id FK
+    int taxon_tree_def_item_id FK
+    int parent_id FK
+    string path
+    int sort_order "nullable"
+  }
+
+  TaxonTreeRevision {
+    int id PK
+    int taxon_tree_id FK
+    int version_id FK "nullable"
+    int old_node_id FK "nullable"
+    int new_node_id FK "nullable"
+    int change_type_id FK
+    date effective_date
+    text remarks
+  }

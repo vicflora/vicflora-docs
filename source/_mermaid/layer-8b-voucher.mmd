@@ -1,0 +1,27 @@
+---
+config:
+  layout: elk
+---
+erDiagram
+  Profile_Specimen_MAP }|--o| Profile : "profile"
+  Profile_Specimen_MAP }o--|| Specimen : "specimen"
+  Specimen |o--|{ Entity_Source_MAP : "morphs as 'prvenanceable'"
+  Entity_Source_MAP }|--o| Reference : "reference"
+  Specimen |o--|{ Entity_Image_MAP : "morphs as 'depictable'"
+  Entity_Image_MAP }|--|| Image : "image"
+
+  Profile_Specimen_MAP {
+    int id PK
+    int profile_id FK 
+    int specimen_id FK
+    int sort_order "nullable"
+  }
+
+  Specimen {
+    int id PK
+    string institution_code "nullable"
+    string collection_code "nullable"
+    string catalog_number "nullable"
+    string source_url "nullable"
+    jsonb metadata "nullable"
+  }

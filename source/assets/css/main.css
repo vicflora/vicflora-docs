@@ -197,4 +197,30 @@
     clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
     /* Using a clip-path inside a grid means the parent h-4 never shifts */
   }
+
+  /* Styles for inline code (code not inside a <pre> block) */
+  & :not(pre) > code {
+      @apply bg-gray-100 text-gray-600 border-0 px-1.5 py-0.5 sm:text-sm rounded dark:bg-gray-800 dark:text-gray-400;
+  }
+
+  & :not(pre) > code::before,
+  & :not(pre) > code::after {
+      content: "";
+  }
+
+  /* Handle Markdown Table Alignment */
+  & table th[align="center"], 
+  & table td[align="center"] {
+    @apply text-center;
+  }
+  
+  & table th[align="right"], 
+  & table td[align="right"] {
+    @apply text-right;
+  }
+
+  & table th[align="left"], 
+  & table td[align="left"] {
+    @apply text-left;
+  }
 }

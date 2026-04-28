@@ -1,0 +1,21 @@
+---
+config:
+  layout: elk
+---
+erDiagram
+  TraitDataset |o--o{ TraitRule : dataset
+  TraitRule }o--|| Trait : "triggerTrait"
+  TraitRule }o--|| Trait : "targetTrait"
+  TraitRule }o--|| TraitState : "triggerState"
+
+  TraitRule {
+    int id PK
+    uuid guid
+    int dataset_id FK "nullable"
+    int trigger_trait_id FK
+    int trigger_state_id FK
+    int target_trait_id FK
+    string action_id FK "ENABLE/DISABLE"
+    string logic_id FK "nullable, AND/OR"
+    jsonb metadata "nullable"
+  }

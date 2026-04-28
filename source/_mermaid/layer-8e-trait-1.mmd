@@ -1,0 +1,123 @@
+---
+config:
+  layout: elk
+  # elk:
+  #   nodePlacementStrategy: NETWORK_SIMPLEX
+  #   cycleBreakingStrategy: GREEDY
+  #   edgeRouting: ORTHOGONAL
+  #   spacing.nodeNode: 100
+  #   spacing.edgeNode: 60
+  #   direction: RIGHT
+---
+erDiagram
+  TraitDataset |o--o{ Trait : dataset
+  Trait }o--o| Character : character
+  Character |o--|{ Entity_Structure_MAP : "morphs as 'applicable'"
+  Entity_Structure_MAP }|--o| Structure : structure
+  Trait }o--|| Structure : structure
+  Structure }o--o| Structure : parent
+
+  Trait |o--|{ Fact : trait
+  TraitDataset |o--o{ Fact : dataset
+  Trait |o--|{ TraitState : trait
+
+  Fact }o--o| Entity_Creator_MAP : "morphs as 'attributeable'"
+  Entity_Creator_MAP }|--o| Agent : agent
+
+  Fact }o--o| Entity_Source_MAP : "morphs as 'provenanceable'"
+  Entity_Source_MAP }|--o| Reference : reference
+
+  TraitDataset |o--o{ Item : dataset
+  Fact }|--|| Item : item
+  Item }o..|| TaxonConcept : "taxonConcept"
+  TaxonConcept |o--|{ TaxonTreeNode : taxonConcept
+  TaxonTreeNode }|--|| TaxonTree : taxonTree
+
+  TraitDataset |o--|{ Entity_Scope_MAP : "morphs as 'scopeable'"
+  Trait |o--|{ Entity_Scope_MAP : "morphs as 'scopeable'"
+  Entity_Scope_MAP }|--o| Item : item
+
+  TraitDataset {
+    int id PK
+    uuid guid 
+    string label
+    jsonb metadata "nullable"
+    text remarks "nullable"
+  }
+
+  Trait {
+    int id PK
+    uuid guid
+    int dataset_id FK "nullable"
+    int structure_id FK "nullable"
+    int character_id FK "nullable"
+    string label
+    text description "nullable"
+    int sort_order "nullable"
+    string unit "nullable"
+    jsonb metadata "nullable"
+    text remarks "nullable"
+  }
+
+  TraitState {
+    int id PK
+    uuid guid
+    string label
+    text description "nullable"
+    int sort_order "nullable"
+    jsonb metadata "nullable"
+    text remarks "nullable"
+  }
+
+  Item {
+    int id PK
+    uuid guid 
+    int dataset_id FK
+  }
+
+  Fact {
+    int id PK
+    uuid guid 
+    int dataset_id FK "nullable"
+    int item_id FK
+    int trait_id FK
+    double lower_outlier "nullable"
+    double min_value "nullable"
+    double max_value "nullable"
+    double upper_outlier "nullable"
+    jsonb state_ids "nullable"
+    jsonb metadata "nullable"
+    int remarks "nullable"
+  }
+
+  Entity_Structure_MAP {
+    int id PK
+    string applicable_type
+    int applicable_id
+    int structure_id FK
+  }
+
+  Structure {
+    int id PK
+    uuid guid
+    int parent_id FK "nullable"
+    string name
+    text description "nullable"
+    jsonb metadata "nullable"
+    text remarks "nullable"
+  }
+
+  Character {
+    int id PK
+    string label
+    text description "nullable"
+    jsonb metadata "nullable"
+    text remarks "nullable"
+  }
+
+  Entity_Scope_MAP {
+    int id PK
+    string scopeable_type
+    int scopeable_id
+    int item_id FK
+  }

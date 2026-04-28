@@ -1,0 +1,24 @@
+---
+config:
+  layout: elk
+---
+erDiagram
+  ControlledVocabulary ||--|{ ControlledTerm : "contains"
+  
+  ControlledVocabulary {
+    int id PK
+    string label
+    string code
+    string iri
+  }
+
+  ControlledTerm {
+    int id PK
+    int vocabulary_id FK
+    string label 
+    string code
+    string iri
+    int sort_order "nullable"
+    boolean is_active
+    jsonb metadata "nullable"
+  }

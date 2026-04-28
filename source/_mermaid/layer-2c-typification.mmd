@@ -1,0 +1,24 @@
+---
+config:
+  layout: elk
+---
+erDiagram
+  NomenclaturalType }|--o| ScientificName_EXT : "typifiedName / typification"
+  NomenclaturalType }o--o| ScientificName_EXT : "typeName"
+  ScientificName_EXT |o--|| TaxonName : "taxonName / scientificName"
+  NomenclaturalType }o--o| Specimen : "typeSpecimen"
+  NomenclaturalType }o--o| Reference : "publishedIn"
+  NomenclaturalType |o--|| Typification_EXT : "publishedIn"
+  Typification_EXT ||--o| Reference : "reference / typification"
+  NomenclaturalType }o--o| Entity_Source_MAP : "morphs as 'provenanceable'"
+  Entity_Source_MAP }|--o| Reference : "reference"
+
+  NomenclaturalType {
+    int id PK
+    int typified_name_id FK
+    int type_name_id FK "nullable"
+    int type_specimen_id FK
+    int type_of_type_id FK "nullable"
+    int type_published_in FK "nullable"
+    text remarks "nullable"
+  }

@@ -21,4 +21,12 @@ return [
         'collection' => 'theory',
         'description' => 'Deep dive into identification logic.',
     ],
+    'Style Guide' => [
+        'collection' => 'style_guide',
+        'description' => 'Style guide for contributing to the documentation.',
+    ],
+    'Layers' => [
+        'collection' => 'layers',
+        'description' => 'VicFlora data model layers.',
+    ],
 ];

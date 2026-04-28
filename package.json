@@ -2,8 +2,10 @@
     "private": true,
     "type": "module",
     "scripts": {
+        "update-tools": "git submodule update --remote --merge",
         "dev": "vite",
-        "build": "vite build"
+        "build": "vite build",
+        "build-erd": "for f in source/_mermaid/*.mmd; do npx mmdc -i \"$f\" -o \"source/assets/images/erd/$(basename \"$f\" .mmd).svg\"; done"
     },
     "devDependencies": {
         "@tighten/jigsaw-vite-plugin": "^1.0.1",
@@ -11,6 +13,7 @@
         "vite": "^6.4.1"
     },
     "dependencies": {
+        "@mermaid-js/mermaid-cli": "^11.12.0",
         "@tailwindcss/typography": "^0.5.19",
         "@tailwindcss/vite": "^4.1.8",
         "highlight.js": "^11.11.1"

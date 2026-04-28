@@ -1,0 +1,30 @@
+---
+config:
+  layout: elk
+---
+erDiagram
+  Trait |o--|{ TraitState : "trait"
+
+  Trait |o--|{ TraitMapping : "datasetTrait"
+  TraitMapping }|--o| Trait : trait
+
+  TraitState |o--|{ TraitStateMapping : "datasetTraitState"
+  TraitStateMapping }|--o| TraitState : traitState
+
+  TraitMapping {
+    int id PK
+    uuid guid
+    int source_trait_id FK
+    int target_trait_id FK
+    int mapping_relation_id FK
+    text remarks "nullable"
+  }
+
+  TraitStateMapping {
+    int id PK
+    uuid guid
+    int source_state_id FK
+    int target_state_id FK
+    int mapping_relation_id FK
+    text remarks "nullable"
+  }

@@ -1,0 +1,130 @@
+---
+config:
+    layout: elk
+---
+erDiagram
+  Occurrence }o--o| ParsedName : "parsedName"
+  ParsedName |o--|{ NameMatch_MAP : parsedName
+  NameMatch_MAP }|--o| Taxon : scientificName
+  ParsedName }|--o| ControlledTerm : matchType
+  Taxon }|--|| TaxonConcept : acceptedNameUsage
+  Taxon }|--|| TaxonConcept : species
+  Taxon }|--o| TaxonName : scientificName 
+  Occurrence ||--|{ TaxonConcept_Occurrence_MAP : occurrence
+  TaxonConcept_Occurrence_MAP }|--|| TaxonConcept : taxonConcept
+  TaxonConcept }|--o| TaxonName : taxonName
+
+  MapOverlay |o--|{ TaxonConcept_MapOverlay_MAP : area
+  TaxonConcept_MapOverlay_MAP }|--o| TaxonConcept : taxonConcept
+
+  TaxonConcept_Phenology_MAP }|--o| TaxonConcept : taxonConcept
+
+  Occurrence |o--|{ Assertion : occurrence
+  Assertion }|--o{ Agent : agent
+
+  Occurrence {
+    uuid id PK
+    string scientific_name
+    int parsed_name_id FK "nullable"
+    string data_source "nullable"
+    string event_date "nullable"
+
+    string establishment_means "nullable"
+    string degree_of_establishment "nullable"
+    bool flowers "nullable"
+    bool fruit "nullable"
+    bool buds "nullable"
+
+    point geom "nullable"
+    string lga2023 "nullable"
+    string bioregion "nullable"
+    string park_res "nullable"
+    string rap "nullable"
+
+    jsonb metadata "nullable"
+
+    datetime modified
+  }
+
+  ParsedName {
+    int id PK
+    timestamptz(0) created_at "nullable"
+    timestamptz(0) updated_at "nullable"
+    string scientific_name 
+    string type
+    jsonb metadata "nullable"
+    string canonical_name "nullable"
+    string canonical_name_with_marker "nullable"
+    string canonical_name_complete "nullable"
+    uuid vicflora_scientific_name_id FK "nullable"
+  }
+
+  NameMatch_MAP {
+    int id PK
+    int parsed_name_id FK
+    uuid taxon_name_id FK "Points to immutable TaxonName"
+    uuid taxon_tree_id FK
+    string match_type
+  }
+
+  Taxon {
+    bigint taxon_id PK "From taxonomic_name_usage_map"
+    uuid taxon_concept_id
+    uuid scientific_name_id
+    string scientific_name
+    string scientific_name_authorship "nullable"
+    string taxon_rank
+    string taxonomic_status
+    uuid accepted_name_usage_id "Points to Concept GUID"
+    string accepted_name
+    uuid species_id "nullable"
+    string species_name "nullable"
+    string occurrence_status "nullable"
+    string establishment_means "nullable"
+    string degree_of_establishment "nullable"
+  }
+
+  TaxonConcept_Occurrence_MAP {
+    uuid taxon_tree_id "uses GUID"
+    uuid taxon_concept_id FK "uses GUID"
+    uuid occurence_id FK "uses GUID"
+  }
+
+  MapOverlay {
+    int id PK
+    int area_fid 
+    string area_code
+    string area_name
+    multipolygon geom
+  }
+
+  TaxonConcept_MapOverlay_MAP {
+    uuid taxon_tree_id FK
+    uuid taxon_concept_id FK
+    int area_id FK
+    string occurrence_status 
+    string establishment_means
+    string degree_of_establishment
+  }
+
+  Assertion {
+    int id PK
+    uuid guid "unique"
+    uuid occurrence_id FK
+    string reason "nullable"
+    text remarks "nullable"
+    string term
+    string asserted_value
+    int agent_id FK
+  }
+
+  TaxonConcept_Phenology_MAP {
+    int id PK
+    uuid taxon_concept_id FK
+    int month_numerical
+    string month
+    int total
+    int buds
+    int flowers
+    int fruit
+  }

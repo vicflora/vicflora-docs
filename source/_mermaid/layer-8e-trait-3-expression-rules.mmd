@@ -1,0 +1,31 @@
+---
+config:
+  layout: elk
+---
+erDiagram
+  TraitDataset |o--o{ ExpressionRuleSet : "dataset"
+  ExpressionRuleSet |o--o{ ExpressionRule : "expressionRuleSet"
+  
+  ExpressionRule }o--|| Trait : "trait"
+
+  TraitDataset |o--|{ Entity_Scope_MAP : "morphs as 'scopeable'"
+  ExpressionRuleSet |o--|{ Entity_Scope_MAP : "morphs as 'scopeable'"
+
+  ExpressionRuleSet {
+      int id PK
+      uuid guid
+      int dataset_id FK "nullable"
+      string label
+      jsonb configuration "Global styling (e.g. delimiters)"
+      text remarks "nullable"
+  }
+
+  ExpressionRule {
+      int id PK
+      uuid guid
+      int expression_rule_set_id FK
+      int trait_id FK
+      string template "The phrasing template"
+      int sort_order
+      jsonb metadata "nullable"
+  }

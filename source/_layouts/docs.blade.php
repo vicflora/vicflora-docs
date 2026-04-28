@@ -10,6 +10,7 @@
       <link rel="icon" href="/favicon.ico" sizes="any">
       @viteRefresh()
       <link rel="stylesheet" href="{{ vite('source/assets/css/main.css') }}">
+      <script src="https://cdn.jsdelivr.net/npm/svg-pan-zoom@3.6.1/dist/svg-pan-zoom.min.js"></script>
       
   </head>
   
@@ -114,5 +115,6 @@
               }
           });
       </script>
+      @stack('scripts')
   </body>
 </html>

@@ -2,6 +2,7 @@
 
 use Illuminate\Container\Container;
 use League\CommonMark\Environment\Environment;
+use League\CommonMark\Extension\Attributes\AttributesExtension;
 use League\CommonMark\Extension\CommonMark\CommonMarkCoreExtension;
 use League\CommonMark\Extension\Footnote\FootnoteExtension;
 use League\CommonMark\Extension\GithubFlavoredMarkdownExtension;
@@ -29,6 +30,7 @@ $container->bind('markdownParser', function () {
     ];
 
     $environment = new Environment($config);
+    $environment->addExtension(new AttributesExtension());
     $environment->addExtension(new CommonMarkCoreExtension());
     $environment->addExtension(new FootnoteExtension());
     $environment->addExtension(new GithubFlavoredMarkdownExtension());
