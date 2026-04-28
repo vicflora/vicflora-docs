@@ -27,8 +27,8 @@
   .dark {
     /* Glow on Black */
     --color-link: var(--color-primary-400); 
-    --page-bg-from: var(--color-primary-800); 
-    --page-bg-to: #030712; /* Tailwind Gray-950 (Deep Black) */
+    --page-bg-from: var(--color-primary-600); 
+    --page-bg-to: #030712;
   }
 
   /* Force the prose links to use our adaptive variable */
