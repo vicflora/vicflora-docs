@@ -21,14 +21,14 @@
     /* Pass AA on White */
     --color-link: var(--color-primary-600); 
     --page-bg-from: var(--color-primary-50);
-    --page-bg-to: var(--color-primary-100);
+    --page-bg-to: var(--color-primary-200); /* Use 200 instead of 100 for more punch */
   }
 
   .dark {
     /* Glow on Black */
     --color-link: var(--color-primary-400); 
-    --page-bg-from: var(--color-primary-950);
-    --page-bg-to: var(--color-primary-900);
+    --page-bg-from: var(--color-primary-800); 
+    --page-bg-to: #030712; /* Tailwind Gray-950 (Deep Black) */
   }
 
   /* Force the prose links to use our adaptive variable */
