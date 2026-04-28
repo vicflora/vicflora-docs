@@ -7,8 +7,10 @@
   --color-primary-300: #fcd34d;
   --color-primary-400: #fbbf24;
   --color-primary-500: #f59e0b;
-  --color-primary-600: #d97706;
-  --color-primary-700: #b45309;
+  /* --color-primary-600: #d97706;
+  --color-primary-700: #b45309; */
+  --color-primary-600: #b45309; /* Tailwind Amber-700 (Passes AA on white) */
+  --color-primary-700: #92400e; /* Tailwind Amber-800 */
   --color-primary-800: #92400e;
   --color-primary-900: #78350f;
   --color-primary-950: #451a03;
