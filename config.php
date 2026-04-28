@@ -13,16 +13,32 @@ $path = function ($page) {
 };
 
 $collections = [
-    'using_keys' => ['path' => $path, 'sort' => 'order'],
-    'editor_guides' => ['path' => $path, 'sort' => 'order'],
-    'api_docs' => ['path' => $path, 'sort' => 'order'],
-    'theory' => ['path' => $path,'sort' => 'order'],
-    'style_guide' => ['path' => $path, 'sort' => 'order'],
     'layers' => ['path' => $path, 'sort' => 'order'],
+    'resources' => ['path' => $path, 'sort' => 'order'],
 ];
 
 return [
-    'baseUrl' => 'http://keybase-docs.test',
+    'baseUrl' => 'http://vicflora-docs.test',
+    'appUrl' => '',
+    'siteName' => 'VicFlora Documentation',
+    'siteLogo' => 'assets/images/rbgv-logo-pink-badge.png',
+    'siteMenu' => [
+        ['title' => 'Search', 'link' => '/flora/search?q=%2a'],
+        ['title' => 'Browse classifications', 'link' => '/flora/classification/6abc498a-70de-11e6-a989-005056b0018f'],
+        [
+            'title' => 'Keys', 
+            'link' => '#',
+            'children' => [
+                ['title' => 'Key to the main groups of vascular plants', 'link' => '/flora/keys/1903'],
+                ['title' => 'Multi-access keys', 'link' => '/flora/matrix-keys'],
+            ],
+
+            
+        ],
+        ['title' => 'Checklists', 'link' => '/checklist'],
+        ['title' => 'Glossary', 'link' => '/flora/glossary'],
+        ['title' => 'Docs', 'link' => '/docs'],
+    ],
     'collections' => $collections,
     'navigation' => $navigation,
 ];

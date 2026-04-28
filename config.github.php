@@ -1,6 +1,7 @@
 <?php
 
 return [
-    'baseUrl' => '/your-repo-name', // Replace with your actual repo name
+    'baseUrl' => '/vicflora-docs',
+    'appUrl' => 'https://vicflora.rbg.vic.gov.au',
     'production' => false,
 ];
