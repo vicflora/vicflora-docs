@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # Configuration
-PROJECT_ROOT="/var/www/keybase"
-DOCS_DIR="$PROJECT_ROOT/keybase-docs"
-APP_DOCS_DIR="$PROJECT_ROOT/keybase-2025/public/docs"
+PROJECT_ROOT="/var/www/vicflora-model"
+DOCS_DIR="$PROJECT_ROOT/vicflora-docs"
+APP_DOCS_DIR="$PROJECT_ROOT/vicflora-model/public/docs"
 
 # Helper function for usage
 usage() {
@@ -19,6 +19,12 @@ usage() {
 if [ -z "$1" ]; then
     usage
 fi
+
+echo "🔄 Updating shared resources..."
+git submodule update --remote --merge
+
+echo "📦 Compiling assets..."
+npm run build 
 
 cd "$DOCS_DIR"
 
