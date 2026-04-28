@@ -1,9 +1,5 @@
 /* source/assets/css/main.css */
 
-/* Reach all the way up to root, then back into shared */
-@import "../../../source/_shared/assets/css/main.css";
-@source "../../../source/**/*";
-
 @theme {
   --color-primary-50: #fffbeb;
   --color-primary-100: #fef3c7;
@@ -28,3 +24,7 @@
     --page-bg-to: var(--color-primary-100);
   }
 }
+
+/* Reach all the way up to root, then back into shared */
+@import "../../../source/_shared/assets/css/main.css";
+@source "../../../source/**/*";
