@@ -3,8 +3,8 @@
     "type": "module",
     "scripts": {
         "update-tools": "git submodule update --remote --merge",
-        "dev": "vite",
-        "build": "vite build",
+        "dev": "npm run update-shared && npx vite",
+        "build": "npm run update-shared && npx vite build && ./vendor/bin/jigsaw build production",
         "build-erd": "for f in source/_mermaid/*.mmd; do npx mmdc -i \"$f\" -o \"source/assets/images/erd/$(basename \"$f\" .mmd).svg\"; done"
     },
     "devDependencies": {
