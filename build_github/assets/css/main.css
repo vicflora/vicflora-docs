@@ -16,12 +16,25 @@
 
 @layer base {
   :root {
-    /* Map your old variable to the new palette for backward compatibility */
     --primary-color: var(--color-primary-600);
     
-    /* These feed the gradient logic in your shared layout */
+    /* Pass AA on White */
+    --color-link: var(--color-primary-600); 
     --page-bg-from: var(--color-primary-50);
     --page-bg-to: var(--color-primary-100);
+  }
+
+  .dark {
+    /* Glow on Black */
+    --color-link: var(--color-primary-400); 
+    --page-bg-from: var(--color-primary-950);
+    --page-bg-to: var(--color-primary-900);
+  }
+
+  /* Force the prose links to use our adaptive variable */
+  .prose a {
+    color: var(--color-link);
+    font-weight: 600;
   }
 }
 
