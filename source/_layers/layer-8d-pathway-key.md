@@ -1,5 +1,5 @@
 ---
-extends: _layouts.docs
+extends: _layouts.vicflora
 title: "Layer 8d: Pathway key"
 order: 11
 ---

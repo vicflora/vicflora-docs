@@ -1,5 +1,5 @@
 ---
-extends: _layouts.docs
+extends: _layouts.vicflora
 title: "Layer 6: Identity"
 order: 6
 ---
