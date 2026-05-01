@@ -38,18 +38,24 @@
     --color-link: var(--color-primary-600); 
     --page-bg-from: var(--color-primary-50);
     --page-bg-to: var(--color-primary-100);
-  }
+
+    /* Direct override for Tailwind Typography variables */
+    --tw-prose-links: var(--color-link);  }
 
   .dark {
     /* Glow on Black */
     --color-link: var(--color-primary-400); 
     --page-bg-from: var(--color-primary-600); 
     --page-bg-to: #030712;
+
+    /* Direct override for Dark Mode Typography */
+    --tw-prose-invert-links: var(--color-link);
   }
 
   /* Force the prose links to use our adaptive variable */
   .prose a {
-    color: var(--color-link);
+    color: var(--color-link) !important;
+    text-decoration-color: color-mix(in srgb, var(--color-link), transparent 50%);
     font-weight: 600;
   }
 }
