@@ -1,6 +1,22 @@
 /* source/assets/css/main.css */
 
-@theme {
+@theme { 
+  
+  /* international orange */
+  --color-primary-50: oklch(0.9777 0.0154 67.65); /* #fff6ed */
+  --color-primary-100: oklch(0.9484 0.036 67.37); /* #ffead5 */
+  --color-primary-200: oklch(0.8893 0.0705 62.54); /* #fdd1ab */
+  --color-primary-300: oklch(0.8183 0.1147 58.82); /* #fbb176 */
+  --color-primary-400: oklch(0.7358 0.1632 49.61); /* #f9863e */
+  --color-primary-500: oklch(0.671 0.2018 41.15); /* #f65d0d */
+  --color-primary-600: oklch(0.6263 0.2016 37.45); /* #e74b0f */
+  --color-primary-700: oklch(0.5381 0.1807 35.06); /* #c0360e */
+  --color-primary-800: oklch(0.4569 0.1477 33.8); /* #982c14 */
+  --color-primary-900: oklch(0.3986 0.1209 34.53); /* #7b2713 */
+  --color-primary-950: oklch(0.2596 0.078 32.7); /* #421108 */
+}
+
+/* @theme {
   --color-primary-50: oklch(98% 0.016 73.684);
   --color-primary-100: oklch(95.4% 0.038 75.164);
   --color-primary-200: oklch(90.1% 0.076 70.697);
@@ -12,7 +28,7 @@
   --color-primary-800: oklch(47% 0.157 37.304);
   --color-primary-900: oklch(40.8% 0.123 38.172);
   --color-primary-950: oklch(26.6% 0.079 36.259);
-}
+} */
 
 @layer base {
   :root {
@@ -21,7 +37,7 @@
     /* Pass AA on White */
     --color-link: var(--color-primary-600); 
     --page-bg-from: var(--color-primary-50);
-    --page-bg-to: var(--color-primary-200); /* Use 200 instead of 100 for more punch */
+    --page-bg-to: var(--color-primary-100);
   }
 
   .dark {
