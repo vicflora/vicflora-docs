@@ -22,7 +22,8 @@ $collections = [
 return [
     'baseUrl' => '',
     'appUrl' => '',
-    'siteName' => 'VicFlora Data Model',
+    'siteName' => 'VicFlora',
+    'documentationTitle' => 'Data model',
     'siteLogo' => '/assets/images/rbgv-logo.svg',
     'siteMenu' => [
         ['title' => 'Search', 'link' => '/flora/search?q=%2a'],
