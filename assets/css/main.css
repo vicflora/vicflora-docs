@@ -18,35 +18,19 @@
   --color-primary-900: oklch(0.3986 0.1209 34.53); /* #7b2713 */
   --color-primary-950: oklch(0.2596 0.078 32.7); /* #421108 */
 
-  
-  /* --color-primary-50: #fffbeb;
-  --color-primary-100: #fef3c7;
-  --color-primary-200: #fde68a;
-  --color-primary-300: #fcd34d;
-  --color-primary-400: #fbbf24;
-  --color-primary-500: #f59e0b;
-  --color-primary-600: #d97706;
-  --color-primary-700: #b45309;
-  --color-primary-800: #92400e;
-  --color-primary-900: #78350f;
-  --color-primary-950: #451a03; */
+  --primary-color: var(--color-primary-600);
+
+  --color-link: var(--color-primary-600);
+  --page-bg-from: var(--color-primary-50);
+  --page-bg-to: var(--color-primary-100);
+  --tw-prose-links: var(--color-link);
 }
 
 @layer base {
-  :root {
-    --primary-color: var(--color-primary-600);
-
-    /* Pass AA on White */
-    --color-link: var(--color-primary-600);
-    --page-bg-from: var(--color-primary-50);
-    --page-bg-to: var(--color-primary-100);
-    --tw-prose-links: var(--color-link);
-  }
-
   .dark {
     --color-link: var(--color-primary-400);
     --page-bg-from: var(--color-primary-600);
-    --page-bg-to: #030712;
+    --page-bg-to: var(--color-primary-500);
     --tw-prose-invert-links: var(--color-link);
   }
 
@@ -55,12 +39,4 @@
     text-decoration-color: color-mix(in srgb, var(--color-link), transparent 50%);
     font-weight: 600;
   }
-
 }
-
-
-
-/* Reach all the way up to root, then back into shared */
-
-@import "../../../source/_shared/assets/css/main.css";
-@source "../../../source/**/*";
