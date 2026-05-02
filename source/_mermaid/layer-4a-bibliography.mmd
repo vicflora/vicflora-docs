@@ -58,18 +58,21 @@ erDiagram
   Taxonomy_EXT |o--|{ TaxonomyVersion_EXT : "taxonomy"
 
   Reference |o--|{ TaxonConcept : "accordingTo"
+
+  Reference |o--|| MapLayer_EXT : "reference / mapLayer"
+  MapLayer_EXT |o--o| MapOverlay : "mapLayer / mapOverlay"
   
   Reference {
     int id PK
     int reference_type_id FK
     int parent_id FK "nullable"
-    string short_title "e.g., Flora of Victoria"
-    string full_citation "The complete bibliographic string"
-    string author_string "e.g., Walsh, N.G. & Entwisle, T.J."
-    string year "e.g., 1999"
-    string doi "Digital Object Identifier"
-    string uri "Link to PDF or webpage"
-    jsonb metadata "Type-specific fields (Volume, Issue, Page)"
+    string short_title
+    string full_citation
+    string author_string "nullable"
+    string year "nullable"
+    string doi "nullable"
+    string uri "nullable"
+    jsonb metadata "nullable"
   }
 
   Taxonomy_EXT {
@@ -114,6 +117,12 @@ erDiagram
 
   ExternalIdentityAuthority_EXT {
     int id PK
+    string code "nullable"
+  }
+
+  MapLayer_EXT {
+    int id PK
+    string code "nullable"
   }
 
   ReferenceContributor_MAP {

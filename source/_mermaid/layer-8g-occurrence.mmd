@@ -16,6 +16,8 @@ erDiagram
 
   MapOverlay |o--|{ TaxonConcept_MapOverlay_MAP : area
   TaxonConcept_MapOverlay_MAP }|--o| TaxonConcept : taxonConcept
+  MapOverlay ||--|| MapLayer_EXT : mapLayer
+  MapLayer_EXT |o--o| Reference : "references / mapLayer"
 
   TaxonConcept_Phenology_MAP }|--o| TaxonConcept : taxonConcept
 
@@ -92,6 +94,7 @@ erDiagram
 
   MapOverlay {
     int id PK
+    int map_layer_id FK
     int area_fid 
     string area_code
     string area_name

@@ -15,3 +15,7 @@ order: 7
 ## Layer 7c: Audit log
 
 <x-svg-viewer path="/assets/images/erd/layer-7c-audit-log.svg" status="draft"/>
+
+## Layer 7d: Branding
+
+<x-svg-viewer path="/assets/images/erd/layer-7d-branding.svg" status="draft"/>

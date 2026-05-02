@@ -22,6 +22,11 @@ erDiagram
   Taxonomy_EXT ||--o| Reference : "reference / taxonomy"
   TaxonTreeRevision }|--|| TaxonomyVersion_EXT : "taxonomyVersion"
   TaxonomyVersion_EXT ||--o| Reference : "reference / taxonomyVersion"
+
+  TaxonTree |o--|{ Flora : "taxonTree"
+  Flora |o--|{ Flora_TaxonTreeNode_MAP : "flora"
+  Flora_TaxonTreeNode_MAP }|--o| TaxonTree : "taxonTree"
+  Flora_TaxonTreeNode_MAP ||--o| TaxonTreeNode : "taxonTreeNode"
   
   TaxonTree {
     int id PK

@@ -3,7 +3,6 @@ config:
   layout: elk
 ---
 erDiagram
-  Agent }o--|| User : user
 
   Agent |o--|{ScientificName_Author_MAP : "agent"
   ScientificName_Author_MAP }|--o| ScientificName_EXT : "scientificName"
@@ -11,24 +10,24 @@ erDiagram
   Agent |o--|{ ReferenceContributor_MAP : agent
   ReferenceContributor_MAP }|--o| Reference : "reference"
 
+  Agent }o--|| User : user
+  Agent ||--|{ Any_Entity_MIXIN : "createdBy"
+  Agent ||--o{ Any_Entity_MIXIN : "updatedBy"
+
   Agent |o--|{ Entity_Creator_MAP : "creator"
   Entity_Creator_MAP }o--o| TaxonConceptMapping : "morphs as 'attributable'"
   Entity_Creator_MAP }o--o| NomenclaturalType : "morphs as 'attributable'"
 
-  Agent ||--|{ Any_Entity_MIXIN : "createdBy"
-  Agent ||--o{ Any_Entity_MIXIN : "updatedBy"
-
   Agent {
     int id PK
     int agent_type_id FK
+    int user_id "nullable"
     string name 
     string last_name "nullable"
     string first_name "nullable"
     string initials "nullable"
     string email "nullable"
     string legal_name "nullalel"
-    string orcid "nullable"
-    int user_id "nullable"
   }
 
   Any_Entity_MIXIN {

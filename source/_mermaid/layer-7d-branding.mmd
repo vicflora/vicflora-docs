@@ -1,0 +1,24 @@
+---
+config:
+  layout: elk
+---
+erDiagram
+  Flora }|--o| TaxonTree : "taxonTree"
+  Flora |o--|{ Flora_TaxonTreeNode_MAP : "flora"
+  TaxonTree ||--|{ TaxonTreeNode : "taxonTree"
+  Flora_TaxonTreeNode_MAP ||--o| TaxonTreeNode : "taxonTreeNode"
+
+  Flora {
+    int id PK
+    string guid 
+    string name
+    int taxon_tree_id FK
+    jsonb metadata "nullable"
+  }
+
+  Flora_TaxonTreeNode_MAP {
+    int id PK
+    int flora_id FK
+    int taxon_tree FK
+    int taxon_tree_node_id FK
+  }
