@@ -6,4 +6,4 @@ order: 1
 
 ## Big picture
 
-<img alt="Science infrastructure diagram" src="/assets/images/science-infrastructure.drawio.svg" width="100%" />
+<x-figure alt="Science infrastructure diagram" src="/assets/images/science-infrastructure.drawio.svg" fullWidth/>
