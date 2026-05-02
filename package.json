@@ -2,10 +2,11 @@
     "private": true,
     "type": "module",
     "scripts": {
-        "update-tools": "git submodule update --remote --merge",
+        "update-shared": "git submodule update --remote --merge",
         "dev": "npm run update-shared && npx vite",
         "build": "npm run update-shared && npx vite build && ./vendor/bin/jigsaw build production",
-        "build-erd": "for f in source/_mermaid/*.mmd; do npx mmdc -i \"$f\" -o \"source/assets/images/erd/$(basename \"$f\" .mmd).svg\"; done"
+        "linkify-erd": "node linkify-svgs.cjs",
+        "build-erd": "for f in source/_mermaid/*.mmd; do npx @mermaid-js/mermaid-cli@latest -c erd-config.json -p puppeteer-config.json -i \"$f\" -o \"source/assets/images/erd/$(basename \"$f\" .mmd).svg\"; done && npm run linkify-erd"
     },
     "devDependencies": {
         "@tighten/jigsaw-vite-plugin": "^1.0.1",
@@ -16,6 +17,7 @@
         "@mermaid-js/mermaid-cli": "^11.12.0",
         "@tailwindcss/typography": "^0.5.19",
         "@tailwindcss/vite": "^4.1.8",
-        "highlight.js": "^11.11.1"
+        "highlight.js": "^11.11.1",
+        "jsdom": "^29.1.1"
     }
 }
