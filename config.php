@@ -13,15 +13,17 @@ $path = function ($page) {
 };
 
 $collections = [
+    'intro' => ['path' => $path, 'sort' => 'order'],
     'layers' => ['path' => $path, 'sort' => 'order'],
     'resources' => ['path' => $path, 'sort' => 'order'],
+    'vocabularies' => ['path' => $path, 'sort' => 'order'],
 ];
 
 return [
-    'baseUrl' => 'http://vicflora-docs.test',
+    'baseUrl' => '',
     'appUrl' => '',
-    'siteName' => 'VicFlora Documentation',
-    'siteLogo' => 'assets/images/rbgv-logo-pink-badge.png',
+    'siteName' => 'VicFlora Data Model',
+    'siteLogo' => '/assets/images/rbgv-logo.svg',
     'siteMenu' => [
         ['title' => 'Search', 'link' => '/flora/search?q=%2a'],
         ['title' => 'Browse classifications', 'link' => '/flora/classification/6abc498a-70de-11e6-a989-005056b0018f'],

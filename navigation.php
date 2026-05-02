@@ -3,7 +3,8 @@
 // navigation.php
 return [
     'Introduction' => [
-        'url' => '/',
+        'collection' => 'intro',
+        'decription' => 'An introduction to the VicFlora data model.',
     ],
     'Layers' => [
         'collection' => 'layers',
@@ -12,5 +13,9 @@ return [
     'Resources' => [
         'collection' => 'resources',
         'description' => 'VicFlora data model resources.',
+    ],
+    'Controlled vocabularies' => [
+        'collection' => 'vocabularies',
+        'description' => 'VicFlora data model controlled vocabularies.',
     ],
 ];
