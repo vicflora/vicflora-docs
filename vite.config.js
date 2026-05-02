@@ -24,8 +24,8 @@ export default defineConfig({
             usePolling: true, // Forces Vite to check files manually
             interval: 100,    // Checks every 100ms
         },
-        hmr: {
-            host: 'keybase-docs.test',
-        },
+        // hmr: {
+        //     host: 'vicflora-docs.test',
+        // },
     },
 });
