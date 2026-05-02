@@ -1,0 +1,2012 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>VicFlora Data Model | ParsedName</title>
+      <meta name="description" content="" />
+      
+      <link rel="preconnect" href="https://fonts.bunny.net" />
+      <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600" rel="stylesheet" />
+      <link rel="icon" href="/favicon.ico" sizes="any">
+      
+            
+      <link rel="stylesheet" href="/vicflora-docs/assets/build/assets/main-BvI4S-uZ.css">
+      <script src="https://cdn.jsdelivr.net/npm/svg-pan-zoom@3.6.1/dist/svg-pan-zoom.min.js"></script>
+
+      
+      <style>
+          :root {
+              --page-bg-from: #f0fdf4; /* Default to green-50 */
+              --page-bg-to: #ecfdf5;   /* Default to emerald-50 */
+          }
+      </style>
+  </head>
+  
+  <body class="fade-in min-h-screen bg-gradient-to-br from-[var(--page-bg-from)] via-white to-[var(--page-bg-to)] dark:from-gray-900 dark:via-gray-800 dark:to-gray-950 font-sans">
+      <header class="sticky top-0 z-50 border-b border-green-100 bg-white/80 backdrop-blur-md dark:border-gray-700 dark:bg-gray-900/80">
+    <div class="container mx-auto px-4 py-4">
+        <nav class="flex items-center justify-between">
+    <div class="flex items-center space-x-10">
+        
+        <a href="/" class="flex items-center space-x-2 transition-opacity hover:opacity-80">
+            <img src="/vicflora-docs/assets/images/rbgv-logo.svg" alt="VicFlora Data Model" class="h-8 w-8 invert dark:invert-0" width="32" height="32" />
+            <span class="text-2xl font-bold text-gray-900 dark:text-white">VicFlora Data Model</span>
+        </a>
+
+        
+        <div class="hidden items-center space-x-8 md:flex">
+                                                
+                    <a href="https://vicflora.rbg.vic.gov.au/flora/search?q=%2a" 
+                      class="text-gray-600 hover:text-primary-600 dark:text-gray-300 dark:hover:text-primary-400 transition-colors">
+                        Search
+                    </a>
+                                                                
+                    <a href="https://vicflora.rbg.vic.gov.au/flora/classification/6abc498a-70de-11e6-a989-005056b0018f" 
+                      class="text-gray-600 hover:text-primary-600 dark:text-gray-300 dark:hover:text-primary-400 transition-colors">
+                        Browse classifications
+                    </a>
+                                                                
+                    <a href="https://vicflora.rbg.vic.gov.au#" 
+                      class="text-gray-600 hover:text-primary-600 dark:text-gray-300 dark:hover:text-primary-400 transition-colors">
+                        Keys
+                    </a>
+                                                                
+                    <a href="https://vicflora.rbg.vic.gov.au/checklist" 
+                      class="text-gray-600 hover:text-primary-600 dark:text-gray-300 dark:hover:text-primary-400 transition-colors">
+                        Checklists
+                    </a>
+                                                                
+                    <a href="https://vicflora.rbg.vic.gov.au/flora/glossary" 
+                      class="text-gray-600 hover:text-primary-600 dark:text-gray-300 dark:hover:text-primary-400 transition-colors">
+                        Glossary
+                    </a>
+                                                                
+                    <a href="https://vicflora.rbg.vic.gov.au/docs" 
+                      class="text-gray-600 hover:text-primary-600 dark:text-gray-300 dark:hover:text-primary-400 transition-colors">
+                        Docs
+                    </a>
+                                    </div>
+    </div>
+            
+    <div class="flex items-center gap-3">
+        
+        <div class="hidden md:flex items-center ml-auto">
+            <div></div>        </div>
+
+        
+        <button id="mobile-menu-toggle" class="p-2 md:hidden text-gray-600 dark:text-gray-300">
+            <svg id="menu-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+            <svg id="close-icon" class="hidden" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+        </button>
+    </div>
+</nav>
+        
+        <div id="mobile-menu-dropdown" class="mt-4 hidden flex-col space-y-4 pb-6 md:hidden">
+            <a href="/projects" class="text-lg font-medium text-gray-600 dark:text-gray-300">Projects</a>
+            <a href="/about" class="text-lg font-medium text-gray-600 dark:text-gray-300">About</a>
+            <a href="/docs/api" class="text-lg font-medium text-gray-600 dark:text-gray-300">API</a>
+            
+            
+            <div class="mt-2 border-t border-gray-100 pt-4 dark:border-gray-800">
+                <div></div>            </div>
+        </div>
+    </div>
+</header>
+      
+      <div class="container mx-auto grid grid-cols-1 gap-4 lg:gap-8 lg:grid-cols-4 py-6 px-4 h-full">
+          <aside class="lg:col-span-1 h-full">
+    
+    <button id="sidebar-toggle" class="flex items-center justify-between w-full px-4 py-3 mb-2 bg-white border border-gray-200 rounded-xl lg:hidden dark:bg-black dark:border-gray-700">
+        <span class="text-sm font-semibold text-gray-700 dark:text-gray-300">Documentation Menu</span>
+        <svg id="sidebar-arrow" class="w-5 h-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+    </button>
+
+    
+    <nav id="sidebar-menu" class="hidden lg:block sticky top-20 pt-1.75"> 
+        <div class="bg-white border border-gray-200 rounded-xl p-6 pt-8 dark:border-gray-700 dark:bg-black">
+            <div class="mb-8">
+              <h3 class="text-sm font-bold uppercase tracking-wider mb-2 transition-colors duration-200 
+        text-gray-600 dark:text-gray-400">
+                    Introduction
+            </h3>
+            <ul class="mb-6 space-y-1 border-l border-gray-100 dark:border-gray-800 ml-1">
+                                            <li>
+                    <a href="/vicflora-docs/intro/science-infrastructure" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        Science infrastructure
+                    </a>
+                </li>
+                    </ul>
+    
+    
+    <h3 class="text-sm font-bold uppercase tracking-wider mb-2 transition-colors duration-200 
+        text-gray-600 dark:text-gray-400">
+                    Layers
+            </h3>
+            <ul class="mb-6 space-y-1 border-l border-gray-100 dark:border-gray-800 ml-1">
+                                            <li>
+                    <a href="/vicflora-docs/layers/layer-1-semantics" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        Layer 1: Semantics
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/layers/layer-2-syntax" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        Layer 2: Syntax
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/layers/layer-3-governance" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        Layer 3: Governance
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/layers/layer-4-authority" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        Layer 4: Authority
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/layers/layer-5-narrative" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        Layer 5: Narrative
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/layers/layer-6-identity" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        Layer 6: Identity
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/layers/layer-7-infrastructure" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        Layer 7: Infrastructure
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/layers/layer-8a-distribution" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        Layer 8a: Distribution
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/layers/layer-8b-voucher" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        Layer 8b: Voucher
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/layers/layer-8c-media" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        Layer 8c: Media
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/layers/layer-8d-pathway-key" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        Layer 8d: Pathway key
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/layers/layer-8e-trait" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        Layer 8e: Trait
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/layers/layer-8f-phylogeny" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        Layer 8f: Phylogeny
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/layers/layer-8g-occurrence" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        Layer 8g: Occurrence
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/layers/layer-8g-glossary" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        Layer 8h: Glossary
+                    </a>
+                </li>
+                    </ul>
+    
+    
+    <h3 class="text-sm font-bold uppercase tracking-wider mb-2 transition-colors duration-200 
+        text-green-600 dark:text-green-400">
+                    Resources
+            </h3>
+            <ul class="mb-6 space-y-1 border-l border-gray-100 dark:border-gray-800 ml-1">
+                                            <li>
+                    <a href="/vicflora-docs/resources/agent" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        Agent
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/area" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        Area
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/area-code" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        AreaCode
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/assertion" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        Assertion
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/audit-log" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        AuditLog
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/controlled-term" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        ControlledTerm
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/controlled-vocabulary" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        ControlledVocabulary
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/entity-creator-map" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        Entity_Creator_MAP
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/entity-identity-map" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        Entity_Identity_MAP
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/entity-image-map" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        Entity_Image_MAP
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/entity-source-map" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        Entity_Source_MAP
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/external-identity" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        ExternalIdentity
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/external-identity-authority-ext" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        ExternalIdentityAuthority_EXT
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/gazetteer-ext" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        Gazetteer_EXT
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/glossary" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        Glossary
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/glossary-limitation-map" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        Glossary_Limitation_MAP
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/glossary-category" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        GlossaryCategory
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/glossary-term" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        GlossaryTerm
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/glossary-term-relationship-map" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        GlossaryTermRelationship_MAP
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/hybrid-formula-ext" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        HybridFormula_EXT
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/image" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        Image
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/image-access-point" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        ImageAccessPoint
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/image-caption" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        ImageCaption
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/informal-name-ext" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        InformalName_EXT
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/limitation" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        Limitation
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/map-overlay" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        MapOverlay
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/name-match-map" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        NameMatch_MAP
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/name-relation-map" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        NameRelation_MAP
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/nomenclatural-type" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        NomenclaturalType
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/occurrence" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        Occurrence
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/parsed-name" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-emerald-600 font-bold">
+                        ParsedName
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/profile" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        Profile
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/profile-area-map" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        Profile_Area_MAP
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/profile-specimen-map" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        Profile_Specimen_MAP
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/profile-def-item" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        ProfileDefItem
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/profile-section" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        ProfileSection
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/protologue-ext" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        Protologue_EXT
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/reference" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        Reference
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/reference-contributor-map" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        Reference_Contributor_MAP
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/scientific-name-author-map" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        ScientificName_Author_MAP
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/scientific-name-ext" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        ScientificName_EXT
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/scientific-name-usage-map" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        ScientificNameUsage_MAP
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/specimen" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        Specimen
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/taxon" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        Taxon
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/taxon-concept" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        TaxonConcept
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/taxon-concept-map-overlay-map" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        TaxonConcept_MapOverlay_MAP
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/taxon-concept-occurrence-map" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        TaxonConcept_Occurrence_MAP
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/taxon-concept-phenology-map" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        TaxonConcept_Phenology_MAP
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/taxon-concept-label-ext" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        TaxonConceptLabel_EXT
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/taxon-concept-mapping" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        TaxonConceptMapping
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/taxon-name" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        TaxonName
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/taxonomy-ext" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        Taxonomy_EXT
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/taxonomy-version-ext" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        TaxonomyVersion_EXT
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/taxon-tree" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        TaxonTree
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/taxon-tree-geographic-scope-map" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        TaxonTree_GeographicScope_MAP
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/taxon-tree-def-item" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        TaxonTreeDefItem
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/taxon-tree-node" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        TaxonTreeNode
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/taxon-tree-revision" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        TaxonTreeRevision
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/threat-status" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        ThreatStatus
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/threat-status-authority-ext" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        ThreatStatusAuthority_EXT
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/treatment-ext" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        Treatment_EXT
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/treatment-version-ext" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        TreatmentVersion_EXT
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/user" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        User
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/vernacular-name-ext" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        VernacularName_EXT
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/vernacular-name-usage-map" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        VernacularNameUsage_MAP
+                    </a>
+                </li>
+                    </ul>
+    
+    
+    <h3 class="text-sm font-bold uppercase tracking-wider mb-2 transition-colors duration-200 
+        text-gray-600 dark:text-gray-400">
+                    Controlled vocabularies
+            </h3>
+            <ul class="mb-6 space-y-1 border-l border-gray-100 dark:border-gray-800 ml-1">
+                                            <li>
+                    <a href="/vicflora-docs/vocabularies/agent-type" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        Agent Type Vocabulary
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/vocabularies/area-type" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        Area Type Vocabulary
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/vocabularies/change-type" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        Change Type Vocabulary
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/vocabularies/contributor-role" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        Contributor Role Vocabulary
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/vocabularies/degree-of-establishment" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        Degree of Establishment Vocabulary
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/vocabularies/establishment-means" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        Establishment Means Vocabulary
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/vocabularies/glossary-term-relationship-type" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        Glossary Term Relationship Type Vocabulary
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/vocabularies/image-role" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        Image Role Vocabulary
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/vocabularies/image-type" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        Image Type Vocabulary
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/vocabularies/image-variant" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        Image Variant Vocabulary
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/vocabularies/mapping-method" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        Mapping Method Vocabulary
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/vocabularies/mapping-relation" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        Mapping Relation Vocabulary
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/vocabularies/name-relation-type" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        Name Relation Type Vocabulary
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/vocabularies/name-usage-role" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        Name Usage Role Vocabulary
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/vocabularies/nomenclatural-code" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        Nomenclatural Code Vocabulary
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/vocabularies/nomenclatural-status" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        Nomenclatural Status Vocabulary
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/vocabularies/occurrence-status" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        Occurrence Status Vocabulary
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/vocabularies/profile-section-type" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        Profile Section Type Vocabulary
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/vocabularies/reference-type" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        Reference Type Vocabulary
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/vocabularies/scientific-name-author-role" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        Scientific Name Author Role Vocabulary
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/vocabularies/taxon-concept-component" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        Taxon Concept Component Vocabulary
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/vocabularies/taxon-rank" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        Taxon Rank Vocabulary
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/vocabularies/threat-status" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        Threat Status Vocabulary
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/vocabularies/type-of-type" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        Type of Type Vocabulary
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/vocabularies/voucher-type" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        Voucher Type Vocabulary
+                    </a>
+                </li>
+                    </ul>
+                </div>
+
+        </div>
+    </nav>
+</aside>
+          
+          <main class="lg:col-span-3 prose prose-sm max-w-none dark:prose-invert">
+              <div class="bg-white border border-gray-200 rounded-xl mt-2 p-6 pt-8 dark:bg-black dark:border-gray-700">
+                  
+                  <div class="mb-8">
+                      <nav class="flex items-center text-gray-500 text-sm tracking-wide" aria-label="Breadcrumb">
+    <ol class="flex items-center space-x-2 list-none mt-0 pl-0">
+        <li class="-ml-0.5">
+            <a href="/vicflora-docs/" class="hover:text-green-600 transition-colors no-underline">Home</a>
+        </li>
+        
+        <li class="flex items-center space-x-2">
+            <span class="text-gray-400">/</span>
+            
+                            <span class="">Resources</span>
+                    </li>
+
+                    <li class="flex items-center space-x-2">
+                <span class="text-gray-400">/</span>
+                <span class="text-gray-900 dark:text-white">ParsedName</span>
+            </li>
+            </ol>
+</nav>
+
+                      <h1 class="text-3xl sm:text-4xl font-semibold text-gray-900 dark:text-white tracking-tight">
+                          ParsedName
+                      </h1>
+                      
+                                        </div>
+
+                                        <div class="my-8 p-6 border border-gray-200 dark:border-gray-800 rounded-sm">
+        <h4 class="text-sm font-bold uppercase tracking-widest mb-4 text-gray-500 dark:text-gray-400">
+            On this page
+        </h4>
+        <ul class="space-y-3">
+                                            
+                <li class="">
+                    <a href="#resource-metadata" 
+                       class="no-underline transition-colors duration-200 hover:text-gray-900 dark:hover:text-white hover:underline
+                       text-sm font-semibold text-green-600 dark:text-green-400">
+                        Resource metadata
+                    </a>
+                </li>
+                                            
+                <li class="">
+                    <a href="#columns" 
+                       class="no-underline transition-colors duration-200 hover:text-gray-900 dark:hover:text-white hover:underline
+                       text-sm font-semibold text-green-600 dark:text-green-400">
+                        Columns
+                    </a>
+                </li>
+                                            
+                <li class="">
+                    <a href="#indexes" 
+                       class="no-underline transition-colors duration-200 hover:text-gray-900 dark:hover:text-white hover:underline
+                       text-sm font-semibold text-green-600 dark:text-green-400">
+                        Indexes
+                    </a>
+                </li>
+                                            
+                <li class="">
+                    <a href="#foreign-key-relationships" 
+                       class="no-underline transition-colors duration-200 hover:text-gray-900 dark:hover:text-white hover:underline
+                       text-sm font-semibold text-green-600 dark:text-green-400">
+                        Foreign key relationships
+                    </a>
+                </li>
+                                            
+                <li class="ml-4">
+                    <a href="#references-to-other-tables" 
+                       class="no-underline transition-colors duration-200 hover:text-gray-900 dark:hover:text-white hover:underline
+                       text-sm font-medium text-gray-500 dark:text-gray-400">
+                        References to other tables
+                    </a>
+                </li>
+                                            
+                <li class="ml-4">
+                    <a href="#referenced-by" 
+                       class="no-underline transition-colors duration-200 hover:text-gray-900 dark:hover:text-white hover:underline
+                       text-sm font-medium text-gray-500 dark:text-gray-400">
+                        Referenced by
+                    </a>
+                </li>
+                                            
+                <li class="">
+                    <a href="#eloquent-relationships" 
+                       class="no-underline transition-colors duration-200 hover:text-gray-900 dark:hover:text-white hover:underline
+                       text-sm font-semibold text-green-600 dark:text-green-400">
+                        Eloquent relationships
+                    </a>
+                </li>
+                    </ul>
+    </div>
+                  
+                  <div class="prose dark:prose-invert max-w-none">
+                      <h2 id="resource-metadata">Resource metadata</h2>
+<p>| Key               | Value |
+| !---------------- | !--- |
+| <strong>Resource type</strong> | infrastructure |
+| <strong>Layer</strong>         | <a href="/vicflora-docs/layers/layer-8e-occurrence">8e. Occurrence</a> |
+| <strong>Model name</strong>    | \App\Models\Mapper\ParsedName |
+| <strong>Table name</strong>    | parsed_names |</p>
+<h2 id="columns">Columns</h2>
+<div class="my-6 w-full overflow-x-auto border border-gray-200 rounded-lg shadow-sm dark:border-gray-700">
+    <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+        <table>
+<thead>
+<tr>
+<th>column name</th>
+<th>data type</th>
+<th>nullable</th>
+<th>default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>bigint</td>
+<td>NO</td>
+<td>nextval('parsed_names_id_seq'::regclass)</td>
+</tr>
+<tr>
+<td>scientific_name</td>
+<td>character varying</td>
+<td>NO</td>
+<td></td>
+</tr>
+<tr>
+<td>canonical_name</td>
+<td>character varying</td>
+<td>YES</td>
+<td></td>
+</tr>
+<tr>
+<td>canonical_name_with_marker</td>
+<td>character varying</td>
+<td>YES</td>
+<td></td>
+</tr>
+<tr>
+<td>canonical_name_complete</td>
+<td>character varying</td>
+<td>YES</td>
+<td></td>
+</tr>
+<tr>
+<td>type</td>
+<td>character varying</td>
+<td>YES</td>
+<td></td>
+</tr>
+<tr>
+<td>metadata</td>
+<td>jsonb</td>
+<td>YES</td>
+<td></td>
+</tr>
+<tr>
+<td>version</td>
+<td>smallint</td>
+<td>NO</td>
+<td>'1'::smallint</td>
+</tr>
+<tr>
+<td>created_by_id</td>
+<td>bigint</td>
+<td>YES</td>
+<td></td>
+</tr>
+<tr>
+<td>updated_by_id</td>
+<td>bigint</td>
+<td>YES</td>
+<td></td>
+</tr>
+<tr>
+<td>created_at</td>
+<td>timestamp with time zone</td>
+<td>YES</td>
+<td></td>
+</tr>
+<tr>
+<td>updated_at</td>
+<td>timestamp with time zone</td>
+<td>YES</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+    </table>
+</div><h2 id="indexes">Indexes</h2>
+<div class="my-6 w-full overflow-x-auto border border-gray-200 rounded-lg shadow-sm dark:border-gray-700">
+    <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+        <table>
+<thead>
+<tr>
+<th>name</th>
+<th>definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>parsed_names_pkey</td>
+<td>CREATE UNIQUE INDEX parsed_names_pkey ON public.parsed_names USING btree (id)</td>
+</tr>
+<tr>
+<td>parsed_names_scientific_name_index</td>
+<td>CREATE INDEX parsed_names_scientific_name_index ON public.parsed_names USING btree (scientific_name)</td>
+</tr>
+<tr>
+<td>parsed_names_canonical_name_index</td>
+<td>CREATE INDEX parsed_names_canonical_name_index ON public.parsed_names USING btree (canonical_name)</td>
+</tr>
+</tbody>
+</table>
+    </table>
+</div><h2 id="foreign-key-relationships">Foreign key relationships</h2>
+<h3 id="references-to-other-tables">References to other tables</h3>
+<div class="my-6 w-full overflow-x-auto border border-gray-200 rounded-lg shadow-sm dark:border-gray-700">
+    <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+        <table>
+<thead>
+<tr>
+<th>name</th>
+<th>table</th>
+<th>column</th>
+<th>referenced table</th>
+<th>referenced column</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>parsed_names_created_by_id_foreign</td>
+<td>parsed_names</td>
+<td>created_by_id</td>
+<td>agents</td>
+<td>id</td>
+</tr>
+<tr>
+<td>parsed_names_updated_by_id_foreign</td>
+<td>parsed_names</td>
+<td>updated_by_id</td>
+<td>agents</td>
+<td>id</td>
+</tr>
+</tbody>
+</table>
+    </table>
+</div><h3 id="referenced-by">Referenced by</h3>
+<div class="my-6 w-full overflow-x-auto border border-gray-200 rounded-lg shadow-sm dark:border-gray-700">
+    <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+        <p><em>No incoming references.</em></p>
+    </table>
+</div><h2 id="eloquent-relationships">Eloquent relationships</h2>
+<div class="my-6 w-full overflow-x-auto border border-gray-200 rounded-lg shadow-sm dark:border-gray-700">
+    <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+        <table>
+<thead>
+<tr>
+<th align="left">Method</th>
+<th align="left">Type</th>
+<th align="left">Related Model</th>
+<th align="left">Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>occurrences()</code></td>
+<td align="left"><strong>HasMany</strong></td>
+<td align="left">Occurrence</td>
+<td align="left">Remote FK: <code>parsed_name_id</code><br><span style="color:orange;">Has custom constraints</span></td>
+</tr>
+<tr>
+<td align="left"><code>nameMatches()</code></td>
+<td align="left"><strong>HasMany</strong></td>
+<td align="left">NameMatchMap</td>
+<td align="left">Remote FK: <code>parsed_name_id</code><br><span style="color:orange;">Has custom constraints</span></td>
+</tr>
+<tr>
+<td align="left"><code>createdBy()</code></td>
+<td align="left"><strong>BelongsTo</strong></td>
+<td align="left">Agent</td>
+<td align="left">FK: <code>created_by_id</code></td>
+</tr>
+<tr>
+<td align="left"><code>updatedBy()</code></td>
+<td align="left"><strong>BelongsTo</strong></td>
+<td align="left">Agent</td>
+<td align="left">FK: <code>updated_by_id</code></td>
+</tr>
+</tbody>
+</table>
+    </table>
+</div>                  </div>
+              </div>
+          </main>
+      </div>
+
+      <div id="mobile-menu" class="hidden fixed inset-0 z-100 lg:hidden" role="dialog" aria-modal="true">
+    <div class="fixed inset-0 bg-gray-900/50 backdrop-blur-sm"></div>
+
+    <div class="fixed inset-y-0 left-0 w-full max-w-xs bg-white dark:bg-black p-6 shadow-xl">
+        <div class="flex items-center justify-between mb-8">
+            <span class="text-emerald-600 font-bold dark:text-emerald-400">Botanical Keys</span>
+            <button onclick="toggleMobileMenu()" class="text-gray-500">
+                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+            </button>
+        </div>
+
+        <nav class="space-y-4">
+            <h3 class="text-sm font-bold uppercase tracking-wider mb-2 transition-colors duration-200 
+        text-gray-600 dark:text-gray-400">
+                    Introduction
+            </h3>
+            <ul class="mb-6 space-y-1 border-l border-gray-100 dark:border-gray-800 ml-1">
+                                            <li>
+                    <a href="/vicflora-docs/intro/science-infrastructure" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        Science infrastructure
+                    </a>
+                </li>
+                    </ul>
+    
+    
+    <h3 class="text-sm font-bold uppercase tracking-wider mb-2 transition-colors duration-200 
+        text-gray-600 dark:text-gray-400">
+                    Layers
+            </h3>
+            <ul class="mb-6 space-y-1 border-l border-gray-100 dark:border-gray-800 ml-1">
+                                            <li>
+                    <a href="/vicflora-docs/layers/layer-1-semantics" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        Layer 1: Semantics
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/layers/layer-2-syntax" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        Layer 2: Syntax
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/layers/layer-3-governance" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        Layer 3: Governance
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/layers/layer-4-authority" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        Layer 4: Authority
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/layers/layer-5-narrative" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        Layer 5: Narrative
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/layers/layer-6-identity" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        Layer 6: Identity
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/layers/layer-7-infrastructure" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        Layer 7: Infrastructure
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/layers/layer-8a-distribution" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        Layer 8a: Distribution
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/layers/layer-8b-voucher" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        Layer 8b: Voucher
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/layers/layer-8c-media" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        Layer 8c: Media
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/layers/layer-8d-pathway-key" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        Layer 8d: Pathway key
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/layers/layer-8e-trait" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        Layer 8e: Trait
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/layers/layer-8f-phylogeny" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        Layer 8f: Phylogeny
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/layers/layer-8g-occurrence" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        Layer 8g: Occurrence
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/layers/layer-8g-glossary" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        Layer 8h: Glossary
+                    </a>
+                </li>
+                    </ul>
+    
+    
+    <h3 class="text-sm font-bold uppercase tracking-wider mb-2 transition-colors duration-200 
+        text-green-600 dark:text-green-400">
+                    Resources
+            </h3>
+            <ul class="mb-6 space-y-1 border-l border-gray-100 dark:border-gray-800 ml-1">
+                                            <li>
+                    <a href="/vicflora-docs/resources/agent" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        Agent
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/area" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        Area
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/area-code" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        AreaCode
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/assertion" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        Assertion
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/audit-log" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        AuditLog
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/controlled-term" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        ControlledTerm
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/controlled-vocabulary" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        ControlledVocabulary
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/entity-creator-map" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        Entity_Creator_MAP
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/entity-identity-map" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        Entity_Identity_MAP
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/entity-image-map" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        Entity_Image_MAP
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/entity-source-map" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        Entity_Source_MAP
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/external-identity" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        ExternalIdentity
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/external-identity-authority-ext" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        ExternalIdentityAuthority_EXT
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/gazetteer-ext" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        Gazetteer_EXT
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/glossary" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        Glossary
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/glossary-limitation-map" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        Glossary_Limitation_MAP
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/glossary-category" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        GlossaryCategory
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/glossary-term" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        GlossaryTerm
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/glossary-term-relationship-map" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        GlossaryTermRelationship_MAP
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/hybrid-formula-ext" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        HybridFormula_EXT
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/image" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        Image
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/image-access-point" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        ImageAccessPoint
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/image-caption" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        ImageCaption
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/informal-name-ext" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        InformalName_EXT
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/limitation" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        Limitation
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/map-overlay" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        MapOverlay
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/name-match-map" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        NameMatch_MAP
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/name-relation-map" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        NameRelation_MAP
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/nomenclatural-type" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        NomenclaturalType
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/occurrence" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        Occurrence
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/parsed-name" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-emerald-600 font-bold">
+                        ParsedName
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/profile" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        Profile
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/profile-area-map" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        Profile_Area_MAP
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/profile-specimen-map" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        Profile_Specimen_MAP
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/profile-def-item" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        ProfileDefItem
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/profile-section" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        ProfileSection
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/protologue-ext" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        Protologue_EXT
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/reference" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        Reference
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/reference-contributor-map" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        Reference_Contributor_MAP
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/scientific-name-author-map" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        ScientificName_Author_MAP
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/scientific-name-ext" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        ScientificName_EXT
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/scientific-name-usage-map" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        ScientificNameUsage_MAP
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/specimen" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        Specimen
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/taxon" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        Taxon
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/taxon-concept" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        TaxonConcept
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/taxon-concept-map-overlay-map" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        TaxonConcept_MapOverlay_MAP
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/taxon-concept-occurrence-map" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        TaxonConcept_Occurrence_MAP
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/taxon-concept-phenology-map" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        TaxonConcept_Phenology_MAP
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/taxon-concept-label-ext" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        TaxonConceptLabel_EXT
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/taxon-concept-mapping" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        TaxonConceptMapping
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/taxon-name" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        TaxonName
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/taxonomy-ext" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        Taxonomy_EXT
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/taxonomy-version-ext" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        TaxonomyVersion_EXT
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/taxon-tree" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        TaxonTree
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/taxon-tree-geographic-scope-map" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        TaxonTree_GeographicScope_MAP
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/taxon-tree-def-item" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        TaxonTreeDefItem
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/taxon-tree-node" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        TaxonTreeNode
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/taxon-tree-revision" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        TaxonTreeRevision
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/threat-status" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        ThreatStatus
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/threat-status-authority-ext" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        ThreatStatusAuthority_EXT
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/treatment-ext" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        Treatment_EXT
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/treatment-version-ext" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        TreatmentVersion_EXT
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/user" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        User
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/vernacular-name-ext" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        VernacularName_EXT
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/vernacular-name-usage-map" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        VernacularNameUsage_MAP
+                    </a>
+                </li>
+                    </ul>
+    
+    
+    <h3 class="text-sm font-bold uppercase tracking-wider mb-2 transition-colors duration-200 
+        text-gray-600 dark:text-gray-400">
+                    Controlled vocabularies
+            </h3>
+            <ul class="mb-6 space-y-1 border-l border-gray-100 dark:border-gray-800 ml-1">
+                                            <li>
+                    <a href="/vicflora-docs/vocabularies/agent-type" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        Agent Type Vocabulary
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/vocabularies/area-type" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        Area Type Vocabulary
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/vocabularies/change-type" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        Change Type Vocabulary
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/vocabularies/contributor-role" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        Contributor Role Vocabulary
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/vocabularies/degree-of-establishment" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        Degree of Establishment Vocabulary
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/vocabularies/establishment-means" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        Establishment Means Vocabulary
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/vocabularies/glossary-term-relationship-type" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        Glossary Term Relationship Type Vocabulary
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/vocabularies/image-role" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        Image Role Vocabulary
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/vocabularies/image-type" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        Image Type Vocabulary
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/vocabularies/image-variant" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        Image Variant Vocabulary
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/vocabularies/mapping-method" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        Mapping Method Vocabulary
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/vocabularies/mapping-relation" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        Mapping Relation Vocabulary
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/vocabularies/name-relation-type" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        Name Relation Type Vocabulary
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/vocabularies/name-usage-role" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        Name Usage Role Vocabulary
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/vocabularies/nomenclatural-code" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        Nomenclatural Code Vocabulary
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/vocabularies/nomenclatural-status" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        Nomenclatural Status Vocabulary
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/vocabularies/occurrence-status" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        Occurrence Status Vocabulary
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/vocabularies/profile-section-type" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        Profile Section Type Vocabulary
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/vocabularies/reference-type" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        Reference Type Vocabulary
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/vocabularies/scientific-name-author-role" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        Scientific Name Author Role Vocabulary
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/vocabularies/taxon-concept-component" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        Taxon Concept Component Vocabulary
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/vocabularies/taxon-rank" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        Taxon Rank Vocabulary
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/vocabularies/threat-status" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        Threat Status Vocabulary
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/vocabularies/type-of-type" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        Type of Type Vocabulary
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/vocabularies/voucher-type" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        Voucher Type Vocabulary
+                    </a>
+                </li>
+                    </ul>
+            </nav>
+    </div>
+</div>
+      <script type="module" src="/vicflora-docs/assets/build/assets/main-BlQ-tMM-.js"></script>
+      
+      
+      <script>
+          document.addEventListener('DOMContentLoaded', function () {
+              const toggleButton = document.getElementById('mobile-menu-toggle');
+              const mobileMenu = document.getElementById('mobile-menu-dropdown');
+              const menuIcon = document.getElementById('menu-icon');
+              const closeIcon = document.getElementById('close-icon');
+
+              if (toggleButton && mobileMenu && menuIcon && closeIcon) {
+                  const toggleMenu = (hide) => {
+                      mobileMenu.classList.toggle('hidden', hide);
+                      mobileMenu.classList.toggle('flex', !hide);
+                      menuIcon.classList.toggle('hidden', !hide);
+                      closeIcon.classList.toggle('hidden', hide);
+                  };
+
+                  toggleButton.addEventListener('click', () => toggleMenu(!mobileMenu.classList.contains('hidden')));
+                  mobileMenu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => toggleMenu(true)));
+              }
+
+              // Active Link Highlighting & Auto-scroll
+              const activeLink = document.querySelector('aside .bg-emerald-50, aside .bg-emerald-900\\/30, aside .text-emerald-600');
+              if (activeLink) {
+                  setTimeout(() => activeLink.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 100);
+              }
+
+              const sidebarToggle = document.getElementById('sidebar-toggle');
+              const sidebarMenu = document.getElementById('sidebar-menu');
+              const sidebarArrow = document.getElementById('sidebar-arrow');
+
+              if (sidebarToggle && sidebarMenu) {
+                  sidebarToggle.addEventListener('click', () => {
+                      const isHidden = sidebarMenu.classList.toggle('hidden');
+                      if (sidebarArrow) sidebarArrow.style.transform = isHidden ? 'rotate(0deg)' : 'rotate(180deg)';
+                  });
+              }
+          });
+      </script>
+        </body>
+</html>
