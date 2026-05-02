@@ -33,10 +33,4 @@
     --page-bg-to: var(--color-primary-500);
     --tw-prose-invert-links: var(--color-link);
   }
-
-  .prose a {
-    color: var(--color-link) !important;
-    text-decoration-color: color-mix(in srgb, var(--color-link), transparent 50%);
-    font-weight: 600;
-  }
 }
