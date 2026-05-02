@@ -2,8 +2,10 @@
 
 # Configuration
 PROJECT_ROOT="/var/www/vicflora-model"
-DOCS_DIR="$PROJECT_ROOT/vicflora-docs"
 APP_DOCS_DIR="$PROJECT_ROOT/vicflora-model/public/docs"
+DOCS_DIR="/var/www/vicflora-docs"
+
+JIGSAW_SOURCE="$DOCS_DIR/source"
 
 # Helper function for usage
 usage() {
@@ -31,6 +33,7 @@ cd "$DOCS_DIR"
 case "$1" in
     test)
         echo "🚀 Building for Staging (Test)..."
+        npm run build-erd
         ./vendor/bin/jigsaw build test
         echo "📂 Syncing to Laravel..."
         rm -rf "$APP_DOCS_DIR"/*
@@ -39,6 +42,17 @@ case "$1" in
 
     github)
         echo "🌐 Building for GitHub Pages..."
+
+        # 1. Generate Markdown directly into Jigsaw folders
+        php "$PROJECT_ROOT"/artisan docs:generate-resources \
+            --baseUrl="/vicflora-docs" \
+            --output="$JIGSAW_SOURCE"
+
+        php "$PROJECT_ROOT"/artisan docs:generate-vocabularies \
+            --output="$JIGSAW_SOURCE"
+
+        # 3. Build Jigsaw 
+        npm run build-erd       
         ./vendor/bin/jigsaw build github
         echo "⬆️ Pushing to GitHub..."
         git add build_github -f
@@ -48,15 +62,24 @@ case "$1" in
 
     prod)
         echo "💎 Building for Production..."
+        php "$PROJECT_ROOT"/artisan docs:generate-resources \
+            --baseUrl="" \
+            --output="$JIGSAW_SOURCE"
+
+        php "$PROJECT_ROOT"/artisan docs:generate-vocabularies \
+            --output="$JIGSAW_SOURCE"
+
+        npm run build-erd
         ./vendor/bin/jigsaw build production
-        echo "📂 Syncing to Laravel..."
-        rm -rf "$APP_DOCS_DIR"/*
-        cp -R build_production/. "$APP_DOCS_DIR/"
+        # echo "📂 Syncing to Laravel..."
+        # rm -rf "$APP_DOCS_DIR"/*
+        # cp -R build_production/. "$APP_DOCS_DIR/"
         ;;
 
     all)
         $0 test
         $0 github
+        $0 prod
         ;;
 
     *)
