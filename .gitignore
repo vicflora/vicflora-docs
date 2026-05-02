@@ -10,4 +10,6 @@ hot
 # Optional ignores
 /build_staging/
 /build_production/
+/build_github/
 /source/assets/build/
+resource-map.json
