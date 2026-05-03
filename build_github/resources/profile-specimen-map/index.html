@@ -546,6 +546,13 @@
                     </a>
                 </li>
                                             <li>
+                    <a href="/vicflora-docs/resources/search" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
+                        Search
+                    </a>
+                </li>
+                                            <li>
                     <a href="/vicflora-docs/resources/specimen" 
                         class="block py-1 pl-4 text-sm transition-colors duration-100
                         text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
@@ -683,6 +690,13 @@
                         class="block py-1 pl-4 text-sm transition-colors duration-100
                         text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
                         TreatmentVersion_EXT
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/typification-ext" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
+                        Typification_EXT
                     </a>
                 </li>
                                             <li>
@@ -1152,49 +1166,49 @@
 <td>profile_specimen_map_created_by_id_foreign</td>
 <td>profile_specimen_map</td>
 <td>created_by_id</td>
-<td>agents</td>
+<td><a href="/vicflora-docs/resources/agent">agents</a></td>
 <td>id</td>
 </tr>
 <tr>
 <td>profile_specimen_map_profile_id_foreign</td>
 <td>profile_specimen_map</td>
 <td>profile_id</td>
-<td>profiles</td>
+<td><a href="/vicflora-docs/resources/profile">profiles</a></td>
 <td>taxon_concept_id</td>
 </tr>
 <tr>
 <td>profile_specimen_map_profile_section_id_foreign</td>
 <td>profile_specimen_map</td>
 <td>profile_section_id</td>
-<td>profile_sections</td>
+<td><a href="/vicflora-docs/resources/profile-section">profile_sections</a></td>
 <td>id</td>
 </tr>
 <tr>
 <td>profile_specimen_map_specimen_id_foreign</td>
 <td>profile_specimen_map</td>
 <td>specimen_id</td>
-<td>specimens</td>
+<td><a href="/vicflora-docs/resources/specimen">specimens</a></td>
 <td>id</td>
 </tr>
 <tr>
 <td>profile_specimen_map_taxon_tree_id_foreign</td>
 <td>profile_specimen_map</td>
 <td>taxon_tree_id</td>
-<td>taxon_trees</td>
+<td><a href="/vicflora-docs/resources/taxon-tree">taxon_trees</a></td>
 <td>id</td>
 </tr>
 <tr>
 <td>profile_specimen_map_updated_by_id_foreign</td>
 <td>profile_specimen_map</td>
 <td>updated_by_id</td>
-<td>agents</td>
+<td><a href="/vicflora-docs/resources/agent">agents</a></td>
 <td>id</td>
 </tr>
 <tr>
 <td>profile_specimen_map_voucher_type_id_foreign</td>
 <td>profile_specimen_map</td>
 <td>voucher_type_id</td>
-<td>controlled_terms</td>
+<td><a href="/vicflora-docs/resources/controlled-term">controlled_terms</a></td>
 <td>id</td>
 </tr>
 </tbody>
@@ -1218,25 +1232,25 @@
 <tr>
 <td align="left"><code>profile()</code></td>
 <td align="left"><strong>BelongsTo</strong></td>
-<td align="left">Profile</td>
+<td align="left"><a href="/vicflora-docs/resources/profile">App\Models\Profile\Profile</a></td>
 <td align="left">FK: <code>profile_id</code></td>
 </tr>
 <tr>
 <td align="left"><code>specimen()</code></td>
 <td align="left"><strong>BelongsTo</strong></td>
-<td align="left">Specimen</td>
+<td align="left"><a href="/vicflora-docs/resources/specimen">App\Models\Profile\Specimen</a></td>
 <td align="left">FK: <code>specimen_id</code></td>
 </tr>
 <tr>
 <td align="left"><code>type()</code></td>
 <td align="left"><strong>BelongsTo</strong></td>
-<td align="left">ControlledTerm</td>
+<td align="left"><a href="/vicflora-docs/resources/controlled-term">App\Models\Shared\ControlledTerm</a></td>
 <td align="left">FK: <code>voucher_type_id</code></td>
 </tr>
 <tr>
 <td align="left"><code>tree()</code></td>
 <td align="left"><strong>BelongsTo</strong></td>
-<td align="left">TaxonTree</td>
+<td align="left"><a href="/vicflora-docs/resources/taxon-tree">App\Models\Taxonomy\TaxonTree</a></td>
 <td align="left">FK: <code>taxon_tree_id</code></td>
 </tr>
 </tbody>
@@ -1712,6 +1726,13 @@
                     </a>
                 </li>
                                             <li>
+                    <a href="/vicflora-docs/resources/search" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
+                        Search
+                    </a>
+                </li>
+                                            <li>
                     <a href="/vicflora-docs/resources/specimen" 
                         class="block py-1 pl-4 text-sm transition-colors duration-100
                         text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
@@ -1849,6 +1870,13 @@
                         class="block py-1 pl-4 text-sm transition-colors duration-100
                         text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
                         TreatmentVersion_EXT
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/typification-ext" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
+                        Typification_EXT
                     </a>
                 </li>
                                             <li>

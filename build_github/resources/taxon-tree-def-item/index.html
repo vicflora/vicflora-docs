@@ -546,6 +546,13 @@
                     </a>
                 </li>
                                             <li>
+                    <a href="/vicflora-docs/resources/search" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
+                        Search
+                    </a>
+                </li>
+                                            <li>
                     <a href="/vicflora-docs/resources/specimen" 
                         class="block py-1 pl-4 text-sm transition-colors duration-100
                         text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
@@ -683,6 +690,13 @@
                         class="block py-1 pl-4 text-sm transition-colors duration-100
                         text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
                         TreatmentVersion_EXT
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/typification-ext" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
+                        Typification_EXT
                     </a>
                 </li>
                                             <li>
@@ -987,6 +1001,14 @@
                         Eloquent relationships
                     </a>
                 </li>
+                                            
+                <li class="">
+                    <a href="#controlled-vocabularies" 
+                       class="no-underline transition-colors duration-200 hover:text-gray-900 dark:hover:text-white hover:underline
+                       text-sm font-semibold text-primary-600 dark:text-primary-400">
+                        Controlled Vocabularies
+                    </a>
+                </li>
                     </ul>
     </div>
                   
@@ -1140,28 +1162,28 @@
 <td>taxon_tree_def_items_created_by_id_foreign</td>
 <td>taxon_tree_def_items</td>
 <td>created_by_id</td>
-<td>agents</td>
+<td><a href="/vicflora-docs/resources/agent">agents</a></td>
 <td>id</td>
 </tr>
 <tr>
 <td>taxon_tree_def_items_rank_id_foreign</td>
 <td>taxon_tree_def_items</td>
 <td>rank_id</td>
-<td>controlled_terms</td>
+<td><a href="/vicflora-docs/resources/controlled-term">controlled_terms</a></td>
 <td>id</td>
 </tr>
 <tr>
 <td>taxon_tree_def_items_taxon_tree_id_foreign</td>
 <td>taxon_tree_def_items</td>
 <td>taxon_tree_id</td>
-<td>taxon_trees</td>
+<td><a href="/vicflora-docs/resources/taxon-tree">taxon_trees</a></td>
 <td>id</td>
 </tr>
 <tr>
 <td>taxon_tree_def_items_updated_by_id_foreign</td>
 <td>taxon_tree_def_items</td>
 <td>updated_by_id</td>
-<td>agents</td>
+<td><a href="/vicflora-docs/resources/agent">agents</a></td>
 <td>id</td>
 </tr>
 </tbody>
@@ -1173,17 +1195,17 @@
         <table>
 <thead>
 <tr>
-<th>name</th>
-<th>table</th>
-<th>column</th>
-<th>referenced_table</th>
-<th>referenced_column</th>
+<th>Name</th>
+<th>Table</th>
+<th>Column</th>
+<th>Referenced Table</th>
+<th>Referenced Column</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>taxon_tree_nodes_taxon_tree_def_item_id_foreign</td>
-<td>taxon_tree_nodes</td>
+<td><a href="/vicflora-docs/resources/taxon-tree-node">taxon_tree_nodes</a></td>
 <td>taxon_tree_def_item_id</td>
 <td>taxon_tree_def_items</td>
 <td>id</td>
@@ -1207,26 +1229,44 @@
 <tr>
 <td align="left"><code>taxonTree()</code></td>
 <td align="left"><strong>BelongsTo</strong></td>
-<td align="left">TaxonTree</td>
+<td align="left"><a href="/vicflora-docs/resources/taxon-tree">App\Models\Taxonomy\TaxonTree</a></td>
 <td align="left">FK: <code>taxon_tree_id</code></td>
 </tr>
 <tr>
 <td align="left"><code>rank()</code></td>
 <td align="left"><strong>BelongsTo</strong></td>
-<td align="left">ControlledTerm</td>
+<td align="left"><a href="/vicflora-docs/resources/controlled-term">App\Models\Shared\ControlledTerm</a></td>
 <td align="left">FK: <code>rank_id</code><br><span style="color:orange;">Has custom constraints</span></td>
 </tr>
 <tr>
 <td align="left"><code>createdBy()</code></td>
 <td align="left"><strong>BelongsTo</strong></td>
-<td align="left">Agent</td>
+<td align="left"><a href="/vicflora-docs/resources/agent">App\Models\Shared\Agent</a></td>
 <td align="left">FK: <code>created_by_id</code></td>
 </tr>
 <tr>
 <td align="left"><code>updatedBy()</code></td>
 <td align="left"><strong>BelongsTo</strong></td>
-<td align="left">Agent</td>
+<td align="left"><a href="/vicflora-docs/resources/agent">App\Models\Shared\Agent</a></td>
 <td align="left">FK: <code>updated_by_id</code></td>
+</tr>
+</tbody>
+</table>
+    </table>
+</div><h2 id="controlled-vocabularies">Controlled Vocabularies</h2>
+<div class="mb-6 w-full overflow-x-auto border border-gray-200 dark:border-gray-700">
+    <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+        <table>
+<thead>
+<tr>
+<th align="left">Column</th>
+<th align="left">Vocabulary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>rank_id</code></td>
+<td align="left"><a href="/vicflora-docs/vocabularies/taxon-rank">TaxonRank Vocabulary</a></td>
 </tr>
 </tbody>
 </table>
@@ -1683,6 +1723,13 @@
                     </a>
                 </li>
                                             <li>
+                    <a href="/vicflora-docs/resources/search" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
+                        Search
+                    </a>
+                </li>
+                                            <li>
                     <a href="/vicflora-docs/resources/specimen" 
                         class="block py-1 pl-4 text-sm transition-colors duration-100
                         text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
@@ -1820,6 +1867,13 @@
                         class="block py-1 pl-4 text-sm transition-colors duration-100
                         text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
                         TreatmentVersion_EXT
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/typification-ext" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
+                        Typification_EXT
                     </a>
                 </li>
                                             <li>

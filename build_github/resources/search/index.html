@@ -3,7 +3,7 @@
   <head>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
-      <title>VicFlora | Science infrastructure</title>
+      <title>VicFlora | Search</title>
       <meta name="description" content="" />
       
       <link rel="preconnect" href="https://fonts.bunny.net" />
@@ -112,14 +112,14 @@
                 
                 <div class="mb-8">
                   <h3 class="text-sm font-bold uppercase tracking-wider mb-2 transition-colors duration-200 
-        text-primary-600 dark:text-primary-400">
+        text-gray-600 dark:text-gray-400">
                     Introduction
             </h3>
             <ul class="mb-6 space-y-1 border-l border-gray-100 dark:border-gray-800 ml-1">
                                             <li>
                     <a href="/vicflora-docs/intro/science-infrastructure" 
                         class="block py-1 pl-4 text-sm transition-colors duration-100
-                        text-primary-600 font-bold dark:text-primary-400">
+                        text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
                         Science infrastructure
                     </a>
                 </li>
@@ -247,7 +247,7 @@
     
     
     <h3 class="text-sm font-bold uppercase tracking-wider mb-2 transition-colors duration-200 
-        text-gray-600 dark:text-gray-400">
+        text-primary-600 dark:text-primary-400">
                     Resources
             </h3>
             <ul class="mb-6 space-y-1 border-l border-gray-100 dark:border-gray-800 ml-1">
@@ -548,7 +548,7 @@
                                             <li>
                     <a href="/vicflora-docs/resources/search" 
                         class="block py-1 pl-4 text-sm transition-colors duration-100
-                        text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
+                        text-primary-600 font-bold dark:text-primary-400">
                         Search
                     </a>
                 </li>
@@ -924,18 +924,18 @@
         <li class="flex items-center space-x-2">
             <span class="text-gray-400">/</span>
             
-                            <span class="">Intro</span>
+                            <span class="">Resources</span>
                     </li>
 
                     <li class="flex items-center space-x-2">
                 <span class="text-gray-400">/</span>
-                <span class="text-gray-900 dark:text-white">Science infrastructure</span>
+                <span class="text-gray-900 dark:text-white">Search</span>
             </li>
             </ol>
 </nav>
 
                       <h1 class="text-3xl sm:text-4xl font-semibold text-gray-900 dark:text-white tracking-tight">
-                          Science infrastructure
+                          Search
                       </h1>
                       
                                         </div>
@@ -947,30 +947,157 @@
         <ul class="space-y-3">
                                             
                 <li class="">
-                    <a href="#big-picture" 
+                    <a href="#resource-metadata" 
                        class="no-underline transition-colors duration-200 hover:text-gray-900 dark:hover:text-white hover:underline
                        text-sm font-semibold text-primary-600 dark:text-primary-400">
-                        Big picture
+                        Resource metadata
+                    </a>
+                </li>
+                                            
+                <li class="">
+                    <a href="#columns" 
+                       class="no-underline transition-colors duration-200 hover:text-gray-900 dark:hover:text-white hover:underline
+                       text-sm font-semibold text-primary-600 dark:text-primary-400">
+                        Columns
+                    </a>
+                </li>
+                                            
+                <li class="">
+                    <a href="#indexes" 
+                       class="no-underline transition-colors duration-200 hover:text-gray-900 dark:hover:text-white hover:underline
+                       text-sm font-semibold text-primary-600 dark:text-primary-400">
+                        Indexes
+                    </a>
+                </li>
+                                            
+                <li class="">
+                    <a href="#foreign-key-relationships" 
+                       class="no-underline transition-colors duration-200 hover:text-gray-900 dark:hover:text-white hover:underline
+                       text-sm font-semibold text-primary-600 dark:text-primary-400">
+                        Foreign key relationships
+                    </a>
+                </li>
+                                            
+                <li class="ml-4">
+                    <a href="#references-to-other-tables" 
+                       class="no-underline transition-colors duration-200 hover:text-gray-900 dark:hover:text-white hover:underline
+                       text-sm font-medium text-gray-600 dark:text-gray-400">
+                        References to other tables
+                    </a>
+                </li>
+                                            
+                <li class="ml-4">
+                    <a href="#referenced-by" 
+                       class="no-underline transition-colors duration-200 hover:text-gray-900 dark:hover:text-white hover:underline
+                       text-sm font-medium text-gray-600 dark:text-gray-400">
+                        Referenced by
+                    </a>
+                </li>
+                                            
+                <li class="">
+                    <a href="#eloquent-relationships" 
+                       class="no-underline transition-colors duration-200 hover:text-gray-900 dark:hover:text-white hover:underline
+                       text-sm font-semibold text-primary-600 dark:text-primary-400">
+                        Eloquent relationships
                     </a>
                 </li>
                     </ul>
     </div>
                   
                   <div class="prose dark:prose-invert max-w-none">
-                      <h2 id="big-picture">Big picture</h2>
-<figure class="my-10 flex flex-col items-center w-full">
-    <div class="w-full max-w-7xl p-3 bg-white border border-gray-200 rounded-xl shadow-sm dark:bg-gray-900 dark:border-gray-800">
-        
-        
-        <div class="overflow-hidden rounded-lg">
-            <img src="/vicflora-docs/assets/images/science-infrastructure.drawio.svg" 
-                 alt="Science infrastructure diagram" 
-                 class="block mx-auto w-full h-auto object-contain">
-        </div>
-
-        
-            </div>
-</figure>                  </div>
+                      <h2 id="resource-metadata">Resource metadata</h2>
+<div class="mb-6 w-full overflow-x-auto border border-gray-200 dark:border-gray-700">
+    <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+        <table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Resource type</strong></td>
+<td>map</td>
+</tr>
+<tr>
+<td><strong>Layer</strong></td>
+<td><a href="/vicflora-docs/layers/layer-7-infrastructure#7e-search">7e. Search</a></td>
+</tr>
+<tr>
+<td><strong>Model name</strong></td>
+<td>\App\Models\Search\Search</td>
+</tr>
+<tr>
+<td><strong>Table name</strong></td>
+<td>search_mv</td>
+</tr>
+</tbody>
+</table>
+    </table>
+</div><h2 id="columns">Columns</h2>
+<div class="mb-6 w-full overflow-x-auto border border-gray-200 dark:border-gray-700">
+    <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+        <p><em>No columns found.</em></p>
+    </table>
+</div><h2 id="indexes">Indexes</h2>
+<div class="mb-6 w-full overflow-x-auto border border-gray-200 dark:border-gray-700">
+    <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+        <table>
+<thead>
+<tr>
+<th>name</th>
+<th>definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>search_mv_unique_id_idx</td>
+<td>CREATE UNIQUE INDEX search_mv_unique_id_idx ON public.search_mv USING btree (id)</td>
+</tr>
+<tr>
+<td>search_mv_scientific_name_idx</td>
+<td>CREATE INDEX search_mv_scientific_name_idx ON public.search_mv USING btree (scientific_name)</td>
+</tr>
+<tr>
+<td>search_mv_family_idx</td>
+<td>CREATE INDEX search_mv_family_idx ON public.search_mv USING btree (family)</td>
+</tr>
+<tr>
+<td>search_mv_status_idx</td>
+<td>CREATE INDEX search_mv_status_idx ON public.search_mv USING btree (status)</td>
+</tr>
+</tbody>
+</table>
+    </table>
+</div><h2 id="foreign-key-relationships">Foreign key relationships</h2>
+<h3 id="references-to-other-tables">References to other tables</h3>
+<p><em>No outgoing references.</em></p>
+<h3 id="referenced-by">Referenced by</h3>
+<p><em>No incoming references.</em></p>
+<h2 id="eloquent-relationships">Eloquent relationships</h2>
+<div class="mb-6 w-full overflow-x-auto border border-gray-200 dark:border-gray-700">
+    <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+        <table>
+<thead>
+<tr>
+<th align="left">Method</th>
+<th align="left">Type</th>
+<th align="left">Related Model</th>
+<th align="left">Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>taxonConcept()</code></td>
+<td align="left"><strong>BelongsTo</strong></td>
+<td align="left"><a href="/vicflora-docs/resources/taxon-concept">App\Models\Taxonomy\TaxonConcept</a></td>
+<td align="left">FK: <code>taxon_concept_id</code></td>
+</tr>
+</tbody>
+</table>
+    </table>
+</div>                  </div>
               </div>
           </main>
       </div>
@@ -988,14 +1115,14 @@
 
         <nav class="space-y-4">
             <h3 class="text-sm font-bold uppercase tracking-wider mb-2 transition-colors duration-200 
-        text-primary-600 dark:text-primary-400">
+        text-gray-600 dark:text-gray-400">
                     Introduction
             </h3>
             <ul class="mb-6 space-y-1 border-l border-gray-100 dark:border-gray-800 ml-1">
                                             <li>
                     <a href="/vicflora-docs/intro/science-infrastructure" 
                         class="block py-1 pl-4 text-sm transition-colors duration-100
-                        text-primary-600 font-bold dark:text-primary-400">
+                        text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
                         Science infrastructure
                     </a>
                 </li>
@@ -1123,7 +1250,7 @@
     
     
     <h3 class="text-sm font-bold uppercase tracking-wider mb-2 transition-colors duration-200 
-        text-gray-600 dark:text-gray-400">
+        text-primary-600 dark:text-primary-400">
                     Resources
             </h3>
             <ul class="mb-6 space-y-1 border-l border-gray-100 dark:border-gray-800 ml-1">
@@ -1424,7 +1551,7 @@
                                             <li>
                     <a href="/vicflora-docs/resources/search" 
                         class="block py-1 pl-4 text-sm transition-colors duration-100
-                        text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
+                        text-primary-600 font-bold dark:text-primary-400">
                         Search
                     </a>
                 </li>

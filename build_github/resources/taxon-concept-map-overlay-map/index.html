@@ -546,6 +546,13 @@
                     </a>
                 </li>
                                             <li>
+                    <a href="/vicflora-docs/resources/search" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
+                        Search
+                    </a>
+                </li>
+                                            <li>
                     <a href="/vicflora-docs/resources/specimen" 
                         class="block py-1 pl-4 text-sm transition-colors duration-100
                         text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
@@ -683,6 +690,13 @@
                         class="block py-1 pl-4 text-sm transition-colors duration-100
                         text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
                         TreatmentVersion_EXT
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/typification-ext" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
+                        Typification_EXT
                     </a>
                 </li>
                                             <li>
@@ -990,7 +1004,7 @@
             SQL
         </span>
         
-        <button onclick="copyCode('code_69f5e8deb164d', this)" class="text-gray-400 hover:text-green-600 transition-colors">
+        <button onclick="copyCode('code_69f6e4d7b4472', this)" class="text-gray-400 hover:text-green-600 transition-colors">
             <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 17.25v3.375c0 .621-.504 1.125-1.125 1.125h-9.75a1.125 1.125 0 01-1.125-1.125V7.875c0-.621.504-1.125 1.125-1.125H6.75a9.06 9.06 0 011.5.124m7.5 10.376h3.375c.621 0 1.125-.504 1.125-1.125V11.25c0-4.46-3.243-8.161-7.5-8.876a9.06 9.06 0 00-1.5-.124H9.375c-.621 0-1.125.504-1.125 1.125v3.5m7.5 10.375H9.375a1.125 1.125 0 01-1.125-1.125v-9.25m12 6.625v-1.875a3.375 3.375 0 00-3.375-3.375h-1.5a1.125 1.125 0 01-1.125-1.125v-1.5a3.375 3.375 0 00-3.375-3.375H9.75"></path>
             </svg>
@@ -1001,8 +1015,72 @@
         [&_p]:hidden 
         [&_pre]:!m-0 [&_pre]:!p-0 [&_pre]:!bg-transparent 
         [&_code]:!p-0 [&_code]:!bg-transparent [&_code]:!text-sm [&_code]:!font-bold [&_code]:!leading-tight [&_code]:!text-[var(--hljs-color)]">
-        <div id="code_69f5e8deb164d">
-            -- Add materialized view DDL here
+        <div id="code_69f6e4d7b4472">
+            <pre><code class="language-sql">-- View: mapper.taxon_concept_map_overlay_map
+
+-- DROP MATERIALIZED VIEW IF EXISTS mapper.taxon_concept_map_overlay_map;
+
+CREATE MATERIALIZED VIEW IF NOT EXISTS mapper.taxon_concept_map_overlay_map
+TABLESPACE pg_default
+AS
+ SELECT row_number() OVER ()::integer AS id,
+    tco.taxon_concept_id,
+    tco.taxon_tree_id,
+    mo.layer,
+    mo.id AS map_overlay_id,
+    mo.area_name,
+    (array_agg(tco.occurrence_status ORDER BY (
+        CASE tco.occurrence_status
+            WHEN 'endemic'::text THEN 1
+            WHEN 'present'::text THEN 2
+            WHEN 'extinct'::text THEN 3
+            WHEN 'doubtful'::text THEN 4
+            ELSE 5
+        END)))[1] AS occurrence_status,
+    (array_agg(tco.establishment_means ORDER BY (
+        CASE tco.establishment_means
+            WHEN 'native'::text THEN 1
+            WHEN 'naturalised'::text THEN 2
+            WHEN 'introduced'::text THEN 3
+            WHEN 'cultivated'::text THEN 4
+            ELSE 5
+        END)))[1] AS establishment_means,
+    (array_agg(tco.degree_of_establishment ORDER BY (
+        CASE tco.degree_of_establishment
+            WHEN 'native'::text THEN 1
+            WHEN 'invasive'::text THEN 2
+            WHEN 'established'::text THEN 3
+            WHEN 'reproducing'::text THEN 4
+            WHEN 'casual'::text THEN 5
+            ELSE 6
+        END)))[1] AS degree_of_establishment
+   FROM mapper.taxon_concept_occurrence_map tco
+     JOIN mapper.occurrences o ON tco.occurrence_id = o.id
+     JOIN mapper.map_overlays mo ON mo.layer::text = 'bioregion'::text AND o.bioregion::text = mo.area_name::text OR mo.layer::text = 'lga'::text AND o.lga2023::text = mo.area_name::text OR mo.layer::text = 'park_res'::text AND o.park_res::text = mo.area_name::text
+  GROUP BY tco.taxon_concept_id, tco.taxon_tree_id, mo.layer, mo.id, mo.area_name
+WITH DATA;
+
+ALTER TABLE IF EXISTS mapper.taxon_concept_map_overlay_map
+    OWNER TO vicflora;
+
+
+CREATE INDEX tc_map_overlay_layer_idx
+    ON mapper.taxon_concept_map_overlay_map USING btree
+    (layer COLLATE pg_catalog.&quot;default&quot;)
+    TABLESPACE pg_default;
+CREATE INDEX tc_map_overlay_taxon_idx
+    ON mapper.taxon_concept_map_overlay_map USING btree
+    (taxon_concept_id)
+    TABLESPACE pg_default;
+CREATE INDEX tc_map_overlay_tree_idx
+    ON mapper.taxon_concept_map_overlay_map USING btree
+    (taxon_tree_id)
+    TABLESPACE pg_default;
+CREATE UNIQUE INDEX tc_map_overlay_unique_idx
+    ON mapper.taxon_concept_map_overlay_map USING btree
+    (taxon_concept_id, map_overlay_id)
+    TABLESPACE pg_default;
+</code></pre>
         </div>
     </div>
 </div>                  </div>
@@ -1457,6 +1535,13 @@
                     </a>
                 </li>
                                             <li>
+                    <a href="/vicflora-docs/resources/search" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
+                        Search
+                    </a>
+                </li>
+                                            <li>
                     <a href="/vicflora-docs/resources/specimen" 
                         class="block py-1 pl-4 text-sm transition-colors duration-100
                         text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
@@ -1594,6 +1679,13 @@
                         class="block py-1 pl-4 text-sm transition-colors duration-100
                         text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
                         TreatmentVersion_EXT
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/typification-ext" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
+                        Typification_EXT
                     </a>
                 </li>
                                             <li>

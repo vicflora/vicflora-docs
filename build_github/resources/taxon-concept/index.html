@@ -546,6 +546,13 @@
                     </a>
                 </li>
                                             <li>
+                    <a href="/vicflora-docs/resources/search" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
+                        Search
+                    </a>
+                </li>
+                                            <li>
                     <a href="/vicflora-docs/resources/specimen" 
                         class="block py-1 pl-4 text-sm transition-colors duration-100
                         text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
@@ -683,6 +690,13 @@
                         class="block py-1 pl-4 text-sm transition-colors duration-100
                         text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
                         TreatmentVersion_EXT
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/typification-ext" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
+                        Typification_EXT
                     </a>
                 </li>
                                             <li>
@@ -1156,42 +1170,42 @@
 <td>taxon_concepts_according_to_id_foreign</td>
 <td>taxon_concepts</td>
 <td>according_to_id</td>
-<td>references</td>
+<td><a href="/vicflora-docs/resources/reference">references</a></td>
 <td>id</td>
 </tr>
 <tr>
 <td>taxon_concepts_created_by_id_foreign</td>
 <td>taxon_concepts</td>
 <td>created_by_id</td>
-<td>agents</td>
+<td><a href="/vicflora-docs/resources/agent">agents</a></td>
 <td>id</td>
 </tr>
 <tr>
 <td>taxon_concepts_rank_id_foreign</td>
 <td>taxon_concepts</td>
 <td>rank_id</td>
-<td>controlled_terms</td>
+<td><a href="/vicflora-docs/resources/controlled-term">controlled_terms</a></td>
 <td>id</td>
 </tr>
 <tr>
 <td>taxon_concepts_taxon_name_id_foreign</td>
 <td>taxon_concepts</td>
 <td>taxon_name_id</td>
-<td>taxon_names</td>
+<td><a href="/vicflora-docs/resources/taxon-name">taxon_names</a></td>
 <td>id</td>
 </tr>
 <tr>
 <td>taxon_concepts_taxon_tree_id_foreign</td>
 <td>taxon_concepts</td>
 <td>taxon_tree_id</td>
-<td>taxon_trees</td>
+<td><a href="/vicflora-docs/resources/taxon-tree">taxon_trees</a></td>
 <td>id</td>
 </tr>
 <tr>
 <td>taxon_concepts_updated_by_id_foreign</td>
 <td>taxon_concepts</td>
 <td>updated_by_id</td>
-<td>agents</td>
+<td><a href="/vicflora-docs/resources/agent">agents</a></td>
 <td>id</td>
 </tr>
 </tbody>
@@ -1203,73 +1217,73 @@
         <table>
 <thead>
 <tr>
-<th>name</th>
-<th>table</th>
-<th>column</th>
-<th>referenced_table</th>
-<th>referenced_column</th>
+<th>Name</th>
+<th>Table</th>
+<th>Column</th>
+<th>Referenced Table</th>
+<th>Referenced Column</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>scientific_name_usages_map_taxon_concept_id_foreign</td>
-<td>scientific_name_usages_map</td>
+<td><a href="/vicflora-docs/resources/scientific-name-usage_-m-a-p">scientific_name_usages_map</a></td>
 <td>taxon_concept_id</td>
 <td>taxon_concepts</td>
 <td>id</td>
 </tr>
 <tr>
 <td>vernacular_name_usages_map_taxon_concept_id_foreign</td>
-<td>vernacular_name_usages_map</td>
+<td><a href="/vicflora-docs/resources/vernacular-name-usage_-m-a-p">vernacular_name_usages_map</a></td>
 <td>taxon_concept_id</td>
 <td>taxon_concepts</td>
 <td>id</td>
 </tr>
 <tr>
 <td>taxon_concept_mappings_subject_taxon_concept_id_foreign</td>
-<td>taxon_concept_mappings</td>
+<td><a href="/vicflora-docs/resources/taxon-concept-mapping">taxon_concept_mappings</a></td>
 <td>subject_taxon_concept_id</td>
 <td>taxon_concepts</td>
 <td>id</td>
 </tr>
 <tr>
 <td>taxon_concept_mappings_object_taxon_concept_id_foreign</td>
-<td>taxon_concept_mappings</td>
+<td><a href="/vicflora-docs/resources/taxon-concept-mapping">taxon_concept_mappings</a></td>
 <td>object_taxon_concept_id</td>
 <td>taxon_concepts</td>
 <td>id</td>
 </tr>
 <tr>
 <td>taxon_tree_nodes_taxon_concept_id_foreign</td>
-<td>taxon_tree_nodes</td>
+<td><a href="/vicflora-docs/resources/taxon-tree-node">taxon_tree_nodes</a></td>
 <td>taxon_concept_id</td>
 <td>taxon_concepts</td>
 <td>id</td>
 </tr>
 <tr>
 <td>profiles_taxon_concept_id_foreign</td>
-<td>profiles</td>
+<td><a href="/vicflora-docs/resources/profile">profiles</a></td>
 <td>taxon_concept_id</td>
 <td>taxon_concepts</td>
 <td>id</td>
 </tr>
 <tr>
 <td>taxon_concept_labels_ext_taxon_concept_id_foreign</td>
-<td>taxon_concept_labels_ext</td>
+<td><a href="/vicflora-docs/resources/taxon-concept-label_-e-x-t">taxon_concept_labels_ext</a></td>
 <td>taxon_concept_id</td>
 <td>taxon_concepts</td>
 <td>id</td>
 </tr>
 <tr>
 <td>treatments_ext_taxon_concept_id_foreign</td>
-<td>treatments_ext</td>
+<td><a href="/vicflora-docs/resources/treatment_-e-x-t">treatments_ext</a></td>
 <td>taxon_concept_id</td>
 <td>taxon_concepts</td>
 <td>id</td>
 </tr>
 <tr>
 <td>treatment_versions_ext_taxon_concept_id_foreign</td>
-<td>treatment_versions_ext</td>
+<td><a href="/vicflora-docs/resources/treatment-version_-e-x-t">treatment_versions_ext</a></td>
 <td>taxon_concept_id</td>
 <td>taxon_concepts</td>
 <td>id</td>
@@ -1293,98 +1307,98 @@
 <tr>
 <td align="left"><code>taxonTree()</code></td>
 <td align="left"><strong>BelongsTo</strong></td>
-<td align="left">TaxonTree</td>
+<td align="left"><a href="/vicflora-docs/resources/taxon-tree">App\Models\Taxonomy\TaxonTree</a></td>
 <td align="left">FK: <code>taxon_tree_id</code></td>
 </tr>
 <tr>
 <td align="left"><code>taxonName()</code></td>
 <td align="left"><strong>BelongsTo</strong></td>
-<td align="left">TaxonName</td>
+<td align="left"><a href="/vicflora-docs/resources/taxon-name">App\Models\Taxonomy\TaxonName</a></td>
 <td align="left">FK: <code>taxon_name_id</code></td>
 </tr>
 <tr>
 <td align="left"><code>accordingTo()</code></td>
 <td align="left"><strong>BelongsTo</strong></td>
-<td align="left">Reference</td>
+<td align="left"><a href="/vicflora-docs/resources/reference">App\Models\Shared\Reference</a></td>
 <td align="left">FK: <code>according_to_id</code></td>
 </tr>
 <tr>
 <td align="left"><code>label()</code></td>
 <td align="left"><strong>HasOne</strong></td>
-<td align="left">TaxonConceptLabel</td>
+<td align="left"><a href="/vicflora-docs/resources/taxon-concept-label_-e-x-t">App\Models\Taxonomy\TaxonConceptLabel</a></td>
 <td align="left">Remote FK: <code>taxon_concept_id</code><br><span style="color:orange;">Has custom constraints</span></td>
 </tr>
 <tr>
 <td align="left"><code>rank()</code></td>
 <td align="left"><strong>BelongsTo</strong></td>
-<td align="left">ControlledTerm</td>
+<td align="left"><a href="/vicflora-docs/resources/controlled-term">App\Models\Shared\ControlledTerm</a></td>
 <td align="left">FK: <code>rank_id</code><br><span style="color:orange;">Has custom constraints</span></td>
 </tr>
 <tr>
 <td align="left"><code>acceptedName()</code></td>
 <td align="left"><strong>HasOneThrough</strong></td>
-<td align="left">ScientificName</td>
+<td align="left"><a href="/vicflora-docs/resources/scientific-name_-e-x-t">App\Models\Taxonomy\ScientificName</a></td>
 <td align="left"><span style="color:orange;">Has custom constraints</span></td>
 </tr>
 <tr>
 <td align="left"><code>synonyms()</code></td>
 <td align="left"><strong>HasManyThrough</strong></td>
-<td align="left">ScientificName</td>
+<td align="left"><a href="/vicflora-docs/resources/scientific-name_-e-x-t">App\Models\Taxonomy\ScientificName</a></td>
 <td align="left"><span style="color:orange;">Has custom constraints</span></td>
 </tr>
 <tr>
 <td align="left"><code>vernacularNames()</code></td>
 <td align="left"><strong>HasManyThrough</strong></td>
-<td align="left">VernacularName</td>
+<td align="left"><a href="/vicflora-docs/resources/vernacular-name_-e-x-t">App\Models\Taxonomy\VernacularName</a></td>
 <td align="left"><span style="color:orange;">Has custom constraints</span></td>
 </tr>
 <tr>
 <td align="left"><code>preferredVernacularName()</code></td>
 <td align="left"><strong>HasOneThrough</strong></td>
-<td align="left">VernacularName</td>
+<td align="left"><a href="/vicflora-docs/resources/vernacular-name_-e-x-t">App\Models\Taxonomy\VernacularName</a></td>
 <td align="left"><span style="color:orange;">Has custom constraints</span></td>
 </tr>
 <tr>
 <td align="left"><code>scientificNameUsages()</code></td>
 <td align="left"><strong>HasMany</strong></td>
-<td align="left">ScientificNameUsageMap</td>
+<td align="left"><a href="/vicflora-docs/resources/scientific-name-usage_-m-a-p">App\Models\Taxonomy\ScientificNameUsageMap</a></td>
 <td align="left">Remote FK: <code>taxon_concept_id</code><br><span style="color:orange;">Has custom constraints</span></td>
 </tr>
 <tr>
 <td align="left"><code>vernacularNameUsages()</code></td>
 <td align="left"><strong>HasMany</strong></td>
-<td align="left">VernacularNameUsageMap</td>
+<td align="left"><a href="/vicflora-docs/resources/vernacular-name-usage_-m-a-p">App\Models\Taxonomy\VernacularNameUsageMap</a></td>
 <td align="left">Remote FK: <code>taxon_concept_id</code><br><span style="color:orange;">Has custom constraints</span></td>
 </tr>
 <tr>
 <td align="left"><code>currentPlacement()</code></td>
 <td align="left"><strong>HasOne</strong></td>
-<td align="left">TaxonTreeNode</td>
+<td align="left"><a href="/vicflora-docs/resources/taxon-tree-node">App\Models\Taxonomy\TaxonTreeNode</a></td>
 <td align="left">Remote FK: <code>taxon_concept_id</code><br><span style="color:orange;">Has custom constraints</span></td>
 </tr>
 <tr>
 <td align="left"><code>mappings()</code></td>
 <td align="left"><strong>HasMany</strong></td>
-<td align="left">TaxonConceptMapping</td>
+<td align="left"><a href="/vicflora-docs/resources/taxon-concept-mapping">App\Models\Taxonomy\TaxonConceptMapping</a></td>
 <td align="left">Remote FK: <code>subject_taxon_concept_id</code><br><span style="color:orange;">Has custom constraints</span></td>
 </tr>
 <tr>
 <td align="left"><code>createdBy()</code></td>
 <td align="left"><strong>BelongsTo</strong></td>
-<td align="left">Agent</td>
+<td align="left"><a href="/vicflora-docs/resources/agent">App\Models\Shared\Agent</a></td>
 <td align="left">FK: <code>created_by_id</code></td>
 </tr>
 <tr>
 <td align="left"><code>updatedBy()</code></td>
 <td align="left"><strong>BelongsTo</strong></td>
-<td align="left">Agent</td>
+<td align="left"><a href="/vicflora-docs/resources/agent">App\Models\Shared\Agent</a></td>
 <td align="left">FK: <code>updated_by_id</code></td>
 </tr>
 <tr>
 <td align="left"><code>externalIdentities()</code></td>
 <td align="left"><strong>MorphToMany</strong></td>
-<td align="left">ExternalIdentity</td>
-<td align="left">Pivot: <code>entity_identity_map</code><br><span style="color:orange;">Has custom constraints</span></td>
+<td align="left"><a href="/vicflora-docs/resources/external-identity">App\Models\Shared\ExternalIdentity</a></td>
+<td align="left">Pivot: <code>[entity_identity_map](/vicflora-docs/resources/entity_-identity_-m-a-p)</code><br><span style="color:orange;">Has custom constraints</span></td>
 </tr>
 </tbody>
 </table>
@@ -1859,6 +1873,13 @@
                     </a>
                 </li>
                                             <li>
+                    <a href="/vicflora-docs/resources/search" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
+                        Search
+                    </a>
+                </li>
+                                            <li>
                     <a href="/vicflora-docs/resources/specimen" 
                         class="block py-1 pl-4 text-sm transition-colors duration-100
                         text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
@@ -1996,6 +2017,13 @@
                         class="block py-1 pl-4 text-sm transition-colors duration-100
                         text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
                         TreatmentVersion_EXT
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/typification-ext" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
+                        Typification_EXT
                     </a>
                 </li>
                                             <li>

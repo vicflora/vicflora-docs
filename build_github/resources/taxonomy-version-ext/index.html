@@ -546,6 +546,13 @@
                     </a>
                 </li>
                                             <li>
+                    <a href="/vicflora-docs/resources/search" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
+                        Search
+                    </a>
+                </li>
+                                            <li>
                     <a href="/vicflora-docs/resources/specimen" 
                         class="block py-1 pl-4 text-sm transition-colors duration-100
                         text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
@@ -683,6 +690,13 @@
                         class="block py-1 pl-4 text-sm transition-colors duration-100
                         text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
                         TreatmentVersion_EXT
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/typification-ext" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
+                        Typification_EXT
                     </a>
                 </li>
                                             <li>
@@ -1008,7 +1022,7 @@
 </tr>
 <tr>
 <td><strong>Layer</strong></td>
-<td><a href="/vicflora-docs/layers/layer-4-authority#4a-bibliography">4a. Bibliography</a></td>
+<td><a href="/vicflora-docs/layers/layer-4-authority#4a-provenance">4a. Provenance</a></td>
 </tr>
 <tr>
 <td><strong>Model name</strong></td>
@@ -1116,28 +1130,28 @@
 <td>taxonomy_versions_ext_created_by_id_foreign</td>
 <td>taxonomy_versions_ext</td>
 <td>created_by_id</td>
-<td>agents</td>
+<td><a href="/vicflora-docs/resources/agent">agents</a></td>
 <td>id</td>
 </tr>
 <tr>
 <td>taxonomy_versions_ext_id_foreign</td>
 <td>taxonomy_versions_ext</td>
 <td>id</td>
-<td>references</td>
+<td><a href="/vicflora-docs/resources/reference">references</a></td>
 <td>id</td>
 </tr>
 <tr>
 <td>taxonomy_versions_ext_taxonomy_id_foreign</td>
 <td>taxonomy_versions_ext</td>
 <td>taxonomy_id</td>
-<td>taxonomies_ext</td>
+<td><a href="/vicflora-docs/resources/taxonomy_-e-x-t">taxonomies_ext</a></td>
 <td>id</td>
 </tr>
 <tr>
 <td>taxonomy_versions_ext_updated_by_id_foreign</td>
 <td>taxonomy_versions_ext</td>
 <td>updated_by_id</td>
-<td>agents</td>
+<td><a href="/vicflora-docs/resources/agent">agents</a></td>
 <td>id</td>
 </tr>
 </tbody>
@@ -1149,17 +1163,17 @@
         <table>
 <thead>
 <tr>
-<th>name</th>
-<th>table</th>
-<th>column</th>
-<th>referenced_table</th>
-<th>referenced_column</th>
+<th>Name</th>
+<th>Table</th>
+<th>Column</th>
+<th>Referenced Table</th>
+<th>Referenced Column</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>taxon_tree_revisions_taxonomy_version_id_foreign</td>
-<td>taxon_tree_revisions</td>
+<td><a href="/vicflora-docs/resources/taxon-tree-revision">taxon_tree_revisions</a></td>
 <td>taxonomy_version_id</td>
 <td>taxonomy_versions_ext</td>
 <td>id</td>
@@ -1183,13 +1197,13 @@
 <tr>
 <td align="left"><code>reference()</code></td>
 <td align="left"><strong>BelongsTo</strong></td>
-<td align="left">Reference</td>
+<td align="left"><a href="/vicflora-docs/resources/reference">App\Models\Shared\Reference</a></td>
 <td align="left">FK: <code>id</code></td>
 </tr>
 <tr>
 <td align="left"><code>taxonomy()</code></td>
 <td align="left"><strong>BelongsTo</strong></td>
-<td align="left">Taxonomy</td>
+<td align="left"><a href="/vicflora-docs/resources/taxonomy_-e-x-t">App\Models\Taxonomy\Taxonomy</a></td>
 <td align="left">FK: <code>taxonomy_id</code></td>
 </tr>
 </tbody>
@@ -1647,6 +1661,13 @@
                     </a>
                 </li>
                                             <li>
+                    <a href="/vicflora-docs/resources/search" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
+                        Search
+                    </a>
+                </li>
+                                            <li>
                     <a href="/vicflora-docs/resources/specimen" 
                         class="block py-1 pl-4 text-sm transition-colors duration-100
                         text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
@@ -1784,6 +1805,13 @@
                         class="block py-1 pl-4 text-sm transition-colors duration-100
                         text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
                         TreatmentVersion_EXT
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/typification-ext" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
+                        Typification_EXT
                     </a>
                 </li>
                                             <li>
