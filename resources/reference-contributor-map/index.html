@@ -546,6 +546,13 @@
                     </a>
                 </li>
                                             <li>
+                    <a href="/vicflora-docs/resources/search" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
+                        Search
+                    </a>
+                </li>
+                                            <li>
                     <a href="/vicflora-docs/resources/specimen" 
                         class="block py-1 pl-4 text-sm transition-colors duration-100
                         text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
@@ -683,6 +690,13 @@
                         class="block py-1 pl-4 text-sm transition-colors duration-100
                         text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
                         TreatmentVersion_EXT
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/typification-ext" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
+                        Typification_EXT
                     </a>
                 </li>
                                             <li>
@@ -1016,7 +1030,7 @@
 </tr>
 <tr>
 <td><strong>Layer</strong></td>
-<td><a href="/vicflora-docs/layers/layer-4-authority#4a-bibliography">4a. Bibliography</a></td>
+<td><a href="/vicflora-docs/layers/layer-4-authority#4a-provenance">4a. Provenance</a></td>
 </tr>
 <tr>
 <td><strong>Model name</strong></td>
@@ -1024,7 +1038,7 @@
 </tr>
 <tr>
 <td><strong>Table name</strong></td>
-<td>reference_contributor_map</td>
+<td>reference_contributors_map</td>
 </tr>
 </tbody>
 </table>
@@ -1032,17 +1046,155 @@
 </div><h2 id="columns">Columns</h2>
 <div class="mb-6 w-full overflow-x-auto border border-gray-200 dark:border-gray-700">
     <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
-        <p><em>No columns found.</em></p>
+        <table>
+<thead>
+<tr>
+<th>column name</th>
+<th>data type</th>
+<th>nullable</th>
+<th>default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>bigint</td>
+<td>NO</td>
+<td>nextval('reference_contributors_map_id_seq'::regclass)</td>
+</tr>
+<tr>
+<td>reference_id</td>
+<td>bigint</td>
+<td>NO</td>
+<td></td>
+</tr>
+<tr>
+<td>agent_id</td>
+<td>bigint</td>
+<td>NO</td>
+<td></td>
+</tr>
+<tr>
+<td>contributor_role_id</td>
+<td>bigint</td>
+<td>NO</td>
+<td></td>
+</tr>
+<tr>
+<td>sequence</td>
+<td>smallint</td>
+<td>NO</td>
+<td>'1'::smallint</td>
+</tr>
+<tr>
+<td>version</td>
+<td>smallint</td>
+<td>NO</td>
+<td>'1'::smallint</td>
+</tr>
+<tr>
+<td>created_by_id</td>
+<td>bigint</td>
+<td>YES</td>
+<td></td>
+</tr>
+<tr>
+<td>updated_by_id</td>
+<td>bigint</td>
+<td>YES</td>
+<td></td>
+</tr>
+<tr>
+<td>created_at</td>
+<td>timestamp with time zone</td>
+<td>YES</td>
+<td></td>
+</tr>
+<tr>
+<td>updated_at</td>
+<td>timestamp with time zone</td>
+<td>YES</td>
+<td></td>
+</tr>
+</tbody>
+</table>
     </table>
 </div><h2 id="indexes">Indexes</h2>
 <div class="mb-6 w-full overflow-x-auto border border-gray-200 dark:border-gray-700">
     <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
-        <p><em>No indexes found.</em></p>
+        <table>
+<thead>
+<tr>
+<th>name</th>
+<th>definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>reference_contributors_map_pkey</td>
+<td>CREATE UNIQUE INDEX reference_contributors_map_pkey ON public.reference_contributors_map USING btree (id)</td>
+</tr>
+<tr>
+<td>ref_agent_role_unique</td>
+<td>CREATE UNIQUE INDEX ref_agent_role_unique ON public.reference_contributors_map USING btree (reference_id, agent_id, contributor_role_id)</td>
+</tr>
+</tbody>
+</table>
     </table>
 </div><h2 id="foreign-key-relationships">Foreign key relationships</h2>
 <h3 id="references-to-other-tables">References to other tables</h3>
-<p><em>No outgoing references.</em></p>
-<h3 id="referenced-by">Referenced by</h3>
+<div class="mb-6 w-full overflow-x-auto border border-gray-200 dark:border-gray-700">
+    <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+        <table>
+<thead>
+<tr>
+<th>name</th>
+<th>table</th>
+<th>column</th>
+<th>referenced table</th>
+<th>referenced column</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>reference_contributors_map_agent_id_foreign</td>
+<td>reference_contributors_map</td>
+<td>agent_id</td>
+<td><a href="/vicflora-docs/resources/agent">agents</a></td>
+<td>id</td>
+</tr>
+<tr>
+<td>reference_contributors_map_contributor_role_id_foreign</td>
+<td>reference_contributors_map</td>
+<td>contributor_role_id</td>
+<td><a href="/vicflora-docs/resources/controlled-term">controlled_terms</a></td>
+<td>id</td>
+</tr>
+<tr>
+<td>reference_contributors_map_created_by_id_foreign</td>
+<td>reference_contributors_map</td>
+<td>created_by_id</td>
+<td><a href="/vicflora-docs/resources/agent">agents</a></td>
+<td>id</td>
+</tr>
+<tr>
+<td>reference_contributors_map_reference_id_foreign</td>
+<td>reference_contributors_map</td>
+<td>reference_id</td>
+<td><a href="/vicflora-docs/resources/reference">references</a></td>
+<td>id</td>
+</tr>
+<tr>
+<td>reference_contributors_map_updated_by_id_foreign</td>
+<td>reference_contributors_map</td>
+<td>updated_by_id</td>
+<td><a href="/vicflora-docs/resources/agent">agents</a></td>
+<td>id</td>
+</tr>
+</tbody>
+</table>
+    </table>
+</div><h3 id="referenced-by">Referenced by</h3>
 <p><em>No incoming references.</em></p>
 <h2 id="eloquent-relationships">Eloquent relationships</h2>
 <div class="mb-6 w-full overflow-x-auto border border-gray-200 dark:border-gray-700">
@@ -1060,31 +1212,31 @@
 <tr>
 <td align="left"><code>role()</code></td>
 <td align="left"><strong>BelongsTo</strong></td>
-<td align="left">ControlledTerm</td>
+<td align="left"><a href="/vicflora-docs/resources/controlled-term">App\Models\Shared\ControlledTerm</a></td>
 <td align="left">FK: <code>contributor_role_id</code></td>
 </tr>
 <tr>
 <td align="left"><code>agent()</code></td>
 <td align="left"><strong>BelongsTo</strong></td>
-<td align="left">Agent</td>
+<td align="left"><a href="/vicflora-docs/resources/agent">App\Models\Shared\Agent</a></td>
 <td align="left">FK: <code>agent_id</code></td>
 </tr>
 <tr>
 <td align="left"><code>reference()</code></td>
 <td align="left"><strong>BelongsTo</strong></td>
-<td align="left">Reference</td>
+<td align="left"><a href="/vicflora-docs/resources/reference">App\Models\Shared\Reference</a></td>
 <td align="left">FK: <code>reference_id</code></td>
 </tr>
 <tr>
 <td align="left"><code>createdBy()</code></td>
 <td align="left"><strong>BelongsTo</strong></td>
-<td align="left">Agent</td>
+<td align="left"><a href="/vicflora-docs/resources/agent">App\Models\Shared\Agent</a></td>
 <td align="left">FK: <code>created_by_id</code></td>
 </tr>
 <tr>
 <td align="left"><code>updatedBy()</code></td>
 <td align="left"><strong>BelongsTo</strong></td>
-<td align="left">Agent</td>
+<td align="left"><a href="/vicflora-docs/resources/agent">App\Models\Shared\Agent</a></td>
 <td align="left">FK: <code>updated_by_id</code></td>
 </tr>
 </tbody>
@@ -1560,6 +1712,13 @@
                     </a>
                 </li>
                                             <li>
+                    <a href="/vicflora-docs/resources/search" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
+                        Search
+                    </a>
+                </li>
+                                            <li>
                     <a href="/vicflora-docs/resources/specimen" 
                         class="block py-1 pl-4 text-sm transition-colors duration-100
                         text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
@@ -1697,6 +1856,13 @@
                         class="block py-1 pl-4 text-sm transition-colors duration-100
                         text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
                         TreatmentVersion_EXT
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/typification-ext" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
+                        Typification_EXT
                     </a>
                 </li>
                                             <li>

@@ -546,6 +546,13 @@
                     </a>
                 </li>
                                             <li>
+                    <a href="/vicflora-docs/resources/search" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
+                        Search
+                    </a>
+                </li>
+                                            <li>
                     <a href="/vicflora-docs/resources/specimen" 
                         class="block py-1 pl-4 text-sm transition-colors duration-100
                         text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
@@ -683,6 +690,13 @@
                         class="block py-1 pl-4 text-sm transition-colors duration-100
                         text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
                         TreatmentVersion_EXT
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/typification-ext" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
+                        Typification_EXT
                     </a>
                 </li>
                                             <li>
@@ -1016,7 +1030,7 @@
 </tr>
 <tr>
 <td><strong>Layer</strong></td>
-<td><a href="/vicflora-docs/layers/layer-4-authority#4b-audit">4b. Audit</a></td>
+<td><a href="/vicflora-docs/layers/layer-4-authority#4b-attribution">4b. Attribution</a></td>
 </tr>
 <tr>
 <td><strong>Model name</strong></td>
@@ -1170,28 +1184,28 @@
 <td>agents_agent_type_id_foreign</td>
 <td>agents</td>
 <td>agent_type_id</td>
-<td>controlled_terms</td>
+<td><a href="/vicflora-docs/resources/controlled-term">controlled_terms</a></td>
 <td>id</td>
 </tr>
 <tr>
 <td>agents_created_by_id_foreign</td>
 <td>agents</td>
 <td>created_by_id</td>
-<td>agents</td>
+<td><a href="/vicflora-docs/resources/agent">agents</a></td>
 <td>id</td>
 </tr>
 <tr>
 <td>agents_updated_by_id_foreign</td>
 <td>agents</td>
 <td>updated_by_id</td>
-<td>agents</td>
+<td><a href="/vicflora-docs/resources/agent">agents</a></td>
 <td>id</td>
 </tr>
 <tr>
 <td>agents_user_id_foreign</td>
 <td>agents</td>
 <td>user_id</td>
-<td>users</td>
+<td><a href="/vicflora-docs/resources/user">users</a></td>
 <td>id</td>
 </tr>
 </tbody>
@@ -1203,871 +1217,871 @@
         <table>
 <thead>
 <tr>
-<th>name</th>
-<th>table</th>
-<th>column</th>
-<th>referenced_table</th>
-<th>referenced_column</th>
+<th>Name</th>
+<th>Table</th>
+<th>Column</th>
+<th>Referenced Table</th>
+<th>Referenced Column</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>agents_created_by_id_foreign</td>
-<td>agents</td>
+<td><a href="/vicflora-docs/resources/agent">agents</a></td>
 <td>created_by_id</td>
 <td>agents</td>
 <td>id</td>
 </tr>
 <tr>
 <td>agents_updated_by_id_foreign</td>
-<td>agents</td>
+<td><a href="/vicflora-docs/resources/agent">agents</a></td>
 <td>updated_by_id</td>
 <td>agents</td>
 <td>id</td>
 </tr>
 <tr>
 <td>controlled_vocabularies_created_by_id_foreign</td>
-<td>controlled_vocabularies</td>
+<td><a href="/vicflora-docs/resources/controlled-vocabulary">controlled_vocabularies</a></td>
 <td>created_by_id</td>
 <td>agents</td>
 <td>id</td>
 </tr>
 <tr>
 <td>controlled_vocabularies_updated_by_id_foreign</td>
-<td>controlled_vocabularies</td>
+<td><a href="/vicflora-docs/resources/controlled-vocabulary">controlled_vocabularies</a></td>
 <td>updated_by_id</td>
 <td>agents</td>
 <td>id</td>
 </tr>
 <tr>
 <td>controlled_terms_created_by_id_foreign</td>
-<td>controlled_terms</td>
+<td><a href="/vicflora-docs/resources/controlled-term">controlled_terms</a></td>
 <td>created_by_id</td>
 <td>agents</td>
 <td>id</td>
 </tr>
 <tr>
 <td>controlled_terms_updated_by_id_foreign</td>
-<td>controlled_terms</td>
+<td><a href="/vicflora-docs/resources/controlled-term">controlled_terms</a></td>
 <td>updated_by_id</td>
 <td>agents</td>
 <td>id</td>
 </tr>
 <tr>
 <td>audit_logs_agent_id_foreign</td>
-<td>audit_logs</td>
+<td><a href="/vicflora-docs/resources/audit-log">audit_logs</a></td>
 <td>agent_id</td>
 <td>agents</td>
 <td>id</td>
 </tr>
 <tr>
 <td>references_created_by_id_foreign</td>
-<td>references</td>
+<td><a href="/vicflora-docs/resources/reference">references</a></td>
 <td>created_by_id</td>
 <td>agents</td>
 <td>id</td>
 </tr>
 <tr>
 <td>references_updated_by_id_foreign</td>
-<td>references</td>
+<td><a href="/vicflora-docs/resources/reference">references</a></td>
 <td>updated_by_id</td>
 <td>agents</td>
 <td>id</td>
 </tr>
 <tr>
 <td>taxonomies_ext_created_by_id_foreign</td>
-<td>taxonomies_ext</td>
+<td><a href="/vicflora-docs/resources/taxonomy_-e-x-t">taxonomies_ext</a></td>
 <td>created_by_id</td>
 <td>agents</td>
 <td>id</td>
 </tr>
 <tr>
 <td>taxonomies_ext_updated_by_id_foreign</td>
-<td>taxonomies_ext</td>
+<td><a href="/vicflora-docs/resources/taxonomy_-e-x-t">taxonomies_ext</a></td>
 <td>updated_by_id</td>
 <td>agents</td>
 <td>id</td>
 </tr>
 <tr>
 <td>taxonomy_versions_ext_created_by_id_foreign</td>
-<td>taxonomy_versions_ext</td>
+<td><a href="/vicflora-docs/resources/taxonomy-version_-e-x-t">taxonomy_versions_ext</a></td>
 <td>created_by_id</td>
 <td>agents</td>
 <td>id</td>
 </tr>
 <tr>
 <td>taxonomy_versions_ext_updated_by_id_foreign</td>
-<td>taxonomy_versions_ext</td>
+<td><a href="/vicflora-docs/resources/taxonomy-version_-e-x-t">taxonomy_versions_ext</a></td>
 <td>updated_by_id</td>
 <td>agents</td>
 <td>id</td>
 </tr>
 <tr>
 <td>protologues_ext_created_by_id_foreign</td>
-<td>protologues_ext</td>
+<td><a href="/vicflora-docs/resources/protologue_-e-x-t">protologues_ext</a></td>
 <td>created_by_id</td>
 <td>agents</td>
 <td>id</td>
 </tr>
 <tr>
 <td>protologues_ext_updated_by_id_foreign</td>
-<td>protologues_ext</td>
+<td><a href="/vicflora-docs/resources/protologue_-e-x-t">protologues_ext</a></td>
 <td>updated_by_id</td>
 <td>agents</td>
 <td>id</td>
 </tr>
 <tr>
 <td>gazetteers_ext_created_by_id_foreign</td>
-<td>gazetteers_ext</td>
+<td><a href="/vicflora-docs/resources/gazetteer_-e-x-t">gazetteers_ext</a></td>
 <td>created_by_id</td>
 <td>agents</td>
 <td>id</td>
 </tr>
 <tr>
 <td>gazetteers_ext_updated_by_id_foreign</td>
-<td>gazetteers_ext</td>
+<td><a href="/vicflora-docs/resources/gazetteer_-e-x-t">gazetteers_ext</a></td>
 <td>updated_by_id</td>
 <td>agents</td>
 <td>id</td>
 </tr>
 <tr>
 <td>threat_status_authorities_ext_created_by_id_foreign</td>
-<td>threat_status_authorities_ext</td>
+<td><a href="/vicflora-docs/resources/threat-status-authority_-e-x-t">threat_status_authorities_ext</a></td>
 <td>created_by_id</td>
 <td>agents</td>
 <td>id</td>
 </tr>
 <tr>
 <td>threat_status_authorities_ext_updated_by_id_foreign</td>
-<td>threat_status_authorities_ext</td>
+<td><a href="/vicflora-docs/resources/threat-status-authority_-e-x-t">threat_status_authorities_ext</a></td>
 <td>updated_by_id</td>
 <td>agents</td>
 <td>id</td>
 </tr>
 <tr>
 <td>external_identity_authorities_ext_created_by_id_foreign</td>
-<td>external_identity_authorities_ext</td>
+<td><a href="/vicflora-docs/resources/external-identity-authority_-e-x-t">external_identity_authorities_ext</a></td>
 <td>created_by_id</td>
 <td>agents</td>
 <td>id</td>
 </tr>
 <tr>
 <td>external_identity_authorities_ext_updated_by_id_foreign</td>
-<td>external_identity_authorities_ext</td>
+<td><a href="/vicflora-docs/resources/external-identity-authority_-e-x-t">external_identity_authorities_ext</a></td>
 <td>updated_by_id</td>
 <td>agents</td>
 <td>id</td>
 </tr>
 <tr>
 <td>taxon_names_created_by_id_foreign</td>
-<td>taxon_names</td>
+<td><a href="/vicflora-docs/resources/taxon-name">taxon_names</a></td>
 <td>created_by_id</td>
 <td>agents</td>
 <td>id</td>
 </tr>
 <tr>
 <td>taxon_names_updated_by_id_foreign</td>
-<td>taxon_names</td>
+<td><a href="/vicflora-docs/resources/taxon-name">taxon_names</a></td>
 <td>updated_by_id</td>
 <td>agents</td>
 <td>id</td>
 </tr>
 <tr>
 <td>scientific_names_ext_created_by_id_foreign</td>
-<td>scientific_names_ext</td>
+<td><a href="/vicflora-docs/resources/scientific-name_-e-x-t">scientific_names_ext</a></td>
 <td>created_by_id</td>
 <td>agents</td>
 <td>id</td>
 </tr>
 <tr>
 <td>scientific_names_ext_updated_by_id_foreign</td>
-<td>scientific_names_ext</td>
+<td><a href="/vicflora-docs/resources/scientific-name_-e-x-t">scientific_names_ext</a></td>
 <td>updated_by_id</td>
 <td>agents</td>
 <td>id</td>
 </tr>
 <tr>
 <td>vernacular_names_ext_created_by_id_foreign</td>
-<td>vernacular_names_ext</td>
+<td><a href="/vicflora-docs/resources/vernacular-name_-e-x-t">vernacular_names_ext</a></td>
 <td>created_by_id</td>
 <td>agents</td>
 <td>id</td>
 </tr>
 <tr>
 <td>vernacular_names_ext_updated_by_id_foreign</td>
-<td>vernacular_names_ext</td>
+<td><a href="/vicflora-docs/resources/vernacular-name_-e-x-t">vernacular_names_ext</a></td>
 <td>updated_by_id</td>
 <td>agents</td>
 <td>id</td>
 </tr>
 <tr>
 <td>name_relations_map_created_by_id_foreign</td>
-<td>name_relations_map</td>
+<td><a href="/vicflora-docs/resources/name-relation_-m-a-p">name_relations_map</a></td>
 <td>created_by_id</td>
 <td>agents</td>
 <td>id</td>
 </tr>
 <tr>
 <td>name_relations_map_updated_by_id_foreign</td>
-<td>name_relations_map</td>
+<td><a href="/vicflora-docs/resources/name-relation_-m-a-p">name_relations_map</a></td>
 <td>updated_by_id</td>
 <td>agents</td>
 <td>id</td>
 </tr>
 <tr>
 <td>taxon_trees_created_by_id_foreign</td>
-<td>taxon_trees</td>
+<td><a href="/vicflora-docs/resources/taxon-tree">taxon_trees</a></td>
 <td>created_by_id</td>
 <td>agents</td>
 <td>id</td>
 </tr>
 <tr>
 <td>taxon_trees_updated_by_id_foreign</td>
-<td>taxon_trees</td>
+<td><a href="/vicflora-docs/resources/taxon-tree">taxon_trees</a></td>
 <td>updated_by_id</td>
 <td>agents</td>
 <td>id</td>
 </tr>
 <tr>
 <td>taxon_tree_geographic_scope_map_created_by_id_foreign</td>
-<td>taxon_tree_geographic_scope_map</td>
+<td><a href="/vicflora-docs/resources/taxon-tree_-geographic-scope_-m-a-p">taxon_tree_geographic_scope_map</a></td>
 <td>created_by_id</td>
 <td>agents</td>
 <td>id</td>
 </tr>
 <tr>
 <td>taxon_tree_geographic_scope_map_updated_by_id_foreign</td>
-<td>taxon_tree_geographic_scope_map</td>
+<td><a href="/vicflora-docs/resources/taxon-tree_-geographic-scope_-m-a-p">taxon_tree_geographic_scope_map</a></td>
 <td>updated_by_id</td>
 <td>agents</td>
 <td>id</td>
 </tr>
 <tr>
 <td>taxon_concepts_created_by_id_foreign</td>
-<td>taxon_concepts</td>
+<td><a href="/vicflora-docs/resources/taxon-concept">taxon_concepts</a></td>
 <td>created_by_id</td>
 <td>agents</td>
 <td>id</td>
 </tr>
 <tr>
 <td>taxon_concepts_updated_by_id_foreign</td>
-<td>taxon_concepts</td>
+<td><a href="/vicflora-docs/resources/taxon-concept">taxon_concepts</a></td>
 <td>updated_by_id</td>
 <td>agents</td>
 <td>id</td>
 </tr>
 <tr>
 <td>scientific_name_usages_map_created_by_id_foreign</td>
-<td>scientific_name_usages_map</td>
+<td><a href="/vicflora-docs/resources/scientific-name-usage_-m-a-p">scientific_name_usages_map</a></td>
 <td>created_by_id</td>
 <td>agents</td>
 <td>id</td>
 </tr>
 <tr>
 <td>scientific_name_usages_map_updated_by_id_foreign</td>
-<td>scientific_name_usages_map</td>
+<td><a href="/vicflora-docs/resources/scientific-name-usage_-m-a-p">scientific_name_usages_map</a></td>
 <td>updated_by_id</td>
 <td>agents</td>
 <td>id</td>
 </tr>
 <tr>
 <td>vernacular_name_usages_map_created_by_id_foreign</td>
-<td>vernacular_name_usages_map</td>
+<td><a href="/vicflora-docs/resources/vernacular-name-usage_-m-a-p">vernacular_name_usages_map</a></td>
 <td>created_by_id</td>
 <td>agents</td>
 <td>id</td>
 </tr>
 <tr>
 <td>vernacular_name_usages_map_updated_by_id_foreign</td>
-<td>vernacular_name_usages_map</td>
+<td><a href="/vicflora-docs/resources/vernacular-name-usage_-m-a-p">vernacular_name_usages_map</a></td>
 <td>updated_by_id</td>
 <td>agents</td>
 <td>id</td>
 </tr>
 <tr>
 <td>taxon_concept_mappings_created_by_id_foreign</td>
-<td>taxon_concept_mappings</td>
+<td><a href="/vicflora-docs/resources/taxon-concept-mapping">taxon_concept_mappings</a></td>
 <td>created_by_id</td>
 <td>agents</td>
 <td>id</td>
 </tr>
 <tr>
 <td>taxon_concept_mappings_updated_by_id_foreign</td>
-<td>taxon_concept_mappings</td>
+<td><a href="/vicflora-docs/resources/taxon-concept-mapping">taxon_concept_mappings</a></td>
 <td>updated_by_id</td>
 <td>agents</td>
 <td>id</td>
 </tr>
 <tr>
 <td>specimens_created_by_id_foreign</td>
-<td>specimens</td>
+<td><a href="/vicflora-docs/resources/specimen">specimens</a></td>
 <td>created_by_id</td>
 <td>agents</td>
 <td>id</td>
 </tr>
 <tr>
 <td>specimens_updated_by_id_foreign</td>
-<td>specimens</td>
+<td><a href="/vicflora-docs/resources/specimen">specimens</a></td>
 <td>updated_by_id</td>
 <td>agents</td>
 <td>id</td>
 </tr>
 <tr>
 <td>nomenclatural_types_created_by_id_foreign</td>
-<td>nomenclatural_types</td>
+<td><a href="/vicflora-docs/resources/nomenclatural-type">nomenclatural_types</a></td>
 <td>created_by_id</td>
 <td>agents</td>
 <td>id</td>
 </tr>
 <tr>
 <td>nomenclatural_types_updated_by_id_foreign</td>
-<td>nomenclatural_types</td>
+<td><a href="/vicflora-docs/resources/nomenclatural-type">nomenclatural_types</a></td>
 <td>updated_by_id</td>
 <td>agents</td>
 <td>id</td>
 </tr>
 <tr>
 <td>taxon_tree_def_items_created_by_id_foreign</td>
-<td>taxon_tree_def_items</td>
+<td><a href="/vicflora-docs/resources/taxon-tree-def-item">taxon_tree_def_items</a></td>
 <td>created_by_id</td>
 <td>agents</td>
 <td>id</td>
 </tr>
 <tr>
 <td>taxon_tree_def_items_updated_by_id_foreign</td>
-<td>taxon_tree_def_items</td>
+<td><a href="/vicflora-docs/resources/taxon-tree-def-item">taxon_tree_def_items</a></td>
 <td>updated_by_id</td>
 <td>agents</td>
 <td>id</td>
 </tr>
 <tr>
 <td>taxon_tree_nodes_created_by_id_foreign</td>
-<td>taxon_tree_nodes</td>
+<td><a href="/vicflora-docs/resources/taxon-tree-node">taxon_tree_nodes</a></td>
 <td>created_by_id</td>
 <td>agents</td>
 <td>id</td>
 </tr>
 <tr>
 <td>taxon_tree_nodes_updated_by_id_foreign</td>
-<td>taxon_tree_nodes</td>
+<td><a href="/vicflora-docs/resources/taxon-tree-node">taxon_tree_nodes</a></td>
 <td>updated_by_id</td>
 <td>agents</td>
 <td>id</td>
 </tr>
 <tr>
 <td>taxon_tree_revisions_created_by_id_foreign</td>
-<td>taxon_tree_revisions</td>
+<td><a href="/vicflora-docs/resources/taxon-tree-revision">taxon_tree_revisions</a></td>
 <td>created_by_id</td>
 <td>agents</td>
 <td>id</td>
 </tr>
 <tr>
 <td>taxon_tree_revisions_updated_by_id_foreign</td>
-<td>taxon_tree_revisions</td>
+<td><a href="/vicflora-docs/resources/taxon-tree-revision">taxon_tree_revisions</a></td>
 <td>updated_by_id</td>
 <td>agents</td>
 <td>id</td>
 </tr>
 <tr>
 <td>external_identities_created_by_id_foreign</td>
-<td>external_identities</td>
+<td><a href="/vicflora-docs/resources/external-identity">external_identities</a></td>
 <td>created_by_id</td>
 <td>agents</td>
 <td>id</td>
 </tr>
 <tr>
 <td>external_identities_updated_by_id_foreign</td>
-<td>external_identities</td>
+<td><a href="/vicflora-docs/resources/external-identity">external_identities</a></td>
 <td>updated_by_id</td>
 <td>agents</td>
 <td>id</td>
 </tr>
 <tr>
 <td>entity_identity_map_created_by_id_foreign</td>
-<td>entity_identity_map</td>
+<td><a href="/vicflora-docs/resources/entity_-identity_-m-a-p">entity_identity_map</a></td>
 <td>created_by_id</td>
 <td>agents</td>
 <td>id</td>
 </tr>
 <tr>
 <td>entity_identity_map_updated_by_id_foreign</td>
-<td>entity_identity_map</td>
+<td><a href="/vicflora-docs/resources/entity_-identity_-m-a-p">entity_identity_map</a></td>
 <td>updated_by_id</td>
 <td>agents</td>
 <td>id</td>
 </tr>
 <tr>
 <td>profile_def_items_created_by_id_foreign</td>
-<td>profile_def_items</td>
+<td><a href="/vicflora-docs/resources/profile-def-item">profile_def_items</a></td>
 <td>created_by_id</td>
 <td>agents</td>
 <td>id</td>
 </tr>
 <tr>
 <td>profile_def_items_updated_by_id_foreign</td>
-<td>profile_def_items</td>
+<td><a href="/vicflora-docs/resources/profile-def-item">profile_def_items</a></td>
 <td>updated_by_id</td>
 <td>agents</td>
 <td>id</td>
 </tr>
 <tr>
 <td>profiles_created_by_id_foreign</td>
-<td>profiles</td>
+<td><a href="/vicflora-docs/resources/profile">profiles</a></td>
 <td>created_by_id</td>
 <td>agents</td>
 <td>id</td>
 </tr>
 <tr>
 <td>profiles_updated_by_id_foreign</td>
-<td>profiles</td>
+<td><a href="/vicflora-docs/resources/profile">profiles</a></td>
 <td>updated_by_id</td>
 <td>agents</td>
 <td>id</td>
 </tr>
 <tr>
 <td>profile_sections_created_by_id_foreign</td>
-<td>profile_sections</td>
+<td><a href="/vicflora-docs/resources/profile-section">profile_sections</a></td>
 <td>created_by_id</td>
 <td>agents</td>
 <td>id</td>
 </tr>
 <tr>
 <td>profile_sections_updated_by_id_foreign</td>
-<td>profile_sections</td>
+<td><a href="/vicflora-docs/resources/profile-section">profile_sections</a></td>
 <td>updated_by_id</td>
 <td>agents</td>
 <td>id</td>
 </tr>
 <tr>
 <td>profile_specimen_map_created_by_id_foreign</td>
-<td>profile_specimen_map</td>
+<td><a href="/vicflora-docs/resources/profile_-specimen_-m-a-p">profile_specimen_map</a></td>
 <td>created_by_id</td>
 <td>agents</td>
 <td>id</td>
 </tr>
 <tr>
 <td>profile_specimen_map_updated_by_id_foreign</td>
-<td>profile_specimen_map</td>
+<td><a href="/vicflora-docs/resources/profile_-specimen_-m-a-p">profile_specimen_map</a></td>
 <td>updated_by_id</td>
 <td>agents</td>
 <td>id</td>
 </tr>
 <tr>
 <td>images_created_by_id_foreign</td>
-<td>images</td>
+<td><a href="/vicflora-docs/resources/image">images</a></td>
 <td>created_by_id</td>
 <td>agents</td>
 <td>id</td>
 </tr>
 <tr>
 <td>images_updated_by_id_foreign</td>
-<td>images</td>
+<td><a href="/vicflora-docs/resources/image">images</a></td>
 <td>updated_by_id</td>
 <td>agents</td>
 <td>id</td>
 </tr>
 <tr>
 <td>image_access_points_created_by_id_foreign</td>
-<td>image_access_points</td>
+<td><a href="/vicflora-docs/resources/image-access-point">image_access_points</a></td>
 <td>created_by_id</td>
 <td>agents</td>
 <td>id</td>
 </tr>
 <tr>
 <td>image_access_points_updated_by_id_foreign</td>
-<td>image_access_points</td>
+<td><a href="/vicflora-docs/resources/image-access-point">image_access_points</a></td>
 <td>updated_by_id</td>
 <td>agents</td>
 <td>id</td>
 </tr>
 <tr>
 <td>image_captions_created_by_id_foreign</td>
-<td>image_captions</td>
+<td><a href="/vicflora-docs/resources/image-caption">image_captions</a></td>
 <td>created_by_id</td>
 <td>agents</td>
 <td>id</td>
 </tr>
 <tr>
 <td>image_captions_updated_by_id_foreign</td>
-<td>image_captions</td>
+<td><a href="/vicflora-docs/resources/image-caption">image_captions</a></td>
 <td>updated_by_id</td>
 <td>agents</td>
 <td>id</td>
 </tr>
 <tr>
 <td>areas_created_by_id_foreign</td>
-<td>areas</td>
+<td><a href="/vicflora-docs/resources/area">areas</a></td>
 <td>created_by_id</td>
 <td>agents</td>
 <td>id</td>
 </tr>
 <tr>
 <td>areas_updated_by_id_foreign</td>
-<td>areas</td>
+<td><a href="/vicflora-docs/resources/area">areas</a></td>
 <td>updated_by_id</td>
 <td>agents</td>
 <td>id</td>
 </tr>
 <tr>
 <td>area_codes_created_by_id_foreign</td>
-<td>area_codes</td>
+<td><a href="/vicflora-docs/resources/area-code">area_codes</a></td>
 <td>created_by_id</td>
 <td>agents</td>
 <td>id</td>
 </tr>
 <tr>
 <td>area_codes_updated_by_id_foreign</td>
-<td>area_codes</td>
+<td><a href="/vicflora-docs/resources/area-code">area_codes</a></td>
 <td>updated_by_id</td>
 <td>agents</td>
 <td>id</td>
 </tr>
 <tr>
 <td>profile_area_map_created_by_id_foreign</td>
-<td>profile_area_map</td>
+<td><a href="/vicflora-docs/resources/profile_-area_-m-a-p">profile_area_map</a></td>
 <td>created_by_id</td>
 <td>agents</td>
 <td>id</td>
 </tr>
 <tr>
 <td>profile_area_map_updated_by_id_foreign</td>
-<td>profile_area_map</td>
+<td><a href="/vicflora-docs/resources/profile_-area_-m-a-p">profile_area_map</a></td>
 <td>updated_by_id</td>
 <td>agents</td>
 <td>id</td>
 </tr>
 <tr>
 <td>threat_statuses_created_by_id_foreign</td>
-<td>threat_statuses</td>
+<td><a href="/vicflora-docs/resources/threat-status">threat_statuses</a></td>
 <td>created_by_id</td>
 <td>agents</td>
 <td>id</td>
 </tr>
 <tr>
 <td>threat_statuses_updated_by_id_foreign</td>
-<td>threat_statuses</td>
+<td><a href="/vicflora-docs/resources/threat-status">threat_statuses</a></td>
 <td>updated_by_id</td>
 <td>agents</td>
 <td>id</td>
 </tr>
 <tr>
 <td>assertions_agent_id_foreign</td>
-<td>assertions</td>
+<td><a href="/vicflora-docs/resources/assertion">assertions</a></td>
 <td>agent_id</td>
 <td>agents</td>
 <td>id</td>
 </tr>
 <tr>
 <td>assertions_created_by_id_foreign</td>
-<td>assertions</td>
+<td><a href="/vicflora-docs/resources/assertion">assertions</a></td>
 <td>created_by_id</td>
 <td>agents</td>
 <td>id</td>
 </tr>
 <tr>
 <td>assertions_updated_by_id_foreign</td>
-<td>assertions</td>
+<td><a href="/vicflora-docs/resources/assertion">assertions</a></td>
 <td>updated_by_id</td>
 <td>agents</td>
 <td>id</td>
 </tr>
 <tr>
 <td>mapper_occurrences_created_by_id_foreign</td>
-<td>mapper.occurrences</td>
+<td><a href="/vicflora-docs/resources/occurrence">mapper.occurrences</a></td>
 <td>created_by_id</td>
 <td>agents</td>
 <td>id</td>
 </tr>
 <tr>
 <td>mapper_occurrences_updated_by_id_foreign</td>
-<td>mapper.occurrences</td>
+<td><a href="/vicflora-docs/resources/occurrence">mapper.occurrences</a></td>
 <td>updated_by_id</td>
 <td>agents</td>
 <td>id</td>
 </tr>
 <tr>
 <td>parsed_names_created_by_id_foreign</td>
-<td>parsed_names</td>
+<td><a href="/vicflora-docs/resources/parsed-name">parsed_names</a></td>
 <td>created_by_id</td>
 <td>agents</td>
 <td>id</td>
 </tr>
 <tr>
 <td>parsed_names_updated_by_id_foreign</td>
-<td>parsed_names</td>
+<td><a href="/vicflora-docs/resources/parsed-name">parsed_names</a></td>
 <td>updated_by_id</td>
 <td>agents</td>
 <td>id</td>
 </tr>
 <tr>
 <td>mapper_map_overlays_created_by_id_foreign</td>
-<td>mapper.map_overlays</td>
+<td><a href="/vicflora-docs/resources/map-overlay">mapper.map_overlays</a></td>
 <td>created_by_id</td>
 <td>agents</td>
 <td>id</td>
 </tr>
 <tr>
 <td>mapper_map_overlays_updated_by_id_foreign</td>
-<td>mapper.map_overlays</td>
+<td><a href="/vicflora-docs/resources/map-overlay">mapper.map_overlays</a></td>
 <td>updated_by_id</td>
 <td>agents</td>
 <td>id</td>
 </tr>
 <tr>
 <td>glossary_glossaries_created_by_id_foreign</td>
-<td>glossary.glossaries</td>
+<td><a href="/vicflora-docs/resources/glossary">glossary.glossaries</a></td>
 <td>created_by_id</td>
 <td>agents</td>
 <td>id</td>
 </tr>
 <tr>
 <td>glossary_glossaries_updated_by_id_foreign</td>
-<td>glossary.glossaries</td>
+<td><a href="/vicflora-docs/resources/glossary">glossary.glossaries</a></td>
 <td>updated_by_id</td>
 <td>agents</td>
 <td>id</td>
 </tr>
 <tr>
 <td>glossary_terms_created_by_id_foreign</td>
-<td>glossary.terms</td>
+<td><a href="/vicflora-docs/resources/glossary-term">glossary.terms</a></td>
 <td>created_by_id</td>
 <td>agents</td>
 <td>id</td>
 </tr>
 <tr>
 <td>glossary_terms_updated_by_id_foreign</td>
-<td>glossary.terms</td>
+<td><a href="/vicflora-docs/resources/glossary-term">glossary.terms</a></td>
 <td>updated_by_id</td>
 <td>agents</td>
 <td>id</td>
 </tr>
 <tr>
 <td>glossary_limitations_created_by_id_foreign</td>
-<td>glossary.limitations</td>
+<td><a href="/vicflora-docs/resources/limitation">glossary.limitations</a></td>
 <td>created_by_id</td>
 <td>agents</td>
 <td>id</td>
 </tr>
 <tr>
 <td>glossary_limitations_updated_by_id_foreign</td>
-<td>glossary.limitations</td>
+<td><a href="/vicflora-docs/resources/limitation">glossary.limitations</a></td>
 <td>updated_by_id</td>
 <td>agents</td>
 <td>id</td>
 </tr>
 <tr>
 <td>glossary_categories_created_by_id_foreign</td>
-<td>glossary.categories</td>
+<td><a href="/vicflora-docs/resources/glossary-category">glossary.categories</a></td>
 <td>created_by_id</td>
 <td>agents</td>
 <td>id</td>
 </tr>
 <tr>
 <td>glossary_categories_updated_by_id_foreign</td>
-<td>glossary.categories</td>
+<td><a href="/vicflora-docs/resources/glossary-category">glossary.categories</a></td>
 <td>updated_by_id</td>
 <td>agents</td>
 <td>id</td>
 </tr>
 <tr>
 <td>glossary_term_relationships_created_by_id_foreign</td>
-<td>glossary.term_relationships</td>
+<td><a href="/vicflora-docs/resources/glossary-term-relationship_-m-a-p">glossary.term_relationships</a></td>
 <td>created_by_id</td>
 <td>agents</td>
 <td>id</td>
 </tr>
 <tr>
 <td>glossary_term_relationships_updated_by_id_foreign</td>
-<td>glossary.term_relationships</td>
+<td><a href="/vicflora-docs/resources/glossary-term-relationship_-m-a-p">glossary.term_relationships</a></td>
 <td>updated_by_id</td>
 <td>agents</td>
 <td>id</td>
 </tr>
 <tr>
 <td>taxon_concept_labels_ext_created_by_id_foreign</td>
-<td>taxon_concept_labels_ext</td>
+<td><a href="/vicflora-docs/resources/taxon-concept-label_-e-x-t">taxon_concept_labels_ext</a></td>
 <td>created_by_id</td>
 <td>agents</td>
 <td>id</td>
 </tr>
 <tr>
 <td>taxon_concept_labels_ext_updated_by_id_foreign</td>
-<td>taxon_concept_labels_ext</td>
+<td><a href="/vicflora-docs/resources/taxon-concept-label_-e-x-t">taxon_concept_labels_ext</a></td>
 <td>updated_by_id</td>
 <td>agents</td>
 <td>id</td>
 </tr>
 <tr>
 <td>treatments_ext_created_by_id_foreign</td>
-<td>treatments_ext</td>
+<td><a href="/vicflora-docs/resources/treatment_-e-x-t">treatments_ext</a></td>
 <td>created_by_id</td>
 <td>agents</td>
 <td>id</td>
 </tr>
 <tr>
 <td>treatments_ext_updated_by_id_foreign</td>
-<td>treatments_ext</td>
+<td><a href="/vicflora-docs/resources/treatment_-e-x-t">treatments_ext</a></td>
 <td>updated_by_id</td>
 <td>agents</td>
 <td>id</td>
 </tr>
 <tr>
 <td>treatment_versions_ext_created_by_id_foreign</td>
-<td>treatment_versions_ext</td>
+<td><a href="/vicflora-docs/resources/treatment-version_-e-x-t">treatment_versions_ext</a></td>
 <td>created_by_id</td>
 <td>agents</td>
 <td>id</td>
 </tr>
 <tr>
 <td>treatment_versions_ext_updated_by_id_foreign</td>
-<td>treatment_versions_ext</td>
+<td><a href="/vicflora-docs/resources/treatment-version_-e-x-t">treatment_versions_ext</a></td>
 <td>updated_by_id</td>
 <td>agents</td>
 <td>id</td>
 </tr>
 <tr>
 <td>reference_contributors_map_agent_id_foreign</td>
-<td>reference_contributors_map</td>
+<td><a href="/vicflora-docs/resources/reference_-contributor_-m-a-p">reference_contributors_map</a></td>
 <td>agent_id</td>
 <td>agents</td>
 <td>id</td>
 </tr>
 <tr>
 <td>reference_contributors_map_created_by_id_foreign</td>
-<td>reference_contributors_map</td>
+<td><a href="/vicflora-docs/resources/reference_-contributor_-m-a-p">reference_contributors_map</a></td>
 <td>created_by_id</td>
 <td>agents</td>
 <td>id</td>
 </tr>
 <tr>
 <td>reference_contributors_map_updated_by_id_foreign</td>
-<td>reference_contributors_map</td>
+<td><a href="/vicflora-docs/resources/reference_-contributor_-m-a-p">reference_contributors_map</a></td>
 <td>updated_by_id</td>
 <td>agents</td>
 <td>id</td>
 </tr>
 <tr>
 <td>scientific_name_author_map_agent_id_foreign</td>
-<td>scientific_name_author_map</td>
+<td><a href="/vicflora-docs/resources/scientific-name_-author_-m-a-p">scientific_name_author_map</a></td>
 <td>agent_id</td>
 <td>agents</td>
 <td>id</td>
 </tr>
 <tr>
 <td>scientific_name_author_map_created_by_id_foreign</td>
-<td>scientific_name_author_map</td>
+<td><a href="/vicflora-docs/resources/scientific-name_-author_-m-a-p">scientific_name_author_map</a></td>
 <td>created_by_id</td>
 <td>agents</td>
 <td>id</td>
 </tr>
 <tr>
 <td>scientific_name_author_map_updated_by_id_foreign</td>
-<td>scientific_name_author_map</td>
+<td><a href="/vicflora-docs/resources/scientific-name_-author_-m-a-p">scientific_name_author_map</a></td>
 <td>updated_by_id</td>
 <td>agents</td>
 <td>id</td>
 </tr>
 <tr>
 <td>entity_image_map_created_by_id_foreign</td>
-<td>entity_image_map</td>
+<td><a href="/vicflora-docs/resources/entity_-image_-m-a-p">entity_image_map</a></td>
 <td>created_by_id</td>
 <td>agents</td>
 <td>id</td>
 </tr>
 <tr>
 <td>entity_image_map_updated_by_id_foreign</td>
-<td>entity_image_map</td>
+<td><a href="/vicflora-docs/resources/entity_-image_-m-a-p">entity_image_map</a></td>
 <td>updated_by_id</td>
 <td>agents</td>
 <td>id</td>
 </tr>
 <tr>
 <td>glossary_glossary_limitation_map_created_by_id_foreign</td>
-<td>glossary.glossary_limitation_map</td>
+<td><a href="/vicflora-docs/resources/glossary_-limitation_-m-a-p">glossary.glossary_limitation_map</a></td>
 <td>created_by_id</td>
 <td>agents</td>
 <td>id</td>
 </tr>
 <tr>
 <td>glossary_glossary_limitation_map_updated_by_id_foreign</td>
-<td>glossary.glossary_limitation_map</td>
+<td><a href="/vicflora-docs/resources/glossary_-limitation_-m-a-p">glossary.glossary_limitation_map</a></td>
 <td>updated_by_id</td>
 <td>agents</td>
 <td>id</td>
 </tr>
 <tr>
 <td>entity_source_map_created_by_id_foreign</td>
-<td>entity_source_map</td>
+<td><a href="/vicflora-docs/resources/entity_-source_-m-a-p">entity_source_map</a></td>
 <td>created_by_id</td>
 <td>agents</td>
 <td>id</td>
 </tr>
 <tr>
 <td>entity_source_map_updated_by_id_foreign</td>
-<td>entity_source_map</td>
+<td><a href="/vicflora-docs/resources/entity_-source_-m-a-p">entity_source_map</a></td>
 <td>updated_by_id</td>
 <td>agents</td>
 <td>id</td>
 </tr>
 <tr>
 <td>entity_creator_map_agent_id_foreign</td>
-<td>entity_creator_map</td>
+<td><a href="/vicflora-docs/resources/entity_-creator_-m-a-p">entity_creator_map</a></td>
 <td>agent_id</td>
 <td>agents</td>
 <td>id</td>
 </tr>
 <tr>
 <td>entity_creator_map_created_by_id_foreign</td>
-<td>entity_creator_map</td>
+<td><a href="/vicflora-docs/resources/entity_-creator_-m-a-p">entity_creator_map</a></td>
 <td>created_by_id</td>
 <td>agents</td>
 <td>id</td>
 </tr>
 <tr>
 <td>entity_creator_map_updated_by_id_foreign</td>
-<td>entity_creator_map</td>
+<td><a href="/vicflora-docs/resources/entity_-creator_-m-a-p">entity_creator_map</a></td>
 <td>updated_by_id</td>
 <td>agents</td>
 <td>id</td>
 </tr>
 <tr>
 <td>typifications_ext_created_by_id_foreign</td>
-<td>typifications_ext</td>
+<td><a href="/vicflora-docs/resources/typification_-e-x-t">typifications_ext</a></td>
 <td>created_by_id</td>
 <td>agents</td>
 <td>id</td>
 </tr>
 <tr>
 <td>typifications_ext_updated_by_id_foreign</td>
-<td>typifications_ext</td>
+<td><a href="/vicflora-docs/resources/typification_-e-x-t">typifications_ext</a></td>
 <td>updated_by_id</td>
 <td>agents</td>
 <td>id</td>
 </tr>
 <tr>
 <td>hybrid_formulas_ext_created_by_id_foreign</td>
-<td>hybrid_formulas_ext</td>
+<td><a href="/vicflora-docs/resources/hybrid-formula_-e-x-t">hybrid_formulas_ext</a></td>
 <td>created_by_id</td>
 <td>agents</td>
 <td>id</td>
 </tr>
 <tr>
 <td>hybrid_formulas_ext_updated_by_id_foreign</td>
-<td>hybrid_formulas_ext</td>
+<td><a href="/vicflora-docs/resources/hybrid-formula_-e-x-t">hybrid_formulas_ext</a></td>
 <td>updated_by_id</td>
 <td>agents</td>
 <td>id</td>
 </tr>
 <tr>
 <td>horticultural_group_names_ext_created_by_id_foreign</td>
-<td>horticultural_group_names_ext</td>
+<td><a href="/vicflora-docs/resources/informal-name_-e-x-t">horticultural_group_names_ext</a></td>
 <td>created_by_id</td>
 <td>agents</td>
 <td>id</td>
 </tr>
 <tr>
 <td>horticultural_group_names_ext_updated_by_id_foreign</td>
-<td>horticultural_group_names_ext</td>
+<td><a href="/vicflora-docs/resources/informal-name_-e-x-t">horticultural_group_names_ext</a></td>
 <td>updated_by_id</td>
 <td>agents</td>
 <td>id</td>
@@ -2091,38 +2105,38 @@
 <tr>
 <td align="left"><code>agentType()</code></td>
 <td align="left"><strong>BelongsTo</strong></td>
-<td align="left">ControlledTerm</td>
+<td align="left"><a href="/vicflora-docs/resources/controlled-term">App\Models\Shared\ControlledTerm</a></td>
 <td align="left">FK: <code>agent_type_id</code><br><span style="color:orange;">Has custom constraints</span></td>
 </tr>
 <tr>
 <td align="left"><code>user()</code></td>
 <td align="left"><strong>BelongsTo</strong></td>
-<td align="left">User</td>
+<td align="left"><a href="/vicflora-docs/resources/user">App\Models\Shared\User</a></td>
 <td align="left">FK: <code>user_id</code></td>
 </tr>
 <tr>
 <td align="left"><code>references()</code></td>
 <td align="left"><strong>BelongsToMany</strong></td>
-<td align="left">Reference</td>
-<td align="left">Pivot: <code>reference_contributors_map</code></td>
+<td align="left"><a href="/vicflora-docs/resources/reference">App\Models\Shared\Reference</a></td>
+<td align="left">Pivot: <code>[reference_contributors_map](/vicflora-docs/resources/reference_-contributor_-m-a-p)</code></td>
 </tr>
 <tr>
 <td align="left"><code>createdBy()</code></td>
 <td align="left"><strong>BelongsTo</strong></td>
-<td align="left">Agent</td>
+<td align="left"><a href="/vicflora-docs/resources/agent">App\Models\Shared\Agent</a></td>
 <td align="left">FK: <code>created_by_id</code></td>
 </tr>
 <tr>
 <td align="left"><code>updatedBy()</code></td>
 <td align="left"><strong>BelongsTo</strong></td>
-<td align="left">Agent</td>
+<td align="left"><a href="/vicflora-docs/resources/agent">App\Models\Shared\Agent</a></td>
 <td align="left">FK: <code>updated_by_id</code></td>
 </tr>
 <tr>
 <td align="left"><code>externalIdentities()</code></td>
 <td align="left"><strong>MorphToMany</strong></td>
-<td align="left">ExternalIdentity</td>
-<td align="left">Pivot: <code>entity_identity_map</code><br><span style="color:orange;">Has custom constraints</span></td>
+<td align="left"><a href="/vicflora-docs/resources/external-identity">App\Models\Shared\ExternalIdentity</a></td>
+<td align="left">Pivot: <code>[entity_identity_map](/vicflora-docs/resources/entity_-identity_-m-a-p)</code><br><span style="color:orange;">Has custom constraints</span></td>
 </tr>
 </tbody>
 </table>
@@ -2597,6 +2611,13 @@
                     </a>
                 </li>
                                             <li>
+                    <a href="/vicflora-docs/resources/search" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
+                        Search
+                    </a>
+                </li>
+                                            <li>
                     <a href="/vicflora-docs/resources/specimen" 
                         class="block py-1 pl-4 text-sm transition-colors duration-100
                         text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
@@ -2734,6 +2755,13 @@
                         class="block py-1 pl-4 text-sm transition-colors duration-100
                         text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
                         TreatmentVersion_EXT
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/typification-ext" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
+                        Typification_EXT
                     </a>
                 </li>
                                             <li>

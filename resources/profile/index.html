@@ -546,6 +546,13 @@
                     </a>
                 </li>
                                             <li>
+                    <a href="/vicflora-docs/resources/search" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
+                        Search
+                    </a>
+                </li>
+                                            <li>
                     <a href="/vicflora-docs/resources/specimen" 
                         class="block py-1 pl-4 text-sm transition-colors duration-100
                         text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
@@ -683,6 +690,13 @@
                         class="block py-1 pl-4 text-sm transition-colors duration-100
                         text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
                         TreatmentVersion_EXT
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/typification-ext" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
+                        Typification_EXT
                     </a>
                 </li>
                                             <li>
@@ -1124,28 +1138,28 @@
 <td>profiles_created_by_id_foreign</td>
 <td>profiles</td>
 <td>created_by_id</td>
-<td>agents</td>
+<td><a href="/vicflora-docs/resources/agent">agents</a></td>
 <td>id</td>
 </tr>
 <tr>
 <td>profiles_taxon_concept_id_foreign</td>
 <td>profiles</td>
 <td>taxon_concept_id</td>
-<td>taxon_concepts</td>
+<td><a href="/vicflora-docs/resources/taxon-concept">taxon_concepts</a></td>
 <td>id</td>
 </tr>
 <tr>
 <td>profiles_taxon_tree_id_foreign</td>
 <td>profiles</td>
 <td>taxon_tree_id</td>
-<td>taxon_trees</td>
+<td><a href="/vicflora-docs/resources/taxon-tree">taxon_trees</a></td>
 <td>id</td>
 </tr>
 <tr>
 <td>profiles_updated_by_id_foreign</td>
 <td>profiles</td>
 <td>updated_by_id</td>
-<td>agents</td>
+<td><a href="/vicflora-docs/resources/agent">agents</a></td>
 <td>id</td>
 </tr>
 </tbody>
@@ -1157,38 +1171,38 @@
         <table>
 <thead>
 <tr>
-<th>name</th>
-<th>table</th>
-<th>column</th>
-<th>referenced_table</th>
-<th>referenced_column</th>
+<th>Name</th>
+<th>Table</th>
+<th>Column</th>
+<th>Referenced Table</th>
+<th>Referenced Column</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>profile_sections_profile_id_foreign</td>
-<td>profile_sections</td>
+<td><a href="/vicflora-docs/resources/profile-section">profile_sections</a></td>
 <td>profile_id</td>
 <td>profiles</td>
 <td>taxon_concept_id</td>
 </tr>
 <tr>
 <td>profile_specimen_map_profile_id_foreign</td>
-<td>profile_specimen_map</td>
+<td><a href="/vicflora-docs/resources/profile_-specimen_-m-a-p">profile_specimen_map</a></td>
 <td>profile_id</td>
 <td>profiles</td>
 <td>taxon_concept_id</td>
 </tr>
 <tr>
 <td>image_captions_profile_id_foreign</td>
-<td>image_captions</td>
+<td><a href="/vicflora-docs/resources/image-caption">image_captions</a></td>
 <td>profile_id</td>
 <td>profiles</td>
 <td>taxon_concept_id</td>
 </tr>
 <tr>
 <td>profile_area_map_profile_id_foreign</td>
-<td>profile_area_map</td>
+<td><a href="/vicflora-docs/resources/profile_-area_-m-a-p">profile_area_map</a></td>
 <td>profile_id</td>
 <td>profiles</td>
 <td>taxon_concept_id</td>
@@ -1212,80 +1226,80 @@
 <tr>
 <td align="left"><code>taxonConcept()</code></td>
 <td align="left"><strong>BelongsTo</strong></td>
-<td align="left">TaxonConcept</td>
+<td align="left"><a href="/vicflora-docs/resources/taxon-concept">App\Models\Taxonomy\TaxonConcept</a></td>
 <td align="left">FK: <code>taxon_concept_id</code></td>
 </tr>
 <tr>
 <td align="left"><code>sections()</code></td>
 <td align="left"><strong>HasMany</strong></td>
-<td align="left">ProfileSection</td>
+<td align="left"><a href="/vicflora-docs/resources/profile-section">App\Models\Profile\ProfileSection</a></td>
 <td align="left">Remote FK: <code>profile_id</code><br><span style="color:orange;">Has custom constraints</span></td>
 </tr>
 <tr>
 <td align="left"><code>treatmentVersions()</code></td>
 <td align="left"><strong>HasMany</strong></td>
-<td align="left">TreatmentVersion</td>
+<td align="left"><a href="/vicflora-docs/resources/treatment-version_-e-x-t">App\Models\Taxonomy\TreatmentVersion</a></td>
 <td align="left">Remote FK: <code>taxon_concept_id</code><br><span style="color:orange;">Has custom constraints</span></td>
 </tr>
 <tr>
 <td align="left"><code>specimens()</code></td>
 <td align="left"><strong>BelongsToMany</strong></td>
-<td align="left">Specimen</td>
-<td align="left">Pivot: <code>profile_specimen_map</code></td>
+<td align="left"><a href="/vicflora-docs/resources/specimen">App\Models\Profile\Specimen</a></td>
+<td align="left">Pivot: <code>[profile_specimen_map](/vicflora-docs/resources/profile_-specimen_-m-a-p)</code></td>
 </tr>
 <tr>
 <td align="left"><code>citedSpecimens()</code></td>
 <td align="left"><strong>BelongsToMany</strong></td>
-<td align="left">Specimen</td>
-<td align="left">Pivot: <code>profile_specimen_map</code><br><span style="color:orange;">Has custom constraints</span></td>
+<td align="left"><a href="/vicflora-docs/resources/specimen">App\Models\Profile\Specimen</a></td>
+<td align="left">Pivot: <code>[profile_specimen_map](/vicflora-docs/resources/profile_-specimen_-m-a-p)</code><br><span style="color:orange;">Has custom constraints</span></td>
 </tr>
 <tr>
 <td align="left"><code>representativeSpecimens()</code></td>
 <td align="left"><strong>BelongsToMany</strong></td>
-<td align="left">Specimen</td>
-<td align="left">Pivot: <code>profile_specimen_map</code><br><span style="color:orange;">Has custom constraints</span></td>
+<td align="left"><a href="/vicflora-docs/resources/specimen">App\Models\Profile\Specimen</a></td>
+<td align="left">Pivot: <code>[profile_specimen_map](/vicflora-docs/resources/profile_-specimen_-m-a-p)</code><br><span style="color:orange;">Has custom constraints</span></td>
 </tr>
 <tr>
 <td align="left"><code>distribution()</code></td>
 <td align="left"><strong>HasMany</strong></td>
-<td align="left">ProfileAreaMap</td>
+<td align="left"><a href="/vicflora-docs/resources/profile_-area_-m-a-p">App\Models\Profile\ProfileAreaMap</a></td>
 <td align="left">Remote FK: <code>profile_id</code><br><span style="color:orange;">Has custom constraints</span></td>
 </tr>
 <tr>
 <td align="left"><code>heroImage()</code></td>
 <td align="left"><strong>MorphToMany</strong></td>
-<td align="left">Image</td>
-<td align="left">Pivot: <code>entity_image_map</code><br><span style="color:orange;">Has custom constraints</span></td>
+<td align="left"><a href="/vicflora-docs/resources/image">App\Models\Media\Image</a></td>
+<td align="left">Pivot: <code>[entity_image_map](/vicflora-docs/resources/entity_-image_-m-a-p)</code><br><span style="color:orange;">Has custom constraints</span></td>
 </tr>
 <tr>
 <td align="left"><code>treatment()</code></td>
 <td align="left"><strong>BelongsTo</strong></td>
-<td align="left">Reference</td>
+<td align="left"><a href="/vicflora-docs/resources/reference">App\Models\Shared\Reference</a></td>
 <td align="left">FK: <code>id</code></td>
 </tr>
 <tr>
 <td align="left"><code>createdBy()</code></td>
 <td align="left"><strong>BelongsTo</strong></td>
-<td align="left">Agent</td>
+<td align="left"><a href="/vicflora-docs/resources/agent">App\Models\Shared\Agent</a></td>
 <td align="left">FK: <code>created_by_id</code></td>
 </tr>
 <tr>
 <td align="left"><code>updatedBy()</code></td>
 <td align="left"><strong>BelongsTo</strong></td>
-<td align="left">Agent</td>
+<td align="left"><a href="/vicflora-docs/resources/agent">App\Models\Shared\Agent</a></td>
 <td align="left">FK: <code>updated_by_id</code></td>
 </tr>
 <tr>
 <td align="left"><code>images()</code></td>
 <td align="left"><strong>MorphToMany</strong></td>
-<td align="left">Image</td>
-<td align="left">Pivot: <code>entity_image_map</code><br><span style="color:orange;">Has custom constraints</span></td>
+<td align="left"><a href="/vicflora-docs/resources/image">App\Models\Media\Image</a></td>
+<td align="left">Pivot: <code>[entity_image_map](/vicflora-docs/resources/entity_-image_-m-a-p)</code><br><span style="color:orange;">Has custom constraints</span></td>
 </tr>
 <tr>
 <td align="left"><code>source()</code></td>
 <td align="left"><strong>MorphToMany</strong></td>
-<td align="left">Reference</td>
-<td align="left">Pivot: <code>entity_source_map</code><br><span style="color:orange;">Has custom constraints</span></td>
+<td align="left"><a href="/vicflora-docs/resources/reference">App\Models\Shared\Reference</a></td>
+<td align="left">Pivot: <code>[entity_source_map](/vicflora-docs/resources/entity_-source_-m-a-p)</code><br><span style="color:orange;">Has custom constraints</span></td>
 </tr>
 </tbody>
 </table>
@@ -1742,6 +1756,13 @@
                     </a>
                 </li>
                                             <li>
+                    <a href="/vicflora-docs/resources/search" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
+                        Search
+                    </a>
+                </li>
+                                            <li>
                     <a href="/vicflora-docs/resources/specimen" 
                         class="block py-1 pl-4 text-sm transition-colors duration-100
                         text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
@@ -1879,6 +1900,13 @@
                         class="block py-1 pl-4 text-sm transition-colors duration-100
                         text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
                         TreatmentVersion_EXT
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/typification-ext" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
+                        Typification_EXT
                     </a>
                 </li>
                                             <li>

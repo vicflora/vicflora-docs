@@ -546,6 +546,13 @@
                     </a>
                 </li>
                                             <li>
+                    <a href="/vicflora-docs/resources/search" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
+                        Search
+                    </a>
+                </li>
+                                            <li>
                     <a href="/vicflora-docs/resources/specimen" 
                         class="block py-1 pl-4 text-sm transition-colors duration-100
                         text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
@@ -683,6 +690,13 @@
                         class="block py-1 pl-4 text-sm transition-colors duration-100
                         text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
                         TreatmentVersion_EXT
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/typification-ext" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
+                        Typification_EXT
                     </a>
                 </li>
                                             <li>
@@ -1168,35 +1182,35 @@
 <td>area_codes_area_id_foreign</td>
 <td>area_codes</td>
 <td>area_id</td>
-<td>areas</td>
+<td><a href="/vicflora-docs/resources/area">areas</a></td>
 <td>id</td>
 </tr>
 <tr>
 <td>area_codes_created_by_id_foreign</td>
 <td>area_codes</td>
 <td>created_by_id</td>
-<td>agents</td>
+<td><a href="/vicflora-docs/resources/agent">agents</a></td>
 <td>id</td>
 </tr>
 <tr>
 <td>area_codes_gazetteer_id_foreign</td>
 <td>area_codes</td>
 <td>gazetteer_id</td>
-<td>references</td>
+<td><a href="/vicflora-docs/resources/reference">references</a></td>
 <td>id</td>
 </tr>
 <tr>
 <td>area_codes_parent_id_foreign</td>
 <td>area_codes</td>
 <td>parent_id</td>
-<td>areas</td>
+<td><a href="/vicflora-docs/resources/area">areas</a></td>
 <td>id</td>
 </tr>
 <tr>
 <td>area_codes_updated_by_id_foreign</td>
 <td>area_codes</td>
 <td>updated_by_id</td>
-<td>agents</td>
+<td><a href="/vicflora-docs/resources/agent">agents</a></td>
 <td>id</td>
 </tr>
 </tbody>
@@ -1208,17 +1222,17 @@
         <table>
 <thead>
 <tr>
-<th>name</th>
-<th>table</th>
-<th>column</th>
-<th>referenced_table</th>
-<th>referenced_column</th>
+<th>Name</th>
+<th>Table</th>
+<th>Column</th>
+<th>Referenced Table</th>
+<th>Referenced Column</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>profile_area_map_area_code_id_foreign</td>
-<td>profile_area_map</td>
+<td><a href="/vicflora-docs/resources/profile_-area_-m-a-p">profile_area_map</a></td>
 <td>area_code_id</td>
 <td>area_codes</td>
 <td>id</td>
@@ -1242,37 +1256,37 @@
 <tr>
 <td align="left"><code>area()</code></td>
 <td align="left"><strong>BelongsTo</strong></td>
-<td align="left">Area</td>
+<td align="left"><a href="/vicflora-docs/resources/area">App\Models\Geography\Area</a></td>
 <td align="left">FK: <code>area_id</code></td>
 </tr>
 <tr>
 <td align="left"><code>parent()</code></td>
 <td align="left"><strong>BelongsTo</strong></td>
-<td align="left">AreaCode</td>
+<td align="left"><a href="/vicflora-docs/resources/area-code">App\Models\Geography\AreaCode</a></td>
 <td align="left">FK: <code>parent_id</code></td>
 </tr>
 <tr>
 <td align="left"><code>children()</code></td>
 <td align="left"><strong>HasMany</strong></td>
-<td align="left">AreaCode</td>
+<td align="left"><a href="/vicflora-docs/resources/area-code">App\Models\Geography\AreaCode</a></td>
 <td align="left">Remote FK: <code>parent_id</code><br><span style="color:orange;">Has custom constraints</span></td>
 </tr>
 <tr>
 <td align="left"><code>gazetteer()</code></td>
 <td align="left"><strong>BelongsTo</strong></td>
-<td align="left">Gazetteer</td>
+<td align="left"><a href="/vicflora-docs/resources/gazetteer_-e-x-t">App\Models\Geography\Gazetteer</a></td>
 <td align="left">FK: <code>gazetteer_id</code></td>
 </tr>
 <tr>
 <td align="left"><code>createdBy()</code></td>
 <td align="left"><strong>BelongsTo</strong></td>
-<td align="left">Agent</td>
+<td align="left"><a href="/vicflora-docs/resources/agent">App\Models\Shared\Agent</a></td>
 <td align="left">FK: <code>created_by_id</code></td>
 </tr>
 <tr>
 <td align="left"><code>updatedBy()</code></td>
 <td align="left"><strong>BelongsTo</strong></td>
-<td align="left">Agent</td>
+<td align="left"><a href="/vicflora-docs/resources/agent">App\Models\Shared\Agent</a></td>
 <td align="left">FK: <code>updated_by_id</code></td>
 </tr>
 </tbody>
@@ -1730,6 +1744,13 @@
                     </a>
                 </li>
                                             <li>
+                    <a href="/vicflora-docs/resources/search" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
+                        Search
+                    </a>
+                </li>
+                                            <li>
                     <a href="/vicflora-docs/resources/specimen" 
                         class="block py-1 pl-4 text-sm transition-colors duration-100
                         text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
@@ -1867,6 +1888,13 @@
                         class="block py-1 pl-4 text-sm transition-colors duration-100
                         text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
                         TreatmentVersion_EXT
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/typification-ext" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
+                        Typification_EXT
                     </a>
                 </li>
                                             <li>

@@ -546,6 +546,13 @@
                     </a>
                 </li>
                                             <li>
+                    <a href="/vicflora-docs/resources/search" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
+                        Search
+                    </a>
+                </li>
+                                            <li>
                     <a href="/vicflora-docs/resources/specimen" 
                         class="block py-1 pl-4 text-sm transition-colors duration-100
                         text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
@@ -683,6 +690,13 @@
                         class="block py-1 pl-4 text-sm transition-colors duration-100
                         text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
                         TreatmentVersion_EXT
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/typification-ext" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
+                        Typification_EXT
                     </a>
                 </li>
                                             <li>
@@ -1156,49 +1170,49 @@
 <td>nomenclatural_types_created_by_id_foreign</td>
 <td>nomenclatural_types</td>
 <td>created_by_id</td>
-<td>agents</td>
+<td><a href="/vicflora-docs/resources/agent">agents</a></td>
 <td>id</td>
 </tr>
 <tr>
 <td>nomenclatural_types_type_name_id_foreign</td>
 <td>nomenclatural_types</td>
 <td>type_name_id</td>
-<td>taxon_names</td>
+<td><a href="/vicflora-docs/resources/taxon-name">taxon_names</a></td>
 <td>id</td>
 </tr>
 <tr>
 <td>nomenclatural_types_type_of_type_id_foreign</td>
 <td>nomenclatural_types</td>
 <td>type_of_type_id</td>
-<td>controlled_terms</td>
+<td><a href="/vicflora-docs/resources/controlled-term">controlled_terms</a></td>
 <td>id</td>
 </tr>
 <tr>
 <td>nomenclatural_types_type_published_in_id_foreign</td>
 <td>nomenclatural_types</td>
 <td>type_published_in_id</td>
-<td>references</td>
+<td><a href="/vicflora-docs/resources/reference">references</a></td>
 <td>id</td>
 </tr>
 <tr>
 <td>nomenclatural_types_type_specimen_id_foreign</td>
 <td>nomenclatural_types</td>
 <td>type_specimen_id</td>
-<td>specimens</td>
+<td><a href="/vicflora-docs/resources/specimen">specimens</a></td>
 <td>id</td>
 </tr>
 <tr>
 <td>nomenclatural_types_typified_name_id_foreign</td>
 <td>nomenclatural_types</td>
 <td>typified_name_id</td>
-<td>taxon_names</td>
+<td><a href="/vicflora-docs/resources/taxon-name">taxon_names</a></td>
 <td>id</td>
 </tr>
 <tr>
 <td>nomenclatural_types_updated_by_id_foreign</td>
 <td>nomenclatural_types</td>
 <td>updated_by_id</td>
-<td>agents</td>
+<td><a href="/vicflora-docs/resources/agent">agents</a></td>
 <td>id</td>
 </tr>
 </tbody>
@@ -1222,56 +1236,56 @@
 <tr>
 <td align="left"><code>typifiedName()</code></td>
 <td align="left"><strong>BelongsTo</strong></td>
-<td align="left">TaxonName</td>
+<td align="left"><a href="/vicflora-docs/resources/taxon-name">App\Models\Taxonomy\TaxonName</a></td>
 <td align="left">FK: <code>typified_name_id</code></td>
 </tr>
 <tr>
 <td align="left"><code>typeOfType()</code></td>
 <td align="left"><strong>BelongsTo</strong></td>
-<td align="left">ControlledTerm</td>
+<td align="left"><a href="/vicflora-docs/resources/controlled-term">App\Models\Shared\ControlledTerm</a></td>
 <td align="left">FK: <code>type_of_type_id</code><br><span style="color:orange;">Has custom constraints</span></td>
 </tr>
 <tr>
 <td align="left"><code>typeName()</code></td>
 <td align="left"><strong>BelongsTo</strong></td>
-<td align="left">TaxonName</td>
+<td align="left"><a href="/vicflora-docs/resources/taxon-name">App\Models\Taxonomy\TaxonName</a></td>
 <td align="left">FK: <code>type_name_id</code></td>
 </tr>
 <tr>
 <td align="left"><code>typeSpecimen()</code></td>
 <td align="left"><strong>BelongsTo</strong></td>
-<td align="left">Specimen</td>
+<td align="left"><a href="/vicflora-docs/resources/specimen">App\Models\Profile\Specimen</a></td>
 <td align="left">FK: <code>type_specimen_id</code></td>
 </tr>
 <tr>
 <td align="left"><code>typePublishedIn()</code></td>
 <td align="left"><strong>BelongsTo</strong></td>
-<td align="left">Reference</td>
+<td align="left"><a href="/vicflora-docs/resources/reference">App\Models\Shared\Reference</a></td>
 <td align="left">FK: <code>type_published_in_id</code></td>
 </tr>
 <tr>
 <td align="left"><code>createdBy()</code></td>
 <td align="left"><strong>BelongsTo</strong></td>
-<td align="left">Agent</td>
+<td align="left"><a href="/vicflora-docs/resources/agent">App\Models\Shared\Agent</a></td>
 <td align="left">FK: <code>created_by_id</code></td>
 </tr>
 <tr>
 <td align="left"><code>updatedBy()</code></td>
 <td align="left"><strong>BelongsTo</strong></td>
-<td align="left">Agent</td>
+<td align="left"><a href="/vicflora-docs/resources/agent">App\Models\Shared\Agent</a></td>
 <td align="left">FK: <code>updated_by_id</code></td>
 </tr>
 <tr>
 <td align="left"><code>source()</code></td>
 <td align="left"><strong>MorphToMany</strong></td>
-<td align="left">Reference</td>
-<td align="left">Pivot: <code>entity_source_map</code><br><span style="color:orange;">Has custom constraints</span></td>
+<td align="left"><a href="/vicflora-docs/resources/reference">App\Models\Shared\Reference</a></td>
+<td align="left">Pivot: <code>[entity_source_map](/vicflora-docs/resources/entity_-source_-m-a-p)</code><br><span style="color:orange;">Has custom constraints</span></td>
 </tr>
 <tr>
 <td align="left"><code>creator()</code></td>
 <td align="left"><strong>MorphToMany</strong></td>
-<td align="left">Agent</td>
-<td align="left">Pivot: <code>entity_creator_map</code><br><span style="color:orange;">Has custom constraints</span></td>
+<td align="left"><a href="/vicflora-docs/resources/agent">App\Models\Shared\Agent</a></td>
+<td align="left">Pivot: <code>[entity_creator_map](/vicflora-docs/resources/entity_-creator_-m-a-p)</code><br><span style="color:orange;">Has custom constraints</span></td>
 </tr>
 </tbody>
 </table>
@@ -1728,6 +1742,13 @@
                     </a>
                 </li>
                                             <li>
+                    <a href="/vicflora-docs/resources/search" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
+                        Search
+                    </a>
+                </li>
+                                            <li>
                     <a href="/vicflora-docs/resources/specimen" 
                         class="block py-1 pl-4 text-sm transition-colors duration-100
                         text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
@@ -1865,6 +1886,13 @@
                         class="block py-1 pl-4 text-sm transition-colors duration-100
                         text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
                         TreatmentVersion_EXT
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/typification-ext" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
+                        Typification_EXT
                     </a>
                 </li>
                                             <li>

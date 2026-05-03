@@ -546,6 +546,13 @@
                     </a>
                 </li>
                                             <li>
+                    <a href="/vicflora-docs/resources/search" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
+                        Search
+                    </a>
+                </li>
+                                            <li>
                     <a href="/vicflora-docs/resources/specimen" 
                         class="block py-1 pl-4 text-sm transition-colors duration-100
                         text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
@@ -683,6 +690,13 @@
                         class="block py-1 pl-4 text-sm transition-colors duration-100
                         text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
                         TreatmentVersion_EXT
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/typification-ext" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
+                        Typification_EXT
                     </a>
                 </li>
                                             <li>
@@ -1016,7 +1030,7 @@
 </tr>
 <tr>
 <td><strong>Table name</strong></td>
-<td>mapper.mapper.occurrences</td>
+<td>mapper.occurrences</td>
 </tr>
 </tbody>
 </table>
@@ -1024,17 +1038,234 @@
 </div><h2 id="columns">Columns</h2>
 <div class="mb-6 w-full overflow-x-auto border border-gray-200 dark:border-gray-700">
     <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
-        <p><em>No columns found.</em></p>
+        <table>
+<thead>
+<tr>
+<th>column name</th>
+<th>data type</th>
+<th>nullable</th>
+<th>default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>uuid</td>
+<td>NO</td>
+<td></td>
+</tr>
+<tr>
+<td>parsed_name_id</td>
+<td>bigint</td>
+<td>YES</td>
+<td></td>
+</tr>
+<tr>
+<td>scientific_name</td>
+<td>character varying</td>
+<td>NO</td>
+<td></td>
+</tr>
+<tr>
+<td>data_source</td>
+<td>character varying</td>
+<td>NO</td>
+<td></td>
+</tr>
+<tr>
+<td>event_date</td>
+<td>character varying</td>
+<td>YES</td>
+<td></td>
+</tr>
+<tr>
+<td>establishment_means</td>
+<td>character varying</td>
+<td>YES</td>
+<td></td>
+</tr>
+<tr>
+<td>degree_of_establishment</td>
+<td>character varying</td>
+<td>YES</td>
+<td></td>
+</tr>
+<tr>
+<td>buds</td>
+<td>boolean</td>
+<td>NO</td>
+<td>false</td>
+</tr>
+<tr>
+<td>flowers</td>
+<td>boolean</td>
+<td>NO</td>
+<td>false</td>
+</tr>
+<tr>
+<td>fruit</td>
+<td>boolean</td>
+<td>NO</td>
+<td>false</td>
+</tr>
+<tr>
+<td>geom</td>
+<td>USER-DEFINED</td>
+<td>YES</td>
+<td></td>
+</tr>
+<tr>
+<td>lga2023</td>
+<td>character varying</td>
+<td>YES</td>
+<td></td>
+</tr>
+<tr>
+<td>bioregion</td>
+<td>character varying</td>
+<td>YES</td>
+<td></td>
+</tr>
+<tr>
+<td>park_res</td>
+<td>character varying</td>
+<td>YES</td>
+<td></td>
+</tr>
+<tr>
+<td>rap</td>
+<td>character varying</td>
+<td>YES</td>
+<td></td>
+</tr>
+<tr>
+<td>metadata</td>
+<td>jsonb</td>
+<td>YES</td>
+<td></td>
+</tr>
+<tr>
+<td>modified</td>
+<td>timestamp without time zone</td>
+<td>YES</td>
+<td></td>
+</tr>
+<tr>
+<td>version</td>
+<td>smallint</td>
+<td>NO</td>
+<td>'1'::smallint</td>
+</tr>
+<tr>
+<td>created_by_id</td>
+<td>bigint</td>
+<td>YES</td>
+<td></td>
+</tr>
+<tr>
+<td>updated_by_id</td>
+<td>bigint</td>
+<td>YES</td>
+<td></td>
+</tr>
+<tr>
+<td>created_at</td>
+<td>timestamp with time zone</td>
+<td>YES</td>
+<td></td>
+</tr>
+<tr>
+<td>updated_at</td>
+<td>timestamp with time zone</td>
+<td>YES</td>
+<td></td>
+</tr>
+</tbody>
+</table>
     </table>
 </div><h2 id="indexes">Indexes</h2>
 <div class="mb-6 w-full overflow-x-auto border border-gray-200 dark:border-gray-700">
     <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
-        <p><em>No indexes found.</em></p>
+        <table>
+<thead>
+<tr>
+<th>name</th>
+<th>definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>occurrences_pkey</td>
+<td>CREATE UNIQUE INDEX occurrences_pkey ON mapper.occurrences USING btree (id)</td>
+</tr>
+<tr>
+<td>mapper_occurrences_parsed_name_id_index</td>
+<td>CREATE INDEX mapper_occurrences_parsed_name_id_index ON mapper.occurrences USING btree (parsed_name_id)</td>
+</tr>
+<tr>
+<td>mapper_occurrences_data_source_index</td>
+<td>CREATE INDEX mapper_occurrences_data_source_index ON mapper.occurrences USING btree (data_source)</td>
+</tr>
+<tr>
+<td>mapper_occurrences_event_date_index</td>
+<td>CREATE INDEX mapper_occurrences_event_date_index ON mapper.occurrences USING btree (event_date)</td>
+</tr>
+<tr>
+<td>mapper_occurrences_lga2023_index</td>
+<td>CREATE INDEX mapper_occurrences_lga2023_index ON mapper.occurrences USING btree (lga2023)</td>
+</tr>
+<tr>
+<td>mapper_occurrences_bioregion_index</td>
+<td>CREATE INDEX mapper_occurrences_bioregion_index ON mapper.occurrences USING btree (bioregion)</td>
+</tr>
+<tr>
+<td>mapper_occurrences_park_res_index</td>
+<td>CREATE INDEX mapper_occurrences_park_res_index ON mapper.occurrences USING btree (park_res)</td>
+</tr>
+<tr>
+<td>mapper_occurrences_rap_index</td>
+<td>CREATE INDEX mapper_occurrences_rap_index ON mapper.occurrences USING btree (rap)</td>
+</tr>
+<tr>
+<td>occurrences_geom_idx</td>
+<td>CREATE INDEX occurrences_geom_idx ON mapper.occurrences USING gist (geom)</td>
+</tr>
+</tbody>
+</table>
     </table>
 </div><h2 id="foreign-key-relationships">Foreign key relationships</h2>
 <h3 id="references-to-other-tables">References to other tables</h3>
-<p><em>No outgoing references.</em></p>
-<h3 id="referenced-by">Referenced by</h3>
+<div class="mb-6 w-full overflow-x-auto border border-gray-200 dark:border-gray-700">
+    <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+        <table>
+<thead>
+<tr>
+<th>name</th>
+<th>table</th>
+<th>column</th>
+<th>referenced table</th>
+<th>referenced column</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>mapper_occurrences_created_by_id_foreign</td>
+<td>mapper.occurrences</td>
+<td>created_by_id</td>
+<td><a href="/vicflora-docs/resources/agent">agents</a></td>
+<td>id</td>
+</tr>
+<tr>
+<td>mapper_occurrences_updated_by_id_foreign</td>
+<td>mapper.occurrences</td>
+<td>updated_by_id</td>
+<td><a href="/vicflora-docs/resources/agent">agents</a></td>
+<td>id</td>
+</tr>
+</tbody>
+</table>
+    </table>
+</div><h3 id="referenced-by">Referenced by</h3>
 <p><em>No incoming references.</em></p>
 <h2 id="eloquent-relationships">Eloquent relationships</h2>
 <div class="mb-6 w-full overflow-x-auto border border-gray-200 dark:border-gray-700">
@@ -1052,19 +1283,19 @@
 <tr>
 <td align="left"><code>parsedName()</code></td>
 <td align="left"><strong>BelongsTo</strong></td>
-<td align="left">ParsedName</td>
+<td align="left"><a href="/vicflora-docs/resources/parsed-name">App\Models\Mapper\ParsedName</a></td>
 <td align="left">FK: <code>parsed_name_id</code></td>
 </tr>
 <tr>
 <td align="left"><code>createdBy()</code></td>
 <td align="left"><strong>BelongsTo</strong></td>
-<td align="left">Agent</td>
+<td align="left"><a href="/vicflora-docs/resources/agent">App\Models\Shared\Agent</a></td>
 <td align="left">FK: <code>created_by_id</code></td>
 </tr>
 <tr>
 <td align="left"><code>updatedBy()</code></td>
 <td align="left"><strong>BelongsTo</strong></td>
-<td align="left">Agent</td>
+<td align="left"><a href="/vicflora-docs/resources/agent">App\Models\Shared\Agent</a></td>
 <td align="left">FK: <code>updated_by_id</code></td>
 </tr>
 </tbody>
@@ -1522,6 +1753,13 @@
                     </a>
                 </li>
                                             <li>
+                    <a href="/vicflora-docs/resources/search" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
+                        Search
+                    </a>
+                </li>
+                                            <li>
                     <a href="/vicflora-docs/resources/specimen" 
                         class="block py-1 pl-4 text-sm transition-colors duration-100
                         text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
@@ -1659,6 +1897,13 @@
                         class="block py-1 pl-4 text-sm transition-colors duration-100
                         text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
                         TreatmentVersion_EXT
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/typification-ext" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
+                        Typification_EXT
                     </a>
                 </li>
                                             <li>

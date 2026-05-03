@@ -546,6 +546,13 @@
                     </a>
                 </li>
                                             <li>
+                    <a href="/vicflora-docs/resources/search" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
+                        Search
+                    </a>
+                </li>
+                                            <li>
                     <a href="/vicflora-docs/resources/specimen" 
                         class="block py-1 pl-4 text-sm transition-colors duration-100
                         text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
@@ -683,6 +690,13 @@
                         class="block py-1 pl-4 text-sm transition-colors duration-100
                         text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
                         TreatmentVersion_EXT
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/typification-ext" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
+                        Typification_EXT
                     </a>
                 </li>
                                             <li>
@@ -1136,21 +1150,21 @@
 <td>entity_identity_map_created_by_id_foreign</td>
 <td>entity_identity_map</td>
 <td>created_by_id</td>
-<td>agents</td>
+<td><a href="/vicflora-docs/resources/agent">agents</a></td>
 <td>id</td>
 </tr>
 <tr>
 <td>entity_identity_map_external_identity_id_foreign</td>
 <td>entity_identity_map</td>
 <td>external_identity_id</td>
-<td>external_identities</td>
+<td><a href="/vicflora-docs/resources/external-identity">external_identities</a></td>
 <td>id</td>
 </tr>
 <tr>
 <td>entity_identity_map_updated_by_id_foreign</td>
 <td>entity_identity_map</td>
 <td>updated_by_id</td>
-<td>agents</td>
+<td><a href="/vicflora-docs/resources/agent">agents</a></td>
 <td>id</td>
 </tr>
 </tbody>
@@ -1174,25 +1188,25 @@
 <tr>
 <td align="left"><code>externalIdentity()</code></td>
 <td align="left"><strong>BelongsTo</strong></td>
-<td align="left">ExternalIdentity</td>
+<td align="left"><a href="/vicflora-docs/resources/external-identity">App\Models\Shared\ExternalIdentity</a></td>
 <td align="left">FK: <code>external_identity_id</code></td>
 </tr>
 <tr>
 <td align="left"><code>linkable()</code></td>
 <td align="left"><strong>MorphTo</strong></td>
-<td align="left">EntityIdentityMap</td>
+<td align="left"><a href="/vicflora-docs/resources/entity_-identity_-m-a-p">App\Models\Shared\EntityIdentityMap</a></td>
 <td align="left">FK: <code>linkable_id</code><br>Polymorphic</td>
 </tr>
 <tr>
 <td align="left"><code>createdBy()</code></td>
 <td align="left"><strong>BelongsTo</strong></td>
-<td align="left">Agent</td>
+<td align="left"><a href="/vicflora-docs/resources/agent">App\Models\Shared\Agent</a></td>
 <td align="left">FK: <code>created_by_id</code></td>
 </tr>
 <tr>
 <td align="left"><code>updatedBy()</code></td>
 <td align="left"><strong>BelongsTo</strong></td>
-<td align="left">Agent</td>
+<td align="left"><a href="/vicflora-docs/resources/agent">App\Models\Shared\Agent</a></td>
 <td align="left">FK: <code>updated_by_id</code></td>
 </tr>
 </tbody>
@@ -1650,6 +1664,13 @@
                     </a>
                 </li>
                                             <li>
+                    <a href="/vicflora-docs/resources/search" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
+                        Search
+                    </a>
+                </li>
+                                            <li>
                     <a href="/vicflora-docs/resources/specimen" 
                         class="block py-1 pl-4 text-sm transition-colors duration-100
                         text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
@@ -1787,6 +1808,13 @@
                         class="block py-1 pl-4 text-sm transition-colors duration-100
                         text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
                         TreatmentVersion_EXT
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/typification-ext" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
+                        Typification_EXT
                     </a>
                 </li>
                                             <li>

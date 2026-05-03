@@ -546,6 +546,13 @@
                     </a>
                 </li>
                                             <li>
+                    <a href="/vicflora-docs/resources/search" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
+                        Search
+                    </a>
+                </li>
+                                            <li>
                     <a href="/vicflora-docs/resources/specimen" 
                         class="block py-1 pl-4 text-sm transition-colors duration-100
                         text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
@@ -683,6 +690,13 @@
                         class="block py-1 pl-4 text-sm transition-colors duration-100
                         text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
                         TreatmentVersion_EXT
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/typification-ext" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
+                        Typification_EXT
                     </a>
                 </li>
                                             <li>
@@ -1188,70 +1202,70 @@
 <td>profile_area_map_area_code_id_foreign</td>
 <td>profile_area_map</td>
 <td>area_code_id</td>
-<td>area_codes</td>
+<td><a href="/vicflora-docs/resources/area-code">area_codes</a></td>
 <td>id</td>
 </tr>
 <tr>
 <td>profile_area_map_created_by_id_foreign</td>
 <td>profile_area_map</td>
 <td>created_by_id</td>
-<td>agents</td>
+<td><a href="/vicflora-docs/resources/agent">agents</a></td>
 <td>id</td>
 </tr>
 <tr>
 <td>profile_area_map_degree_of_establishment_id_foreign</td>
 <td>profile_area_map</td>
 <td>degree_of_establishment_id</td>
-<td>controlled_terms</td>
+<td><a href="/vicflora-docs/resources/controlled-term">controlled_terms</a></td>
 <td>id</td>
 </tr>
 <tr>
 <td>profile_area_map_establishment_means_id_foreign</td>
 <td>profile_area_map</td>
 <td>establishment_means_id</td>
-<td>controlled_terms</td>
+<td><a href="/vicflora-docs/resources/controlled-term">controlled_terms</a></td>
 <td>id</td>
 </tr>
 <tr>
 <td>profile_area_map_gazetteer_id_foreign</td>
 <td>profile_area_map</td>
 <td>gazetteer_id</td>
-<td>references</td>
+<td><a href="/vicflora-docs/resources/reference">references</a></td>
 <td>id</td>
 </tr>
 <tr>
 <td>profile_area_map_occurrence_status_id_foreign</td>
 <td>profile_area_map</td>
 <td>occurrence_status_id</td>
-<td>controlled_terms</td>
+<td><a href="/vicflora-docs/resources/controlled-term">controlled_terms</a></td>
 <td>id</td>
 </tr>
 <tr>
 <td>profile_area_map_profile_id_foreign</td>
 <td>profile_area_map</td>
 <td>profile_id</td>
-<td>profiles</td>
+<td><a href="/vicflora-docs/resources/profile">profiles</a></td>
 <td>taxon_concept_id</td>
 </tr>
 <tr>
 <td>profile_area_map_taxon_tree_id_foreign</td>
 <td>profile_area_map</td>
 <td>taxon_tree_id</td>
-<td>taxon_trees</td>
+<td><a href="/vicflora-docs/resources/taxon-tree">taxon_trees</a></td>
 <td>id</td>
 </tr>
 <tr>
 <td>profile_area_map_threat_status_id_foreign</td>
 <td>profile_area_map</td>
 <td>threat_status_id</td>
-<td>threat_statuses</td>
+<td><a href="/vicflora-docs/resources/threat-status">threat_statuses</a></td>
 <td>id</td>
 </tr>
 <tr>
 <td>profile_area_map_updated_by_id_foreign</td>
 <td>profile_area_map</td>
 <td>updated_by_id</td>
-<td>agents</td>
+<td><a href="/vicflora-docs/resources/agent">agents</a></td>
 <td>id</td>
 </tr>
 </tbody>
@@ -1275,62 +1289,62 @@
 <tr>
 <td align="left"><code>profile()</code></td>
 <td align="left"><strong>BelongsTo</strong></td>
-<td align="left">Profile</td>
+<td align="left"><a href="/vicflora-docs/resources/profile">App\Models\Profile\Profile</a></td>
 <td align="left">FK: <code>profile_id</code></td>
 </tr>
 <tr>
 <td align="left"><code>areaCode()</code></td>
 <td align="left"><strong>BelongsTo</strong></td>
-<td align="left">AreaCode</td>
+<td align="left"><a href="/vicflora-docs/resources/area-code">App\Models\Geography\AreaCode</a></td>
 <td align="left">FK: <code>area_code_id</code></td>
 </tr>
 <tr>
 <td align="left"><code>taxonTree()</code></td>
 <td align="left"><strong>BelongsTo</strong></td>
-<td align="left">TaxonTree</td>
+<td align="left"><a href="/vicflora-docs/resources/taxon-tree">App\Models\Taxonomy\TaxonTree</a></td>
 <td align="left">FK: <code>taxon_tree_id</code></td>
 </tr>
 <tr>
 <td align="left"><code>occurrenceStatus()</code></td>
 <td align="left"><strong>BelongsTo</strong></td>
-<td align="left">ControlledTerm</td>
+<td align="left"><a href="/vicflora-docs/resources/controlled-term">App\Models\Shared\ControlledTerm</a></td>
 <td align="left">FK: <code>occurrence_status_id</code></td>
 </tr>
 <tr>
 <td align="left"><code>establishmentMeans()</code></td>
 <td align="left"><strong>BelongsTo</strong></td>
-<td align="left">ControlledTerm</td>
+<td align="left"><a href="/vicflora-docs/resources/controlled-term">App\Models\Shared\ControlledTerm</a></td>
 <td align="left">FK: <code>establishment_means_id</code></td>
 </tr>
 <tr>
 <td align="left"><code>degreeOfEstablishment()</code></td>
 <td align="left"><strong>BelongsTo</strong></td>
-<td align="left">ControlledTerm</td>
+<td align="left"><a href="/vicflora-docs/resources/controlled-term">App\Models\Shared\ControlledTerm</a></td>
 <td align="left">FK: <code>degree_of_establishment_id</code></td>
 </tr>
 <tr>
 <td align="left"><code>threatStatus()</code></td>
 <td align="left"><strong>BelongsTo</strong></td>
-<td align="left">ThreatStatus</td>
+<td align="left"><a href="/vicflora-docs/resources/threat-status">App\Models\Geography\ThreatStatus</a></td>
 <td align="left">FK: <code>threat_status_id</code></td>
 </tr>
 <tr>
 <td align="left"><code>createdBy()</code></td>
 <td align="left"><strong>BelongsTo</strong></td>
-<td align="left">Agent</td>
+<td align="left"><a href="/vicflora-docs/resources/agent">App\Models\Shared\Agent</a></td>
 <td align="left">FK: <code>created_by_id</code></td>
 </tr>
 <tr>
 <td align="left"><code>updatedBy()</code></td>
 <td align="left"><strong>BelongsTo</strong></td>
-<td align="left">Agent</td>
+<td align="left"><a href="/vicflora-docs/resources/agent">App\Models\Shared\Agent</a></td>
 <td align="left">FK: <code>updated_by_id</code></td>
 </tr>
 <tr>
 <td align="left"><code>source()</code></td>
 <td align="left"><strong>MorphToMany</strong></td>
-<td align="left">Reference</td>
-<td align="left">Pivot: <code>entity_source_map</code><br><span style="color:orange;">Has custom constraints</span></td>
+<td align="left"><a href="/vicflora-docs/resources/reference">App\Models\Shared\Reference</a></td>
+<td align="left">Pivot: <code>[entity_source_map](/vicflora-docs/resources/entity_-source_-m-a-p)</code><br><span style="color:orange;">Has custom constraints</span></td>
 </tr>
 </tbody>
 </table>
@@ -1813,6 +1827,13 @@
                     </a>
                 </li>
                                             <li>
+                    <a href="/vicflora-docs/resources/search" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
+                        Search
+                    </a>
+                </li>
+                                            <li>
                     <a href="/vicflora-docs/resources/specimen" 
                         class="block py-1 pl-4 text-sm transition-colors duration-100
                         text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
@@ -1950,6 +1971,13 @@
                         class="block py-1 pl-4 text-sm transition-colors duration-100
                         text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
                         TreatmentVersion_EXT
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/typification-ext" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
+                        Typification_EXT
                     </a>
                 </li>
                                             <li>

@@ -546,6 +546,13 @@
                     </a>
                 </li>
                                             <li>
+                    <a href="/vicflora-docs/resources/search" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
+                        Search
+                    </a>
+                </li>
+                                            <li>
                     <a href="/vicflora-docs/resources/specimen" 
                         class="block py-1 pl-4 text-sm transition-colors duration-100
                         text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
@@ -683,6 +690,13 @@
                         class="block py-1 pl-4 text-sm transition-colors duration-100
                         text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
                         TreatmentVersion_EXT
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/typification-ext" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
+                        Typification_EXT
                     </a>
                 </li>
                                             <li>
@@ -1016,7 +1030,7 @@
 </tr>
 <tr>
 <td><strong>Layer</strong></td>
-<td><a href="/vicflora-docs/layers/layer-4-authority#4a-bibliography">4a. Bibliography</a></td>
+<td><a href="/vicflora-docs/layers/layer-4-authority#4a-provenance">4a. Provenance</a></td>
 </tr>
 <tr>
 <td><strong>Model name</strong></td>
@@ -1178,28 +1192,28 @@
 <td>references_created_by_id_foreign</td>
 <td>references</td>
 <td>created_by_id</td>
-<td>agents</td>
+<td><a href="/vicflora-docs/resources/agent">agents</a></td>
 <td>id</td>
 </tr>
 <tr>
 <td>references_parent_id_foreign</td>
 <td>references</td>
 <td>parent_id</td>
-<td>references</td>
+<td><a href="/vicflora-docs/resources/reference">references</a></td>
 <td>id</td>
 </tr>
 <tr>
 <td>references_reference_type_id_foreign</td>
 <td>references</td>
 <td>reference_type_id</td>
-<td>controlled_terms</td>
+<td><a href="/vicflora-docs/resources/controlled-term">controlled_terms</a></td>
 <td>id</td>
 </tr>
 <tr>
 <td>references_updated_by_id_foreign</td>
 <td>references</td>
 <td>updated_by_id</td>
-<td>agents</td>
+<td><a href="/vicflora-docs/resources/agent">agents</a></td>
 <td>id</td>
 </tr>
 </tbody>
@@ -1211,150 +1225,150 @@
         <table>
 <thead>
 <tr>
-<th>name</th>
-<th>table</th>
-<th>column</th>
-<th>referenced_table</th>
-<th>referenced_column</th>
+<th>Name</th>
+<th>Table</th>
+<th>Column</th>
+<th>Referenced Table</th>
+<th>Referenced Column</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>references_parent_id_foreign</td>
-<td>references</td>
+<td><a href="/vicflora-docs/resources/reference">references</a></td>
 <td>parent_id</td>
 <td>references</td>
 <td>id</td>
 </tr>
 <tr>
 <td>taxonomies_ext_id_foreign</td>
-<td>taxonomies_ext</td>
+<td><a href="/vicflora-docs/resources/taxonomy_-e-x-t">taxonomies_ext</a></td>
 <td>id</td>
 <td>references</td>
 <td>id</td>
 </tr>
 <tr>
 <td>taxonomy_versions_ext_id_foreign</td>
-<td>taxonomy_versions_ext</td>
+<td><a href="/vicflora-docs/resources/taxonomy-version_-e-x-t">taxonomy_versions_ext</a></td>
 <td>id</td>
 <td>references</td>
 <td>id</td>
 </tr>
 <tr>
 <td>protologues_ext_id_foreign</td>
-<td>protologues_ext</td>
+<td><a href="/vicflora-docs/resources/protologue_-e-x-t">protologues_ext</a></td>
 <td>id</td>
 <td>references</td>
 <td>id</td>
 </tr>
 <tr>
 <td>gazetteers_ext_id_foreign</td>
-<td>gazetteers_ext</td>
+<td><a href="/vicflora-docs/resources/gazetteer_-e-x-t">gazetteers_ext</a></td>
 <td>id</td>
 <td>references</td>
 <td>id</td>
 </tr>
 <tr>
 <td>threat_status_authorities_ext_id_foreign</td>
-<td>threat_status_authorities_ext</td>
+<td><a href="/vicflora-docs/resources/threat-status-authority_-e-x-t">threat_status_authorities_ext</a></td>
 <td>id</td>
 <td>references</td>
 <td>id</td>
 </tr>
 <tr>
 <td>external_identity_authorities_ext_id_foreign</td>
-<td>external_identity_authorities_ext</td>
+<td><a href="/vicflora-docs/resources/external-identity-authority_-e-x-t">external_identity_authorities_ext</a></td>
 <td>id</td>
 <td>references</td>
 <td>id</td>
 </tr>
 <tr>
 <td>scientific_names_ext_published_in_id_foreign</td>
-<td>scientific_names_ext</td>
+<td><a href="/vicflora-docs/resources/scientific-name_-e-x-t">scientific_names_ext</a></td>
 <td>published_in_id</td>
 <td>references</td>
 <td>id</td>
 </tr>
 <tr>
 <td>taxon_trees_taxonomy_id_foreign</td>
-<td>taxon_trees</td>
+<td><a href="/vicflora-docs/resources/taxon-tree">taxon_trees</a></td>
 <td>taxonomy_id</td>
 <td>references</td>
 <td>id</td>
 </tr>
 <tr>
 <td>taxon_tree_geographic_scope_map_gazetteer_id_foreign</td>
-<td>taxon_tree_geographic_scope_map</td>
+<td><a href="/vicflora-docs/resources/taxon-tree_-geographic-scope_-m-a-p">taxon_tree_geographic_scope_map</a></td>
 <td>gazetteer_id</td>
 <td>references</td>
 <td>id</td>
 </tr>
 <tr>
 <td>taxon_concepts_according_to_id_foreign</td>
-<td>taxon_concepts</td>
+<td><a href="/vicflora-docs/resources/taxon-concept">taxon_concepts</a></td>
 <td>according_to_id</td>
 <td>references</td>
 <td>id</td>
 </tr>
 <tr>
 <td>nomenclatural_types_type_published_in_id_foreign</td>
-<td>nomenclatural_types</td>
+<td><a href="/vicflora-docs/resources/nomenclatural-type">nomenclatural_types</a></td>
 <td>type_published_in_id</td>
 <td>references</td>
 <td>id</td>
 </tr>
 <tr>
 <td>external_identities_external_identity_authority_id_foreign</td>
-<td>external_identities</td>
+<td><a href="/vicflora-docs/resources/external-identity">external_identities</a></td>
 <td>external_identity_authority_id</td>
 <td>references</td>
 <td>id</td>
 </tr>
 <tr>
 <td>area_codes_gazetteer_id_foreign</td>
-<td>area_codes</td>
+<td><a href="/vicflora-docs/resources/area-code">area_codes</a></td>
 <td>gazetteer_id</td>
 <td>references</td>
 <td>id</td>
 </tr>
 <tr>
 <td>profile_area_map_gazetteer_id_foreign</td>
-<td>profile_area_map</td>
+<td><a href="/vicflora-docs/resources/profile_-area_-m-a-p">profile_area_map</a></td>
 <td>gazetteer_id</td>
 <td>references</td>
 <td>id</td>
 </tr>
 <tr>
 <td>treatments_ext_id_foreign</td>
-<td>treatments_ext</td>
+<td><a href="/vicflora-docs/resources/treatment_-e-x-t">treatments_ext</a></td>
 <td>id</td>
 <td>references</td>
 <td>id</td>
 </tr>
 <tr>
 <td>treatment_versions_ext_id_foreign</td>
-<td>treatment_versions_ext</td>
+<td><a href="/vicflora-docs/resources/treatment-version_-e-x-t">treatment_versions_ext</a></td>
 <td>id</td>
 <td>references</td>
 <td>id</td>
 </tr>
 <tr>
 <td>reference_contributors_map_reference_id_foreign</td>
-<td>reference_contributors_map</td>
+<td><a href="/vicflora-docs/resources/reference_-contributor_-m-a-p">reference_contributors_map</a></td>
 <td>reference_id</td>
 <td>references</td>
 <td>id</td>
 </tr>
 <tr>
 <td>entity_source_map_reference_id_foreign</td>
-<td>entity_source_map</td>
+<td><a href="/vicflora-docs/resources/entity_-source_-m-a-p">entity_source_map</a></td>
 <td>reference_id</td>
 <td>references</td>
 <td>id</td>
 </tr>
 <tr>
 <td>typifications_ext_id_foreign</td>
-<td>typifications_ext</td>
+<td><a href="/vicflora-docs/resources/typification_-e-x-t">typifications_ext</a></td>
 <td>id</td>
 <td>references</td>
 <td>id</td>
@@ -1378,103 +1392,103 @@
 <tr>
 <td align="left"><code>type()</code></td>
 <td align="left"><strong>BelongsTo</strong></td>
-<td align="left">ControlledTerm</td>
+<td align="left"><a href="/vicflora-docs/resources/controlled-term">App\Models\Shared\ControlledTerm</a></td>
 <td align="left">FK: <code>reference_type_id</code></td>
 </tr>
 <tr>
 <td align="left"><code>treatment()</code></td>
 <td align="left"><strong>HasOne</strong></td>
-<td align="left">Treatment</td>
+<td align="left"><a href="/vicflora-docs/resources/treatment_-e-x-t">App\Models\Taxonomy\Treatment</a></td>
 <td align="left">Remote FK: <code>id</code><br><span style="color:orange;">Has custom constraints</span></td>
 </tr>
 <tr>
 <td align="left"><code>treatmentVersion()</code></td>
 <td align="left"><strong>HasOne</strong></td>
-<td align="left">TreatmentVersion</td>
+<td align="left"><a href="/vicflora-docs/resources/treatment-version_-e-x-t">App\Models\Taxonomy\TreatmentVersion</a></td>
 <td align="left">Remote FK: <code>id</code><br><span style="color:orange;">Has custom constraints</span></td>
 </tr>
 <tr>
 <td align="left"><code>protologue()</code></td>
 <td align="left"><strong>HasOne</strong></td>
-<td align="left">Protologue</td>
+<td align="left"><a href="/vicflora-docs/resources/protologue_-e-x-t">App\Models\Taxonomy\Protologue</a></td>
 <td align="left">Remote FK: <code>id</code><br><span style="color:orange;">Has custom constraints</span></td>
 </tr>
 <tr>
 <td align="left"><code>typification()</code></td>
 <td align="left"><strong>HasOne</strong></td>
-<td align="left">Typification</td>
+<td align="left">App\Models\Taxonomy\Typification</td>
 <td align="left">Remote FK: <code>id</code><br><span style="color:orange;">Has custom constraints</span></td>
 </tr>
 <tr>
 <td align="left"><code>taxonomy()</code></td>
 <td align="left"><strong>HasOne</strong></td>
-<td align="left">Taxonomy</td>
+<td align="left"><a href="/vicflora-docs/resources/taxonomy_-e-x-t">App\Models\Taxonomy\Taxonomy</a></td>
 <td align="left">Remote FK: <code>id</code><br><span style="color:orange;">Has custom constraints</span></td>
 </tr>
 <tr>
 <td align="left"><code>taxonomyVersion()</code></td>
 <td align="left"><strong>HasOne</strong></td>
-<td align="left">TaxonomyVersion</td>
+<td align="left"><a href="/vicflora-docs/resources/taxonomy-version_-e-x-t">App\Models\Taxonomy\TaxonomyVersion</a></td>
 <td align="left">Remote FK: <code>id</code><br><span style="color:orange;">Has custom constraints</span></td>
 </tr>
 <tr>
 <td align="left"><code>gazetteer()</code></td>
 <td align="left"><strong>HasOne</strong></td>
-<td align="left">Gazetteer</td>
+<td align="left"><a href="/vicflora-docs/resources/gazetteer_-e-x-t">App\Models\Geography\Gazetteer</a></td>
 <td align="left">Remote FK: <code>id</code><br><span style="color:orange;">Has custom constraints</span></td>
 </tr>
 <tr>
 <td align="left"><code>threatStatusAuthority()</code></td>
 <td align="left"><strong>HasOne</strong></td>
-<td align="left">ThreatStatusAuthority</td>
+<td align="left"><a href="/vicflora-docs/resources/threat-status-authority_-e-x-t">App\Models\Geography\ThreatStatusAuthority</a></td>
 <td align="left">Remote FK: <code>id</code><br><span style="color:orange;">Has custom constraints</span></td>
 </tr>
 <tr>
 <td align="left"><code>externalIdentityAuthority()</code></td>
 <td align="left"><strong>HasOne</strong></td>
-<td align="left">ExternalIdentityAuthority</td>
+<td align="left"><a href="/vicflora-docs/resources/external-identity-authority_-e-x-t">App\Models\Shared\ExternalIdentityAuthority</a></td>
 <td align="left">Remote FK: <code>id</code><br><span style="color:orange;">Has custom constraints</span></td>
 </tr>
 <tr>
 <td align="left"><code>contributors()</code></td>
 <td align="left"><strong>BelongsToMany</strong></td>
-<td align="left">Agent</td>
-<td align="left">Pivot: <code>reference_contributors_map</code></td>
+<td align="left"><a href="/vicflora-docs/resources/agent">App\Models\Shared\Agent</a></td>
+<td align="left">Pivot: <code>[reference_contributors_map](/vicflora-docs/resources/reference_-contributor_-m-a-p)</code></td>
 </tr>
 <tr>
 <td align="left"><code>authors()</code></td>
 <td align="left"><strong>BelongsToMany</strong></td>
-<td align="left">Agent</td>
-<td align="left">Pivot: <code>reference_contributors_map</code><br><span style="color:orange;">Has custom constraints</span></td>
+<td align="left"><a href="/vicflora-docs/resources/agent">App\Models\Shared\Agent</a></td>
+<td align="left">Pivot: <code>[reference_contributors_map](/vicflora-docs/resources/reference_-contributor_-m-a-p)</code><br><span style="color:orange;">Has custom constraints</span></td>
 </tr>
 <tr>
 <td align="left"><code>editors()</code></td>
 <td align="left"><strong>BelongsToMany</strong></td>
-<td align="left">Agent</td>
-<td align="left">Pivot: <code>reference_contributors_map</code><br><span style="color:orange;">Has custom constraints</span></td>
+<td align="left"><a href="/vicflora-docs/resources/agent">App\Models\Shared\Agent</a></td>
+<td align="left">Pivot: <code>[reference_contributors_map](/vicflora-docs/resources/reference_-contributor_-m-a-p)</code><br><span style="color:orange;">Has custom constraints</span></td>
 </tr>
 <tr>
 <td align="left"><code>container()</code></td>
 <td align="left"><strong>BelongsTo</strong></td>
-<td align="left">Reference</td>
+<td align="left"><a href="/vicflora-docs/resources/reference">App\Models\Shared\Reference</a></td>
 <td align="left">FK: <code>parent_id</code></td>
 </tr>
 <tr>
 <td align="left"><code>items()</code></td>
 <td align="left"><strong>HasMany</strong></td>
-<td align="left">Reference</td>
+<td align="left"><a href="/vicflora-docs/resources/reference">App\Models\Shared\Reference</a></td>
 <td align="left">Remote FK: <code>parent_id</code><br><span style="color:orange;">Has custom constraints</span></td>
 </tr>
 <tr>
 <td align="left"><code>createdBy()</code></td>
 <td align="left"><strong>BelongsTo</strong></td>
-<td align="left">Agent</td>
+<td align="left"><a href="/vicflora-docs/resources/agent">App\Models\Shared\Agent</a></td>
 <td align="left">FK: <code>created_by_id</code></td>
 </tr>
 <tr>
 <td align="left"><code>updatedBy()</code></td>
 <td align="left"><strong>BelongsTo</strong></td>
-<td align="left">Agent</td>
+<td align="left"><a href="/vicflora-docs/resources/agent">App\Models\Shared\Agent</a></td>
 <td align="left">FK: <code>updated_by_id</code></td>
 </tr>
 </tbody>
@@ -1950,6 +1964,13 @@
                     </a>
                 </li>
                                             <li>
+                    <a href="/vicflora-docs/resources/search" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
+                        Search
+                    </a>
+                </li>
+                                            <li>
                     <a href="/vicflora-docs/resources/specimen" 
                         class="block py-1 pl-4 text-sm transition-colors duration-100
                         text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
@@ -2087,6 +2108,13 @@
                         class="block py-1 pl-4 text-sm transition-colors duration-100
                         text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
                         TreatmentVersion_EXT
+                    </a>
+                </li>
+                                            <li>
+                    <a href="/vicflora-docs/resources/typification-ext" 
+                        class="block py-1 pl-4 text-sm transition-colors duration-100
+                        text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
+                        Typification_EXT
                     </a>
                 </li>
                                             <li>
