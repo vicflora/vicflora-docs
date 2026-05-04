@@ -2,7 +2,7 @@ resource,type,layer,sublayer,model,table_schema,table_name,table_type,vocabulari
 TaxonConcept,domain entity,1. Semantics,1a. Concept,\App\Models\Taxonomy\TaxonConcept,public,taxon_concepts,table,"{""rank_id"": ""TAXON_RANK""}"
 TaxonConceptMapping,associative entity,1. Semantics,1b. Mapping,\App\Models\Taxonomy\TaxonConceptMapping,public,taxon_concept_mappings,table,"{""mapping_relation_id"": ""MAPPING_RELATION""}"
 TaxonName,domain entity,2. Syntax,2a. Core nomenclature,\App\Models\Taxonomy\TaxonName,public,taxon_names,table,"{""rank_id"": ""TAXON_RANK""}"
-ScientificName_EXT,sidecar entity,2. Syntax,2a. Core nomenclature,\App\Models\Taxonomy\ScientificName,public,scientific_names_ext,table,"{""nomenclatural_code_id"": ""NOMENCLATURAL_CODE"", ""nomenclatural_status_id"", ""NOMENCLATURAL_STATUS""}"
+ScientificName_EXT,sidecar entity,2. Syntax,2a. Core nomenclature,\App\Models\Taxonomy\ScientificName,public,scientific_names_ext,table,"{""nomenclatural_code_id"": ""NOMENCLATURAL_CODE"", ""nomenclatural_status_id"": ""NOMENCLATURAL_STATUS""}"
 VernacularName_EXT,sidecar entity,2. Syntax,2a. Core nomenclature,\App\Models\Taxonomy\VernacularName,public,vernacular_names_ext,table,
 HybridFormula_EXT,sidecar entity,2. Syntax,2a. Core nomenclature,\App\Models\Taxonomy\HybridFormula,public,hybrid_formulas_ext,table,
 InformalName_EXT,sidecar entity,2. Syntax,2a. Core nomenclature,\App\Models\Taxonomy\InformalName,public,horticultural_group_names_ext,table,
@@ -11,7 +11,7 @@ ScientificName_Author_MAP,map,2. Syntax,2a. Core nomenclature,\App\Models\Taxono
 NameRelation_MAP,map,2. Syntax,2a. Core nomenclature,\App\Models\Taxonomy\NameRelationMap,public,name_relations_map,table,"{""name_relation_type_id"": ""NAME_RELATION_TYPE""}"
 ScientificNameUsage_MAP,map,2. Syntax,2b. Name usage,\App\Models\Taxonomy\ScientificNameUsageMap,public,scientific_name_usages_map,table,"{""name_role_id"": ""NAME_USAGE_ROLE""}"
 VernacularNameUsage_MAP,map,2. Syntax,2b. Name usage,\App\Models\Taxonomy\VernacularNameUsageMap,public,vernacular_name_usages_map,table,
-NomenclaturalType,domain entity,2. Syntax,2c. Typification,\App\Models\Taxonomy\NomenclaturalType,public,nomenclatural_types,table,"{""type_of_type_id"": ""TYPE_OF_TYPE"")"
+NomenclaturalType,domain entity,2. Syntax,2c. Typification,\App\Models\Taxonomy\NomenclaturalType,public,nomenclatural_types,table,"{""type_of_type_id"": ""TYPE_OF_TYPE""}"
 TaxonTree,domain entity,3. Governance,,\App\Models\Taxonomy\TaxonTree,public,taxon_trees,table,
 TaxonTree_GeographicScope_MAP,map,3. Governance,,\App\Models\Taxonomy\TaxonTreeGeographicScope,public,taxon_tree_geographic_scope_map,table,
 TaxonTreeDefItem,infrastructure,3. Governance,,\App\Models\Taxonomy\TaxonTreeDefItem,public,taxon_tree_def_items,table,"{""rank_id"": ""TAXON_RANK""}"
