@@ -19,3 +19,7 @@ order: 7
 ## Layer 7d: Branding
 
 <x-svg-viewer path="/assets/images/erd/layer-7d-branding.svg" status="draft"/>
+
+## Layer 7e. Search
+
+<x-svg-viewer path="/assets/images/erd/layer-7e-search.svg" status="draft"/>
