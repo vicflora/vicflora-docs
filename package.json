@@ -6,7 +6,10 @@
         "dev": "npm run update-shared && npx vite",
         "build": "npm run update-shared && npx vite build && ./vendor/bin/jigsaw build production",
         "linkify-erd": "node linkify-svgs.cjs",
-        "build-erd": "for f in source/_mermaid/*.mmd; do npx @mermaid-js/mermaid-cli@latest -c erd-config.json -p puppeteer-config.json -i \"$f\" -o \"source/assets/images/erd/$(basename \"$f\" .mmd).svg\"; done && npm run linkify-erd"
+        "build-erd": "for f in source/_mermaid/*.mmd; do npx @mermaid-js/mermaid-cli@latest -c erd-config.json -p puppeteer-config.json -i \"$f\" -o \"source/assets/images/erd/$(basename \"$f\" .mmd).svg\"; done && npm run linkify-erd",
+        "docs:generate": "php artisan docs:generate",
+        "docs:staging": "./vendor/bin/jigsaw build staging",
+        "docs:watch": "./vendor/bin/jigsaw watch staging"
     },
     "devDependencies": {
         "@tighten/jigsaw-vite-plugin": "^1.0.1",
