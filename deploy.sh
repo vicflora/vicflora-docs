@@ -32,12 +32,18 @@ cd "$DOCS_DIR"
 
 case "$1" in
     test)
+        git stash
+
         echo "🚀 Building for Staging (Test)..."
+
+        php "$PROJECT_ROOT"/artisan docs:generate \
+            --baseUrl="" \
+            --output="$JIGSAW_SOURCE"
+
         npm run build-erd
-        ./vendor/bin/jigsaw build test
-        echo "📂 Syncing to Laravel..."
-        rm -rf "$APP_DOCS_DIR"/*
-        cp -R build_test/. "$APP_DOCS_DIR/"
+        ./vendor/bin/jigsaw build staging
+
+        git stash pop
         ;;
 
     github)
