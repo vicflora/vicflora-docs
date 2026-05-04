@@ -5,7 +5,7 @@ TaxonName,domain entity,2. Syntax,2a. Core nomenclature,\App\Models\Taxonomy\Tax
 ScientificName_EXT,sidecar entity,2. Syntax,2a. Core nomenclature,\App\Models\Taxonomy\ScientificName,public,scientific_names_ext,table,"{""nomenclatural_code_id"": ""NOMENCLATURAL_CODE"", ""nomenclatural_status_id"", ""NOMENCLATURAL_STATUS""}"
 VernacularName_EXT,sidecar entity,2. Syntax,2a. Core nomenclature,\App\Models\Taxonomy\VernacularName,public,vernacular_names_ext,table,
 HybridFormula_EXT,sidecar entity,2. Syntax,2a. Core nomenclature,\App\Models\Taxonomy\HybridFormula,public,hybrid_formulas_ext,table,
-InformalName_EXT,sidecar entity,2. Syntax,2a. Core nomenclature,\App\Models\Taxonomy\InformalName,public,informal_names_ext,table,
+InformalName_EXT,sidecar entity,2. Syntax,2a. Core nomenclature,\App\Models\Taxonomy\InformalName,public,horticultural_group_names_ext,table,
 TaxonConceptLabel_EXT,sidecar entity,2. Syntax,2a. Core nomenclature,\App\Models\Taxonomy\TaxonConceptLabel,public,taxon_concept_labels_ext,table,
 ScientificName_Author_MAP,map,2. Syntax,2a. Core nomenclature,\App\Models\Taxonomy\ScientificNameAuthorMap,public,scientific_name_author_map,table,"{""author_role_id"": ""SCIENTIFIC_NAME_AUTHOR_ROLE""}"
 NameRelation_MAP,map,2. Syntax,2a. Core nomenclature,\App\Models\Taxonomy\NameRelationMap,public,name_relations_map,table,"{""name_relation_type_id"": ""NAME_RELATION_TYPE""}"
@@ -14,22 +14,23 @@ VernacularNameUsage_MAP,map,2. Syntax,2b. Name usage,\App\Models\Taxonomy\Vernac
 NomenclaturalType,domain entity,2. Syntax,2c. Typification,\App\Models\Taxonomy\NomenclaturalType,public,nomenclatural_types,table,"{""type_of_type_id"": ""TYPE_OF_TYPE"")"
 TaxonTree,domain entity,3. Governance,,\App\Models\Taxonomy\TaxonTree,public,taxon_trees,table,
 TaxonTree_GeographicScope_MAP,map,3. Governance,,\App\Models\Taxonomy\TaxonTreeGeographicScope,public,taxon_tree_geographic_scope_map,table,
-TaxonTreeDefItem,infrastructure,3. Governance,,\App\Models\Taxonomy\TaxonTreeDefItem,public,taxon_tree_def_items,table,"(""rank_id"": ""TAXON_RANK""}"
+TaxonTreeDefItem,infrastructure,3. Governance,,\App\Models\Taxonomy\TaxonTreeDefItem,public,taxon_tree_def_items,table,"{""rank_id"": ""TAXON_RANK""}"
 TaxonTreeNode,domain entity,3. Governance,,\App\Models\Taxonomy\TaxonTreeNode,public,taxon_tree_nodes,table,
 TaxonTreeRevision,domain entity,3. Governance,,\App\Models\Taxonomy\TaxonTreeRevisions,public,taxon_tree_revisions,table,"{""change_type_id"": ""CHANGE_TYPE""}"
-Reference,domain entity,4. Authority,4a. Bibliography,\App\Models\Shared\Reference,public,references,table,"{""reference_type_id"": ""REFERENCE_TYPE""}"
-Protologue_EXT,sidecar entity,4. Authority,4a. Bibliography,\App\Models\Taxonomy\Protologue,public,protologues_ext,table,
-Treatment_EXT,sidecar entity,4. Authority,4a. Bibliography,\App\Models\Taxonomy\Treatment,public,treatments_ext,table,
-TreatmentVersion_EXT,sidecar entity,4. Authority,4a. Bibliography,\App\Models\Taxonomy\TreatmentVersion,public,treatment_versions_ext,table,
-Taxonomy_EXT,sidecar entity,4. Authority,4a. Bibliography,\App\Models\Taxonomy\Taxonomy,public,taxonomies_ext,table,
-TaxonomyVersion_EXT,sidecar entity,4. Authority,4a. Bibliography,\App\Models\Taxonomy\TaxonomyVersion,public,taxonomy_versions_ext,table,
-ThreatStatusAuthority_EXT,sidecar entity,4. Authority,4a. Bibliography,\App\Models\Geography\ThreatStatusAuthority,public,threat_status_authorities_ext,table,
-Gazetteer_EXT,sidecar entity,4. Authority,4a. Bibliography,\App\Models\Geography\Gazetteer,public,gazetteers_ext,table,
-ExternalIdentityAuthority_EXT,sidecar entity,4. Authority,4a. Bibliography,\App\Models\Shared\ExternalIdentityAuthority,public,external_identity_authorities_ext,table,
-Reference_Contributor_MAP,map,4. Authority,4a. Bibliography,\App\Models\Shared\ReferenceContributorMap,public,reference_contributor_map,table,"{""contributor_role_id"": ""CONTRIBUTOR_ROLE""}"
-Entity_Source_MAP,map,4. Authority,4a. Bibliography,\App\Models\Shared\EntitySourceMap,public,entity_source_map,table,
-Agent,domain entity,4. Authority,4b. Audit,\App\Models\Shared\Agent,public,agents,table,"{""agent_type_id"": ""AGENT_TYPE""}"
-Entity_Creator_MAP,map,4. Authority,4b. Audit,EntityCreatorMap,public,entity_creator_map,table,
+Reference,domain entity,4. Authority,4a. Provenance,\App\Models\Shared\Reference,public,references,table,"{""reference_type_id"": ""REFERENCE_TYPE""}"
+Protologue_EXT,sidecar entity,4. Authority,4a. Provenance,\App\Models\Taxonomy\Protologue,public,protologues_ext,table,
+Typification_EXT,sidecar entity,4. Authority,4a. Provenance,\App\Models\Taxonomy\Typofication,public,typifications_ext,table,
+Treatment_EXT,sidecar entity,4. Authority,4a. Provenance,\App\Models\Taxonomy\Treatment,public,treatments_ext,table,
+TreatmentVersion_EXT,sidecar entity,4. Authority,4a. Provenance,\App\Models\Taxonomy\TreatmentVersion,public,treatment_versions_ext,table,
+Taxonomy_EXT,sidecar entity,4. Authority,4a. Provenance,\App\Models\Taxonomy\Taxonomy,public,taxonomies_ext,table,
+TaxonomyVersion_EXT,sidecar entity,4. Authority,4a. Provenance,\App\Models\Taxonomy\TaxonomyVersion,public,taxonomy_versions_ext,table,
+ThreatStatusAuthority_EXT,sidecar entity,4. Authority,4a. Provenance,\App\Models\Geography\ThreatStatusAuthority,public,threat_status_authorities_ext,table,
+Gazetteer_EXT,sidecar entity,4. Authority,4a. Provenance,\App\Models\Geography\Gazetteer,public,gazetteers_ext,table,
+ExternalIdentityAuthority_EXT,sidecar entity,4. Authority,4a. Provenance,\App\Models\Shared\ExternalIdentityAuthority,public,external_identity_authorities_ext,table,
+Reference_Contributor_MAP,map,4. Authority,4a. Provenance,\App\Models\Shared\ReferenceContributorMap,public,reference_contributors_map,table,"{""contributor_role_id"": ""CONTRIBUTOR_ROLE""}"
+Entity_Source_MAP,map,4. Authority,4a. Provenance,\App\Models\Shared\EntitySourceMap,public,entity_source_map,table,
+Agent,domain entity,4. Authority,4b. Attribution,\App\Models\Shared\Agent,public,agents,table,"{""agent_type_id"": ""AGENT_TYPE""}"
+Entity_Creator_MAP,map,4. Authority,4b. Attribution,EntityCreatorMap,public,entity_creator_map,table,
 Profile,domain entity,5. Narrative,,\App\Models\Profile\Profile,public,profiles,table,
 ProfileDefItem,infrastructure,5. Narrative,,\App\Models\Profile\ProfileDefItem,public,profile_def_items,table,"{""profile_section_type_id"": ""PROFILE_SECTION_TYPE""}"
 ProfileSection,domain entity,5. Narrative,,\App\Models\Profile\ProfileSection,public,profile_sections,table,
@@ -37,19 +38,19 @@ ExternalIdentity,domain entity,6. Identity,,\App\Models\Shared\ExternalIdentity,
 Entity_Identity_MAP,map,6. Identity,,\App\Models\Shared\EntityIdentityMap,public,entity_identity_map,table,
 User,infrastructure,7. Infrastructure,7a. Agency,\App\Models\Shared\User,public,users,table,
 ControlledVocabulary,infrastructure,7. Infrastructure,7b. Vocabulary,\App\Models\Shared\ControlledVocabulary,public,controlled_vocabularies,table,
-ControlledTerm,infrastructure,7. Infrastructure,7b. Vocabulary,\App\Models\Taxonomy\ControlledTerm,public,controlled_terms,table,
+ControlledTerm,infrastructure,7. Infrastructure,7b. Vocabulary,\App\Models\Shared\ControlledTerm,public,controlled_terms,table,
 AuditLog,infrastructure,7. Infrastructure,7c. Audit log,\App\Models\Shared\AuditLog,public,audit_logs,table,
 Profile_Area_MAP,map,8. Extension,8a. Distribution,\App\Models\Profile\ProfileAreaMap,public,profile_area_map,table,"{""occurrence_status_id"": ""OCCURRENCE_STATUS"", ""establishment_means_id"": ""ESTABLISHMENT_MEANS"", ""degree_of_establishment_id"": ""DEGREE_OF_ESTABLISHMENT""}"
 AreaCode,domain entity,8. Extension,8a. Distribution,\App\Models\Geography\AreaCode,public,area_codes,table,
 Area,domain entity,8. Extension,8a. Distribution,\App\Models\Geography\Area,public,areas,table,"{""area_type_id"": ""AREA_TYPE""}"
 ThreatStatus,domain entity,8. Extension,8a. Distribution,\App\Models\Geography\ThreatStatus,public,threat_statuses,table,"{""status_term_id"": ""THREAT_STATUS""}"
 Profile_Specimen_MAP,map,8. Extension,8b. Voucher,\App\Models\Profile\ProfileSpecimenMap,public,profile_specimen_map,table,"{""voucher_type_id"": ""VOUCHER_TYPE""}"
-Specimen,domain entity,8. Extension,8b. Voucher,\App\Models\Specimen\Specimen,public,specimens,table,
+Specimen,domain entity,8. Extension,8b. Voucher,\App\Models\Profile\Specimen,public,specimens,table,
 Image,domain entity,8. Extension,8c. Media,\App\Models\Media\Image,public,images,table,"{""image_type_id"": ""IMAGE_TYPE""}"
 ImageCaption,domain entity,8. Extension,8c. Media,\App\Models\Media\ImageCaption,public,image_captions,table,
 ImageAccessPoint,domain entity,8. Extension,8c. Media,\App\Models\Media\ImageAccessPoint,public,image_access_points,table,"{""variant_id"": ""IMAGE_VARIANT""}"
 Entity_Image_MAP,map,8. Extension,8c. Media,\App\Models\Media\EntityImageMap,public,entity_image_map,table,"{""image_role_id"": ""IMAGE_ROLE""}"
-Occurrence,domain entity,8. Extension,8e. Occurrence,\App\Models\Mapper\Occurrence,mapper,mapper.occurrences,table,
+Occurrence,domain entity,8. Extension,8e. Occurrence,\App\Models\Mapper\Occurrence,mapper,occurrences,table,
 ParsedName,infrastructure,8. Extension,8e. Occurrence,\App\Models\Mapper\ParsedName,public,parsed_names,table,
 NameMatch_MAP,map,8. Extension,8e. Occurrence,\App\Models\Mapper\NameMatchMap,mapper,name_match_map,materialized view,
 Taxon,infrastructure,8. Extension,8e. Occurrence,\App\Models\Mapper\Taxon,mapper,taxa,materialized view,
@@ -64,3 +65,4 @@ GlossaryCategory,domain entity,8. Extension,8h. Glossary,\App\Models\Glossary\Ca
 GlossaryTermRelationship_MAP,map,8. Extension,8h. Glossary,\App\Models\Glossary\TermRelationship,glossary,term_relationships,table,"{""relationship_type_id"": ""GLOSSARY_TERM_RELATIONSHIP_TYPE""}"
 Limitation,domain entity,8. Extension,8h. Glossary,\App\Models\Glossary\Limitation,glossary,limitations,table,
 Glossary_Limitation_MAP,map,8. Extension,8h. Glossary,\App\Models\GlossaryLimitationMap,glossary,glossary_limitation_map,table,
+Search,map,7. Infrastructure,7e. Search,\App\Models\Search\Search,public,search_mv,materialized_view,
