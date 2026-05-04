@@ -41,19 +41,19 @@ case "$1" in
         ;;
 
     github)
+        git add . && git commit -m "Commit uncommitted  changes before deployment"
+
         echo "🌐 Building for GitHub Pages..."
 
         # 1. Generate Markdown directly into Jigsaw folders
-        php "$PROJECT_ROOT"/artisan docs:generate-resources \
+        php "$PROJECT_ROOT"/artisan docs:generate \
             --baseUrl="/vicflora-docs" \
-            --output="$JIGSAW_SOURCE"
-
-        php "$PROJECT_ROOT"/artisan docs:generate-vocabularies \
             --output="$JIGSAW_SOURCE"
 
         # 3. Build Jigsaw 
         npm run build-erd       
         ./vendor/bin/jigsaw build github
+
         echo "⬆️ Pushing to GitHub..."
         git add build_github -f
         git commit -m "Deploy docs to GitHub: $(date)"
@@ -61,19 +61,16 @@ case "$1" in
         ;;
 
     prod)
-        echo "💎 Building for Production..."
-        php "$PROJECT_ROOT"/artisan docs:generate-resources \
-            --baseUrl="" \
-            --output="$JIGSAW_SOURCE"
+        git add . && git commit -m "Commit uncommitted  changes before deployment"
 
-        php "$PROJECT_ROOT"/artisan docs:generate-vocabularies \
+        echo "💎 Building for Production..."
+
+        php "$PROJECT_ROOT"/artisan docs:generate \
+            --baseUrl="" \
             --output="$JIGSAW_SOURCE"
 
         npm run build-erd
         ./vendor/bin/jigsaw build production
-        # echo "📂 Syncing to Laravel..."
-        # rm -rf "$APP_DOCS_DIR"/*
-        # cp -R build_production/. "$APP_DOCS_DIR/"
         ;;
 
     all)
