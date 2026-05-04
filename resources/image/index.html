@@ -963,14 +963,6 @@
                 </li>
                                             
                 <li class="">
-                    <a href="#indexes" 
-                       class="no-underline transition-colors duration-200 hover:text-gray-900 dark:hover:text-white hover:underline
-                       text-sm font-semibold text-primary-600 dark:text-primary-400">
-                        Indexes
-                    </a>
-                </li>
-                                            
-                <li class="">
                     <a href="#foreign-key-relationships" 
                        class="no-underline transition-colors duration-200 hover:text-gray-900 dark:hover:text-white hover:underline
                        text-sm font-semibold text-primary-600 dark:text-primary-400">
@@ -1145,28 +1137,6 @@
 <td>timestamp with time zone</td>
 <td>YES</td>
 <td></td>
-</tr>
-</tbody>
-</table>
-    </table>
-</div><h2 id="indexes">Indexes</h2>
-<div class="mb-6 w-full overflow-x-auto border border-gray-200 dark:border-gray-700">
-    <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
-        <table>
-<thead>
-<tr>
-<th>name</th>
-<th>definition</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>images_pkey</td>
-<td>CREATE UNIQUE INDEX images_pkey ON public.images USING btree (id)</td>
-</tr>
-<tr>
-<td>images_uri_unique</td>
-<td>CREATE UNIQUE INDEX images_uri_unique ON public.images USING btree (uri)</td>
 </tr>
 </tbody>
 </table>

@@ -963,14 +963,6 @@
                 </li>
                                             
                 <li class="">
-                    <a href="#indexes" 
-                       class="no-underline transition-colors duration-200 hover:text-gray-900 dark:hover:text-white hover:underline
-                       text-sm font-semibold text-primary-600 dark:text-primary-400">
-                        Indexes
-                    </a>
-                </li>
-                                            
-                <li class="">
                     <a href="#foreign-key-relationships" 
                        class="no-underline transition-colors duration-200 hover:text-gray-900 dark:hover:text-white hover:underline
                        text-sm font-semibold text-primary-600 dark:text-primary-400">
@@ -1039,36 +1031,6 @@
 <div class="mb-6 w-full overflow-x-auto border border-gray-200 dark:border-gray-700">
     <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
         <p><em>No columns found.</em></p>
-    </table>
-</div><h2 id="indexes">Indexes</h2>
-<div class="mb-6 w-full overflow-x-auto border border-gray-200 dark:border-gray-700">
-    <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
-        <table>
-<thead>
-<tr>
-<th>name</th>
-<th>definition</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>search_mv_unique_id_idx</td>
-<td>CREATE UNIQUE INDEX search_mv_unique_id_idx ON public.search_mv USING btree (id)</td>
-</tr>
-<tr>
-<td>search_mv_scientific_name_idx</td>
-<td>CREATE INDEX search_mv_scientific_name_idx ON public.search_mv USING btree (scientific_name)</td>
-</tr>
-<tr>
-<td>search_mv_family_idx</td>
-<td>CREATE INDEX search_mv_family_idx ON public.search_mv USING btree (family)</td>
-</tr>
-<tr>
-<td>search_mv_status_idx</td>
-<td>CREATE INDEX search_mv_status_idx ON public.search_mv USING btree (status)</td>
-</tr>
-</tbody>
-</table>
     </table>
 </div><h2 id="foreign-key-relationships">Foreign key relationships</h2>
 <h3 id="references-to-other-tables">References to other tables</h3>
