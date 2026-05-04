@@ -11,8 +11,8 @@ erDiagram
   ReferenceContributor_MAP }|--o| Reference : "reference"
 
   Agent }o--|| User : user
-  Agent ||--|{ Any_Entity_MIXIN : "createdBy"
-  Agent ||--o{ Any_Entity_MIXIN : "updatedBy"
+  Agent ||--|{ Auditable_MIXIN : "createdBy"
+  Agent ||--o{ Auditable_MIXIN : "updatedBy"
 
   Agent |o--|{ Entity_Creator_MAP : "creator"
   Entity_Creator_MAP }o--o| TaxonConceptMapping : "morphs as 'attributable'"
@@ -30,7 +30,7 @@ erDiagram
     string legal_name "nullalel"
   }
 
-  Any_Entity_MIXIN {
+  Auditable_MIXIN {
     date created_at 
     date updated_at "nullable"
     int version

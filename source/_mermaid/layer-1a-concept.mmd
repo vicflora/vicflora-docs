@@ -14,7 +14,7 @@ erDiagram
   TaxonConcept }o--|{ VernacularName_EXT : "vernacularNames"
   TaxonConcept |o--|{ VernacularName_EXT : "preferredVernacularName"
   VernacularName_EXT ||--o| TaxonName : "taxonName / vernacularName"
-  TaxonConcept |o--|| TaxonConceptLabel_EXT : "taxonConcept ? label"
+  TaxonConcept |o--|| TaxonConceptLabel_EXT : "taxonConcept / label"
   TaxonConceptLabel_EXT |o--|| TaxonName : "taxonName / taxonConceptLabel" 
 
   TaxonConcept ||--|{ TaxonConceptMapping : "subjectTaxonConcept"

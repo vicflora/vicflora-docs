@@ -11,12 +11,12 @@ erDiagram
   AreaCode }|--|| Gazetteer_EXT : "gazetteer"
   Gazetteer_EXT ||--o| Reference : reference
 
-  Profile_Area_MAP |o--|| ThreatStatus : threatStatus
+  Profile_Area_MAP |o--o| ThreatStatus : threatStatus
   ThreatStatus }|--|| ThreatStatusAuthority_EXT : "authority"
-  ThreatStatus ||--o| Area : "area"
+  ThreatStatus }|--o| Area : "area"
   ThreatStatusAuthority_EXT ||--o| Reference : "reference / threatStatusAuthority"
-  ThreatStatus ||--o| TaxonName : "taxonName"
-  ThreatStatus |o--o| TaxonConcept : "taxonConcept"
+  ThreatStatus }|--o| TaxonName : "taxonName"
+  ThreatStatus }o--o| TaxonConcept : "taxonConcept"
 
   Profile_Area_MAP }o--o| Entity_Source_MAP : "morphs as 'provenanceable'"
   Entity_Source_MAP }|--o| Reference : "reference"
@@ -64,6 +64,8 @@ erDiagram
     int area_id FK
     int threat_status_authority_id FK
     int threat_status_id FK
+    date start_date "nullable"
+    date end_date "nullable"
     jsonb metadata "nullable"
     text remarks "nullable" 
   }

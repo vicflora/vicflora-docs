@@ -20,6 +20,9 @@ erDiagram
   ProfileSection }|--|| ProfileDefItem : "profileDefItem"
 
   %% References
+  Profile |o--|{ Profile_Reference_MAP : "profile"
+  Profile_Reference_MAP }|--o| Reference : "reference"
+
   %% Profile }o--o| Entity_Source_MAP : "morphs as 'provenanceable'"
   %% ProfileSection }o--|| Entity_Source_MAP : "morphs as 'provenanceable'"
   %% Entity_Source_MAP }|--o| Reference : "reference"
@@ -54,4 +57,10 @@ erDiagram
     int profile_def_item_id FK
     text body_text
     int sort_order "nullable"
+  }
+
+  Profile_Reference_MAP {
+    int id PK
+    int profile_id FK
+    int reference_id FK
   }
