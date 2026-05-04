@@ -963,14 +963,6 @@
                 </li>
                                             
                 <li class="">
-                    <a href="#indexes" 
-                       class="no-underline transition-colors duration-200 hover:text-gray-900 dark:hover:text-white hover:underline
-                       text-sm font-semibold text-primary-600 dark:text-primary-400">
-                        Indexes
-                    </a>
-                </li>
-                                            
-                <li class="">
                     <a href="#foreign-key-relationships" 
                        class="no-underline transition-colors duration-200 hover:text-gray-900 dark:hover:text-white hover:underline
                        text-sm font-semibold text-primary-600 dark:text-primary-400">
@@ -999,6 +991,14 @@
                        class="no-underline transition-colors duration-200 hover:text-gray-900 dark:hover:text-white hover:underline
                        text-sm font-semibold text-primary-600 dark:text-primary-400">
                         Eloquent relationships
+                    </a>
+                </li>
+                                            
+                <li class="">
+                    <a href="#controlled-vocabularies" 
+                       class="no-underline transition-colors duration-200 hover:text-gray-900 dark:hover:text-white hover:underline
+                       text-sm font-semibold text-primary-600 dark:text-primary-400">
+                        Controlled Vocabularies
                     </a>
                 </li>
                     </ul>
@@ -1125,28 +1125,6 @@
 <td>timestamp with time zone</td>
 <td>YES</td>
 <td></td>
-</tr>
-</tbody>
-</table>
-    </table>
-</div><h2 id="indexes">Indexes</h2>
-<div class="mb-6 w-full overflow-x-auto border border-gray-200 dark:border-gray-700">
-    <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
-        <table>
-<thead>
-<tr>
-<th>name</th>
-<th>definition</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>nomenclatural_types_pkey</td>
-<td>CREATE UNIQUE INDEX nomenclatural_types_pkey ON public.nomenclatural_types USING btree (id)</td>
-</tr>
-<tr>
-<td>nomenclatural_types_guid_unique</td>
-<td>CREATE UNIQUE INDEX nomenclatural_types_guid_unique ON public.nomenclatural_types USING btree (guid)</td>
 </tr>
 </tbody>
 </table>
@@ -1286,6 +1264,24 @@
 <td align="left"><strong>MorphToMany</strong></td>
 <td align="left"><a href="/vicflora-docs/resources/agent">App\Models\Shared\Agent</a></td>
 <td align="left">Pivot: <code>[entity_creator_map](/vicflora-docs/resources/entity_-creator_-m-a-p)</code><br><span style="color:orange;">Has custom constraints</span></td>
+</tr>
+</tbody>
+</table>
+    </table>
+</div><h2 id="controlled-vocabularies">Controlled Vocabularies</h2>
+<div class="mb-6 w-full overflow-x-auto border border-gray-200 dark:border-gray-700">
+    <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+        <table>
+<thead>
+<tr>
+<th align="left">Column</th>
+<th align="left">Vocabulary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>type_of_type_id</code></td>
+<td align="left"><a href="/vicflora-docs/vocabularies/type-of-type">TypeOfType Vocabulary</a></td>
 </tr>
 </tbody>
 </table>

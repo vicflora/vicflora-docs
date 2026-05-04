@@ -1004,7 +1004,7 @@
             SQL
         </span>
         
-        <button onclick="copyCode('code_69f7f69ecac46', this)" class="text-gray-400 hover:text-green-600 transition-colors">
+        <button onclick="copyCode('code_69f840341123c', this)" class="text-gray-400 hover:text-green-600 transition-colors">
             <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 17.25v3.375c0 .621-.504 1.125-1.125 1.125h-9.75a1.125 1.125 0 01-1.125-1.125V7.875c0-.621.504-1.125 1.125-1.125H6.75a9.06 9.06 0 011.5.124m7.5 10.376h3.375c.621 0 1.125-.504 1.125-1.125V11.25c0-4.46-3.243-8.161-7.5-8.876a9.06 9.06 0 00-1.5-.124H9.375c-.621 0-1.125.504-1.125 1.125v3.5m7.5 10.375H9.375a1.125 1.125 0 01-1.125-1.125v-9.25m12 6.625v-1.875a3.375 3.375 0 00-3.375-3.375h-1.5a1.125 1.125 0 01-1.125-1.125v-1.5a3.375 3.375 0 00-3.375-3.375H9.75"></path>
             </svg>
@@ -1015,51 +1015,8 @@
         [&_p]:hidden 
         [&_pre]:!m-0 [&_pre]:!p-0 [&_pre]:!bg-transparent 
         [&_code]:!p-0 [&_code]:!bg-transparent [&_code]:!text-sm [&_code]:!font-bold [&_code]:!leading-tight [&_code]:!text-[var(--hljs-color)]">
-        <div id="code_69f7f69ecac46">
-            <pre><code class="language-sql">-- View: mapper.taxon_concept_phenology_map
-
--- DROP MATERIALIZED VIEW IF EXISTS mapper.taxon_concept_phenology_map;
-
-CREATE MATERIALIZED VIEW IF NOT EXISTS mapper.taxon_concept_phenology_map
-TABLESPACE pg_default
-AS
- WITH monthly_extractions AS (
-         SELECT t.taxon_concept_id,
-            t.scientific_name,
-            SUBSTRING(o.event_date FROM 6 FOR 2) AS month_str,
-            o.buds,
-            o.flowers,
-            o.fruit
-           FROM mapper.taxa t
-             JOIN mapper.taxon_concept_occurrence_map tco ON t.taxon_concept_id = tco.taxon_concept_id
-             JOIN mapper.occurrences o ON tco.occurrence_id = o.id
-          WHERE o.event_date::text ~ '^\d{4}-\d{2}'::text
-        )
- SELECT row_number() OVER (ORDER BY taxon_concept_id, month_str)::integer AS id,
-    taxon_concept_id,
-    month_str::integer AS month_numerical,
-    to_char(to_date(month_str, 'MM'::text)::timestamp with time zone, 'Month'::text) AS month,
-    count(*) AS total,
-    count(buds) FILTER (WHERE buds IS NOT NULL) AS buds,
-    count(flowers) FILTER (WHERE flowers IS NOT NULL) AS flowers,
-    count(fruit) FILTER (WHERE fruit IS NOT NULL) AS fruit
-   FROM monthly_extractions
-  GROUP BY taxon_concept_id, scientific_name, month_str
-  ORDER BY scientific_name, (month_str::integer)
-WITH DATA;
-
-ALTER TABLE IF EXISTS mapper.taxon_concept_phenology_map
-    OWNER TO vicflora;
-
-
-CREATE INDEX phenology_id_idx
-    ON mapper.taxon_concept_phenology_map USING btree
-    (id)
-    TABLESPACE pg_default;
-CREATE UNIQUE INDEX phenology_taxon_month_unique_idx
-    ON mapper.taxon_concept_phenology_map USING btree
-    (taxon_concept_id, month_numerical)
-    TABLESPACE pg_default;
+        <div id="code_69f840341123c">
+            <pre><code class="language-sql">-- Add materialized view DDL here
 </code></pre>
         </div>
     </div>
