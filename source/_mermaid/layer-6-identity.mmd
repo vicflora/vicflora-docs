@@ -8,9 +8,9 @@ erDiagram
 
   ExternalIdentity ||--|{ Entity_Identity_MAP : "externalIdentity"
 
-  Entity_Identity_MAP }o--o{ TaxonConcept : "morphs as 'linkable'"
-  Entity_Identity_MAP }o--o{ TaxonName : "morphs as 'linkable'"
-  Entity_Identity_MAP }o--o{ Agent : "morphs as 'linkable'"
+  Entity_Identity_MAP }o--o| TaxonConcept : "morphs as 'linkable'"
+  Entity_Identity_MAP }o--o| TaxonName : "morphs as 'linkable'"
+  Entity_Identity_MAP }o--o| Agent : "morphs as 'linkable'"
 
   ExternalIdentity {
     int id PK
@@ -22,7 +22,7 @@ erDiagram
 
   Entity_Identity_MAP {
     int id PK
-    string entity_type
-    int entity_id
+    string linkable_type
+    int linkable_id
     int external_identity_id
   }
