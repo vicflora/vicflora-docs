@@ -3,6 +3,10 @@ config:
   layout: elk
 ---
 erDiagram
+
+  TaxonConcept }o--o| TaxonTree : taxonTree
+  TaxonConcept |o--|{ TaxonTreeNode : taxonConcept
+
   TaxonTree ||--o{ TaxonTreeDefItem : "taxonTree"
   TaxonTree ||--o{ TaxonTreeNode : "taxonTree"
   TaxonTree |o--|| TaxonTreeNode : "rootNode"
@@ -15,7 +19,6 @@ erDiagram
   TaxonTreeNode ||--o{ TaxonTreeRevision : "newNode"
   TaxonTree ||--o{ TaxonTreeRevision : "taxonTree"
   
-  TaxonTreeNode }|--o| TaxonConcept : "taxonConcept"
   TaxonTreeNode |o--o| TaxonTreeNode : "parent / children"
 
   TaxonTree }o--|| Taxonomy_EXT : "taxonomy"
@@ -58,6 +61,8 @@ erDiagram
     int taxon_concept_id FK
     int taxon_tree_def_item_id FK
     int parent_id FK
+    date start_date
+    date end_date "nullable"
     string path
     int sort_order "nullable"
   }
