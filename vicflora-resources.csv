@@ -19,7 +19,7 @@ TaxonTreeNode,domain entity,3. Governance,,\App\Models\Taxonomy\TaxonTreeNode,pu
 TaxonTreeRevision,domain entity,3. Governance,,\App\Models\Taxonomy\TaxonTreeRevisions,public,taxon_tree_revisions,table,"{""change_type_id"": ""CHANGE_TYPE""}"
 Reference,domain entity,4. Authority,4a. Provenance,\App\Models\Shared\Reference,public,references,table,"{""reference_type_id"": ""REFERENCE_TYPE""}"
 Protologue_EXT,sidecar entity,4. Authority,4a. Provenance,\App\Models\Taxonomy\Protologue,public,protologues_ext,table,
-Typification_EXT,sidecar entity,4. Authority,4a. Provenance,\App\Models\Taxonomy\Typofication,public,typifications_ext,table,
+Typification_EXT,sidecar entity,4. Authority,4a. Provenance,\App\Models\Taxonomy\Typification,public,typifications_ext,table,
 Treatment_EXT,sidecar entity,4. Authority,4a. Provenance,\App\Models\Taxonomy\Treatment,public,treatments_ext,table,
 TreatmentVersion_EXT,sidecar entity,4. Authority,4a. Provenance,\App\Models\Taxonomy\TreatmentVersion,public,treatment_versions_ext,table,
 Taxonomy_EXT,sidecar entity,4. Authority,4a. Provenance,\App\Models\Taxonomy\Taxonomy,public,taxonomies_ext,table,
