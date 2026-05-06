@@ -32,7 +32,7 @@ cd "$DOCS_DIR"
 
 case "$1" in
     test)
-        git stash
+        git add . && git commit -m "Commit uncommitted  changes before deployment"
 
         echo "🚀 Building for Staging (Test)..."
 
@@ -42,8 +42,6 @@ case "$1" in
 
         npm run build-erd
         ./vendor/bin/jigsaw build staging
-
-        git stash pop
         ;;
 
     github)
