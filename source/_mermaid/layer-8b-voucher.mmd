@@ -3,8 +3,10 @@ config:
   layout: elk
 ---
 erDiagram
-  Profile_Specimen_MAP }|--o| Profile : "profile"
+  Profile |o--|{ Profile_Specimen_MAP : "profile"
   Profile_Specimen_MAP }o--|| Specimen : "specimen"
+  Specimen |o--|{ Entity_Identity_MAP : "morphs as 'linkable'"
+  Entity_Identity_MAP }|--o| ExternalIdentity : "externalIdentity"
   Specimen |o--|{ Entity_Source_MAP : "morphs as 'prvenanceable'"
   Entity_Source_MAP }|--o| Reference : "reference"
   Specimen |o--|{ Entity_Image_MAP : "morphs as 'depictable'"
@@ -22,6 +24,5 @@ erDiagram
     string institution_code "nullable"
     string collection_code "nullable"
     string catalog_number "nullable"
-    string source_url "nullable"
     jsonb metadata "nullable"
   }
