@@ -963,6 +963,14 @@
                 </li>
                                             
                 <li class="">
+                    <a href="#indexes" 
+                       class="no-underline transition-colors duration-200 hover:text-gray-900 dark:hover:text-white hover:underline
+                       text-sm font-semibold text-primary-600 dark:text-primary-400">
+                        Indexes
+                    </a>
+                </li>
+                                            
+                <li class="">
                     <a href="#foreign-key-relationships" 
                        class="no-underline transition-colors duration-200 hover:text-gray-900 dark:hover:text-white hover:underline
                        text-sm font-semibold text-primary-600 dark:text-primary-400">
@@ -1171,6 +1179,56 @@
 <td>timestamp with time zone</td>
 <td>YES</td>
 <td></td>
+</tr>
+</tbody>
+</table>
+    </table>
+</div><h2 id="indexes">Indexes</h2>
+<div class="mb-6 w-full overflow-x-auto border border-gray-200 dark:border-gray-700">
+    <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+        <table>
+<thead>
+<tr>
+<th>name</th>
+<th>definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>occurrences_pkey</td>
+<td>CREATE UNIQUE INDEX occurrences_pkey ON mapper.occurrences USING btree (id)</td>
+</tr>
+<tr>
+<td>mapper_occurrences_parsed_name_id_index</td>
+<td>CREATE INDEX mapper_occurrences_parsed_name_id_index ON mapper.occurrences USING btree (parsed_name_id)</td>
+</tr>
+<tr>
+<td>mapper_occurrences_data_source_index</td>
+<td>CREATE INDEX mapper_occurrences_data_source_index ON mapper.occurrences USING btree (data_source)</td>
+</tr>
+<tr>
+<td>mapper_occurrences_event_date_index</td>
+<td>CREATE INDEX mapper_occurrences_event_date_index ON mapper.occurrences USING btree (event_date)</td>
+</tr>
+<tr>
+<td>mapper_occurrences_lga2023_index</td>
+<td>CREATE INDEX mapper_occurrences_lga2023_index ON mapper.occurrences USING btree (lga2023)</td>
+</tr>
+<tr>
+<td>mapper_occurrences_bioregion_index</td>
+<td>CREATE INDEX mapper_occurrences_bioregion_index ON mapper.occurrences USING btree (bioregion)</td>
+</tr>
+<tr>
+<td>mapper_occurrences_park_res_index</td>
+<td>CREATE INDEX mapper_occurrences_park_res_index ON mapper.occurrences USING btree (park_res)</td>
+</tr>
+<tr>
+<td>mapper_occurrences_rap_index</td>
+<td>CREATE INDEX mapper_occurrences_rap_index ON mapper.occurrences USING btree (rap)</td>
+</tr>
+<tr>
+<td>occurrences_geom_idx</td>
+<td>CREATE INDEX occurrences_geom_idx ON mapper.occurrences USING gist (geom)</td>
 </tr>
 </tbody>
 </table>

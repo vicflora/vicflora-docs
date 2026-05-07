@@ -963,6 +963,14 @@
                 </li>
                                             
                 <li class="">
+                    <a href="#indexes" 
+                       class="no-underline transition-colors duration-200 hover:text-gray-900 dark:hover:text-white hover:underline
+                       text-sm font-semibold text-primary-600 dark:text-primary-400">
+                        Indexes
+                    </a>
+                </li>
+                                            
+                <li class="">
                     <a href="#foreign-key-relationships" 
                        class="no-underline transition-colors duration-200 hover:text-gray-900 dark:hover:text-white hover:underline
                        text-sm font-semibold text-primary-600 dark:text-primary-400">
@@ -1105,6 +1113,32 @@
 <td>timestamp with time zone</td>
 <td>YES</td>
 <td></td>
+</tr>
+</tbody>
+</table>
+    </table>
+</div><h2 id="indexes">Indexes</h2>
+<div class="mb-6 w-full overflow-x-auto border border-gray-200 dark:border-gray-700">
+    <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+        <table>
+<thead>
+<tr>
+<th>name</th>
+<th>definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>entity_creator_map_pkey</td>
+<td>CREATE UNIQUE INDEX entity_creator_map_pkey ON public.entity_creator_map USING btree (id)</td>
+</tr>
+<tr>
+<td>entity_creator_map_createable_type_createable_id_index</td>
+<td>CREATE INDEX entity_creator_map_createable_type_createable_id_index ON public.entity_creator_map USING btree (createable_type, createable_id)</td>
+</tr>
+<tr>
+<td>createable_entity_unique</td>
+<td>CREATE UNIQUE INDEX createable_entity_unique ON public.entity_creator_map USING btree (createable_type, createable_id)</td>
 </tr>
 </tbody>
 </table>
