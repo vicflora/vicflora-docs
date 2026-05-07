@@ -3,7 +3,7 @@ config:
   layout: elk
 ---
 erDiagram
-  Profile_Area_MAP ||--o| Profile : "profile / distribution"
+  Profile |o--|{ Profile_Area_MAP : "profile / distribution"
 
   %% Profile }o--o{ Entity_Source_MAP : "morphs as 'provenanceable'"
   Profile_Area_MAP }|--o| AreaCode : "areaCode"
