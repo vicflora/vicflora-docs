@@ -8,7 +8,7 @@ erDiagram
   ScientificName_Author_MAP }|--o| ScientificName_EXT : "scientificName"
 
   Agent |o--|{ ReferenceContributor_MAP : agent
-  ReferenceContributor_MAP }|--o| Reference : "reference"
+  Reference_Contributor_MAP }|--o| Reference : "reference"
 
   Agent }o--|| User : user
   Agent ||--|{ Auditable_MIXIN : "createdBy"
