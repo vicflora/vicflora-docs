@@ -963,6 +963,14 @@
                 </li>
                                             
                 <li class="">
+                    <a href="#indexes" 
+                       class="no-underline transition-colors duration-200 hover:text-gray-900 dark:hover:text-white hover:underline
+                       text-sm font-semibold text-primary-600 dark:text-primary-400">
+                        Indexes
+                    </a>
+                </li>
+                                            
+                <li class="">
                     <a href="#foreign-key-relationships" 
                        class="no-underline transition-colors duration-200 hover:text-gray-900 dark:hover:text-white hover:underline
                        text-sm font-semibold text-primary-600 dark:text-primary-400">
@@ -1018,7 +1026,7 @@
 </tr>
 <tr>
 <td><strong>Model name</strong></td>
-<td>\App\Models\Taxonomy\Typofication</td>
+<td>\App\Models\Taxonomy\Typification</td>
 </tr>
 <tr>
 <td><strong>Table name</strong></td>
@@ -1079,6 +1087,24 @@
 </tbody>
 </table>
     </table>
+</div><h2 id="indexes">Indexes</h2>
+<div class="mb-6 w-full overflow-x-auto border border-gray-200 dark:border-gray-700">
+    <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+        <table>
+<thead>
+<tr>
+<th>name</th>
+<th>definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>typifications_ext_pkey</td>
+<td>CREATE UNIQUE INDEX typifications_ext_pkey ON public.typifications_ext USING btree (id)</td>
+</tr>
+</tbody>
+</table>
+    </table>
 </div><h2 id="foreign-key-relationships">Foreign key relationships</h2>
 <h3 id="references-to-other-tables">References to other tables</h3>
 <div class="mb-6 w-full overflow-x-auto border border-gray-200 dark:border-gray-700">
@@ -1123,7 +1149,24 @@
 <h2 id="eloquent-relationships">Eloquent relationships</h2>
 <div class="mb-6 w-full overflow-x-auto border border-gray-200 dark:border-gray-700">
     <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
-        <p><em>Model class not found.</em></p>
+        <table>
+<thead>
+<tr>
+<th align="left">Method</th>
+<th align="left">Type</th>
+<th align="left">Related Model</th>
+<th align="left">Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>reference()</code></td>
+<td align="left"><strong>BelongsTo</strong></td>
+<td align="left"><a href="/vicflora-docs/resources/reference">App\Models\Shared\Reference</a></td>
+<td align="left">FK: <code>id</code></td>
+</tr>
+</tbody>
+</table>
     </table>
 </div>                  </div>
               </div>

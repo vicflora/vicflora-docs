@@ -963,6 +963,14 @@
                 </li>
                                             
                 <li class="">
+                    <a href="#indexes" 
+                       class="no-underline transition-colors duration-200 hover:text-gray-900 dark:hover:text-white hover:underline
+                       text-sm font-semibold text-primary-600 dark:text-primary-400">
+                        Indexes
+                    </a>
+                </li>
+                                            
+                <li class="">
                     <a href="#foreign-key-relationships" 
                        class="no-underline transition-colors duration-200 hover:text-gray-900 dark:hover:text-white hover:underline
                        text-sm font-semibold text-primary-600 dark:text-primary-400">
@@ -1115,6 +1123,28 @@
 </tbody>
 </table>
     </table>
+</div><h2 id="indexes">Indexes</h2>
+<div class="mb-6 w-full overflow-x-auto border border-gray-200 dark:border-gray-700">
+    <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+        <table>
+<thead>
+<tr>
+<th>name</th>
+<th>definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>controlled_terms_pkey</td>
+<td>CREATE UNIQUE INDEX controlled_terms_pkey ON public.controlled_terms USING btree (id)</td>
+</tr>
+<tr>
+<td>controlled_terms_controlled_vocabulary_id_code_unique</td>
+<td>CREATE UNIQUE INDEX controlled_terms_controlled_vocabulary_id_code_unique ON public.controlled_terms USING btree (controlled_vocabulary_id, code)</td>
+</tr>
+</tbody>
+</table>
+    </table>
 </div><h2 id="foreign-key-relationships">Foreign key relationships</h2>
 <h3 id="references-to-other-tables">References to other tables</h3>
 <div class="mb-6 w-full overflow-x-auto border border-gray-200 dark:border-gray-700">
@@ -1184,14 +1214,14 @@
 </tr>
 <tr>
 <td>scientific_names_ext_nomenclatural_code_id_foreign</td>
-<td><a href="/vicflora-docs/resources/scientific-name_-e-x-t">scientific_names_ext</a></td>
+<td><a href="/vicflora-docs/resources/scientific-name-ext">scientific_names_ext</a></td>
 <td>nomenclatural_code_id</td>
 <td>controlled_terms</td>
 <td>id</td>
 </tr>
 <tr>
 <td>scientific_names_ext_nomenclatural_status_id_foreign</td>
-<td><a href="/vicflora-docs/resources/scientific-name_-e-x-t">scientific_names_ext</a></td>
+<td><a href="/vicflora-docs/resources/scientific-name-ext">scientific_names_ext</a></td>
 <td>nomenclatural_status_id</td>
 <td>controlled_terms</td>
 <td>id</td>
@@ -1205,7 +1235,7 @@
 </tr>
 <tr>
 <td>scientific_name_usages_map_name_usage_role_id_foreign</td>
-<td><a href="/vicflora-docs/resources/scientific-name-usage_-m-a-p">scientific_name_usages_map</a></td>
+<td><a href="/vicflora-docs/resources/scientific-name-usage-map">scientific_name_usages_map</a></td>
 <td>name_usage_role_id</td>
 <td>controlled_terms</td>
 <td>id</td>
@@ -1247,7 +1277,7 @@
 </tr>
 <tr>
 <td>profile_specimen_map_voucher_type_id_foreign</td>
-<td><a href="/vicflora-docs/resources/profile_-specimen_-m-a-p">profile_specimen_map</a></td>
+<td><a href="/vicflora-docs/resources/profile-specimen-map">profile_specimen_map</a></td>
 <td>voucher_type_id</td>
 <td>controlled_terms</td>
 <td>id</td>
@@ -1275,21 +1305,21 @@
 </tr>
 <tr>
 <td>profile_area_map_occurrence_status_id_foreign</td>
-<td><a href="/vicflora-docs/resources/profile_-area_-m-a-p">profile_area_map</a></td>
+<td><a href="/vicflora-docs/resources/profile-area-map">profile_area_map</a></td>
 <td>occurrence_status_id</td>
 <td>controlled_terms</td>
 <td>id</td>
 </tr>
 <tr>
 <td>profile_area_map_establishment_means_id_foreign</td>
-<td><a href="/vicflora-docs/resources/profile_-area_-m-a-p">profile_area_map</a></td>
+<td><a href="/vicflora-docs/resources/profile-area-map">profile_area_map</a></td>
 <td>establishment_means_id</td>
 <td>controlled_terms</td>
 <td>id</td>
 </tr>
 <tr>
 <td>profile_area_map_degree_of_establishment_id_foreign</td>
-<td><a href="/vicflora-docs/resources/profile_-area_-m-a-p">profile_area_map</a></td>
+<td><a href="/vicflora-docs/resources/profile-area-map">profile_area_map</a></td>
 <td>degree_of_establishment_id</td>
 <td>controlled_terms</td>
 <td>id</td>
@@ -1303,28 +1333,28 @@
 </tr>
 <tr>
 <td>glossary_term_relationships_relationship_type_id_foreign</td>
-<td><a href="/vicflora-docs/resources/glossary-term-relationship_-m-a-p">glossary.term_relationships</a></td>
+<td><a href="/vicflora-docs/resources/glossary-term-relationship-map">glossary.term_relationships</a></td>
 <td>relationship_type_id</td>
 <td>controlled_terms</td>
 <td>id</td>
 </tr>
 <tr>
 <td>reference_contributors_map_contributor_role_id_foreign</td>
-<td><a href="/vicflora-docs/resources/reference_-contributor_-m-a-p">reference_contributors_map</a></td>
+<td><a href="/vicflora-docs/resources/reference-contributor-map">reference_contributors_map</a></td>
 <td>contributor_role_id</td>
 <td>controlled_terms</td>
 <td>id</td>
 </tr>
 <tr>
 <td>scientific_name_author_map_author_role_id_foreign</td>
-<td><a href="/vicflora-docs/resources/scientific-name_-author_-m-a-p">scientific_name_author_map</a></td>
+<td><a href="/vicflora-docs/resources/scientific-name-author-map">scientific_name_author_map</a></td>
 <td>author_role_id</td>
 <td>controlled_terms</td>
 <td>id</td>
 </tr>
 <tr>
 <td>entity_image_map_image_role_id_foreign</td>
-<td><a href="/vicflora-docs/resources/entity_-image_-m-a-p">entity_image_map</a></td>
+<td><a href="/vicflora-docs/resources/entity-image-map">entity_image_map</a></td>
 <td>image_role_id</td>
 <td>controlled_terms</td>
 <td>id</td>

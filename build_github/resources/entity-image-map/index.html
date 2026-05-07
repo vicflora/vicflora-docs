@@ -963,6 +963,14 @@
                 </li>
                                             
                 <li class="">
+                    <a href="#indexes" 
+                       class="no-underline transition-colors duration-200 hover:text-gray-900 dark:hover:text-white hover:underline
+                       text-sm font-semibold text-primary-600 dark:text-primary-400">
+                        Indexes
+                    </a>
+                </li>
+                                            
+                <li class="">
                     <a href="#foreign-key-relationships" 
                        class="no-underline transition-colors duration-200 hover:text-gray-900 dark:hover:text-white hover:underline
                        text-sm font-semibold text-primary-600 dark:text-primary-400">
@@ -1117,6 +1125,32 @@
 </tbody>
 </table>
     </table>
+</div><h2 id="indexes">Indexes</h2>
+<div class="mb-6 w-full overflow-x-auto border border-gray-200 dark:border-gray-700">
+    <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+        <table>
+<thead>
+<tr>
+<th>name</th>
+<th>definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>entity_image_map_pkey</td>
+<td>CREATE UNIQUE INDEX entity_image_map_pkey ON public.entity_image_map USING btree (id)</td>
+</tr>
+<tr>
+<td>entity_image_map_depictable_type_depictable_id_index</td>
+<td>CREATE INDEX entity_image_map_depictable_type_depictable_id_index ON public.entity_image_map USING btree (depictable_type, depictable_id)</td>
+</tr>
+<tr>
+<td>entity_image_unique</td>
+<td>CREATE UNIQUE INDEX entity_image_unique ON public.entity_image_map USING btree (depictable_type, depictable_id, image_id)</td>
+</tr>
+</tbody>
+</table>
+    </table>
 </div><h2 id="foreign-key-relationships">Foreign key relationships</h2>
 <h3 id="references-to-other-tables">References to other tables</h3>
 <div class="mb-6 w-full overflow-x-auto border border-gray-200 dark:border-gray-700">
@@ -1193,7 +1227,7 @@
 <tr>
 <td align="left"><code>depictable()</code></td>
 <td align="left"><strong>MorphTo</strong></td>
-<td align="left"><a href="/vicflora-docs/resources/entity_-image_-m-a-p">App\Models\Media\EntityImageMap</a></td>
+<td align="left"><a href="/vicflora-docs/resources/entity-image-map">App\Models\Media\EntityImageMap</a></td>
 <td align="left">FK: <code>depictable_id</code><br>Polymorphic</td>
 </tr>
 <tr>
