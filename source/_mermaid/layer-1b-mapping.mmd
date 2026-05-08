@@ -7,6 +7,8 @@ erDiagram
   TaxonConceptMapping }|--o| TaxonConcept : "objectTaxonConcept"
   TaxonConceptMapping }o--|| Entity_Source_MAP : "morphs as 'provenanceable'"
   Entity_Source_MAP }|--o| Reference : "reference"
+  TaxonConceptMapping |o--|{ Entity_Creator_MAP : "morphs as 'attributable'"
+  Entity_Creator_MAP }|--o| Agent : "agent"
   
   TaxonConceptMapping {
     int id PK

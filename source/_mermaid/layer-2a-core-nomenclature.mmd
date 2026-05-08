@@ -30,7 +30,7 @@ erDiagram
   VernacularName_EXT }|--o| TaxonConcept : "preferredVernacularName"
 
   TaxonName |o--|| HybridFormula_EXT : "taxonName / hybridFormula"
-  TaxonName |o--||  HybridFormula_EXT : "firstHybridParentName"
+  TaxonName |o--|{  HybridFormula_EXT : "firstHybridParentName"
   TaxonName |o--|{ HybridFormula_EXT : "secondHybridParentName"
 
   TaxonName |o--|| InformalName_EXT : "taxonName / horticulturalGroupName"
@@ -60,7 +60,7 @@ erDiagram
     string year "nullable"
     int nomenclatural_code_id FK "nullable"
     int nomenclatural_status_id FK "nullable"
-    text typification "nullable"
+    text typification_literal "nullable"
   }
 
   VernacularName_EXT {

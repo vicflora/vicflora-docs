@@ -6,14 +6,10 @@ erDiagram
   TaxonName |o--|| VernacularName_EXT : "taxonName / vernacularName"
   VernacularName_EXT |o--|{ VernacularNameUsage_MAP : "vernacularName / usages"
   VernacularNameUsage_MAP }|--o| TaxonConcept : "taxonConcept / vNUs"
-  VernacularNameUsage_MAP }o--|| Entity_Source_MAP : "morphs as 'provenanceable'"
 
   TaxonName |o--|| ScientificName_EXT : "taxonName / scientificName"
   ScientificName_EXT ||--o{ ScientificNameUsage_MAP : "scientificName / usages"
   ScientificNameUsage_MAP }|--o| TaxonConcept : "taxonConcept / sNUs"
-  ScientificNameUsage_MAP }o--|| Entity_Source_MAP : "morphs as 'provenanceable'"
-
-  Entity_Source_MAP }|--o| Reference : "reference"
 
   ScientificNameUsage_MAP {
     int id PK

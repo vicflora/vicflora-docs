@@ -8,10 +8,14 @@ erDiagram
   ScientificName_EXT |o--|| TaxonName : "taxonName / scientificName"
   NomenclaturalType }o--o| Specimen : "typeSpecimen"
   NomenclaturalType }o--o| Reference : "publishedIn"
+  NomenclaturalType |o--|| Protologue_EXT : "publishedIn"
+  Protologue_EXT ||--o| Reference : "reference"
   NomenclaturalType |o--|| Typification_EXT : "publishedIn"
   Typification_EXT ||--o| Reference : "reference / typification"
-  NomenclaturalType }o--o| Entity_Source_MAP : "morphs as 'provenanceable'"
+  NomenclaturalType |o--|{ Entity_Source_MAP : "morphs as 'provenanceable'"
   Entity_Source_MAP }|--o| Reference : "reference"
+  NomenclaturalType |o--|{ Entity_Creator_MAP : "morphs as 'attributable'"
+  Entity_Creator_MAP }|--o| Agent : "agent"
 
   NomenclaturalType {
     int id PK
