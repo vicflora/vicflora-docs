@@ -16,6 +16,7 @@ erDiagram
   Entity_Source_MAP }|--o| Reference : "reference"
   NomenclaturalType |o--|{ Entity_Creator_MAP : "morphs as 'attributable'"
   Entity_Creator_MAP }|--o| Agent : "agent"
+  NomenclaturalType |o--|| Entity_Identity_MAP : "morphs as 'linkable'"
 
   NomenclaturalType {
     int id PK
@@ -24,5 +25,6 @@ erDiagram
     int type_specimen_id FK
     int type_of_type_id FK "nullable"
     int type_published_in FK "nullable"
+    jsonb metadata "nullable"
     text remarks "nullable"
   }
