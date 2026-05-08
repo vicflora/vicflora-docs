@@ -21,6 +21,10 @@ erDiagram
   TraitDataset |o--o{ Fact : dataset
   Trait |o--|{ TraitState : trait
 
+  Trait |o--|{ Entity_Image_MAP : "morphs as 'depictable'"
+  TraitState |o--|{ Entity_Image_MAP : "morphs as 'depictable'"
+  Entity_Image_MAP }|--o| Image : "image"
+
   Fact }o--o| Entity_Creator_MAP : "morphs as 'attributeable'"
   Entity_Creator_MAP }|--o| Agent : agent
 
