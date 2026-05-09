@@ -5,11 +5,18 @@ config:
 erDiagram
   TaxonName |o--|| VernacularName_EXT : "taxonName / vernacularName"
   VernacularName_EXT |o--|{ VernacularNameUsage_MAP : "vernacularName / usages"
-  VernacularNameUsage_MAP }|--o| TaxonConcept : "taxonConcept / vNUs"
+  VernacularNameUsage_MAP }|--o| TaxonConcept : "taxonConcept"
 
   TaxonName |o--|| ScientificName_EXT : "taxonName / scientificName"
   ScientificName_EXT ||--o{ ScientificNameUsage_MAP : "scientificName / usages"
-  ScientificNameUsage_MAP }|--o| TaxonConcept : "taxonConcept / sNUs"
+  ScientificNameUsage_MAP }|--o| TaxonConcept : "taxonConcept"
+
+  ScientificNameUsage_MAP }o--o| Treatment_EXT : "scientificNameUsages"
+  VernacularNameUsage_MAP }o--o| Treatment_EXT : "vernacularNameUsages"
+
+  TaxonConcept }o--|| Treatment_EXT : "accordingTo"
+  %% TaxonConcept }|--o| Reference : "accordingTo"
+  %% Treatment_EXT ||--o| Reference : "reference"
 
   ScientificNameUsage_MAP {
     int id PK
