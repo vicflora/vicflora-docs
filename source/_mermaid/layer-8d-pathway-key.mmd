@@ -3,7 +3,6 @@ config:
   layout: elk
 ---
 erDiagram
-  Key }|--o| Source : source
   Key }|--o| Project : project
   Key }|--o| Item : "taxonomicScope"
   Key ||--|| Lead : root
@@ -14,7 +13,15 @@ erDiagram
   Project |o--|{ Item : project
   Project |o--o| Item : taxonomicScope
 
-  Item }|--o| taxonConcept : ""
+  Item }|..o| taxonConcept : "taxonConcept"
+
+  Key }o--o| Source : "source"
+  Source |o..o| Reference : "reference"
+  Key }o..|{ Entity_Source_MAP : "morphs as 'provenanceable'"
+  Entity_Source_MAP }|--o| Reference : "reference"
+
+  Project |o..o| TaxonTree : "taxonTree"
+
 
   Item {
     int id PK
