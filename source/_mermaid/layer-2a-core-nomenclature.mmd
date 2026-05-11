@@ -47,7 +47,7 @@ erDiagram
 
   TaxonName {
     int id PK
-    int rank_id FK "nullable"
+    enum rank "nullable"
     string name_string
   }
 
@@ -58,8 +58,8 @@ erDiagram
     string name_published_in FK "nullable"
     string micro_reference FK "nullable"
     string year "nullable"
-    int nomenclatural_code_id FK "nullable"
-    int nomenclatural_status_id FK "nullable"
+    enum nomenclatural_code "nullable"
+    enum nomenclatural_status "nullable"
     text typification_literal "nullable"
   }
 
@@ -88,8 +88,7 @@ erDiagram
     int id PK
     int from_taxon_name_id FK
     int to_taxon_name_id FK
-    int name_relation_type_id FK
-    int reference_id FK "nullable"
+    enum name_relation_type
     string remarks "nullable"
   }
 
@@ -97,6 +96,6 @@ erDiagram
     int id PK
     int scientific_name_id FK
     int agent_id FK
-    int author_role_id FK
-    int sequence 
+    enum author_role
+    int sequence
   }

@@ -19,14 +19,14 @@ erDiagram
     string entity_type
     int entity_id
     int image_id FK
-    int image_role_id FK
+    enum image_role
     int sort_order
   }
 
   Image {
     int id PK
     string uri
-    int image_type_id FK
+    enum image_type
     string scientific_name "nullable"
     string creator
     string rights_holder "nullable"
@@ -45,7 +45,7 @@ erDiagram
   ImageAccessPoint {
     int id PK
     int image_id FK
-    int variant_id FK
+    enum variant
     string format
     int width
     int height

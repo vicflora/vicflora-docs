@@ -20,8 +20,8 @@ erDiagram
 
   Agent {
     int id PK
-    int agent_type_id FK
     int user_id "nullable"
+    enum agent_type
     string name 
     string last_name "nullable"
     string first_name "nullable"

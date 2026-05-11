@@ -23,7 +23,7 @@ erDiagram
     int typified_name_id FK
     int type_name_id FK "nullable"
     int type_specimen_id FK
-    int type_of_type_id FK "nullable"
+    enum type_of_type "nullable"
     int type_published_in FK "nullable"
     jsonb metadata "nullable"
     text remarks "nullable"

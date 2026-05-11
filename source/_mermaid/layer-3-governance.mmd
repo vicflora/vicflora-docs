@@ -4,15 +4,15 @@ config:
 ---
 erDiagram
 
-  TaxonConcept }o--o| TaxonTree : taxonTree
-  TaxonConcept |o--|{ TaxonTreeNode : taxonConcept
-
   TaxonTree ||--o{ TaxonTreeDefItem : "taxonTree"
   TaxonTree ||--o{ TaxonTreeNode : "taxonTree"
   TaxonTree |o--|| TaxonTreeNode : "rootNode"
   TaxonTree ||--|| TaxonTree_GeographicScope_MAP : taxonTree
   TaxonTree }o--o| TaxonTree : "parent"
   
+  TaxonTree |o--o{ TaxonConcept : taxonTree
+  TaxonConcept |o--|{ TaxonTreeNode : taxonConcept
+
   TaxonTreeDefItem ||--o{ TaxonTreeNode : "taxonTreeDefItem"
   
   TaxonTreeNode ||--o{ TaxonTreeRevision : "oldNode"
@@ -49,7 +49,7 @@ erDiagram
   TaxonTreeDefItem {
     int id PK
     int taxon_tree_id FK
-    int rank_id FK "nullable"
+    enum rank "nullable"
     string name 
     int rank_order "nullable"
     boolean is_required "nullable"
@@ -73,7 +73,7 @@ erDiagram
     int version_id FK "nullable"
     int old_node_id FK "nullable"
     int new_node_id FK "nullable"
-    int change_type_id FK
+    enum change_type
     date effective_date
     text remarks
   }

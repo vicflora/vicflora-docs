@@ -8,7 +8,7 @@ erDiagram
   AuditLog {
     bigint id PK
     int agent_id FK
-    int event_type_id FK
+    enum event_type
     string table_name 
     int record_id 
     jsonb old_values "nullable"

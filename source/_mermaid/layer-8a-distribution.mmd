@@ -27,9 +27,9 @@ erDiagram
     int taxon_tree_id FK
     string area_code_id 
     string locality "nullable"
-    int occurrence_status_id FK "nullable"
-    int establishment_means_id FK "nullable"
-    int degree_of_establishment_id FK "nullable"
+    enum occurrence_status "nullable"
+    enum establishment_means "nullable"
+    enum degree_of_establishment "nullable"
     int threat_status_id FK "nullable"
     string event_date "nullable"
     string occurrence_remarks "nullable"
@@ -49,7 +49,7 @@ erDiagram
   Area {
     int id PK
     string name
-    string area_type
+    enum area_type
     bool is_accepted
     int parent_id FK "nullable"
     int accepted_id FK "nullable"
@@ -63,7 +63,7 @@ erDiagram
     int taxon_concept_id FK "nullable"
     int area_id FK
     int threat_status_authority_id FK
-    int threat_status_id FK
+    enum status_term
     date start_date "nullable"
     date end_date "nullable"
     jsonb metadata "nullable"

@@ -22,7 +22,7 @@ erDiagram
     int id PK
     int taxon_concept_id FK
     int scientific_name_id FK
-    int name_role_id FK
+    enum name_role
     array metadata "nullable"
     string remarks "nullable"
   }
