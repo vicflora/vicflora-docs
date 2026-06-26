@@ -65,8 +65,8 @@ erDiagram
   ScientificName_EXT {
     int id PK
     string authorship "nullable"
-    int name_published_in_id FK "nullable"
-    string name_published_in FK "nullable"
+    %% int name_published_in_id FK "nullable"
+    %% string name_published_in FK "nullable"
     string micro_reference FK "nullable"
     string year "nullable"
     enum nomenclatural_code "nullable"
@@ -81,14 +81,14 @@ erDiagram
 
   TaxonConceptLabel_EXT {
     int id PK
-    int taxon_concept_id FK
-    int base_name_id FK
+    %% int taxon_concept_id FK
+    %% int base_name_id FK
   }
 
   HybridFormula_EXT {
     int id PK
-    int first_hybrid_parent_name_id FK
-    int second_hybrid_parent_name_id FK
+    %% int first_hybrid_parent_name_id FK
+    %% int second_hybrid_parent_name_id FK
   }
 
   InformalName_EXT {
