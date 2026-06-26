@@ -19,19 +19,25 @@ erDiagram
   TaxonName |o--|| VernacularName_EXT : "taxonName / vernacularName"
 
   %% The Syntactic Relationships
-  ScientificName_EXT |o--|{ NameRelation_MAP : "fromName"
-  ScientificName_EXT |o--|{ NameRelation_MAP : "toName"
+  ScientificName_EXT |o..|{ NameRelation_MAP : "fromName"
+  ScientificName_EXT |o..|{ NameRelation_MAP : "toName"
+  ScientificName_EXT |o--o{ ScientificName_EXT : "basionym"
+  ScientificName_EXT |o--o{ ScientificName_EXT : "replacedName"
+  ScientificName_EXT |o--o{ ScientificName_EXT : "basedOn"
+  ScientificName_EXT |o--o{ ScientificName_EXT : "laterHomonymOf"
+  ScientificName_EXT |o--o{ ScientificName_EXT : "orthographicVariantOf"
+  ScientificName_EXT }o--o{ ScientificName_EXT : "conservedAgainst"
 
   %% Taxon Name <--> Taxon Concept relationships
   TaxonName |o--|{ TaxonConcept : "taxonName"
   ScientificName_EXT |o--o{ TaxonConcept : "acceptedName"
   ScientificName_EXT }|--o| TaxonConcept : "synonyms"
-  ScientificName_EXT |o--|{ ScientificNameUsage_MAP : "scientificName"
-  ScientificNameUsage_MAP }|--o{ TaxonConcept : "taxonConcept"
+  ScientificName_EXT |o..|{ ScientificNameUsage_MAP : "scientificName"
+  ScientificNameUsage_MAP }|..o{ TaxonConcept : "taxonConcept"
   VernacularName_EXT }|--o| TaxonConcept : "vernacularNames"
   VernacularName_EXT }|--o| TaxonConcept : "preferredVernacularName"
-  VernacularName_EXT |o--|{ VernacularNameUsage_MAP : "vernacularName"
-  VernacularNameUsage_MAP }|--o| TaxonConcept : "taxonConcept"
+  VernacularName_EXT |o..|{ VernacularNameUsage_MAP : "vernacularName"
+  VernacularNameUsage_MAP }|..o| TaxonConcept : "taxonConcept"
 
   TaxonName |o--|| HybridFormula_EXT : "taxonName / hybridFormula"
   TaxonName |o--|{  HybridFormula_EXT : "firstHybridParentName"
