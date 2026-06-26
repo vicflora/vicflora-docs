@@ -17,6 +17,13 @@ erDiagram
   TaxonConcept |o--|| TaxonConceptLabel_EXT : "taxonConcept / label"
   TaxonConceptLabel_EXT |o--|| TaxonName : "taxonName / taxonConceptLabel" 
 
+  TaxonConcept }o--o{ TaxonConcept: "isCongruentWith"
+  TaxonConcept }o--o{ TaxonConcept: "includes"
+  TaxonConcept }o--o{ TaxonConcept: "isIncludedIn"
+  TaxonConcept }o--o{ TaxonConcept: "partiallyOverlaps"
+  TaxonConcept }o--o{ TaxonConcept: "isDisjointFrom"
+  TaxonConcept }o--o{ TaxonConcept: "intersects"
+
   TaxonConcept ||--|{ TaxonConceptMapping : "subjectTaxonConcept"
   TaxonConcept ||--|{ TaxonConceptMapping : "objectTaxonConcept"
 
