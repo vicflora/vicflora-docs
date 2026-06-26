@@ -10,8 +10,8 @@ erDiagram
   ScientificName_EXT |o--|{ NomenclaturalType : "typifiedName / typification"
 
   %% Scientific Name authorship
-  ScientificName_EXT |o--|{ ScientificName_Author_MAP : scientificName
-  ScientificName_Author_MAP }|--o{ Agent : agent
+  %% ScientificName_EXT |o--|{ ScientificName_Author_MAP : scientificName
+  %% ScientificName_Author_MAP }|--o{ Agent : agent
   ScientificName_EXT |o--|| Protologue_EXT : "publishedIn"
   Protologue_EXT ||--o| Reference : "reference / protologue"
   ScientificName_EXT }o--o| Reference : "publishedIn"
@@ -19,8 +19,8 @@ erDiagram
   TaxonName |o--|| VernacularName_EXT : "taxonName / vernacularName"
 
   %% The Syntactic Relationships
-  ScientificName_EXT |o..|{ NameRelation_MAP : "fromName"
-  ScientificName_EXT |o..|{ NameRelation_MAP : "toName"
+  %% ScientificName_EXT |o..|{ NameRelation_MAP : "fromName"
+  %% ScientificName_EXT |o..|{ NameRelation_MAP : "toName"
   ScientificName_EXT |o--o{ ScientificName_EXT : "basionym"
   ScientificName_EXT |o--o{ ScientificName_EXT : "replacedName"
   ScientificName_EXT |o--o{ ScientificName_EXT : "basedOn"
@@ -32,12 +32,12 @@ erDiagram
   TaxonName |o--|{ TaxonConcept : "taxonName"
   ScientificName_EXT |o--o{ TaxonConcept : "acceptedName"
   ScientificName_EXT }|--o| TaxonConcept : "synonyms"
-  ScientificName_EXT |o..|{ ScientificNameUsage_MAP : "scientificName"
-  ScientificNameUsage_MAP }|..o{ TaxonConcept : "taxonConcept"
+  %% ScientificName_EXT |o..|{ ScientificNameUsage_MAP : "scientificName"
+  %% ScientificNameUsage_MAP }|..o{ TaxonConcept : "taxonConcept"
   VernacularName_EXT }|--o| TaxonConcept : "vernacularNames"
   VernacularName_EXT }|--o| TaxonConcept : "preferredVernacularName"
-  VernacularName_EXT |o..|{ VernacularNameUsage_MAP : "vernacularName"
-  VernacularNameUsage_MAP }|..o| TaxonConcept : "taxonConcept"
+  %% VernacularName_EXT |o..|{ VernacularNameUsage_MAP : "vernacularName"
+  %% VernacularNameUsage_MAP }|..o| TaxonConcept : "taxonConcept"
 
   TaxonName |o--|| HybridFormula_EXT : "taxonName / hybridFormula"
   TaxonName |o--|{  HybridFormula_EXT : "firstHybridParentName"
@@ -52,8 +52,9 @@ erDiagram
   TaxonName |o--|{ TaxonConceptLabel_EXT : baseName
 
   %% External identifiers
-  TaxonName |o--|{ Entity_Identity_MAP : "morphs as 'linkable'"
-  Entity_Identity_MAP }|--o| ExternalIdentity : "externalIdentity"
+  %% TaxonName |o--|{ Entity_Identity_MAP : "morphs as 'linkable'"
+  %% Entity_Identity_MAP }|--o| ExternalIdentity : "externalIdentity"
+  TaxonName }o--o{ ExternalIdentifier : "externalIdentifier"
 
   TaxonName {
     int id PK
@@ -94,18 +95,18 @@ erDiagram
     int id PK
   }
 
-  NameRelation_MAP {
-    int id PK
-    int from_taxon_name_id FK
-    int to_taxon_name_id FK
-    enum name_relation_type
-    string remarks "nullable"
-  }
+  %% NameRelation_MAP {
+  %%   int id PK
+  %%   int from_taxon_name_id FK
+  %%   int to_taxon_name_id FK
+  %%   enum name_relation_type
+  %%   string remarks "nullable"
+  %% }
 
-  ScientificName_Author_MAP {
-    int id PK
-    int scientific_name_id FK
-    int agent_id FK
-    enum author_role
-    int sequence
-  }
+  %% ScientificName_Author_MAP {
+  %%   int id PK
+  %%   int scientific_name_id FK
+  %%   int agent_id FK
+  %%   enum author_role
+  %%   int sequence
+  %% }
