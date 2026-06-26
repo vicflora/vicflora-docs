@@ -26,8 +26,12 @@ erDiagram
   TaxonName |o--|{ TaxonConcept : "taxonName"
   ScientificName_EXT |o--o{ TaxonConcept : "acceptedName"
   ScientificName_EXT }|--o| TaxonConcept : "synonyms"
+  ScientificName_EXT |o--|{ ScientificNameUsage_MAP : "scientificName"
+  ScientificNameUsage_MAP }|--o{ TaxonConcept : "taxonConcept"
   VernacularName_EXT }|--o| TaxonConcept : "vernacularNames"
   VernacularName_EXT }|--o| TaxonConcept : "preferredVernacularName"
+  VernacularName_EXT |o--|{ VernacularNameUsage_MAP : "vernacularName"
+  VernacularNameUsageMap }|--o| TaxonConcept : "taxonConcept"
 
   TaxonName |o--|| HybridFormula_EXT : "taxonName / hybridFormula"
   TaxonName |o--|{  HybridFormula_EXT : "firstHybridParentName"
