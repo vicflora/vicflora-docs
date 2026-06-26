@@ -31,7 +31,7 @@ erDiagram
   VernacularName_EXT }|--o| TaxonConcept : "vernacularNames"
   VernacularName_EXT }|--o| TaxonConcept : "preferredVernacularName"
   VernacularName_EXT |o--|{ VernacularNameUsage_MAP : "vernacularName"
-  VernacularNameUsageMap }|--o| TaxonConcept : "taxonConcept"
+  VernacularNameUsage_MAP }|--o| TaxonConcept : "taxonConcept"
 
   TaxonName |o--|| HybridFormula_EXT : "taxonName / hybridFormula"
   TaxonName |o--|{  HybridFormula_EXT : "firstHybridParentName"
