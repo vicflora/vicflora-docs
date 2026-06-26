@@ -33,14 +33,15 @@ erDiagram
 
   TaxonConcept |o--|| Profile : "taxonConcept / profile"
 
-  TaxonConcept |o--o{ Entity_Identity_MAP : "morphs as 'linkable'"
-  Entity_Identity_MAP }|--o| ExternalIdentity : "externalIdentity"
+  %% TaxonConcept |o--o{ Entity_Identity_MAP : "morphs as 'linkable'"
+  %% Entity_Identity_MAP }|--o| ExternalIdentity : "externalIdentity"
+  TaxonConcept }o--o{ ExternalIdentity : "externalIdentity / taxonConcept"
 
   TaxonConcept {
     int id PK
-    int taxon_tree_id FK "nullable"
-    int taxon_name_id FK 
-    int according_to_id FK 
+    %% int taxon_tree_id FK "nullable"
+    %% int taxon_name_id FK 
+    %% int according_to_id FK 
     enum rank "nullable"
     string remarks
   }
