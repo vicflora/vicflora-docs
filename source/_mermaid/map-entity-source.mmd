@@ -1,0 +1,17 @@
+---
+config:
+  layout: elk
+---
+erDiagram
+  Entity_Source_MAP }|--o| Reference: "source"
+  Entity_Source_MAP }o--o| NomenclaturalType : "morphs as 'provenanceable'"
+  Entity_Source_MAP }o--o{ TaxonConceptMapping : "morphs as 'provenanceable'"
+  Entity_Source_MAP }o--o{ Profile : "morphs as 'provenanceable'"
+  Entity_Source_MAP }o--o{ ProfileSection : "morphs as 'provenanceable'"
+  Entity_Source_MAP }o--o{ Specimen : "morphs as 'provenanceable'"
+
+  Entity_Source_MAP {
+    int id PK
+    string provenanceable_type
+    int provenanceable_id
+  }

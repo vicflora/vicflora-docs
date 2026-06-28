@@ -3,24 +3,19 @@ config:
   layout: elk
 ---
 erDiagram
+  Agent }o--o{ ScientificName_EXT : "author"
 
-  Agent |o--|{ScientificName_Author_MAP : "agent"
-  ScientificName_Author_MAP }|--o| ScientificName_EXT : "scientificName"
-
-  Agent |o--|{ Reference_Contributor_MAP : agent
-  Reference_Contributor_MAP }|--o| Reference : "reference"
+  Agent }o--o{ Reference : "contributor"
 
   Agent }o--|| User : user
   Agent ||--|{ Auditable_MIXIN : "createdBy"
   Agent ||--o{ Auditable_MIXIN : "updatedBy"
 
-  Agent |o--|{ Entity_Creator_MAP : "creator"
-  Entity_Creator_MAP }o--o| TaxonConceptMapping : "morphs as 'attributable'"
-  Entity_Creator_MAP }o--o| NomenclaturalType : "morphs as 'attributable'"
+  Agent }o--o{ TaxonConceptMapping : "creator"
+  Agent }o--o{ NomenclaturalType : "creator"
 
   Agent {
     int id PK
-    int user_id "nullable"
     enum agent_type
     string name 
     string last_name "nullable"
@@ -34,6 +29,4 @@ erDiagram
     date created_at 
     date updated_at "nullable"
     int version
-    int created_by_id FK
-    int updated_by_id FK "nullable"
   }

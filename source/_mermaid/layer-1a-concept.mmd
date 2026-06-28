@@ -3,6 +3,16 @@ config:
     layout: elk
 ---
 erDiagram
+  TaxonConceptMapping }|--o{ TaxonConcept : "subjectTaxonConcept"
+  TaxonConceptMapping }|--o{ TaxonConcept : "objectTaxonConcept"
+
+  TaxonConcept }o--o{ TaxonConcept: "isCongruentWith"
+  TaxonConcept }o--o{ TaxonConcept: "includes"
+  TaxonConcept }o--o{ TaxonConcept: "isIncludedIn"
+  TaxonConcept }o--o{ TaxonConcept: "partiallyOverlaps"
+  TaxonConcept }o--o{ TaxonConcept: "isDisjointFrom"
+  TaxonConcept }o--o{ TaxonConcept: "intersects"
+
   TaxonConcept }|--|| Reference : "accordingTo"
   TaxonConcept }|--|| Treatment_EXT : "accordingTo"
   Treatment_EXT ||--o| Reference : "reference / treatment"
@@ -17,31 +27,24 @@ erDiagram
   TaxonConcept |o--|| TaxonConceptLabel_EXT : "taxonConcept / label"
   TaxonConceptLabel_EXT |o--|| TaxonName : "taxonName / taxonConceptLabel" 
 
-  TaxonConcept }o--o{ TaxonConcept: "isCongruentWith"
-  TaxonConcept }o--o{ TaxonConcept: "includes"
-  TaxonConcept }o--o{ TaxonConcept: "isIncludedIn"
-  TaxonConcept }o--o{ TaxonConcept: "partiallyOverlaps"
-  TaxonConcept }o--o{ TaxonConcept: "isDisjointFrom"
-  TaxonConcept }o--o{ TaxonConcept: "intersects"
-
-  TaxonConcept ||--|{ TaxonConceptMapping : "subjectTaxonConcept"
-  TaxonConcept ||--|{ TaxonConceptMapping : "objectTaxonConcept"
-
   TaxonConcept }o--|| TaxonTree : "taxonTree"
   TaxonConcept |o--|{ TaxonTreeNode : "taxonConcept"
   TaxonTreeNode }|--|| TaxonTree : "taxonTree"
+  TaxonTreeNode }o--o| TaxonTreeNode : "parent / children"
 
   TaxonConcept |o--|| Profile : "taxonConcept / profile"
+  %% Profile }o--|{ Distribution : "distribution"
+  %% Profile }o--|{ Specimen : "vouchers"
+  %% Profile }o--|{ Image : "media"
+  Profile }|--o| TaxonTree : "taxonTree"
+  %% Distribution }|--o| TaxonTree : "taxonTree"
+  %% Specimen }|--o| TaxonTree : "taxonTree"
+  %% Image }|--o| TaxonTree : "taxonTree"
 
-  %% TaxonConcept |o--o{ Entity_Identity_MAP : "morphs as 'linkable'"
-  %% Entity_Identity_MAP }|--o| ExternalIdentity : "externalIdentity"
   TaxonConcept }o--o{ ExternalIdentity : "externalIdentity / taxonConcept"
 
   TaxonConcept {
     int id PK
-    %% int taxon_tree_id FK "nullable"
-    %% int taxon_name_id FK 
-    %% int according_to_id FK 
     enum rank "nullable"
     string remarks
   }

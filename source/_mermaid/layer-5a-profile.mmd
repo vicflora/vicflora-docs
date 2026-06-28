@@ -1,0 +1,60 @@
+---
+config:
+    layout: elk
+---
+erDiagram
+  TaxonConcept |o--|| Profile : "taxonConcept / profile"
+
+  %% Vouchers
+  Profile }o--o{ Specimen : "specimens (vouchers)"
+
+  %% Media
+  Specimen }o--o| Image : "images"
+  Profile }o--o{ Image : "images"
+  ProfileSection }o--o{ Image : "images"
+
+  %% Sections
+  Profile |o--|{ ProfileSection : "profile"
+  ProfileSection }|--|| ProfileDefItem : "profileDefItem"
+
+  %% References
+  ProfileSection |o--o{ Reference : "source"
+  Profile ||--|| Treatment_EXT : "treatment / profile"
+  Treatment_EXT ||--o{ Reference : "reference / treatment" 
+  Profile ||--|{ TreatmentVersion_EXT : "profile / treatmentVersions"
+  TreatmentVersion_EXT ||--o{ Reference : "reference / treatmentVersion"
+  Profile |o--o{ Reference : "source"
+  Profile }o--o{ Reference : "references"
+
+  %% Distribution
+  Profile |o--o{ Distribution : "distribution"
+
+  %% Maps
+
+  Profile |o..o{ Occurrence : "occurrences"
+  Profile |o..|{ MapDistribution : "mapDistribution"
+  Profile |o..|{ Phenology : "phenology"
+  MapDistribution ||..|{ Occurrence : "derivedFrom"
+  Phenology ||..|{ Occurrence : "derivedFrom"
+
+  %% Namespace
+  Profile ||--o{ TaxonTree : "taxonTree"
+  ProfileSection ||--o{ TaxonTree : "taxonTree"
+  ProfileDefItem ||--o{ TaxonTree : "taxonTree"
+
+  Profile {
+    int taxon_concept_id PK
+  }
+
+  ProfileDefItem {
+    int id PK
+    enum profile_section_type
+    bool is_required
+    int sort_order
+  }
+
+  ProfileSection {
+    int id PK
+    text body_text
+    int sort_order "nullable"
+  }

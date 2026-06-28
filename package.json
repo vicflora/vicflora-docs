@@ -6,7 +6,7 @@
         "dev": "npm run update-shared && npx vite",
         "build": "npm run update-shared && npx vite build && ./vendor/bin/jigsaw build production",
         "linkify-erd": "node linkify-svgs.cjs",
-        "build-erd": "PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium; for f in source/_mermaid/*.mmd; do npx @mermaid-js/mermaid-cli@latest -c erd-config.json -p puppeteer-config.json -i \"$f\" -o \"source/assets/images/erd/$(basename \"$f\" .mmd).svg\"; done && npm run linkify-erd",
+        "build-erd": "find source/_mermaid/ -name '*.mmd' | xargs -I {} sh -c 'npx @mermaid-js/mermaid-cli@latest -c erd-config.json -p puppeteer-config.json --cssFile mermaid-style.css -i \"$1\" -o \"source/assets/images/erd/$(basename \"$1\" .mmd).svg\"' _ {} && npm run linkify-erd",
         "docs:generate": "php artisan docs:generate",
         "docs:staging": "./vendor/bin/jigsaw build staging",
         "docs:watch": "./vendor/bin/jigsaw watch staging"

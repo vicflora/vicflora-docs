@@ -1,0 +1,14 @@
+---
+config:
+  layout: elk
+---
+erDiagram
+  NameMatch_MAP }|--o| ParsedName : parsedName
+  NameMatch_MAP }|--o| Taxon : scientificName
+  NameMatch_MAP }|--o| TaxonTree : taxonTree
+
+  NameMatch_MAP {
+    int id PK
+    enum match_type
+  }
+

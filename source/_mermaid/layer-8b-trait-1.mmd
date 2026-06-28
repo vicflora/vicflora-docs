@@ -1,19 +1,11 @@
 ---
 config:
   layout: elk
-  # elk:
-  #   nodePlacementStrategy: NETWORK_SIMPLEX
-  #   cycleBreakingStrategy: GREEDY
-  #   edgeRouting: ORTHOGONAL
-  #   spacing.nodeNode: 100
-  #   spacing.edgeNode: 60
-  #   direction: RIGHT
 ---
 erDiagram
   TraitDataset |o--o{ Trait : dataset
   Trait }o--o| Character : character
-  Character |o--|{ Entity_Structure_MAP : "morphs as 'applicable'"
-  Entity_Structure_MAP }|--o| Structure : structure
+  Character }o--o{ Structure : "appliesTo"
   Trait }o--|| Structure : structure
   Structure }o--o| Structure : parent
 
@@ -21,15 +13,11 @@ erDiagram
   TraitDataset |o--o{ Fact : dataset
   Trait |o--|{ TraitState : trait
 
-  Trait |o--|{ Entity_Image_MAP : "morphs as 'depictable'"
-  TraitState |o--|{ Entity_Image_MAP : "morphs as 'depictable'"
-  Entity_Image_MAP }|--o| Image : "image"
+  Trait }o--o{ Image : "images"
+  TraitState }o--o{ Image : "images"
 
-  Fact }o--o| Entity_Creator_MAP : "morphs as 'attributeable'"
-  Entity_Creator_MAP }|--o| Agent : agent
-
-  Fact }o--o| Entity_Source_MAP : "morphs as 'provenanceable'"
-  Entity_Source_MAP }|--o| Reference : reference
+  Fact }o--o| Agent : creator
+  Fact }o--o| Reference : source
 
   TraitDataset |o--o{ Item : dataset
   Fact }|--|| Item : item
@@ -37,9 +25,8 @@ erDiagram
   TaxonConcept |o--|{ TaxonTreeNode : taxonConcept
   TaxonTreeNode }|--|| TaxonTree : taxonTree
 
-  TraitDataset |o--|{ Entity_Scope_MAP : "morphs as 'scopeable'"
-  Trait |o--|{ Entity_Scope_MAP : "morphs as 'scopeable'"
-  Entity_Scope_MAP }|--o| Item : item
+  TraitDataset }o--o{ Item : scope
+  Trait }o--o{ Item : scope
 
   TraitDataset {
     int id PK
@@ -52,10 +39,7 @@ erDiagram
   Trait {
     int id PK
     uuid guid
-    int dataset_id FK "nullable"
-    int data_type_id FK
-    int structure_id FK "nullable"
-    int character_id FK "nullable"
+    enum data_type FK
     string label
     text description "nullable"
     int sort_order "nullable"
@@ -77,15 +61,11 @@ erDiagram
   Item {
     int id PK
     uuid guid 
-    int dataset_id FK
   }
 
   Fact {
     int id PK
     uuid guid 
-    int dataset_id FK "nullable"
-    int item_id FK
-    int trait_id FK
     double lower_outlier "nullable"
     double min_value "nullable"
     double max_value "nullable"
@@ -95,17 +75,9 @@ erDiagram
     int remarks "nullable"
   }
 
-  Entity_Structure_MAP {
-    int id PK
-    string applicable_type
-    int applicable_id
-    int structure_id FK
-  }
-
   Structure {
     int id PK
     uuid guid
-    int parent_id FK "nullable"
     string name
     text description "nullable"
     jsonb metadata "nullable"
@@ -118,11 +90,4 @@ erDiagram
     text description "nullable"
     jsonb metadata "nullable"
     text remarks "nullable"
-  }
-
-  Entity_Scope_MAP {
-    int id PK
-    string scopeable_type
-    int scopeable_id
-    int item_id FK
   }

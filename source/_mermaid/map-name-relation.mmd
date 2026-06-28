@@ -1,0 +1,14 @@
+---
+config:
+  layout: elk
+---
+erDiagram
+  NameRelation_MAP }|--o| ScientificName_EXT : "fromName"
+  NameRelation_MAP }|--o| ScientificName_EXT : "toName"
+
+  NameRelation_MAP {
+    int id PK
+    enum name_relation_type
+    string remarks "nullable"
+  }
+

@@ -1,0 +1,18 @@
+---
+config:
+  layout: elk
+---
+erDiagram
+  VernacularName_EXT |o--|{ VernacularNameUsage_MAP : "vernacularName / usages"
+  VernacularNameUsage_MAP }|--o| TaxonConcept : "taxonConcept"
+
+  VernacularNameUsage_MAP }o--o| Treatment_EXT : "vernacularNameUsages"
+
+  TaxonConcept }o--|| Treatment_EXT : "accordingTo"
+
+  VernacularNameUsage_MAP {
+    int id PK
+    bool is_preferred "nullable"
+    array metadata "nullable"
+    string remarks "nullable"
+  }

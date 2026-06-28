@@ -1,0 +1,19 @@
+/* 1. Ensure the parent wrappers allow visibility and flex centering */
+.node foreignObject,
+.label foreignObject {
+  overflow: visible !important;
+}
+
+/* 2. Break Mermaid's calculated inline widths and force text to center */
+.node foreignObject > div,
+.label foreignObject > div,
+.node foreignObject div,
+.label foreignObject div {
+  width: 100% !important;
+  min-width: max-content !important;
+  text-align: center !important;
+  display: block !important;
+  position: relative !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+}

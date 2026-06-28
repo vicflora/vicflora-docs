@@ -12,19 +12,13 @@ erDiagram
   Protologue_EXT ||--o| Reference : "reference"
   NomenclaturalType |o--|| Typification_EXT : "publishedIn"
   Typification_EXT ||--o| Reference : "reference / typification"
-  NomenclaturalType |o--|{ Entity_Source_MAP : "morphs as 'provenanceable'"
-  Entity_Source_MAP }|--o| Reference : "reference"
-  NomenclaturalType |o--|{ Entity_Creator_MAP : "morphs as 'attributable'"
-  Entity_Creator_MAP }|--o| Agent : "agent"
-  NomenclaturalType |o--|| Entity_Identity_MAP : "morphs as 'linkable'"
+  NomenclaturalType }o--o{ Reference : "source"
+  NomenclaturalType }o--o{ Agent : "creator"
+  NomenclaturalType |o--o{ ExternalIdentity : "externalIdentity"
 
   NomenclaturalType {
     int id PK
-    int typified_name_id FK
-    int type_name_id FK "nullable"
-    int type_specimen_id FK
     enum type_of_type "nullable"
-    int type_published_in FK "nullable"
     jsonb metadata "nullable"
     text remarks "nullable"
   }

@@ -3,25 +3,13 @@ config:
   layout: elk
 ---
 erDiagram
-  Image |o--|{ Entity_Image_MAP : "image"
-
-  Entity_Image_MAP }o--|| Profile : "morphs as 'depictable'"
-  Entity_Image_MAP }o--|| ProfileSection : "morphs as 'depictable'"
-  Entity_Image_MAP }o--|| Specimen : "morphs as 'depictable'"
-  Entity_Image_MAP }o--|| GlossaryTerm : "morphs as 'depictable'"
+  Profile }o--o{ Image : images
+  ProfileSection }o--o{ Image : images
+  Specimen }o--o{ Image : images
+  GlossaryTerm }o--o{ Image : images
 
   Image |o--|{ ImageCaption : "image"
-
   Image |o--|{ ImageAccessPoint : "image"
-
-  Entity_Image_MAP {
-    int id PK
-    string entity_type
-    int entity_id
-    int image_id FK
-    enum image_role
-    int sort_order
-  }
 
   Image {
     int id PK
@@ -36,15 +24,12 @@ erDiagram
 
   ImageCaption {
     int id PK
-    int image_id FK
-    int taxon_tree_id FK
     text caption_body 
     text formatted_caption
   }
 
   ImageAccessPoint {
     int id PK
-    int image_id FK
     enum variant
     string format
     int width

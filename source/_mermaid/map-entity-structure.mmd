@@ -1,0 +1,15 @@
+---
+config:
+  layout: elk
+---
+erDiagram
+  Entity_Structure_MAP }|--o| Structure : structure
+  Entity_Structure_MAP }o--o{ Character : "morphs as 'applicable'"
+
+  Entity_Structure_MAP {
+    int id PK
+    string applicable_type
+    int applicable_id
+    int structure_id FK
+  }
+

@@ -1,0 +1,13 @@
+---
+config:
+  layout: elk
+---
+erDiagram
+  Entity_Scope_MAP }|--o| Item : item
+  Entity_Scope_MAP }|--o| TraitDataset : "morphs as 'scopeable'"
+  Entity_Scope_MAP }|--o| Trait : "morphs as 'scopeable'"
+
+  Entity_Scope_MAP {
+    int id PK
+    string scopeable_type
+  }

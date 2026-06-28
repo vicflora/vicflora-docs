@@ -1,0 +1,12 @@
+---
+config:
+  layout: elk
+---
+erDiagram
+  Profile_Occurrence_MAP }|--o| Profile : profile
+  Profile_Occurrence_MAP }|--o| TaxonTree : taxonTree
+  Profile_Occurrence_MAP }|--o| Occurrence : occurrence
+
+  Profile_Occurrence_MAP {
+    uuid id
+  }

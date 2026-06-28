@@ -1,0 +1,20 @@
+---
+config:
+  layout: erd
+---
+erDiagram
+  Entity_Image_MAP }|--o| Image : "image"
+  Entity_Image_MAP }o--o| Profile : "morphs as 'depictable'"
+  Entity_Image_MAP }o--o| ProfileSection : "morphs as 'depictable'"
+  Entity_Image_MAP }o--o| Specimen : "morphs as 'depictable'"
+
+  Entity_Image_MAP {
+    int id PK
+    string entity_type
+    int entity_id
+    int image_id FK
+    enum image_role
+    int sort_order
+  }
+
+

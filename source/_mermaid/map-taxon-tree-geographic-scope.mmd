@@ -1,0 +1,12 @@
+---
+config:
+  layout: elk
+---
+erDiagram
+  TaxonTree_GeographicScope_MAP ||--o{ TaxonTree : "taxonTree"
+  TaxonTree_GeographicScope_MAP ||--o{ Area : "area"
+
+  TaxonTree_GeographicScope_MAP {
+    int id PK "nullable"
+  }
+

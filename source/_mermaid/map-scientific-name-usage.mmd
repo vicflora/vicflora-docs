@@ -1,0 +1,18 @@
+---
+config:
+  layout: elk
+---
+erDiagram
+  ScientificName_EXT ||--o{ ScientificNameUsage_MAP : "scientificName / usages"
+  ScientificNameUsage_MAP }|--o| TaxonConcept : "taxonConcept"
+
+  ScientificNameUsage_MAP }o--o| Treatment_EXT : "scientificNameUsages"
+
+  TaxonConcept }o--|| Treatment_EXT : "accordingTo"
+
+  ScientificNameUsage_MAP {
+    int id PK
+    enum name_role
+    array metadata "nullable"
+    string remarks "nullable"
+  }

@@ -9,9 +9,7 @@ erDiagram
   %% Typification
   ScientificName_EXT |o--|{ NomenclaturalType : "typifiedName / typification"
 
-  %% Scientific Name authorship
-  %% ScientificName_EXT |o--|{ ScientificName_Author_MAP : scientificName
-  %% ScientificName_Author_MAP }|--o{ Agent : agent
+  ScientificName_EXT }o--o{ Agent : author
   ScientificName_EXT |o--|| Protologue_EXT : "publishedIn"
   Protologue_EXT ||--o| Reference : "reference / protologue"
   ScientificName_EXT }o--o| Reference : "publishedIn"
@@ -19,8 +17,6 @@ erDiagram
   TaxonName |o--|| VernacularName_EXT : "taxonName / vernacularName"
 
   %% The Syntactic Relationships
-  %% ScientificName_EXT |o..|{ NameRelation_MAP : "fromName"
-  %% ScientificName_EXT |o..|{ NameRelation_MAP : "toName"
   ScientificName_EXT |o--o{ ScientificName_EXT : "basionym"
   ScientificName_EXT |o--o{ ScientificName_EXT : "replacedName"
   ScientificName_EXT |o--o{ ScientificName_EXT : "basedOn"
@@ -94,19 +90,3 @@ erDiagram
   InformalName_EXT {
     int id PK
   }
-
-  %% NameRelation_MAP {
-  %%   int id PK
-  %%   int from_taxon_name_id FK
-  %%   int to_taxon_name_id FK
-  %%   enum name_relation_type
-  %%   string remarks "nullable"
-  %% }
-
-  %% ScientificName_Author_MAP {
-  %%   int id PK
-  %%   int scientific_name_id FK
-  %%   int agent_id FK
-  %%   enum author_role
-  %%   int sequence
-  %% }

@@ -4,16 +4,13 @@ config:
 ---
 erDiagram
   Reference }o--|| Reference : "parent/items"
-  Reference |o--|{ Reference_Contributor_MAP : reference
-  Reference_Contributor_MAP }|--o| Agent : agent
+  Reference }|--o{ Agent : "contributor"
 
-  Reference |o--|{ Entity_Source_MAP : "source"
-  Entity_Source_MAP }o--o| NomenclaturalType : "morphs as 'provenanceable'"
-  Entity_Source_MAP }o--o{ TaxonConceptMapping : "morphs as 'provenanceable'"
-  Entity_Source_MAP }o--o{ Specimen : "morphs as 'provenanceable'"
+  Reference }o--o| NomenclaturalType : "source"
+  Reference }o--o{ TaxonConceptMapping : "source"
+  Reference }o--o{ Specimen : "source"
 
-  Reference |o--|{ Profile_Reference_MAP : reference
-  Profile_Reference_MAP }|--o| Profile : Profile
+  Reference }o--o{ Profile : "reference"
   
   Reference |o--|| ExternalIdentityAuthority_EXT : "reference / externalIdentityAuthority"
   ExternalIdentityAuthority_EXT ||--|{ ExternalIdentity : "externalIdentityAuthority"
@@ -41,11 +38,10 @@ erDiagram
   Reference |o--|| ThreatStatusAuthority_EXT : "reference / threatStatusAuthority"
   Reference |o--|| Gazetteer_EXT : "reference / gazetteer"
   Gazetteer_EXT |o--|{ AreaCode : "gazetteer"
-  AreaCode |o--|{ Profile_Area_MAP : "areaCode"
   Area |o--|{ AreaCode : "area"
   ThreatStatusAuthority_EXT |o--o{ ThreatStatus : "threatStatusAuthority"
   ThreatStatus }|--o| Area : "jurisdiction"
-  Profile_Area_MAP }|--o| Profile : "profile"
+  AreaCode }o--o| Profile : "profile / distribution"
   
   TaxonConceptMapping }|--o| TaxonConcept : "subjectTaxonConcept"
   TaxonConceptMapping }|--o| TaxonConcept : "objectTaxonConcept"
@@ -68,7 +64,6 @@ erDiagram
   
   Reference {
     int id PK
-    int parent_id FK "nullable"
     enum reference_type
     string short_title
     string full_citation
@@ -85,19 +80,14 @@ erDiagram
 
   TaxonomyVersion_EXT {
     int id PK
-    int taxonomy_id FK
   }
   
   Treatment_EXT {
     int id PK
-    int taxonomy_id FK
-    int taxon_concept_id FK
   }
 
   TreatmentVersion_EXT {
     int id PK
-    int treatment_id FK
-    int taxon_concept_id FK
     int version_number "nullable"
     string version_label "nullable"
     jsonb data_snapshot "nullable"
@@ -131,19 +121,4 @@ erDiagram
   MapLayer_EXT {
     int id PK
     string code "nullable"
-  }
-
-  Reference_Contributor_MAP {
-    int id PK
-    int reference_id FK
-    int agent_id FK
-    enum contributor_role
-    int sequence
-  }
-
-  Entity_Source_MAP {
-    int id PK
-    string provenanceable_type
-    int provenanceable_id
-    int source_id FK
   }

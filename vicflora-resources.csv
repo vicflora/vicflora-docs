@@ -31,38 +31,38 @@ Reference_Contributor_MAP,map,4. Authority,4a. Provenance,\App\Models\Shared\Ref
 Entity_Source_MAP,map,4. Authority,4a. Provenance,\App\Models\Shared\EntitySourceMap,public,entity_source_map,table,
 Agent,domain entity,4. Authority,4b. Attribution,\App\Models\Shared\Agent,public,agents,table,"{""agent_type_id"": ""AGENT_TYPE""}"
 Entity_Creator_MAP,map,4. Authority,4b. Attribution,EntityCreatorMap,public,entity_creator_map,table,
-Profile,domain entity,5. Narrative,,\App\Models\Profile\Profile,public,profiles,table,
-ProfileDefItem,infrastructure,5. Narrative,,\App\Models\Profile\ProfileDefItem,public,profile_def_items,table,"{""profile_section_type_id"": ""PROFILE_SECTION_TYPE""}"
-ProfileSection,domain entity,5. Narrative,,\App\Models\Profile\ProfileSection,public,profile_sections,table,
+Profile,domain entity,5. Narrative,5a. Profile,\App\Models\Profile\Profile,public,profiles,table,
+ProfileDefItem,infrastructure,5. Narrative,5a. Profile,\App\Models\Profile\ProfileDefItem,public,profile_def_items,table,"{""profile_section_type_id"": ""PROFILE_SECTION_TYPE""}"
+ProfileSection,domain entity,5. Narrative,5a. Profile,\App\Models\Profile\ProfileSection,public,profile_sections,table,
 ExternalIdentity,domain entity,6. Identity,,\App\Models\Shared\ExternalIdentity,public,external_identities,table,
 Entity_Identity_MAP,map,6. Identity,,\App\Models\Shared\EntityIdentityMap,public,entity_identity_map,table,
 User,infrastructure,7. Infrastructure,7a. Agency,\App\Models\Shared\User,public,users,table,
 ControlledVocabulary,infrastructure,7. Infrastructure,7b. Vocabulary,\App\Models\Shared\ControlledVocabulary,public,controlled_vocabularies,table,
 ControlledTerm,infrastructure,7. Infrastructure,7b. Vocabulary,\App\Models\Shared\ControlledTerm,public,controlled_terms,table,
 AuditLog,infrastructure,7. Infrastructure,7c. Audit log,\App\Models\Shared\AuditLog,public,audit_logs,table,
-Profile_Area_MAP,map,8. Extension,8a. Distribution,\App\Models\Profile\ProfileAreaMap,public,profile_area_map,table,"{""occurrence_status_id"": ""OCCURRENCE_STATUS"", ""establishment_means_id"": ""ESTABLISHMENT_MEANS"", ""degree_of_establishment_id"": ""DEGREE_OF_ESTABLISHMENT""}"
-AreaCode,domain entity,8. Extension,8a. Distribution,\App\Models\Geography\AreaCode,public,area_codes,table,
-Area,domain entity,8. Extension,8a. Distribution,\App\Models\Geography\Area,public,areas,table,"{""area_type_id"": ""AREA_TYPE""}"
-ThreatStatus,domain entity,8. Extension,8a. Distribution,\App\Models\Geography\ThreatStatus,public,threat_statuses,table,"{""status_term_id"": ""THREAT_STATUS""}"
-Profile_Specimen_MAP,map,8. Extension,8b. Voucher,\App\Models\Profile\ProfileSpecimenMap,public,profile_specimen_map,table,"{""voucher_type_id"": ""VOUCHER_TYPE""}"
-Specimen,domain entity,8. Extension,8b. Voucher,\App\Models\Profile\Specimen,public,specimens,table,
-Image,domain entity,8. Extension,8c. Media,\App\Models\Media\Image,public,images,table,"{""image_type_id"": ""IMAGE_TYPE""}"
-ImageCaption,domain entity,8. Extension,8c. Media,\App\Models\Media\ImageCaption,public,image_captions,table,
-ImageAccessPoint,domain entity,8. Extension,8c. Media,\App\Models\Media\ImageAccessPoint,public,image_access_points,table,"{""variant_id"": ""IMAGE_VARIANT""}"
-Entity_Image_MAP,map,8. Extension,8c. Media,\App\Models\Media\EntityImageMap,public,entity_image_map,table,"{""image_role_id"": ""IMAGE_ROLE""}"
-Occurrence,domain entity,8. Extension,8e. Occurrence,\App\Models\Mapper\Occurrence,mapper,occurrences,table,
-ParsedName,infrastructure,8. Extension,8e. Occurrence,\App\Models\Mapper\ParsedName,public,parsed_names,table,
-NameMatch_MAP,map,8. Extension,8e. Occurrence,\App\Models\Mapper\NameMatchMap,mapper,name_match_map,materialized view,
-Taxon,infrastructure,8. Extension,8e. Occurrence,\App\Models\Mapper\Taxon,mapper,taxa,materialized view,
-Assertion,domain entity,8. Extension,8e. Occurrence,\App\Models\Mapper\Assertion,public,assertions,table,
-TaxonConcept_Occurrence_MAP,map,8. Extension,8e. Occurrence,\App\Models\Mapper\TaxonConceptOccurrenceMap,mapper,taxon_concept_occurrence_map,materialized view,
-MapOverlay,infrastructure,8. Extension,8e. Occurrence,\App\Models\Mapper\MapOverlay,mapper,map_overlays,table,
-TaxonConcept_MapOverlay_MAP,map,8. Extension,8e. Occurrence,\App\Models\Mapper\TaxonConceptMapOverlayMap,mapper,taxon_concept_map_overlay_map,materialized view,
-TaxonConcept_Phenology_MAP,map,8. Extension,8e. Occurrence,\App\Models\Mapper\TaxonConceptPhenologyMap,mapper,taxon_concept_phenology_map,materialized view,
-Glossary,domain entity,8. Extension,8h. Glossary,\App\Models\Glossary\Glossary,glossary,glossaries,table,
-GlossaryTerm,domain entity,8. Extension,8h. Glossary,\App\Models\Glossary\Term,glossary,terms,table,
-GlossaryCategory,domain entity,8. Extension,8h. Glossary,\App\Models\Glossary\Category,glossary,categories,table,
-GlossaryTermRelationship_MAP,map,8. Extension,8h. Glossary,\App\Models\Glossary\TermRelationship,glossary,term_relationships,table,"{""relationship_type_id"": ""GLOSSARY_TERM_RELATIONSHIP_TYPE""}"
-Limitation,domain entity,8. Extension,8h. Glossary,\App\Models\Glossary\Limitation,glossary,limitations,table,
-Glossary_Limitation_MAP,map,8. Extension,8h. Glossary,\App\Models\GlossaryLimitationMap,glossary,glossary_limitation_map,table,
+Profile_Area_MAP,map,5. Narrative,5b. Distribution,\App\Models\Profile\ProfileAreaMap,public,profile_area_map,table,"{""occurrence_status_id"": ""OCCURRENCE_STATUS"", ""establishment_means_id"": ""ESTABLISHMENT_MEANS"", ""degree_of_establishment_id"": ""DEGREE_OF_ESTABLISHMENT""}"
+AreaCode,domain entity,5. Narrative,5b. Distribution,\App\Models\Geography\AreaCode,public,area_codes,table,
+Area,domain entity,5. Narrative,5b. Distribution,\App\Models\Geography\Area,public,areas,table,"{""area_type_id"": ""AREA_TYPE""}"
+ThreatStatus,domain entity,5. Narrative,5b. Distribution,\App\Models\Geography\ThreatStatus,public,threat_statuses,table,"{""status_term_id"": ""THREAT_STATUS""}"
+Profile_Specimen_MAP,map,5. Narrative,5c. Voucher,\App\Models\Profile\ProfileSpecimenMap,public,profile_specimen_map,table,"{""voucher_type_id"": ""VOUCHER_TYPE""}"
+Specimen,domain entity,5. Narrative,5c. Voucher,\App\Models\Profile\Specimen,public,specimens,table,
+Image,domain entity,5. Narrative,5d. Media,\App\Models\Media\Image,public,images,table,"{""image_type_id"": ""IMAGE_TYPE""}"
+ImageCaption,domain entity,5. Narrative,5d. Media,\App\Models\Media\ImageCaption,public,image_captions,table,
+ImageAccessPoint,domain entity,5. Narrative,5d. Media,\App\Models\Media\ImageAccessPoint,public,image_access_points,table,"{""variant_id"": ""IMAGE_VARIANT""}"
+Entity_Image_MAP,map,5. Narrative,5d. Media,\App\Models\Media\EntityImageMap,public,entity_image_map,table,"{""image_role_id"": ""IMAGE_ROLE""}"
+Occurrence,domain entity,8. Extension,8d. Occurrence,\App\Models\Mapper\Occurrence,mapper,occurrences,table,
+ParsedName,infrastructure,8. Extension,8d. Occurrence,\App\Models\Mapper\ParsedName,public,parsed_names,table,
+NameMatch_MAP,map,8. Extension,8d. Occurrence,\App\Models\Mapper\NameMatchMap,mapper,name_match_map,materialized view,
+Taxon,infrastructure,8. Extension,8d. Occurrence,\App\Models\Mapper\Taxon,mapper,taxa,materialized view,
+Assertion,domain entity,8. Extension,8d. Occurrence,\App\Models\Mapper\Assertion,public,assertions,table,
+TaxonConcept_Occurrence_MAP,map,8. Extension,8d. Occurrence,\App\Models\Mapper\TaxonConceptOccurrenceMap,mapper,taxon_concept_occurrence_map,materialized view,
+MapOverlay,infrastructure,8. Extension,8d. Occurrence,\App\Models\Mapper\MapOverlay,mapper,map_overlays,table,
+TaxonConcept_MapOverlay_MAP,map,8. Extension,8d. Occurrence,\App\Models\Mapper\TaxonConceptMapOverlayMap,mapper,taxon_concept_map_overlay_map,materialized view,
+TaxonConcept_Phenology_MAP,map,8. Extension,8d. Occurrence,\App\Models\Mapper\TaxonConceptPhenologyMap,mapper,taxon_concept_phenology_map,materialized view,
+Glossary,domain entity,8. Extension,8e. Glossary,\App\Models\Glossary\Glossary,glossary,glossaries,table,
+GlossaryTerm,domain entity,8. Extension,8e. Glossary,\App\Models\Glossary\Term,glossary,terms,table,
+GlossaryCategory,domain entity,8. Extension,8e. Glossary,\App\Models\Glossary\Category,glossary,categories,table,
+GlossaryTermRelationship_MAP,map,8. Extension,8e. Glossary,\App\Models\Glossary\TermRelationship,glossary,term_relationships,table,"{""relationship_type_id"": ""GLOSSARY_TERM_RELATIONSHIP_TYPE""}"
+Limitation,domain entity,8. Extension,8e. Glossary,\App\Models\Glossary\Limitation,glossary,limitations,table,
+Glossary_Limitation_MAP,map,8. Extension,8e. Glossary,\App\Models\GlossaryLimitationMap,glossary,glossary_limitation_map,table,
 Search,map,7. Infrastructure,7e. Search,\App\Models\Search\Search,public,search_mv,materialized_view,

@@ -1,0 +1,17 @@
+---
+config:
+  layout: elk
+---
+erDiagram
+  Profile }o--o{ Specimen : "specimens"
+  Specimen }o--o{ ExternalIdentity : "externalIdentity"
+  Specimen }o--o| Reference : "source"
+  Specimen }o--o{ Image : "images"
+
+  Specimen {
+    int id PK
+    string institution_code "nullable"
+    string collection_code "nullable"
+    string catalog_number "nullable"
+    jsonb metadata "nullable"
+  }

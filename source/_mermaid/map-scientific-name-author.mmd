@@ -1,0 +1,13 @@
+---
+config:
+  layout: erd
+---
+erDiagram
+  ScientificName_Author_MAP }|--o| Agent : "agent"
+  ScientificName_Author_MAP }|--o| ScientificName_EXT : "scientificName"
+
+  ScientificName_Author_MAP {
+    int id PK
+    enum author_role
+    int sequence
+  }

@@ -8,10 +8,18 @@ order: 2
 
 <x-svg-viewer path="/assets/images/erd/layer-2a-core-nomenclature.svg" status="draft"/>
 
-## Layer 2b: Name usage
+### Map: Name relation
 
-<x-svg-viewer path="/assets/images/erd/layer-2b-name-usage.svg" status="draft"/>
+<x-svg-viewer path="/assets/images/erd/map-name-relation.svg" status="draft"/>
 
-## Layer 2c: Typification
+### Map: Scientific name usage
 
-<x-svg-viewer path="/assets/images/erd/layer-2c-typification.svg" status="draft"/>
+<x-svg-viewer path="/assets/images/erd/map-scientific-name-usage.svg" status="draft"/>
+
+### Map: Vernacular name usage
+
+<x-svg-viewer path="/assets/images/erd/map-vernacular-name-usage.svg" status="draft"/>
+
+## Layer 2b: Typification
+
+<x-svg-viewer path="/assets/images/erd/layer-2b-typification.svg" status="draft"/>

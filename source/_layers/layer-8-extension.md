@@ -1,10 +1,16 @@
 ---
 extends: _layouts.vicflora
-title: "Layer 8e: Trait"
-order: 12
+title: "Layer 8: Extension"
+order: 11
 ---
 
-<x-svg-viewer path="/assets/images/erd/layer-8e-trait-1.svg" status="draft"/>
+## Layer 8a: Pathway key
+
+<x-svg-viewer path="/assets/images/erd/layer-8a-pathway-key.svg" status="draft"/>
+
+## Layer 8b: Trait
+
+<x-svg-viewer path="/assets/images/erd/layer-8b-trait-1.svg" status="draft"/>
 
 In this model, a **Trait Dataset** is a single matrix key, **Traits** are the
 columns, **Items** the rows and **Facts** are the cells. **Traits**, **Items**
@@ -28,14 +34,43 @@ religious about the `ORDINAL` vs `CATEGORICAL` notation in the facts, as we want
 to be able to say things like 'lamina cells isodiametric to oblong, rarely
 elongate to short-linear'.
 
-## Trait rules
+### Trait rules
 
-<x-svg-viewer path="/assets/images/erd/layer-8e-trait-2-trait-rules.svg" status="draft"/>
+<x-svg-viewer path="/assets/images/erd/layer-8b-trait-2-trait-rules.svg" status="draft"/>
 
-## Expression rules
+### Expression rules
 
-<x-svg-viewer path="/assets/images/erd/layer-8e-trait-3-expression-rules.svg" status="draft"/>
+<x-svg-viewer path="/assets/images/erd/layer-8b-trait-3-expression-rules.svg" status="draft"/>
 
-## Trait mappings
+### Trait mappings
 
-<x-svg-viewer path="/assets/images/erd/layer-8e-trait-4-mapping.svg" status="draft"/>
+<x-svg-viewer path="/assets/images/erd/layer-8b-trait-4-mapping.svg" status="draft"/>
+
+### Map: Entity–Scope
+
+<x-svg-viewer path="/assets/images/erd/map-entity-scope.svg" status="draft"/>
+
+### Map: Entity–Structure
+
+<x-svg-viewer path="/assets/images/erd/map-entity-structure.svg" status="draft"/>
+
+## Layer 8c: Phylogeny
+
+<x-svg-viewer path="/assets/images/erd/layer-8c-phylogeny.svg" status="draft"/>
+
+## Layer 8d: Occurrence
+
+<x-svg-viewer path="/assets/images/erd/layer-8d-occurrence.svg" status="draft"/>
+
+### Map: Name match
+
+<x-svg-viewer path="/assets/images/erd/map-name-match.svg" status="draft"/>
+
+### Map: Profile–Occurrence
+
+<x-svg-viewer path="/assets/images/erd/map-profile-occurrence.svg" status="draft"/>
+
+## Layer 8e: Glossary
+
+<x-svg-viewer path="/assets/images/erd/layer-8e-glossary.svg" status="draft"/>
+

@@ -1,0 +1,14 @@
+---
+config:
+  layout: elk
+---
+erDiagram
+  Profile_Specimen_MAP }|--o| Profile : "profile"
+  Profile_Specimen_MAP }|--o{ Specimen : "specimen"
+
+  Profile_Specimen_MAP {
+    int id PK
+    enum voucher_type
+    int sort_order "nullable"
+  }
+

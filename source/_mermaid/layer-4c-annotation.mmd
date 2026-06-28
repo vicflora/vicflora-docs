@@ -1,0 +1,18 @@
+---
+config:
+  layout: elk
+---
+erDiagram
+    Annotation }|--o| Occurrence : "morphs as 'target'"
+    Annotation }o--o{ Agent : "creator"
+
+    Annotation {
+        int id PK
+        string target_type
+        int target_id
+        string reason "nullable"
+        string term
+        string asserted_value
+        text remarks "nullable"
+        jsonb metadata "nullable"
+    }

@@ -1,0 +1,15 @@
+---
+config:
+  layout: elk
+---
+erDiagram
+  Reference_Contributor_MAP }|--o| Reference : reference
+  Reference_Contributor_MAP }|--o| Agent : agent
+
+  Reference_Contributor_MAP {
+    int id PK
+    enum contributor_role
+    int sequence
+  }
+
+

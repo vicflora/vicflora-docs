@@ -1,0 +1,16 @@
+---
+config:
+  layout: elk
+---
+erDiagram
+  Entity_Creator_MAP ||--o{ Agent : creator
+  Entity_Creator_MAP ||--o{ TaxonConceptMapping : "morphs as 'attributable'"
+  Entity_Creator_MAP ||--o{ NomenclaturalType : "morphs as 'attributable'"
+  Entity_Creator_MAP ||--o{ Annotation : "morphs as 'attributable'"
+
+  Entity_Creator_MAP {
+    int id PK
+    string attributable_type 
+    int attributable_id
+    jsonb metadata "nullable"
+  }
