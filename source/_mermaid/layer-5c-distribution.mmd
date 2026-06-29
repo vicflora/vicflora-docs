@@ -3,7 +3,8 @@ config:
   layout: elk
 ---
 erDiagram
-  Profile |o--|{ Distribution : "profile / distribution"
+  Profile ||--|{ ProfileSection : "profile / sections"
+  ProfileSection |o--|{ Distribution : "distribution"
 
   %% Profile }o--o{ Entity_Source_MAP : "morphs as 'provenanceable'"
   Distribution }|--o| AreaCode : "areaCode"
@@ -27,6 +28,7 @@ erDiagram
 
   Distribution {
     int id PK
+    int profile_id FK
     string locality "nullable"
     enum occurrence_status "nullable"
     enum establishment_means "nullable"

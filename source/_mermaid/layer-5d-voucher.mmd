@@ -3,13 +3,15 @@ config:
   layout: elk
 ---
 erDiagram
-  Profile }o--o{ Specimen : "specimens"
+  Profile ||--|{ ProfileSection : "profile / sections"
+  ProfileSection }o--o{ Specimen : "specimens"
   Specimen }o--o{ ExternalIdentity : "externalIdentity"
   Specimen }o--o| Reference : "source"
   Specimen }o--o{ Image : "images"
 
   Specimen {
     int id PK
+    int profile_id FK
     string institution_code "nullable"
     string collection_code "nullable"
     string catalog_number "nullable"
