@@ -5,17 +5,29 @@ config:
 erDiagram
   TaxonConcept |o--|| Profile : "taxonConcept / profile"
 
-  %% Vouchers
-  Profile }o--o{ Specimen : "specimens (vouchers)"
-
-  %% Media
-  Specimen }o--o| Image : "images"
-  Profile }o--o{ Image : "images"
-  ProfileSection }o--o{ Image : "images"
-
   %% Sections
   Profile |o--|{ ProfileSection : "profile"
   ProfileSection }|--|| ProfileDefItem : "profileDefItem"
+
+  %% Nomenclature
+  ProfileSection |o--o{ ScientificNameUsage : "scientificNameUsages (Nomenclature Section)"
+  ScientificNameUsage }|--o| ScientificName_EXT : "scientificName"
+
+  %% Vernacular names
+  ProfileSection |o--o{ VernacularNameUsage : "vernacularNameUsages (Vernacular Names Section)"
+  VernacularNameUsage }|--o| VernacularName_EXT : "vernacularName"
+
+
+  %% Distribution
+  ProfileSection |o--o{ Distribution : "distribution"
+
+  %% Vouchers
+  ProfileSection }o--o{ Specimen : "specimens (vouchers)"
+  Specimen }o--o| Image : "images"
+
+  %% Media
+  Profile }o--o{ Image : "images"
+  ProfileSection }o--o{ Image : "images"
 
   %% References
   ProfileSection |o--o{ Reference : "source"
@@ -26,21 +38,17 @@ erDiagram
   Profile |o--o{ Reference : "source"
   Profile }o--o{ Reference : "references"
 
-  %% Distribution
-  Profile |o--o{ Distribution : "distribution"
+  %% Namespace
+  Profile ||--o{ TaxonTree : "taxonTree"
+  ProfileSection ||--o{ TaxonTree : "taxonTree"
+  ProfileDefItem ||--o{ TaxonTree : "taxonTree"
 
   %% Maps
-
   Profile |o..o{ Occurrence : "occurrences"
   Profile |o..|{ MapDistribution : "mapDistribution"
   Profile |o..|{ Phenology : "phenology"
   MapDistribution ||..|{ Occurrence : "derivedFrom"
   Phenology ||..|{ Occurrence : "derivedFrom"
-
-  %% Namespace
-  Profile ||--o{ TaxonTree : "taxonTree"
-  ProfileSection ||--o{ TaxonTree : "taxonTree"
-  ProfileDefItem ||--o{ TaxonTree : "taxonTree"
 
   Profile {
     int taxon_concept_id PK

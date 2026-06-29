@@ -1,0 +1,32 @@
+---
+config:
+  layout: elk
+---
+erDiagram
+  Profile ||--|{ ProfileSection : "profile / sections"
+  ProfileSection |o--o{ ScientificNameUsage : "scientificNameUsages"
+  ScientificNameUsage }|--o| TaxonConcept : "taxonConcept"
+  ScientificNameUsage }|--o| ScientificName_EXT : "scientificName"
+
+  ProfileSection |o--o{ VernacularNameUsage : "vernacularNameUsages"
+  VernacularNameUsage }|--o| VernacularName_EXT : "vernacularName"
+
+  Profile ||--o| TaxonConcept : "taxonConcept / profile"
+  Profile ||--o| Treatment_EXT : "treatment / profile"
+  Treatment_EXT ||--o| TaxonConcept : "accordingTo / treatment"
+
+  ScientificNameUsage {
+    int id PK
+    int taxon_concept_id FK
+    enum name_role
+    array metadata "nullable"
+    string remarks "nullable"
+  }
+
+  VernacularNameUsage {
+    int id PK
+    int taxon_concept_id FK
+    bool is_preferred "nullable"
+    array metadata "nullable"
+    string remarks "nullable"
+  }
