@@ -6,13 +6,10 @@ erDiagram
   ExternalIdentity }|--|| ExternalIdentityAuthority_EXT : "externalIdentityAuthority"
   ExternalIdentityAuthority_EXT ||--o| Reference : "reference / externalIdentityAuthority"
 
-  ExternalIdentity ||--|{ Entity_Identity_MAP : "externalIdentity"
-
-  Entity_Identity_MAP }o--o| TaxonConcept : "morphs as 'linkable'"
-  Entity_Identity_MAP }o--o| TaxonName : "morphs as 'linkable'"
-  Entity_Identity_MAP }o--o| NomenclaturalType : "morphs as 'linkable'"
-  Entity_Identity_MAP }o--o| Specimen : "morphs as 'linkable'"
-  Entity_Identity_MAP }o--o| Agent : "morphs as 'linkable'"
+  ExternalIdentity }o--o{ TaxonConcept : "externalIdentities"
+  ExternalIdentity }o--o{ TaxonName : "externalIdentities"
+  ExternalIdentity }o--o{ Specimen : "externalIdentities"
+  ExternalIdentity }o--o{ Agent : "externalIdentities"
 
   ExternalIdentity {
     int id PK
@@ -20,11 +17,4 @@ erDiagram
     string external_id
     string external_uri
     timestamp last_synced_at
-  }
-
-  Entity_Identity_MAP {
-    int id PK
-    string linkable_type
-    int linkable_id
-    int external_identity_id
   }
