@@ -4,16 +4,17 @@ config:
 ---
 erDiagram
   Profile ||--|{ ProfileSection : "profile / sections"
+
+  Profile ||--o| TaxonConcept : "taxonConcept / profile"
+  Profile ||--o| Treatment_EXT : "treatment / profile"
+  Treatment_EXT ||--o| TaxonConcept : "accordingTo / taxonConcept"
+
   ProfileSection |o--o{ ScientificNameUsage : "scientificNameUsages"
   ScientificNameUsage }|--o| TaxonConcept : "taxonConcept"
   ScientificNameUsage }|--o| ScientificName_EXT : "scientificName"
 
   ProfileSection |o--o{ VernacularNameUsage : "vernacularNameUsages"
   VernacularNameUsage }|--o| VernacularName_EXT : "vernacularName"
-
-  Profile ||--o| TaxonConcept : "taxonConcept / profile"
-  Profile ||--o| Treatment_EXT : "treatment / profile"
-  Treatment_EXT ||--o| TaxonConcept : "accordingTo / taxonConcept"
 
   ScientificNameUsage {
     int id PK
