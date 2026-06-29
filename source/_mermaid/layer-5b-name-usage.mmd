@@ -13,7 +13,7 @@ erDiagram
 
   Profile ||--o| TaxonConcept : "taxonConcept / profile"
   Profile ||--o| Treatment_EXT : "treatment / profile"
-  Treatment_EXT ||--o| TaxonConcept : "accordingTo / treatment"
+  Treatment_EXT ||--o| TaxonConcept : "accordingTo / taxonConcept"
 
   ScientificNameUsage {
     int id PK
