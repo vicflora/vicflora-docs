@@ -45,9 +45,9 @@ erDiagram
   %% Maps
   Profile |o..o{ Occurrence : "occurrences"
   Profile |o..|{ MapDistribution : "mapDistribution"
-  Profile |o..|{ Phenology : "phenology"
+  Profile |o..|{ Phenology_AGG : "phenology"
   MapDistribution ||..|{ Occurrence : "derivedFrom"
-  Phenology ||..|{ Occurrence : "derivedFrom"
+  Phenology_AGG ||..|{ Occurrence : "derivedFrom"
 
   Profile {
     int taxon_concept_id PK
