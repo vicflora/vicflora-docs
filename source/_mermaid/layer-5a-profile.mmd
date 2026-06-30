@@ -12,10 +12,12 @@ erDiagram
   %% Nomenclature
   ProfileSection |o--o{ ScientificNameUsage : "scientificNameUsages"
   ScientificNameUsage }|--o| ScientificName_EXT : "scientificName"
+  ScientificName_EXT ||--o| TaxonName : "taxonName / scientificName"
 
   %% Vernacular names
   ProfileSection |o--o{ VernacularNameUsage : "vernacularNameUsages"
   VernacularNameUsage }|--o| VernacularName_EXT : "vernacularName"
+  VernacularName_EXT ||--o| TaxonName : "taxonName / vernacularName"
 
   %% Distribution
   ProfileSection |o--o{ Distribution : "distribution"
