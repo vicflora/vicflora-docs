@@ -1,0 +1,78 @@
+---
+config:
+    layout: elk
+---
+erDiagram
+    taxon_concepts ||--o{ taxon_names : "taxonName"
+    taxon_concepts |o--|{ name_usages : "taxonConcept"
+    taxon_concepts }o--o| taxon_concepts : "parentTaxonConcept"
+    name_usages }|--o| taxon_names : "taxonName"
+    taxon_names }o--o| taxon_names : "originalName"
+    taxon_names |o--|{ name_relations : "subjectTaxonName"
+    name_relations }|--o| taxon_names : "objectTaxonName"
+    taxon_concepts }o--|| taxon_trees : "taxonTree"
+    taxon_concepts |o--|{ taxon_tree_nodes : "taxonConcept"
+    taxon_tree_nodes }o--o| taxon_tree_nodes : "parent"
+    taxon_tree_nodes }o--|| taxon_trees : "taxonTree" 
+    taxon_names |o--|{ nomenclatural_types : "typifiedName"
+    nomenclatural_types |o--o| taxon_names : "typeName"
+    nomenclatural_types ||--o| specimens : "typeSpecimen"
+    taxon_concepts |o--|{ taxon_concept_mappings : subjectTaxonConcept
+    taxon_concept_mappings }|--o| taxon_concepts : objectTaxonConcept
+
+    taxon_concepts ||--o{ references : accordingTo
+    taxon_names |o--o{ references : namePublishedIn
+    taxon_concept_mappings |o--o{ references : source
+    nomenclatural_types |o--o{ references : typeAccordingTo
+    nomenclatural_types |o--o{ references : source
+
+    taxon_concept_mappings }o--o| agents : creator
+    nomenclatural_types }o--o| agents : creator
+
+    taxon_concepts {
+        string id PK
+        enum taxonRank
+        text remarks
+        jsonb metadata
+    }
+
+    taxon_names {
+        string id PK
+        string taxonNameString
+        string scientificNameAuthorship
+        enum taxonRank
+        enum nomenclaturalCode
+        enum omenclaturalStatus
+        string namePublishedIn
+        string namePublishedInYear
+        jsonb metadata
+    }
+
+    name_usages {
+        enum relation "acceptedName /<br>synonym"
+    }
+
+    name_relations {
+        enum relation "basionym /<br>replacedName /<br>basedOn"
+    }
+
+    taxon_tree_nodes {
+        int id PK
+        int[] materializedPath
+    }
+
+    taxon_trees {
+        int id PK
+        string name
+        string version
+    }
+
+    taxon_concept_mappings {
+        string id PK
+        enum mappingRelation "isCongruentWith /<br>includes /<br>isIncludedIn /<br>partiallyOverlaps /<br>/isDisjointFrom /<br>intersects"
+    }
+
+    nomenclatural_types {
+        string id
+        enum typeOfType
+    }
