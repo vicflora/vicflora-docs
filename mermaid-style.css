@@ -1,14 +1,11 @@
-/* 1. Ensure the parent wrappers allow visibility and flex centering */
+/* 1. Ensure the parent wrappers allow visibility */
 .node foreignObject,
 .label foreignObject {
   overflow: visible !important;
 }
 
-/* 2. Break Mermaid's calculated inline widths and force text to center */
-.node foreignObject > div,
-.label foreignObject > div,
-.node foreignObject div,
-.label foreignObject div {
+/* 2. Target ONLY the top-level container div of the node to center it safely */
+.node foreignObject > div {
   width: 100% !important;
   min-width: max-content !important;
   text-align: center !important;
@@ -16,4 +13,27 @@
   position: relative !important;
   left: 50% !important;
   transform: translateX(-50%) !important;
+}
+
+/* 3. Explicitly force ERD table cells and rows back to crisp left-alignment */
+.node foreignObject .er.relationship-label,
+.node foreignObject [class*="entity-"],
+.node foreignObject div.er,
+.node foreignObject table,
+.node foreignObject tr,
+.node foreignObject td,
+.node foreignObject th {
+  text-align: left !important;
+  left: 0 !important;
+  transform: none !important;
+  position: static !important;
+}
+
+/* 4. Ensure individual attribute labels inside the ERD rows stay left-aligned */
+.node foreignObject td div,
+.node foreignObject .attribute-label {
+  text-align: left !important;
+  left: 0 !important;
+  transform: none !important;
+  position: relative !important;
 }
