@@ -3,13 +3,15 @@ config:
     layout: elk
 ---
 erDiagram
-    taxon_concepts ||--o{ taxon_names : "taxonName"
-    taxon_concepts |o--|{ name_usages : "taxonConcept"
     taxon_concepts }o--o| taxon_concepts : "parentTaxonConcept"
-    name_usages }|--o| taxon_names : "taxonName"
+    taxon_concepts ||--o{ taxon_names : "taxonName"
+    taxon_concepts |o--|{ scientific_name_usages : "taxonConcept"
+    taxon_concepts |o--|{ vernacular_name_usages : "taxonConcept"
+    scientific_name_usages }|--o| taxon_names : "taxonName"
     taxon_names }o--o| taxon_names : "originalName"
     taxon_names |o--|{ name_relations : "subjectTaxonName"
     name_relations }|--o| taxon_names : "objectTaxonName"
+    vernacular_name_usages }|--o| taxon_names : "taxonName"
     taxon_concepts }o--|| taxon_trees : "taxonTree"
     taxon_concepts |o--|{ taxon_tree_nodes : "taxonConcept"
     taxon_tree_nodes }o--o| taxon_tree_nodes : "parent"
@@ -38,17 +40,19 @@ erDiagram
 
     taxon_names {
         string id PK
+        enum type "ScientificName /<br>VernacularName /<br>HybridFormula /<br>InformalName /<br>TaxonConceptLabel"
         string taxonNameString
         string scientificNameAuthorship
         enum taxonRank
         enum nomenclaturalCode
-        enum omenclaturalStatus
+        enum nomenclaturalStatus
+        string language
         string namePublishedIn
         string namePublishedInYear
         jsonb metadata
     }
 
-    name_usages {
+    scientific_name_usages {
         enum relation "acceptedName /<br>synonym"
     }
 
@@ -75,4 +79,8 @@ erDiagram
     nomenclatural_types {
         string id
         enum typeOfType
+    }
+
+    vernacular_name_usages {
+        bool isPreferred
     }
