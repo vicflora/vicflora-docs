@@ -3,87 +3,117 @@ config:
     layout: elk
 ---
 erDiagram
-    taxon_concepts }o--o| taxon_concepts : "parentTaxonConcept"
-    taxon_concepts ||--o{ taxon_names : "taxonName"
-    taxon_concepts |o--|{ vernacular_name_usages : "taxonConcept"
-    vernacular_name_usages }|--o| taxon_names : "taxonName"
-    taxon_concepts |o--|{ scientific_name_usages : "taxonConcept"
-    scientific_name_usages }|--o| taxon_names : "taxonName"
-    taxon_names }o--o| taxon_names : "originalName"
-    taxon_names |o--|{ name_relations : "subjectTaxonName"
-    name_relations }|--o| taxon_names : "objectTaxonName"
-    taxon_concepts }o--|| taxon_trees : "taxonTree"
-    taxon_concepts |o--|{ taxon_tree_nodes : "taxonConcept"
-    taxon_tree_nodes }o--o| taxon_tree_nodes : "parent"
-    taxon_tree_nodes }o--|| taxon_trees : "taxonTree" 
-    taxon_names |o--|{ nomenclatural_types : "typifiedName"
-    nomenclatural_types |o--o| taxon_names : "typeName"
-    nomenclatural_types ||--o| specimens : "typeSpecimen"
-    taxon_concepts |o--|{ taxon_concept_mappings : subjectTaxonConcept
-    taxon_concept_mappings }|--o| taxon_concepts : objectTaxonConcept
+    TaxonConcept }o--o| TaxonConcept : "parentTaxonConcept"
+    TaxonConcept ||--o{ TaxonName : "taxonName"
+    TaxonConcept |o--|{ VerNacularNameUsageMap : "taxonConcept"
+    VerNacularNameUsageMap }|--o| TaxonName : "taxonName"
+    TaxonConcept |o--|{ ScientificNameUsageMap : "taxonConcept"
+    ScientificNameUsageMap }|--o| TaxonName : "taxonName"
+    TaxonName }o--o| TaxonName : "originalName"
+    TaxonName |o--|{ NameRelationMap : "subjectTaxonName"
+    NameRelationMap }|--o| TaxonName : "objectTaxonName"
+    TaxonConcept }o--|| TaxonTree : "taxonTree"
+    TaxonConcept |o--|{ TaxonTreeNode : "taxonConcept"
+    TaxonTreeNode }o--o| TaxonTreeNode : "parent"
+    TaxonTreeNode }o--|| TaxonTree : "taxonTree" 
+    TaxonName |o--|{ NomenclaturalType : "typifiedName"
+    NomenclaturalType |o--o| TaxonName : "typeName"
+    NomenclaturalType ||--o| Specimen : "typeSpecimen"
+    TaxonConcept |o--|{ TaxonConceptMapping : subjectTaxonConcept
+    TaxonConceptMapping }|--o| TaxonConcept : objectTaxonConcept
 
-    taxon_concepts ||--o{ references : accordingTo
-    taxon_names |o--o{ references : namePublishedIn
-    taxon_concept_mappings |o--o{ references : source
-    nomenclatural_types |o--o{ references : typeAccordingTo
-    nomenclatural_types |o--o{ references : source
+    TaxonName }o--o| Agent : combinationAuthorship
+    TaxonName }o--o| Agent : basionymAuthorship
+    TaxonName }o--o| Agent : combinationAscribedAuthorship
+    TaxonName }o--o| Agent : basionymAscribedAuthorship
 
-    taxon_concept_mappings }o--o| agents : creator
-    nomenclatural_types }o--o| agents : creator
+    TaxonConcept ||--o{ Reference : accordingTo
+    TaxonConceptMapping }o--o| Reference : "mappingAccordingTo /source"
+    TaxonName |o--o{ Reference : namePublishedIn
+    NomenclaturalType |o--o{ Reference : typeAccordingTo
+    NomenclaturalType |o--o{ Reference : source
 
-    taxon_concepts {
+    TaxonConceptMapping }o--o| Agent : creator
+    NomenclaturalType }o--o| Agent : creator
+
+    TaxonConcept {
         string id PK
         enum taxonRank
         text remarks
-        jsonb metadata
+        jsonb dynamicProperties
     }
 
-    taxon_names {
+    TaxonName {
         string id PK
         enum type "ScientificName /<br>VernacularName /<br>HybridFormula /<br>InformalName /<br>TaxonConceptLabel"
-        string taxonNameString
+        string nameString
         string scientificNameAuthorship
         enum taxonRank
         enum nomenclaturalCode
         enum nomenclaturalStatus
         string language
-        string namePublishedIn
+        string namePublishedInLiteral
         string namePublishedInYear
-        jsonb metadata
+        string genericName
+        string infragenericEpithet
+        string specificEpithet
+        string infraspecificEpithet
+        string cultivarEpithet
+        string combinationAuthorLiteral
+        string basionymAuthorLiteral
+        string combinationAscribedAuthorLiteral
+        string basionymAscribedAuthorLiteral
+        text typificationLiteral
+        text remarks
+        jsonb dynamicProperties
         string dataset
         string version
     }
 
-    scientific_name_usages {
+    ScientificNameUsageMap {
         enum relation "acceptedName /<br>synonym"
+        text remarks
+        jsonb dynamicProperties
     }
 
-    name_relations {
-        enum relation "basionym /<br>replacedName /<br>basedOn"
+    NameRelationMap {
+        enum relation "basionym /<br>replacedName /<br>basedOn /<br>laterHomonymOf /<br>conservedAgainst"
+        text remarks
+        jsonb dynamicProperties
     }
 
-    taxon_tree_nodes {
+    TaxonTreeNode {
         int id PK
         int[] materializedPath
+        text remarks
+        jsonb dynamicProperties
     }
 
-    taxon_trees {
+    TaxonTree {
         int id PK
         string name
+        text remarks
+        jsonb dynamicProperties
         string dataset
         string version
     }
 
-    taxon_concept_mappings {
+    TaxonConceptMapping {
         string id PK
         enum mappingRelation "isCongruentWith /<br>includes /<br>isIncludedIn /<br>partiallyOverlaps /<br>/isDisjointFrom /<br>intersects"
+        text remarks
+        jsonb dynamicProperties
     }
 
-    nomenclatural_types {
+    NomenclaturalType {
         string id
         enum typeOfType
+        text remarks
+        jsonb dynamicProperties
     }
 
-    vernacular_name_usages {
+    VerNacularNameUsageMap {
         bool isPreferred
+        text remarks
+        jsonb dynamicProperties
     }
