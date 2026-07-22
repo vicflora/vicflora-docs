@@ -1,7 +1,7 @@
 ---
 extends: _layouts.vicflora
 title: "Layer 8: Extension"
-order: 11
+order: 8
 ---
 
 ## Layer 8a: Pathway key
