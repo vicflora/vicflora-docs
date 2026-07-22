@@ -18,9 +18,11 @@ erDiagram
     TaxonTreeNode }o--|| TaxonTree : "taxonTree" 
     TaxonName |o--|{ NomenclaturalType : "typifiedName"
     NomenclaturalType |o--o| TaxonName : "typeName"
-    NomenclaturalType ||--o| Specimen : "typeSpecimen"
+    NomenclaturalType ||..o| Specimen : "typeSpecimen / dwciri:typeStatus"
     TaxonConcept |o--|{ TaxonConceptMapping : subjectTaxonConcept
     TaxonConceptMapping }|--o| TaxonConcept : objectTaxonConcept
+
+    TaxonConcept |o..|{ Identification : "toTaxon"
 
     TaxonName }o--o| Agent : combinationAuthorship
     TaxonName }o--o| Agent : basionymAuthorship
@@ -116,4 +118,10 @@ erDiagram
         bool isPreferred
         text remarks
         jsonb dynamicProperties
+    }
+
+    Specimen {
+        string id PK
+        enum type "PreservedSpecimen /<br>MaterialCitation"
+        jsonb metadata
     }
