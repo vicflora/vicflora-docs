@@ -50,6 +50,8 @@ erDiagram
         string namePublishedIn
         string namePublishedInYear
         jsonb metadata
+        string dataset
+        string version
     }
 
     scientific_name_usages {
@@ -68,6 +70,7 @@ erDiagram
     taxon_trees {
         int id PK
         string name
+        string dataset
         string version
     }
 
