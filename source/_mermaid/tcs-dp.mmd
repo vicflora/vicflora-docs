@@ -39,6 +39,7 @@ erDiagram
     NomenclaturalType }o--o| Agent : creator
 
     Identification }|..o| Specimen : "dsw:basisForId / dsw:idBasedOn"
+    Identification }o..o| Agent : "identifiedBy"
 
     TaxonConcept {
         string id PK
@@ -126,4 +127,11 @@ erDiagram
         string id PK
         enum type "PreservedSpecimen /<br>MaterialCitation"
         jsonb metadata
+    }
+
+    Identification {
+        string id PK
+        string dateIdentified
+        text remarks
+        jsonb dynamicProperties
     }
