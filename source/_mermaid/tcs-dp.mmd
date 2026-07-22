@@ -5,13 +5,13 @@ config:
 erDiagram
     TaxonConcept }o--o| TaxonConcept : "parentTaxonConcept"
     TaxonConcept ||--o{ TaxonName : "taxonName"
-    TaxonConcept |o--|{ VerNacularNameUsageMap : "taxonConcept"
-    VerNacularNameUsageMap }|--o| TaxonName : "taxonName"
-    TaxonConcept |o--|{ ScientificNameUsageMap : "taxonConcept"
-    ScientificNameUsageMap }|--o| TaxonName : "taxonName"
+    TaxonConcept |o--|{ VerNacularNameUsage_MAP : "taxonConcept"
+    VerNacularNameUsage_MAP }|--o| TaxonName : "taxonName"
+    TaxonConcept |o--|{ ScientificNameUsage_MAP : "taxonConcept"
+    ScientificNameUsage_MAP }|--o| TaxonName : "taxonName"
     TaxonName }o--o| TaxonName : "originalName"
-    TaxonName |o--|{ NameRelationMap : "subjectTaxonName"
-    NameRelationMap }|--o| TaxonName : "objectTaxonName"
+    TaxonName |o--|{ NameRelation_MAP : "subjectTaxonName"
+    NameRelation_MAP }|--o| TaxonName : "objectTaxonName"
     TaxonConcept }o--|| TaxonTree : "taxonTree"
     TaxonConcept |o--|{ TaxonTreeNode : "taxonConcept"
     TaxonTreeNode }o--o| TaxonTreeNode : "parent"
@@ -22,7 +22,7 @@ erDiagram
     TaxonConcept |o--|{ TaxonConceptMapping : subjectTaxonConcept
     TaxonConceptMapping }|--o| TaxonConcept : objectTaxonConcept
 
-    TaxonConcept |o..|{ Identification : "toTaxon"
+    TaxonConcept |o..|{ Identification : "dwciri:toTaxon"
 
     TaxonName }o--o| Agent : combinationAuthorship
     TaxonName }o--o| Agent : basionymAuthorship
@@ -37,6 +37,8 @@ erDiagram
 
     TaxonConceptMapping }o--o| Agent : creator
     NomenclaturalType }o--o| Agent : creator
+
+    Identification }|..o| Specimen : "dsw:basisForId / dsw:idBasedOn"
 
     TaxonConcept {
         string id PK
@@ -72,13 +74,13 @@ erDiagram
         string version
     }
 
-    ScientificNameUsageMap {
+    ScientificNameUsage_MAP {
         enum relation "acceptedName /<br>synonym"
         text remarks
         jsonb dynamicProperties
     }
 
-    NameRelationMap {
+    NameRelation_MAP {
         enum relation "basionym /<br>replacedName /<br>basedOn /<br>laterHomonymOf /<br>conservedAgainst"
         text remarks
         jsonb dynamicProperties
@@ -114,7 +116,7 @@ erDiagram
         jsonb dynamicProperties
     }
 
-    VerNacularNameUsageMap {
+    VerNacularNameUsage_MAP {
         bool isPreferred
         text remarks
         jsonb dynamicProperties
