@@ -5,8 +5,8 @@ config:
 erDiagram
     TaxonConcept }o--o| TaxonConcept : "parentTaxonConcept"
     TaxonConcept ||--o{ TaxonName : "taxonName"
-    TaxonConcept |o--|{ VerNacularNameUsage_MAP : "taxonConcept"
-    VerNacularNameUsage_MAP }|--o| TaxonName : "taxonName"
+    TaxonConcept |o--|{ VernacularNameUsage_MAP : "taxonConcept"
+    VernacularNameUsage_MAP }|--o| TaxonName : "taxonName"
     TaxonConcept |o--|{ ScientificNameUsage_MAP : "taxonConcept"
     ScientificNameUsage_MAP }|--o| TaxonName : "taxonName"
     TaxonName }o--o| TaxonName : "originalName"
@@ -116,7 +116,7 @@ erDiagram
         jsonb dynamicProperties
     }
 
-    VerNacularNameUsage_MAP {
+    VernacularNameUsage_MAP {
         bool isPreferred
         text remarks
         jsonb dynamicProperties
