@@ -1,0 +1,14 @@
+{
+  "@context": "https://raw.githubusercontent.com/tdwg/tcs2/refs/heads/master/jsonld/context.jsonld",
+  "type": "TaxonConcept",
+  "taxonConceptLabel": "Diplaziopsidaceae sec. Rothfels & al. 2012",
+  "accordingTo": "https://doi.org/10.1002/tax.613003",
+  "taxonName": "https://ipni.org/n/77110538-1",
+  "partiallyOverlaps": {
+    "type": "TaxonConcept",
+    "taxonConceptLabel": "Athyriaceae sec. Christenhusz & al. 2011",
+    "accordingTo": "https://doi.org/10.11646/phytotaxa.19.1.2",
+    "taxonName": "https://ipni.org/n/30000361-2"
+  },
+  "dcterms:source": "https://doi.org/10.3233/SW-160220"
+}

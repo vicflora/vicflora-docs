@@ -18,4 +18,12 @@ return [
         'collection' => 'vocabularies',
         'description' => 'VicFlora data model controlled vocabularies.',
     ],
+    'TCS examples' => [
+        'collection' => 'tcs_examples',
+        'description' => 'TCS examples.',
+    ],
+    'TCS recipes' => [
+        'collection' => 'tcs_recipes',
+        'description' => 'TCS examples.',
+    ],
 ];

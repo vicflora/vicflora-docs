@@ -1,0 +1,35 @@
+{
+  "@context": "https://raw.githubusercontent.com/tdwg/tcs2/refs/heads/master/jsonld/context.jsonld",
+  "type": "TaxonConcept",
+  "taxonConceptLabel": "Athyriaceae sec. Rothfels & al. 2012",
+  "accordingTo": "https://doi.org/10.1002/tax.613003",
+  "taxonName": "https://ipni.org/n/30000361-2",
+  "isIncludedIn": [
+    {
+      "type": "TaxonName",
+      "taxonConceptLabel": "Athyriaceae sec. Christenhusz & al. 2011",
+      "accordingTo": "https://doi.org/10.11646/phytotaxa.19.1.2",
+      "taxonName": "https://ipni.org/n/30000361-2"
+    },
+    {
+      "type": "TaxonName",
+      "taxonConceptLabel": "Woodsiaceae sec. Smith & al. 2006",
+      "accordingTo": "https://doi.org/10.2307/25065646",
+      "taxonName": "https://ipni.org/n/30000455-2"
+    },
+    {
+      "type": "TaxonName",
+      "taxonConceptLabel": "Dryopteridaceae sec. Nayar 1970",
+      "accordingTo": "https://doi.org/10.2307/1217958",
+      "taxonName": "https://ipni.org/n/30014148-2"
+    },
+    {
+      "type": "TaxonName",
+      "taxonConceptLabel": "Dennstaedtiaceae sec. Holttum 1947",
+      "accordingTo": {
+        "dcterms:bibliographicCitation": "Holttum, 1947"
+      },
+      "taxonName": "https://ipni.org/n/17434830-1"
+    }
+  ]
+}

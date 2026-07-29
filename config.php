@@ -17,6 +17,8 @@ $collections = [
     'layers' => ['path' => $path, 'sort' => 'order'],
     'resources' => ['path' => $path, 'sort' => 'order'],
     'vocabularies' => ['path' => $path, 'sort' => 'order'],
+    'tcs_examples' => ['path' => $path, 'sort' => 'order'],
+    'tcs_recipes' => ['path' => $path, 'sort' => 'order'],
 ];
 
 return [

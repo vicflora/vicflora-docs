@@ -103,3 +103,5 @@ $bladeCompiler->component('_shared._components.figcaption', 'figcaption');
 $bladeCompiler->component('_shared._components.figure', 'figure');
 $bladeCompiler->component('_shared._components.responsive-table', 'responsive-table');
 $bladeCompiler->component('_shared._components.svg-viewer', 'svg-viewer');
+$bladeCompiler->component('_shared._components.interactive-preview', 'interactive-preview');
+$bladeCompiler->component('_shared._components.svg-viewer-with-preview', 'svg-viewer-with-preview');
