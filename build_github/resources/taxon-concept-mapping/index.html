@@ -1237,8 +1237,30 @@
 </table>
     </table>
 </div><h3 id="referenced-by">Referenced by</h3>
-<p><em>No incoming references.</em></p>
-<h2 id="eloquent-relationships">Eloquent relationships</h2>
+<div class="mb-6 w-full overflow-x-auto border border-gray-200 dark:border-gray-700">
+    <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+        <table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Table</th>
+<th>Column</th>
+<th>Referenced Table</th>
+<th>Referenced Column</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>taxon_tree_revisions_taxon_concept_mapping_id_foreign</td>
+<td><a href="/vicflora-docs/resources/taxon-tree-revision">taxon_tree_revisions</a></td>
+<td>taxon_concept_mapping_id</td>
+<td>taxon_concept_mappings</td>
+<td>id</td>
+</tr>
+</tbody>
+</table>
+    </table>
+</div><h2 id="eloquent-relationships">Eloquent relationships</h2>
 <div class="mb-6 w-full overflow-x-auto border border-gray-200 dark:border-gray-700">
     <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
         <table>
@@ -1280,6 +1302,12 @@
 <td align="left"><strong>BelongsTo</strong></td>
 <td align="left"><a href="/vicflora-docs/resources/controlled-term">App\Models\Shared\ControlledTerm</a></td>
 <td align="left">FK: <code>mapping_method_id</code><br><span style="color:orange;">Has custom constraints</span></td>
+</tr>
+<tr>
+<td align="left"><code>taxonTreeRevision()</code></td>
+<td align="left"><strong>HasOne</strong></td>
+<td align="left">App\Models\Taxonomy\TaxonTreeRevision</td>
+<td align="left">Remote FK: <code>taxon_concept_mapping_id</code><br><span style="color:orange;">Has custom constraints</span></td>
 </tr>
 <tr>
 <td align="left"><code>createdBy()</code></td>

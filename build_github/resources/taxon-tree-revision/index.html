@@ -1158,6 +1158,12 @@
 <td>YES</td>
 <td></td>
 </tr>
+<tr>
+<td>taxon_concept_mapping_id</td>
+<td>bigint</td>
+<td>YES</td>
+<td></td>
+</tr>
 </tbody>
 </table>
     </table>
@@ -1175,6 +1181,10 @@
 <tr>
 <td>taxon_tree_revisions_pkey</td>
 <td>CREATE UNIQUE INDEX taxon_tree_revisions_pkey ON public.taxon_tree_revisions USING btree (id)</td>
+</tr>
+<tr>
+<td>taxon_tree_revisions_taxon_concept_mapping_id_unique</td>
+<td>CREATE UNIQUE INDEX taxon_tree_revisions_taxon_concept_mapping_id_unique ON public.taxon_tree_revisions USING btree (taxon_concept_mapping_id)</td>
 </tr>
 </tbody>
 </table>
@@ -1213,6 +1223,13 @@
 <td>taxon_tree_revisions</td>
 <td>from_node_id</td>
 <td><a href="/vicflora-docs/resources/taxon-tree-node">taxon_tree_nodes</a></td>
+<td>id</td>
+</tr>
+<tr>
+<td>taxon_tree_revisions_taxon_concept_mapping_id_foreign</td>
+<td>taxon_tree_revisions</td>
+<td>taxon_concept_mapping_id</td>
+<td><a href="/vicflora-docs/resources/taxon-concept-mapping">taxon_concept_mappings</a></td>
 <td>id</td>
 </tr>
 <tr>
