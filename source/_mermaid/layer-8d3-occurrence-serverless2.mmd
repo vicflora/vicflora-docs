@@ -1,0 +1,44 @@
+erDiagram
+  %% SQLite Embedded File Boundaries
+%%   subgraph database.sqlite [Embedded Lookups & Palette Core]
+    tax_taxon ||--|{ tax_concepts : "resolves status"
+    tax_concepts ||--|{ map_distributions : "has area presence"
+    tax_concepts ||--|{ map_annotations : "receives overrides"
+    map_styles ||--o{ map_distributions : "applies visual token"
+%%   end
+
+  %% Storage File Boundaries
+%%   subgraph Cloud Flat Files [AWS S3 Cloud Assets]
+    map_occurrences_parquet }o--|| tax_concepts : "partitioned by key"
+    context_layers_topojson ||--o{ map_distributions : "matches area_code"
+%%   end
+
+  tax_taxon {
+    bigint taxon_id PK
+    string scientific_name
+    string taxonomic_status
+  }
+  tax_concepts {
+    string id PK "UUID"
+    string scientific_name
+    string accepted_id FK "UUID"
+    json phenologies "Serialized count string"
+  }
+  map_distributions {
+    string taxon_concept_id FK "UUID"
+    string area_type "bioregion / lga / tdwg"
+    string area_code "e.g. VVP, MELBOURNE, VIC"
+    string occurrence_status
+    string style_key FK
+  }
+  map_annotations {
+    string occurrence_id PK "UUID"
+    string taxon_concept_id FK "UUID"
+    string status_override
+    string notes
+  }
+  map_styles {
+    string style_key PK
+    string fill_color
+    int radius
+  }

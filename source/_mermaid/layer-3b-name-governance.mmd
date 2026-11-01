@@ -1,0 +1,39 @@
+---
+config:
+  layout: elk
+---
+erDiagram
+  NomenclaturalAct {
+    Int id PK
+    String guid
+    String actKind
+    String publishedIn
+    DateTime createdAt
+    DateTime updatedAt
+    Int phyloreferenceId FK "nullable"
+  }
+
+  Registration {
+    Int id PK
+    String guid
+    String identifier
+    String authority
+    Int nomenclaturalActId FK
+    DateTime issuedAt "nullable"
+    DateTime createdAt
+    DateTime updatedAt
+  }
+
+  NomenclaturalPriorityOverride {
+    Int id PK
+    String guid
+    String overrideKind
+    String decisionCitation
+    String remarks
+  }
+
+  Registration }|--o| NomenclaturalAct : "act / registration"
+  NomenclaturalAct }o--o| ScientificName : "act / scientificName"
+  NomenclaturalAct }o--o| NomenclaturalType : "act / typification"
+  NomenclaturalAct }o--o| NomenclaturalPriorityOverride : "act / override"
+  NomenclaturalAct }o--o| Phyloreference : "act / phyloreference"

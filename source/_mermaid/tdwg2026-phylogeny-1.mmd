@@ -1,0 +1,9 @@
+---
+config:
+    layout: elk
+---
+erDiagram
+    PhylogeneticTree }|--|| PhylogeneticTreeNode : "phylogeneticTree"
+    PhylogeneticTree ||--|| PhylogeneticTreeNode : "root"
+    PhylogeneticTreeNode }o--o| PhylogeneticTreeNode : "parent / children"
+    OperationalTaxonomicUnit ||--o| PhylogeneticTreeNode : "operationalTaxonomicUnit / phylogeneticTreeNode" 

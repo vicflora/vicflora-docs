@@ -1,0 +1,11 @@
+---
+config:
+    layout: elk
+---
+erDiagram 
+direction LR
+    ScientificName_EXT |o--|{ ScientificNameUsage_MAP  : "scientificName"
+    ScientificNameUsage_MAP }|--o| TaxonConcept : "taxonConcept"
+
+    VernacularName_EXT |o--|{ VernacularNameUsage_MAP : "vernacularName"
+    VernacularNameUsage_MAP }|--o| TaxonConcept : "taxonConcept"

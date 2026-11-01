@@ -1,0 +1,9 @@
+---
+config:
+    layout: elk
+---
+erDiagram 
+direction LR
+    ScientificName_EXT }o--|| NomenclaturalType : "typifiedName"
+    NomenclaturalType ||--o| ScientificName_EXT : "typeName"
+    NomenclaturalType }o--|| Specimen : "typeSpecimen"

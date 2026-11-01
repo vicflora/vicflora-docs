@@ -5,10 +5,8 @@ config:
 erDiagram
   TaxonConceptMapping }|--o| TaxonConcept : "subjectTaxonConcept"
   TaxonConceptMapping }|--o| TaxonConcept : "objectTaxonConcept"
-  TaxonConceptMapping }o--|| Entity_Source_MAP : "morphs as 'provenanceable'"
-  Entity_Source_MAP }|--o| Reference : "reference"
-  TaxonConceptMapping |o--|{ Entity_Creator_MAP : "morphs as 'attributable'"
-  Entity_Creator_MAP }|--o| Agent : "agent"
+  TaxonConceptMapping }o--o| Reference : "source"
+  TaxonConceptMapping |o--o| Agent : "creator"
   
   TaxonConceptMapping {
     int id PK

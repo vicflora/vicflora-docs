@@ -30,9 +30,19 @@ NODE_NO_WARNINGS=1 npm run build
 
 cd "$DOCS_DIR"
 
+# Helper function to linkify SVGs first, then generate un-linkified abstract figure
+linkify_and_generate_abstract() {
+    echo "🔗 Linkifying SVGs..."
+    npm run linkify-erd
+
+    echo "🎨 Generating un-linkified abstract ERD figure..."
+    npx @mermaid-js/mermaid-cli@latest -c erd-config.json -p puppeteer-config.json --cssFile mermaid-style.css -i source/_mermaid/layer-1a-concept-overview.mmd -o source/assets/images/erd/layer-1a-concept-overview.svg
+    node add-erd-layers.js source/assets/images/erd/layer-1a-concept-overview.svg
+}
+
 case "$1" in
     test)
-        git add . && git commit -m "Commit uncommitted  changes before deployment"
+        git add . && git commit -m "Commit uncommitted changes before deployment"
 
         echo "🚀 Building for Staging (Test)..."
 
@@ -41,11 +51,12 @@ case "$1" in
             --output="$JIGSAW_SOURCE"
 
         npm run build-erd
+        linkify_and_generate_abstract
         ./vendor/bin/jigsaw build staging
         ;;
 
     github)
-        git add . && git commit -m "Commit uncommitted  changes before deployment"
+        git add . && git commit -m "Commit uncommitted changes before deployment"
 
         echo "🌐 Building for GitHub Pages..."
 
@@ -54,8 +65,9 @@ case "$1" in
             --baseUrl="/vicflora-docs" \
             --output="$JIGSAW_SOURCE"
 
-        # 3. Build Jigsaw 
+        # 2. Build ERDs, Linkify SVGs, then generate Abstract Figure & Jigsaw
         npm run build-erd       
+        linkify_and_generate_abstract
         ./vendor/bin/jigsaw build github
 
         echo "⬆️ Pushing to GitHub..."
@@ -65,7 +77,7 @@ case "$1" in
         ;;
 
     prod)
-        git add . && git commit -m "Commit uncommitted  changes before deployment"
+        git add . && git commit -m "Commit uncommitted changes before deployment"
 
         echo "💎 Building for Production..."
 
@@ -74,6 +86,7 @@ case "$1" in
             --output="$JIGSAW_SOURCE"
 
         npm run build-erd
+        linkify_and_generate_abstract
         ./vendor/bin/jigsaw build production
         ;;
 

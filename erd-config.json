@@ -5,5 +5,8 @@
     "primaryColor": "#ffead5",
     "primaryBorderColor": "#fbb176",
     "lineColor": "#e74b0f"
+  },
+  "er": {
+    "minEntityWidth": 120
   }
 }

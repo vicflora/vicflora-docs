@@ -1,0 +1,8 @@
+---
+config:
+    layout: elk
+---
+erDiagram
+    direction LR
+    TaxonTreeNode }|--o| TaxonConcept : "taxonConcept / taxonTreeNode"
+    TaxonConcept |o--|| Profile : "taxonConcept / profile"

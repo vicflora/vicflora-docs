@@ -1,0 +1,37 @@
+---
+config:
+    layout: elk
+---
+erDiagram
+  TaxonConcept }o--o{ TaxonConcept: "isCongruentWith"
+  TaxonConcept }o--o{ TaxonConcept: "includes"
+  TaxonConcept }o--o{ TaxonConcept: "isIncludedIn"
+  TaxonConcept }o--o{ TaxonConcept: "partiallyOverlaps"
+  TaxonConcept }o--o{ TaxonConcept: "isDisjointFrom"
+  TaxonConcept }o--o{ TaxonConcept: "intersects"
+
+  TaxonConcept }|--|| Reference : "accordingTo"
+  TaxonConcept }|--|| Treatment_EXT : "accordingTo"
+  Treatment_EXT ||--o| Reference : "reference / treatment"
+
+  TaxonConcept }|--|| TaxonName : "taxonName"
+  TaxonConcept |o--|{ ScientificName_EXT : "acceptedName"
+  TaxonConcept }o--|{ ScientificName_EXT : "synonyms"
+  ScientificName_EXT ||--o| TaxonName : "taxonName / scientificName"
+  ScientificName_EXT }o--|| ScientificName_EXT : "basionym"
+  ScientificName_EXT }o--|| ScientificName_EXT : "replacedName"
+  TaxonConcept }o--|{ VernacularName_EXT : "vernacularNames"
+  TaxonConcept |o--|{ VernacularName_EXT : "preferredVernacularName"
+  VernacularName_EXT ||--o| TaxonName : "taxonName / vernacularName"
+  ScientificName_EXT |o--|{ NomenclaturalType : "typifiedName"
+
+  TaxonConcept }o--|| TaxonTree : "taxonTree"
+  TaxonConcept |o--|{ TaxonTreeNode : "taxonConcept"
+  TaxonTreeNode }|--|| TaxonTree : "taxonTree"
+  TaxonTreeNode }o--o| TaxonTreeNode : "parent / children"
+
+  TaxonConcept |o--|| Profile : "taxonConcept / profile"
+  Profile }|--|| ProfileSection : "profile / section"
+
+  TaxonConceptMapping }|--|| TaxonConcept : "subjectTaxonConcept"
+  TaxonConceptMapping }|--|| TaxonConcept : "objectTaxonConcept"

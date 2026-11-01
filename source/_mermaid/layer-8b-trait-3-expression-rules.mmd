@@ -3,13 +3,11 @@ config:
   layout: elk
 ---
 erDiagram
-  TraitDataset |o--o{ ExpressionRuleSet : "dataset"
-  ExpressionRuleSet |o--o{ ExpressionRule : "expressionRuleSet"
+  TraitDataset |o--o{ ExpressionRuleSet : "scope"
+  TraitDataset }|--|| Trait : "dataset / traits"
   
+  ExpressionRuleSet |o--o{ ExpressionRule : "expressionRuleSet"
   ExpressionRule }o--|| Trait : "trait"
-
-  TraitDataset |o--|{ Entity_Scope_MAP : "morphs as 'scopeable'"
-  ExpressionRuleSet |o--|{ Entity_Scope_MAP : "morphs as 'scopeable'"
 
   ExpressionRuleSet {
       int id PK

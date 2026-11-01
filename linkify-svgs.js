@@ -1,10 +1,14 @@
-const fs = require('fs');
-const path = require('path');
-const { JSDOM } = require('jsdom');
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+import { JSDOM } from 'jsdom';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // Configurations
 const MAP_PATH = path.join(__dirname, 'resource-map.json');
-const VOCAB_MAP_PATH = path.join(__dirname, 'vocab-map.json'); // New Map
+const VOCAB_MAP_PATH = path.join(__dirname, 'vocab-map.json');
 const SVG_DIR = path.join(__dirname, 'source/assets/images/erd');
 
 if (!fs.existsSync(MAP_PATH) || !fs.existsSync(VOCAB_MAP_PATH)) {
@@ -49,6 +53,25 @@ files.forEach(file => {
                 count++;
             }
         }
+
+        // Apply kerning adjustment (-0.5px) to long names across all inner elements in foreignObjects
+        // to match add-erd-layers.js behavior exactly
+        if (entityName.length > 15) {
+            const foreignObjects = node.querySelectorAll('foreignObject');
+            foreignObjects.forEach(fo => {
+                const existingFoStyle = fo.getAttribute('style') || '';
+                fo.setAttribute('style', `${existingFoStyle}; overflow: visible !important;`);
+
+                const innerElements = fo.querySelectorAll('div, span, p, label');
+                innerElements.forEach(el => {
+                    const existingStyle = el.getAttribute('style') || '';
+                    el.setAttribute(
+                        'style',
+                        `${existingStyle}; letter-spacing: -0.5px !important;`
+                    );
+                });
+            });
+        }
     });
 
     // --- 2. Enum/Vocabulary Links ---
@@ -58,10 +81,8 @@ files.forEach(file => {
         const typeP = typeGroup.querySelector('p');
         
         if (typeP && typeP.textContent.trim() === 'enum') {
-            // Navigate directly to the next sibling in the DOM
             let nameGroup = typeGroup.nextElementSibling;
 
-            // Ensure we actually found the attribute-name group
             if (nameGroup && nameGroup.classList.contains('attribute-name')) {
                 const nameP = nameGroup.querySelector('p');
                 
@@ -74,11 +95,9 @@ files.forEach(file => {
                         a.setAttribute('href', url);
                         a.setAttribute('target', '_top');
                         
-                        // Wrap the nameGroup in the link
                         nameGroup.parentNode.insertBefore(a, nameGroup);
                         a.appendChild(nameGroup);
 
-                        // Apply the style directly to the p tag
                         nameP.setAttribute('style', 'color: #e74b0f; font-weight: bold; text-decoration: underline;');
                         count++;
                     }

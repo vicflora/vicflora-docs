@@ -3,8 +3,7 @@ config:
   layout: elk
 ---
 erDiagram
-    Annotation }|--o| Occurrence : "morphs as 'target'"
-    Annotation }o--o{ Agent : "creator"
+    Annotation }|--o| Agent : "creator"
 
     Annotation {
         int id PK

@@ -1,10 +1,200 @@
 ---
 config:
-    layout: elk
+  layout: elk
 ---
 erDiagram
-  TaxonConcept ||--o| Clade : "taxonConcept"
-  Clade ||--|| PhylogeneticTree : "root"
-  Clade }|--|| PhylogeneticTree : "phylogeneticTree"
-  Clade ||--o{ Clade : "contains"
-  Clade ||--o{ PhylogeneticTreeTip : "contains"
+  PhylogeneticTree {
+    Int id PK
+    String guid
+    String name
+    String version "nullable"
+    String description "nullable"
+    String sourceString
+    String remarks "nullable"
+    DateTime createdAt
+    DateTime updatedAt
+    Int rootId FK "nullable"
+    Int analysisId FK "nullable"
+    Int methodId FK "nullable"
+    Int labelPatternId FK "nullable"
+  }
+  PhylogeneticTreeNode {
+    Int id PK
+    String guid
+    Int treeId FK
+    Boolean isLeaf
+    Int operationalTaxonomicUnitId FK "nullable"
+    Int parentId FK "nullable"
+    Int lft "nullable"
+    Int rgt "nullable"
+  }
+  OperationalTaxonomicUnit {
+    Int id PK
+    String guid
+    Int treeId FK
+    String label
+  }
+  NodeAttribute {
+    Int id PK
+    String value
+    Int nodeId FK
+    Int attributeTypeId FK
+  }
+  NodeAttributeType {
+    Int id PK
+    String guid
+    String name
+    String label "nullable"
+    String description "nullable"
+    String dataType "nullable"
+  }
+  TreeMethod {
+    Int id PK
+    String guid
+    String name
+    String code
+    String description "nullable"
+    DateTime createdAt
+    DateTime updatedAt
+  }
+  LabelPattern {
+    Int id PK
+    String guid
+    String name
+    String description "nullable"
+    String pattern
+    String template
+    DateTime createdAt
+    DateTime updatedAt
+  }
+  PhyloreferenceDefinitionType {
+    Int id PK
+    String guid
+    String code
+    String displayName
+    Boolean requiresExternal
+    Boolean requiresApomorphy
+    DateTime createdAt
+    DateTime updatedAt
+  }
+  PhyloreferenceSpecifierKind {
+    Int id PK
+    String guid
+    String code
+    String displayName
+    String description "nullable"
+    DateTime createdAt
+  }
+  PhylogeneticAnalysis {
+    Int id PK
+    String guid
+    String name
+    String description "nullable"
+    String citation "nullable"
+    DateTime createdAt
+    DateTime updatedAt
+  }
+  PhyloreferenceMap {
+    Int id PK
+    String guid
+    Int nodeId FK
+    DateTime createdAt
+    DateTime updatedAt
+  }
+  TaxonMap {
+    Int id PK
+    String guid
+    String label
+    String rank
+    Int scopeId FK
+    Int nodeId FK "nullable"
+    Boolean isMonophyletic "nullable"
+    String phyleticGroupType "nullable"
+    DateTime createdAt
+    DateTime updatedAt
+  }
+  Phyloname {
+    Int id PK
+    String guid
+    String name
+    Int phyloreferenceId FK
+    DateTime createdAt
+    DateTime updatedAt
+  }
+  Phyloreference {
+    Int id PK
+    String guid
+    Int definitionTypeId FK
+    DateTime createdAt
+    DateTime updatedAt
+  }
+  PhyloreferenceSpecifier {
+    Int id PK
+    String guid
+    Int phyloreferenceId FK
+    String name
+    Int specifierKindId FK
+    String specifierRole
+    DateTime createdAt
+    DateTime updatedAt
+  }
+  Apomorphy {
+    Int id PK
+    String guid
+    Int phyloreferenceId FK
+    String description
+    String source "nullable"
+    DateTime createdAt
+    DateTime updatedAt
+  }
+  CladePhyloreferenceMap {
+    Int id PK
+    Int cladeId FK
+    Int phyloreferenceId FK
+    String bindingType
+    DateTime createdAt
+  }
+  PhylonameUsageMap {
+    Int id PK
+    Int cladeId FK
+    Int phylonameId FK
+    String nameRole
+    DateTime calculatedAt
+  }
+
+  NomenclaturalAct o{--|o Phyloreference : "phyloreference / nomenclaturalActs"
+  NomenclaturalAct ||--}o Registration : "registrations / nomenclaturalAct"
+  PhylogeneticTree o{--|o PhylogeneticTreeNode : "root / nodes"
+  PhylogeneticTree o{--|o PhylogeneticAnalysis : "analysis / trees"
+  PhylogeneticTree o{--|o TreeMethod : "method / trees"
+  PhylogeneticTree o{--|o LabelPattern : "labelPattern / trees"
+  PhylogeneticTree ||--}o Taxon : "taxa / scope"
+  PhylogeneticTree ||--}o OperationalTaxonomicUnit : "otus / tree"
+  PhylogeneticTreeNode o{--|o PhylogeneticTreeNode : "parent / children"
+  PhylogeneticTreeNode o|--|| PhylogeneticTree : "tree"
+  PhylogeneticTreeNode o{--|o OperationalTaxonomicUnit : "operationalTaxonomicUnit / nodes"
+  PhylogeneticTreeNode o|--}o Taxon : "taxa / node"
+  PhylogeneticTreeNode ||--}o NodeAttribute : "attributes / node"
+  PhylogeneticTreeNode o|--|o PhylogeneticTree : "rootNodeOf"
+  OperationalTaxonomicUnit o{--}o Taxon : "taxa / operationalTaxonomicUnits"
+  NodeAttribute o{--|| NodeAttributeType : "attributeType / attributes"
+  PhyloreferenceDefinitionType ||--}o Phyloreference : "phyloreferences / definitionType"
+  PhyloreferenceSpecifier }o--|| PhyloreferenceSpecifierKind : "specifiers / specifierKind"
+  PhyloreferenceMap o|--|| PhylogeneticTreeNode : "node"
+  Clade ||--}o PhylonameUsageMap : "phyloNameMaps / clade"
+  %% External Broad KOS Core Semantic Anchors
+  Clade |o--|{ TaxonConceptMapping : "objectTaxonConcept"
+  TaxonConceptMapping }|--o| TaxonConcept : "subjectTaxonConcept"
+  TaxonConcept |o--|| Taxon : "taxonConcept / taxon"
+  Phyloname ||--o| TaxonName : "taxonName / phyloname"
+  Phyloname o|--|| Phyloreference : "phyloreference"
+  Phyloname ||--}o PhylonameUsageMap : "phyloNameUsageMaps / phyloname"
+  Phyloreference ||--}o CladePhyloreferenceMap : "cladeMaps / phyloreference"
+  Phyloreference ||--}o PhyloreferenceSpecifier : "specifiers / phyloreference"
+  Apomorphy o|--|| Phyloreference : "phyloreference"
+
+  %% External Broad KOS Core Semantic Anchors
+  Clade |o--|{ TaxonConceptMapping : "objectTaxonConcept"
+  Taxon ||--o| TaxonConcept : "taxonConcept / taxon"
+  TaxonConcept |o--|{ TaxonConceptMapping : "subjectTaxonConcept"
+  Phyloname ||--o| TaxonName : "taxonName / phyloname"

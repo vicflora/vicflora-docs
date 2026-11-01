@@ -1,0 +1,11 @@
+---
+config:
+  layout: elk
+---
+erDiagram
+    direction LR
+    TaxonName |o--|| ScientificName_EXT : "taxonName / scientificName"
+    TaxonName |o--|| VernacularName_EXT : "taxonName / vernacularName"
+    TaxonName |o--|| TaxonConceptLabel_EXT : "taxonName / taxonConceptLabel"
+    TaxonName |o--|| HybridFormula_EXT : "taxonName / hybridFormula"
+    TaxonName |o--|| InformalName_EXT : "taxonName / informalName"

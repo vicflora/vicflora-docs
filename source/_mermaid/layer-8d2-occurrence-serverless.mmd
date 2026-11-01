@@ -1,0 +1,74 @@
+erDiagram
+  %% Namespaced SQLite Relational Schema
+  tax_parsed_names ||--o| tax_taxa : "matchedName"
+  tax_taxa }|--|| tax_taxon_concepts : "acceptedNameUsage / species / taxonConcept"
+  tax_taxa }|--o| tax_taxon_names : "scientificName"
+  tax_taxon_concepts }|--o| tax_taxon_names : "taxonName"
+  tax_taxon_concepts ||--|{ cen_profiles : "profile / taxonConcept"
+  cen_profiles ||--|{ cen_phenology_agg : "phenologies"
+  
+  map_occurrences }o--o| tax_parsed_names : "parsedName"
+  map_occurrences ||--o{ map_annotations : "occurrence / annotations"
+  map_distributions }|--|| tax_taxon_concepts : "profile / mapDistribution"
+  map_distributions }|--|| map_overlays : "area"
+  map_overlays ||--|| map_layers_ext : "mapLayer"
+
+  map_occurrences {
+    string id PK "UUID"
+    string scientific_name
+    string data_source
+    string event_date
+    string establishment_means
+    string degree_of_establishment
+    bool flowers
+    bool fruit
+    bool buds
+    float latitude
+    float longitude
+    string modified
+  }
+
+  tax_parsed_names {
+    int id PK
+    string scientific_name
+    string type
+    string canonical_name
+    string canonical_name_with_marker
+    string canonical_name_complete
+    string vicflora_scientific_name_id
+  }
+
+  tax_taxa {
+    bigint taxon_id PK
+    string scientific_name
+    string scientific_name_authorship
+    string taxon_rank
+    string taxonomic_status
+    string accepted_name
+    string species_name
+    string occurrence_status
+    string establishment_means
+    string degree_of_establishment
+  }
+
+  tax_taxon_concepts {
+    string id PK "UUID"
+    string taxon_name_id FK "UUID"
+  }
+
+  map_overlays {
+    int id PK
+    int map_layer_id FK
+    int area_fid
+    string area_code
+    string area_name
+  }
+
+  map_distributions {
+    string taxon_tree_id FK "UUID"
+    string taxon_concept_id FK "UUID"
+    int area_id FK
+    string occurrence_status
+    string establishment_means
+    string degree_of_establishment
+  }
