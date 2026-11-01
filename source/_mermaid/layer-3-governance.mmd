@@ -13,6 +13,9 @@ erDiagram
   TaxonTree |o--o{ TaxonConcept : taxonTree
   TaxonConcept |o--|{ TaxonTreeNode : taxonConcept
 
+  TaxonConcept |o--|{ TaxonConceptMapping : subjectTaxonConcept
+  TaxonConcept |o--|{ TaxonConceptMapping : objectTaxonConcept
+
   TaxonTreeDefItem ||--o{ TaxonTreeNode : "taxonTreeDefItem"
   
   TaxonTreeNode ||--o{ TaxonTreeRevision : "oldNode"
@@ -25,6 +28,8 @@ erDiagram
   Taxonomy_EXT ||--o| Reference : "reference / taxonomy"
   TaxonTreeRevision }|--|| TaxonomyVersion_EXT : "taxonomyVersion"
   TaxonomyVersion_EXT ||--o| Reference : "reference / taxonomyVersion"
+
+  TaxonConceptMapping |o--o| TaxonTreeRevision : "taxonConceptMapping / taxonTreeRevision"
 
   TaxonTree {
     int id PK
