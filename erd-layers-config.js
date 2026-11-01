@@ -58,6 +58,6 @@ export const HIGHLIGHTED_ENTITIES = [
   'NomenclaturalType'
 ];
 
-export const HIGHLIGHTED_ENTITY_STROKE = '#d06622';
-export const HIGHLIGHTED_ENTITY_STROKE_WIDTH = '2px'; // Updated to 2px as noted
-export const HIGHLIGHTED_ENTITY_GRADIENT_END = '#b3531b'; // Deeper rust tone for the gradient tail
+export const HIGHLIGHTED_ENTITY_STROKE = '#e74b0f';
+export const HIGHLIGHTED_ENTITY_STROKE_WIDTH = '2px';
+export const HIGHLIGHTED_ENTITY_GRADIENT_END = '#d06622';
