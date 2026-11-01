@@ -4,6 +4,8 @@ title: "Layer 2: Syntax"
 order: 2
 ---
 
+<x-svg-viewer path="/assets/images/erd/layer-2-syntax.svg" status="draft"/>
+
 ## Layer 2a: Core nomenclature
 
 <x-svg-viewer path="/assets/images/erd/layer-2a-core-nomenclature.svg" status="draft"/>
