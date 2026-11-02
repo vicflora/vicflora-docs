@@ -36,8 +36,8 @@ linkify_and_generate_abstract() {
     npm run linkify-erd
 
     echo "🎨 Generating un-linkified abstract ERD figure..."
-    npx @mermaid-js/mermaid-cli@latest -c erd-config.json -p puppeteer-config.json --cssFile mermaid-style.css -i source/_mermaid/layer-1a-concept-overview.mmd -o source/assets/images/erd/layer-1a-concept-overview.svg
-    node add-erd-layers.js source/assets/images/erd/layer-1a-concept-overview.svg
+    npx @mermaid-js/mermaid-cli@latest -c erd-config.json -p puppeteer-config.json --cssFile mermaid-style.css -i source/_mermaid/layer-1-syntax-abstract.mmd -o source/assets/images/erd/layer-1-syntax-abstract.svg
+    node add-erd-layers.js source/assets/images/erd/layer-1-syntax-abstract.svg
 }
 
 case "$1" in

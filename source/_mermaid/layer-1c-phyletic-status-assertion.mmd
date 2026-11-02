@@ -1,0 +1,15 @@
+---
+config:
+  layout: elk
+---
+erDiagram
+  PhyleticStatusAssertion {
+    int id PK
+    enum phyletic_status "monophyletic<br>paraphyletic<br>polyphyletic<br>uncertain"
+    text remarks
+  }
+
+  TaxonConcept |o--|{ PhyleticStatusAssertion : "taxonConcept / phyleticStatusAssertions"
+  PhyleticStatusAssertion }o--o| PhylogeneticTree : "phylogeneticTree"
+  PhyleticStatusAssertion }o--o| Reference : "source"
+  PhyleticStatusAssertion }o--o| Agent : "creator"
