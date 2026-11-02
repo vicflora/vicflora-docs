@@ -12,10 +12,6 @@ order: 2
 
 <x-svg-viewer path="/assets/images/erd/layer-2-syntax-scientific.svg" status="draft"/>
 
-### Phylonames
-
-<x-svg-viewer path="/assets/images/erd/layer-2-syntax-phylo.svg" status="draft"/>
-
 ### Other 
 
 <x-svg-viewer path="/assets/images/erd/layer-2-syntax-other.svg" status="draft"/>
