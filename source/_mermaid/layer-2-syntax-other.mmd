@@ -1,0 +1,28 @@
+---
+config:
+  layout: elk
+---
+erDiagram
+  %% Sidecars
+  TaxonName |o--|| VernacularName_EXT : "taxonName / vernacularName"
+  TaxonName |o--|| HybridFormula_EXT : "taxonName / hybridFormula"
+  TaxonName |o--|{  HybridFormula_EXT : "firstHybridParentName"
+  TaxonName |o--|{ HybridFormula_EXT : "secondHybridParentName"
+  TaxonName |o--|| InformalName_EXT : "taxonName / informalName"
+  TaxonName |o--|| TaxonConceptLabel_EXT : "taxonName / taxonConceptLabel"
+  TaxonName |o--|{ TaxonConceptLabel_EXT : baseName
+
+  %% Taxon Name <--> Taxon Concept relationships
+  TaxonName |o--|{ TaxonConcept : "taxonName"
+  VernacularName_EXT }|..o| TaxonConcept : "vernacularNames"
+  VernacularName_EXT }|..o| TaxonConcept : "preferredVernacularName"
+
+
+  TaxonConceptLabel_EXT ||--o| TaxonConcept : "label"
+  HybridFormula_EXT ||--o| TaxonConcept : "label"
+  InformalName_EXT ||--o| TaxonConcept : "label"
+
+
+  %% Vernacular name usage
+  VernacularName_EXT |o--|{ VernacularNameUsage_MAP : "vernacularName"
+  VernacularNameUsage_MAP }|--o| TaxonConcept : "taxonConcept"

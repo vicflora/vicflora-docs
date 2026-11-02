@@ -1,0 +1,48 @@
+---
+config:
+  layout: elk
+---
+erDiagram
+  %% Sidecars
+  TaxonName |o--|| ScientificName_EXT : "taxonName / scientificName"
+
+  %% ScientificName_EXT
+  ScientificName_EXT }o--o{ Agent : author
+  ScientificName_EXT |o--|| Protologue_EXT : "publishedIn"
+  Protologue_EXT ||--o| Reference : "reference / protologue"
+  ScientificName_EXT }o--o| Reference : "publishedIn"
+
+
+  %% The Syntactic Relationships
+  ScientificName_EXT |o..o{ ScientificName_EXT : "basionym"
+  ScientificName_EXT |o..o{ ScientificName_EXT : "replacedName"
+  ScientificName_EXT |o..o{ ScientificName_EXT : "basedOn"
+  ScientificName_EXT |o..o{ ScientificName_EXT : "laterHomonymOf"
+  ScientificName_EXT |o..o{ ScientificName_EXT : "orthographicVariantOf"
+  ScientificName_EXT }o..o{ ScientificName_EXT : "conservedAgainst"
+
+  %% Taxon Name <--> Taxon Concept relationships
+  TaxonName |o--|{ TaxonConcept : "taxonName"
+  ScientificName_EXT |o..o{ TaxonConcept : "acceptedName"
+  ScientificName_EXT }|..o| TaxonConcept : "synonyms"
+
+  %% Scientific name usage
+  ScientificName_EXT |o--|{ ScientificNameUsage_MAP : "scientificName"
+  ScientificNameUsage_MAP }|--o| TaxonConcept : "taxonConcept"
+
+  %% Name relations
+  ScientificName_EXT |o--|{ NameRelation_MAP : "fromName"
+  ScientificName_EXT |o--|{ NameRelation_MAP : "toName"
+
+  %% Typification
+  ScientificName_EXT |o--|{ NomenclaturalType : "typifiedName / typification"
+  NomenclaturalType }o--o| ScientificName_EXT : "typeName"
+  %% ScientificName_EXT |o--|| TaxonName : "taxonName / scientificName"
+  NomenclaturalType }o--o| Specimen : "typeSpecimen"
+  NomenclaturalType }o--o| Reference : "publishedIn"
+  NomenclaturalType |o--|| Protologue_EXT : "publishedIn"
+  Protologue_EXT ||--o| Reference : "reference"
+  NomenclaturalType |o--|| Typification_EXT : "publishedIn"
+  Typification_EXT ||--o| Reference : "reference / typification"
+  NomenclaturalType }o--o{ Reference : "source"
+  NomenclaturalType }o--o{ Agent : "creator"
