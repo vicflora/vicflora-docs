@@ -61,6 +61,12 @@ erDiagram
   NomenclaturalType }o--o{ Reference : "source"
   NomenclaturalType }o--o{ Agent : "creator"
 
+  %% Phylogeny
+  ScientificName_EXT ||--o| Phyloreference_EXT : "phyloName / phyloreference"
+  PhyloreferenceSpecifier }o--|| Phyloreference_EXT : "specifier / phyloreference"
+  Apomorphy }o--|| Phyloreference_EXT : "apomorphy / phyloreference"
+  Phyloreference_EXT ||--o| TaxonConcept : "phyloreference / taxonConcept"
+
   %% Vernacular name usage
   VernacularName_EXT |o--|{ VernacularNameUsage_MAP : "vernacularName"
   VernacularNameUsage_MAP }|--o| TaxonConcept : "taxonConcept"
