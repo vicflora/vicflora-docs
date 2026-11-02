@@ -4,7 +4,21 @@ title: "Layer 2: Syntax"
 order: 2
 ---
 
-<x-svg-viewer path="/assets/images/erd/layer-2-syntax.svg" status="draft"/>
+## Overview
+
+<x-svg-viewer path="/assets/images/erd/layer-2-syntax-overview.svg" status="draft"/>
+
+### Scientific names
+
+<x-svg-viewer path="/assets/images/erd/layer-2-syntax-scientific.svg" status="draft"/>
+
+### Phylonames
+
+<x-svg-viewer path="/assets/images/erd/layer-2-syntax-phylo.svg" status="draft"/>
+
+### Other 
+
+<x-svg-viewer path="/assets/images/erd/layer-2-syntax-other.svg" status="draft"/>
 
 ## Layer 2a: Core nomenclature
 
